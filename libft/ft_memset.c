@@ -6,24 +6,39 @@
 /*   By: chsimon <chsimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/05 17:02:43 by chsimon           #+#    #+#             */
-/*   Updated: 2021/10/06 13:20:12 by chsimon          ###   ########.fr       */
+/*   Updated: 2021/10/06 17:07:11 by chsimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stddef.h>
 
-void *ft_memset(void *s, int c, size_t n)
+void	*ft_memset(void *s, int c, size_t n)
 {
 	int	i;
 
 	i = 0;
 	while (n--)
-		*((unsigned char*)s + i++) = c;
+		*((unsigned char *)s + i++) = c;
 	return (s);
 }
 
+/*
+
 #include <string.h>
 #include <stdio.h>
+
+int	ft_memcmp(void *s1, void *s2, size_t n)
+{
+	int i;
+
+	i = n;
+	printf("%x\n", *(unsigned char*)s1);
+	while (n-- && (*(unsigned char*)s1++ == *(unsigned char*)s2++))
+		if (n == 0)
+			return (1);
+	printf("fails at the byte %ld\n", i - n + 1);
+	return (0);
+}
 
 void	print_memory(void *t, size_t n, size_t nb_bytes)
 {
@@ -36,20 +51,10 @@ void	print_memory(void *t, size_t n, size_t nb_bytes)
 	{
 		if (i % nb_bytes == 0)
 			printf("\n");
-		data = *(((unsigned char*)t)+i);
+		data = *((unsigned char*)t+i);
 		printf("%02x ", data);	
 		i++;
 	}
-/*	printf("\n-----Launching ft_print_memory tests-----");
-	i = 0;
-	while(i < n)
-	{
-		if (i % nb_bytes == 0)
-			printf("\n");
-		data = *(((unsigned char*)t)+i);
-		printf("%02d ", data);	
-		i++;
-	}*/
 }
 
 int	main (void)
@@ -62,9 +67,11 @@ int	main (void)
 	c = 27500000;
 	n = 5;
 	print_memory(t1, sizeof(t1), sizeof(t1[0]));
-	memset(t1, c, n);
+	memset(t1, c, 2);
 	print_memory(t1, sizeof(t1), sizeof(t1[0]));
 	print_memory(t2, sizeof(t2), sizeof(t2[0]));
 	ft_memset(t2, c, n);
 	print_memory(t2, sizeof(t2), sizeof(t2[0]));
-}
+	printf("\n----\n");
+	printf("%d\n", ft_memcmp(t1, t2, n));
+}*/

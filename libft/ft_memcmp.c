@@ -1,32 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalnum.c                                       :+:      :+:    :+:   */
+/*   ft_memcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: chsimon <chsimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/05 14:38:28 by chsimon           #+#    #+#             */
-/*   Updated: 2021/10/06 17:02:19 by chsimon          ###   ########.fr       */
+/*   Created: 2021/10/06 17:53:05 by chsimon           #+#    #+#             */
+/*   Updated: 2021/10/06 18:32:37 by chsimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_isalpha(int c)
+int	ft_memcmp(void *s1, void *s2, size_t n)
 {
-	if (c >= 'a' && c <= 'z' || c >= 'A' && c <= 'Z')
-		return (1);
-	return (0);
-}
-
-int	ft_isdigit(int c)
-{
-	if (c >= '0' && c <= '9')
-		return (1);
-	return (0);
-}
-
-int	ft_isalnum(int c)
-{
-	if (ft_isalnum(c) == 1 || ft_isalnum(c) == 1)
-		return (1);
+	while (n-- && (*(unsigned char *)s1++ == *(unsigned char *)s2++))
+		if (n == 0)
+			return (1);
 	return (0);
 }

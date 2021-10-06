@@ -1,32 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalnum.c                                       :+:      :+:    :+:   */
+/*   ft_print_memory.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: chsimon <chsimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/05 14:38:28 by chsimon           #+#    #+#             */
-/*   Updated: 2021/10/06 17:02:19 by chsimon          ###   ########.fr       */
+/*   Created: 2021/10/06 17:52:10 by chsimon           #+#    #+#             */
+/*   Updated: 2021/10/06 18:30:07 by chsimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_isalpha(int c)
-{
-	if (c >= 'a' && c <= 'z' || c >= 'A' && c <= 'Z')
-		return (1);
-	return (0);
-}
+#include <string.h>
+#include <stdio.h>
 
-int	ft_isdigit(int c)
+void	ft_print_memory(void *t, size_t n, size_t nb_bytes)
 {
-	if (c >= '0' && c <= '9')
-		return (1);
-	return (0);
-}
+	unsigned char	data;
+	int		i;
 
-int	ft_isalnum(int c)
-{
-	if (ft_isalnum(c) == 1 || ft_isalnum(c) == 1)
-		return (1);
-	return (0);
+	printf("\n-----Launching ft_print_memory-----");
+	i = 0;
+	while (i < n)
+	{
+		if (i % nb_bytes == 0)
+			printf("\n");
+		data = *((unsigned char *)t + i);
+		printf("%02x ", data);
+		i++;
+	}
 }
