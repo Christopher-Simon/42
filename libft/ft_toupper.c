@@ -1,43 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcpy.c                                        :+:      :+:    :+:   */
+/*   ft_toupper.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: chsimon <chsimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/06 18:33:38 by chsimon           #+#    #+#             */
-/*   Updated: 2021/10/06 23:46:05 by chsimon          ###   ########.fr       */
+/*   Created: 2021/10/06 23:57:02 by chsimon           #+#    #+#             */
+/*   Updated: 2021/10/07 00:24:50 by chsimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stddef.h>
+#include <ctype.h>
 
-void	*ft_memcpy(void *dest, const void *src, size_t n)
+int	ft_toupper(int c)
 {
-	int	i;
-
-	i = 0;
-	while (n--)
-	{
-		*((unsigned char *) dest + i++) = *((unsigned char *) src + i);
-	}
-	return (dest);
+	if (c >= 97 && c <= 122)
+		c -= 32;
+	return (c);
 }
 
 /*
 #include <stdio.h>
-#include <string.h>
-
-void	ft_print_memory(void *t, size_t n, size_t nb_bytes);
 
 int	main(void)
 {
-	char	t1[] = "hello world!";
-	char	t2[] = "hello world!";
-	int	t3[] = {5, 6, 7, 8, 9};
+	char	str[] = "HeLlo world!";
+	int	i;	
 
-	memmove(t1, t1 + 3, 6);
-	ft_memcpy(t2, t2 + 3, 6);
-	printf("\n%s", t1);
-	printf("\n%s", t2);
+	i = 0;
+	printf("%s\n", str);
+	while(str[i])
+		printf("%c", toupper(str[i++]));
+	i = 0;
+	printf("\n");
+	while(str[i])
+		printf("%c", ft_toupper(str[i++]));
 }*/

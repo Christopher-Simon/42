@@ -1,27 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcpy.c                                        :+:      :+:    :+:   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: chsimon <chsimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/06 18:33:38 by chsimon           #+#    #+#             */
-/*   Updated: 2021/10/06 23:46:05 by chsimon          ###   ########.fr       */
+/*   Created: 2021/10/06 23:02:53 by chsimon           #+#    #+#             */
+/*   Updated: 2021/10/06 23:48:59 by chsimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stddef.h>
 
-void	*ft_memcpy(void *dest, const void *src, size_t n)
+void	*ft_memmove(void *dest, const void *src, size_t n)
 {
-	int	i;
+	int		i;
+	const void	*buf;
 
 	i = 0;
+	buf = src;
 	while (n--)
-	{
-		*((unsigned char *) dest + i++) = *((unsigned char *) src + i);
-	}
-	return (dest);
+		*((unsigned char *) dest + i++) = *((unsigned char *) buf + i);
 }
 
 /*
@@ -32,12 +31,15 @@ void	ft_print_memory(void *t, size_t n, size_t nb_bytes);
 
 int	main(void)
 {
-	char	t1[] = "hello world!";
-	char	t2[] = "hello world!";
-	int	t3[] = {5, 6, 7, 8, 9};
+	char	t[] = "Hello world !";
+	char	t2[] = "Hello world !";
 
-	memmove(t1, t1 + 3, 6);
-	ft_memcpy(t2, t2 + 3, 6);
-	printf("\n%s", t1);
-	printf("\n%s", t2);
+	printf("\nmemmove");
+	memmove(t,t + 3, 6);
+	ft_print_memory(t, sizeof(t), sizeof(t[0]));
+	printf("\nft_memmove");
+	ft_memmove(t2,t2 + 3, 6);
+	ft_print_memory(t2, sizeof(t2), sizeof(t2[0]));
+	printf("\n%s\n",t);
+	printf("%s\n",t2);
 }*/
