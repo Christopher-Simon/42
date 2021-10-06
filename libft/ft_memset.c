@@ -6,7 +6,7 @@
 /*   By: chsimon <chsimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/05 17:02:43 by chsimon           #+#    #+#             */
-/*   Updated: 2021/10/06 01:39:26 by chsimon          ###   ########.fr       */
+/*   Updated: 2021/10/06 02:06:31 by chsimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,10 +25,9 @@ void	print_memory(int *t, size_t n)
 	unsigned char	data;
 	int	i;
 
-	printf("sizeof t : %ld", n);
 	i = 0;
-	printf("%ls" ,t);
-	printf("%s", &t);
+	printf("t : %d\n" ,t[0]);
+	printf("&t : %x\n", *(unsigned char*)&t);
 /*	while(i < n)
 	{
 		data = &t 
@@ -44,7 +43,6 @@ int	main (void)
 
 	c = 0;
 	n = 1;
-	printf("sizeof t : %ld\n", sizeof(t));
 	print_memory(t, sizeof(t));
 	memset(t, c, sizeof(t));
 //	printf("%d %d", t[0], t[1]);
