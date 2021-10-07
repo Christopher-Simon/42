@@ -6,7 +6,7 @@
 /*   By: chsimon <chsimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/07 00:44:09 by chsimon           #+#    #+#             */
-/*   Updated: 2021/10/07 01:01:43 by chsimon          ###   ########.fr       */
+/*   Updated: 2021/10/07 11:49:43 by chsimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,23 +17,38 @@ void	*ft_memchr(const void *s, int c, size_t n)
 	int	i;
 
 	i = 0;
-	while (*((unsigned char *)s + i) != (unsigned char)c)
+	if (*(unsigned char *)s == (unsigned char)c)
+		return ((unsigned char *)s);
+	while (i < n && *((unsigned char *)s + i++) != (unsigned char)c)
 	{
 		if (*((unsigned char *)s + i) == (unsigned char)c)
-			return ((unsigned char *)&s + i);
-		i++;
+		{
+			return ((unsigned char *)s + i);
+		}
 	}
 	return (0);
 }
+/*
 
 #include <stdio.h>
 #include <string.h>
 
+void	ft_print_memory(void *t, size_t n, size_t nb_bytes);
+
+
 int	main(void)
 {
-	int	t[] = {0, 1, 2, 3};
+	int	t[] = {2, 128, 2147483647, 3};
 
-	int c = 1;
-	printf("%p\n", memchr(t, c, sizeof(t)));
-	printf("%p\n", ft_memchr(t, c, sizeof(t)));
-}
+	int c = -2147483648;
+	printf("c = %x\n", (unsigned char)c);
+	ft_print_memory(t, sizeof(t), sizeof(t[0]));
+	if (memchr(t, c, sizeof(t))==0)
+		printf("\nis 0\n");
+	else
+		printf("\nis found\n");
+	if (ft_memchr(t, c, sizeof(t))==0)
+		printf("is 0");
+	else
+		printf("is found");
+}*/
