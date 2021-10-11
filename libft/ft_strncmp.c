@@ -1,32 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_memory.c                                  :+:      :+:    :+:   */
+/*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: chsimon <chsimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/06 17:52:10 by chsimon           #+#    #+#             */
-/*   Updated: 2021/10/11 15:00:51 by chsimon          ###   ########.fr       */
+/*   Created: 2021/10/11 14:15:05 by chsimon           #+#    #+#             */
+/*   Updated: 2021/10/11 14:36:34 by chsimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
-#include <stdio.h>
+#include <stddef.h>
 
-void	ft_print_memory(void *t, size_t n, size_t nb_bytes)
+int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
-	unsigned char	data;
-	int		i;
+	int	i;
 
-	printf("-----Launching ft_print_memory-----");
 	i = 0;
-	while (i < n)
+	while (s1[i] || s2[i])
 	{
-		if (i % nb_bytes == 0)
-			printf("\n");
-		data = *((unsigned char *)t + i);
-		printf("%02x ", data);
+		if (s1[i] != s2[i])
+			return (s1[i] - s2[i]);
 		i++;
 	}
-	printf("\n");
+	return (0);
 }
+/*
+#include <stdio.h>
+#include <string.h>
+
+int	main(void)
+{
+	char	s1[] = "i";
+	char	s2[] = "";
+
+
+	printf("%d\n", strncmp(s1, s2, sizeof(s1)));
+	printf("%d\n", ft_strncmp(s1, s2, sizeof(s1)));
+}*/

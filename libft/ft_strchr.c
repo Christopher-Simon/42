@@ -1,49 +1,48 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: chsimon <chsimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/07 11:50:12 by chsimon           #+#    #+#             */
-/*   Updated: 2021/10/07 16:50:21 by chsimon          ###   ########.fr       */
+/*   Created: 2021/10/07 18:17:49 by chsimon           #+#    #+#             */
+/*   Updated: 2021/10/11 14:06:38 by chsimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_atoi(const char *nptr)
+char	*ft_strchr(const char *s, int c)
 {
-	int	a;
-	int	i;
-	int	neg;
-
-	i = 0;
-	a = 0;
-	if (nptr[i] == '-')
-	{
-		neg = -1;
-		i++;
-	}
-	else
-		neg = 1;
-	while (nptr[i])
-	{
-		a = a * 10 + (nptr[i] - 48);
-		i++;
-	}
-	a *= neg;
-	return (a);
+	if (*s == c)
+		return ((char *)s);
+	while (*s++)
+		if (*s == c)
+			return ((char *)s);
+	return (0);
 }
+
 /*
 #include <stdio.h>
-#include <stdlib.h>
+#include <string.h>
 
-int	main(int ac, char **av)
+int	main(void)
 {
-	if (ac != 2)
+	char	s[] = "Hello \0 world";
+	char	c = 'w';
+	
+	if (strchr(s,c) != NULL)
 	{
-		printf("gros boulet");
-		return(0);
+		printf("%s\n",strchr(s,c));
 	}
-	printf("%d\n", atoi(av[1]));
-	printf("%d\n", ft_atoi(av[1]));
+	else 
+	{
+		printf("c'est pété\n");
+	}
+	if (ft_strchr(s,c) != NULL)
+	{
+		printf("%s\n",ft_strchr(s,c));
+	}
+	else 
+	{
+		printf("c'est pété\n");
+	}
 }*/
