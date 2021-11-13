@@ -6,7 +6,7 @@
 /*   By: chsimon <chsimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/13 14:30:11 by chsimon           #+#    #+#             */
-/*   Updated: 2021/10/14 18:07:16 by chsimon          ###   ########.fr       */
+/*   Updated: 2021/11/08 11:14:50 by chsimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,31 +18,74 @@ int	ft_strncmp(const char *s1, const char *s2, size_t n);
 
 #include <stdio.h>
 
-char	*ft_strtrim(char const *s1, char const *set)
+int	trim_start(char const *s1, char const *set,int s1len)
 {
-	int	len;
 	int	i;
 	int	j;
-	int	set_len;	
+	int	len;
+	
+	len = ft_strlen((char *)set);
+	j = 0;
+	i = 0;
+	while ( ft_strncmp((char *)&s1[j], set, len) == 0)
+	{	
+		i++;
+		j += len;
+	}
+	return (j);
+}
+
+int	trim_end(char const *s1, char const *set,int s1len)
+{
+	int	i;
+	int	k;
+	int	len;
+	
+	len = ft_strlen((char *)set);
+	k = 0;
+	i = 0;
+	while ( ft_strncmp((char *)&s1[s1len - len -  (i * len)], set, len) == 0)
+	{	
+		i++;
+		k += len;
+	}
+	return (k);
+}
+
+
+char	*ft_strtrim(char const *s1, char const *set)
+{
+	int	s1len;
+	int	j;
+	int	k;
 	char	*trim;
 
-	len = ft_strlen((char *)s1);
-	i = 0;
-	j = 2;	
-	printf("%d\n", ft_strncmp(s1, set, 2));	
-	trim = ft_substr((char *)s1, i, len - i - j);
+	s1len = ft_strlen((char *)s1);
+	if (set[0] == '\0')
+	{
+		trim = ft_substr((char *)s1, 0, s1len);
+		return (trim);
+	}
+	k = trim_end((char *)s1, (char *)set, s1len);
+	j = trim_start((char *)s1, (char *)set, s1len);
+	trim = ft_substr((char *)s1, j, s1len - j - k);
 	return (trim);
 }
 
 
-int	main(void)
+int	main(int ac, char **av)
 {
-	char	s1[] = "Hello worldHe";
+	/*
+	char	s1[] = "HeHeHhello, world!HeqHeHe";
 	char	set[] = "He";
+	*/
 	char	*trim;
 	
-	trim = ft_strtrim(s1, set);
+	if (ac != 3)
+	{
+		printf("Mauvais arguments");
+		return (0);
+	}
+	trim = ft_strtrim(av[1], av[2]);
 	printf("%s\n", trim);
-
-
 }
