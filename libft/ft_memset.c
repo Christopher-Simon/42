@@ -6,7 +6,7 @@
 /*   By: chsimon <chsimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/05 17:02:43 by chsimon           #+#    #+#             */
-/*   Updated: 2021/10/06 17:07:11 by chsimon          ###   ########.fr       */
+/*   Updated: 2021/11/23 14:55:07 by chsimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ int	main (void)
 	c = 27500000;
 	n = 5;
 	print_memory(t1, sizeof(t1), sizeof(t1[0]));
-	memset(t1, c, 2);
+	memset(t1, c, n);
 	print_memory(t1, sizeof(t1), sizeof(t1[0]));
 	print_memory(t2, sizeof(t2), sizeof(t2[0]));
 	ft_memset(t2, c, n);

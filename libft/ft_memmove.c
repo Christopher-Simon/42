@@ -6,7 +6,7 @@
 /*   By: chsimon <chsimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/06 23:02:53 by chsimon           #+#    #+#             */
-/*   Updated: 2021/10/06 23:48:59 by chsimon          ###   ########.fr       */
+/*   Updated: 2021/11/23 17:40:41 by chsimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
 	buf = src;
 	while (n--)
 		*((unsigned char *) dest + i++) = *((unsigned char *) buf + i);
+	return (dest);
 }
 
 /*
@@ -35,10 +36,10 @@ int	main(void)
 	char	t2[] = "Hello world !";
 
 	printf("\nmemmove");
-	memmove(t,t + 3, 6);
+	memmove(t,t + 1, 6);
 	ft_print_memory(t, sizeof(t), sizeof(t[0]));
 	printf("\nft_memmove");
-	ft_memmove(t2,t2 + 3, 6);
+	ft_memmove(t2,t2 + 1, 6);
 	ft_print_memory(t2, sizeof(t2), sizeof(t2[0]));
 	printf("\n%s\n",t);
 	printf("%s\n",t2);
