@@ -6,10 +6,11 @@
 /*   By: chsimon <chsimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/15 15:51:20 by chsimon           #+#    #+#             */
-/*   Updated: 2021/11/15 16:15:29 by chsimon          ###   ########.fr       */
+/*   Updated: 2021/11/24 18:22:21 by chsimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
 #include <unistd.h>
 
 void	ft_putchar_fd(char c, int fd);
@@ -29,8 +30,8 @@ void	ft_putnbr_fd(int n, int fd)
 		ft_putnbr_fd( a / 10,fd);
 	ft_putchar_fd(a % 10 + '0' , fd);
 }
-
+/*
 int	main(void)
 {
 	ft_putnbr_fd(2147483647, 1);
-}
+}*/

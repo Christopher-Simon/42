@@ -6,13 +6,13 @@
 /*   By: chsimon <chsimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/13 00:12:50 by chsimon           #+#    #+#             */
-/*   Updated: 2021/10/13 00:46:35 by chsimon          ###   ########.fr       */
+/*   Updated: 2021/11/24 18:25:59 by chsimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
 #include <stdlib.h>
 
-unsigned int	ft_strlcpy(char *dest, char *src, unsigned int size);
 
 char *ft_substr(char const *s, unsigned int start, size_t len)
 {

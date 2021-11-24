@@ -6,7 +6,7 @@
 /*   By: chsimon <chsimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/14 20:15:29 by chsimon           #+#    #+#             */
-/*   Updated: 2021/11/15 15:07:28 by chsimon          ###   ########.fr       */
+/*   Updated: 2021/11/24 18:23:12 by chsimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ int, char))
 		str[i] = f(i, s[i]);
 	return (str);
 }
-
+/*
 int	main(int ac, char **av)
 {
 	char	s[] = "hello";
@@ -46,4 +46,4 @@ int	main(int ac, char **av)
 		return (0);
 	}
 	printf("%s\n", ft_strmapi(av[1], &up));
-}
+}*/

@@ -6,7 +6,7 @@
 /*   By: chsimon <chsimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/15 19:08:35 by chsimon           #+#    #+#             */
-/*   Updated: 2021/11/23 17:14:02 by chsimon          ###   ########.fr       */
+/*   Updated: 2021/11/24 18:37:54 by chsimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -153,7 +153,7 @@ t_list *ft_lstmap(t_list *lst, void *(*f)(void *),void (*del)(void *))
 	}
 	return (second_list);	
 }
-
+/*
 int	main(void)
 {
 	int	x = 1;
@@ -196,4 +196,4 @@ int	main(void)
 	printf("---clear list\n");	
 	ft_lstclear(&list, delete);
 	return (0);
-}
+}*/

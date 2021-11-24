@@ -6,7 +6,7 @@
 /*   By: chsimon <chsimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/13 13:17:23 by chsimon           #+#    #+#             */
-/*   Updated: 2021/11/14 16:04:41 by chsimon          ###   ########.fr       */
+/*   Updated: 2021/11/24 18:30:42 by chsimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ char	*ft_itoa(int n)
 		str[0] = '-';
 	return (str);
 }
-
+/*
 int	main(int ac, char **av)
 {
 	if (ac != 2)
@@ -65,4 +65,4 @@ int	main(int ac, char **av)
 		return (0);
 	}
 	printf("%s\n", ft_itoa(atoi(av[1])));
-}
+}*/

@@ -6,7 +6,7 @@
 /*   By: chsimon <chsimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/07 00:44:09 by chsimon           #+#    #+#             */
-/*   Updated: 2021/10/07 11:49:43 by chsimon          ###   ########.fr       */
+/*   Updated: 2021/11/24 19:41:05 by chsimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,6 @@ void	*ft_memchr(const void *s, int c, size_t n)
 	return (0);
 }
 /*
-
 #include <stdio.h>
 #include <string.h>
 

@@ -6,10 +6,11 @@
 /*   By: chsimon <chsimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/06 17:42:59 by chsimon           #+#    #+#             */
-/*   Updated: 2021/10/06 18:26:59 by chsimon          ###   ########.fr       */
+/*   Updated: 2021/11/24 18:20:01 by chsimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
 #include <stddef.h>
 
 void	*ft_bzero(void *s, size_t n)
