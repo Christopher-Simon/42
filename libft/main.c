@@ -6,7 +6,7 @@
 /*   By: chsimon <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/24 15:49:12 by chsimon           #+#    #+#             */
-/*   Updated: 2021/11/24 20:16:48 by chsimon          ###   ########.fr       */
+/*   Updated: 2021/11/24 20:31:37 by chsimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -191,11 +191,13 @@ int	main(void)
 	while (str_set[i])
 	{
 		n = 0;				
-		while (n <= sizeof(str_set) + 4)
+		while (n <= strlen(str_set[i]))
 		{
+			printf("%ld\n", strlen(str_set[i]));
 			ic = 0;
-			while (c[ic])
-			{	
+			while (ic < 6)
+			{
+				printf("%d-%d-%d\n", i, n, ic);	
 				if (memcmp(ft_memset(str_set, c[ic], n), memset(str_set, c[ic], n), sizeof(str_set) != 0))
 					{
 						wrong++;
@@ -203,7 +205,7 @@ int	main(void)
 					}
 			ic++;
 			}
-		n++;
+			n++;
 		}
 		i++;
 	}	
