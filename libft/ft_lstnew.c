@@ -6,15 +6,13 @@
 /*   By: chsimon <chsimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/15 19:08:35 by chsimon           #+#    #+#             */
-/*   Updated: 2021/11/25 14:39:33 by chsimon          ###   ########.fr       */
+/*   Updated: 2021/11/25 18:42:52 by chsimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 #include <stdlib.h>
 
-/*
-*/
 typedef struct s_list
 {
 	void		*content;
@@ -143,7 +141,7 @@ t_list *ft_lstmap(t_list *lst, void *(*f)(void *),void (*del)(void *))
 	{
 		(*f)(lst->content);
 		second_list_back = ft_lstnew(lst->content);
-		if (!second_list )
+		if (!second_list_back )
 		{
 			ft_lstclear(&second_list, del);
 			return (0);
@@ -170,6 +168,8 @@ int	main(void)
 	printf("add to front\n");
 	p = &y;
 	new_list = ft_lstnew(p);	
+
+	printf("add to front\n");
 	ft_lstadd_front(&list, new_list);
 	ft_print_lst(list);
 	printf("size : %d\n", ft_lstsize(list));
@@ -188,7 +188,7 @@ int	main(void)
 	ft_print_lst(list);
 	
 	printf("---+1 tout all content et nouvelle liste\n");
-	ft_print_lst(new_list);
+	ft_print_lst(list);
 	new_list = ft_lstmap(list, f2, delete);	
 	ft_print_lst(new_list);
 	

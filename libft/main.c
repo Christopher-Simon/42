@@ -6,7 +6,7 @@
 /*   By: chsimon <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/24 15:49:12 by chsimon           #+#    #+#             */
-/*   Updated: 2021/11/25 16:17:29 by chsimon          ###   ########.fr       */
+/*   Updated: 2021/11/25 16:46:59 by chsimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #include <ctype.h>
 #include <string.h>
 #include <stdio.h>
+#include <bsd/string.h>
 #include <stdlib.h>
 
 void    ft_print_memory(void *t, size_t n, size_t nb_bytes);
@@ -387,6 +388,46 @@ int	main(void)
 		printf("OK");
 	printf("\n");
 
+//FT_STRLCPY
+	wrong = 0;
+	i = 0;	
+	printf("FT_STRLCPY : ");
+	
+	while (str[i])
+	{
+		n = 0;
+		while (n <= strlen(str[i]) + 5)
+		{
+			str1 = malloc(strlen(str[i]) * (sizeof(char) + 1));
+			str2 = malloc(strlen(str[i]) * (sizeof(char) + 1));
+			strlcpy(str1, str[i], n);
+			ft_strlcpy(str2, str[i], n);
+			if (memcmp(str1, str2, strlen(str1)) != 0)
+			{
+				wrong++;
+				printf("[%s], n : %d ", str[i], n);
+			}/*
+			printf("   avant : \n");
+			ft_print_memory(str1, strlen(str1), sizeof(str1[0]));
+			ft_print_memory(str2, strlen(str1), sizeof(str1[0]));
+			printf("%s n : %d\n", str[i], n);
+			printf("   strlcpy : ");
+			ft_print_memory(str1, strlen(str1), sizeof(str1[0]));
+			printf("ft_strlcpy : ");
+			ft_print_memory(str2, strlen(str2), sizeof(str2[0]));
+			printf("\n");*/
+			free(str1);
+			free(str2);
+			n++;
+		}
+		i++;
+	}
+
+
+
+	if (wrong == 0)
+		printf("OK");
+	printf("\n");
 
 
 

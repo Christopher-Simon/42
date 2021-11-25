@@ -6,7 +6,7 @@
 /*   By: chsimon <chsimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/06 17:52:10 by chsimon           #+#    #+#             */
-/*   Updated: 2021/11/25 13:32:24 by chsimon          ###   ########.fr       */
+/*   Updated: 2021/11/25 18:39:36 by chsimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 
 void	ft_print_memory(void *t, size_t n, size_t nb_bytes)
 {
-	unsigned char	data;
-	int		i;
+	unsigned char		data;
+	long unsigned int	i;
 
 	printf("-----Launching ft_print_memory-----");
 	i = 0;

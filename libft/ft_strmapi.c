@@ -6,7 +6,7 @@
 /*   By: chsimon <chsimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/14 20:15:29 by chsimon           #+#    #+#             */
-/*   Updated: 2021/11/24 18:23:12 by chsimon          ###   ########.fr       */
+/*   Updated: 2021/11/25 18:38:04 by chsimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int, char))
 	str = malloc(sizeof(char) * (i + 1));
 	if (!str)
 		return 0;
-	while (i-- >= 0)
+	while (i--)
 		str[i] = f(i, s[i]);
 	return (str);
 }

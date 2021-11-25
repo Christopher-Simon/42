@@ -6,7 +6,7 @@
 /*   By: chsimon <chsimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/06 23:02:53 by chsimon           #+#    #+#             */
-/*   Updated: 2021/11/25 16:00:15 by chsimon          ###   ########.fr       */
+/*   Updated: 2021/11/25 19:37:46 by chsimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,10 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
 	i = 0;
 	buf = src;
 	while (n--)
-		*((unsigned char *) dest + i++) = *((unsigned char *) buf + i);
+	{
+		*((unsigned char *) dest + i) = *((unsigned char *) buf + i);
+		i++;
+	}
 	return (dest);
 }
 

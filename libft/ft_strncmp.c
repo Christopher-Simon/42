@@ -6,7 +6,7 @@
 /*   By: chsimon <chsimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/11 14:15:05 by chsimon           #+#    #+#             */
-/*   Updated: 2021/11/05 14:32:32 by chsimon          ###   ########.fr       */
+/*   Updated: 2021/11/25 19:37:17 by chsimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
-	int	i;
+	unsigned long int	i;
 
 	i = 0;
 	while (s1[i] && i < n)

@@ -6,14 +6,14 @@
 /*   By: chsimon <chsimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/06 17:42:59 by chsimon           #+#    #+#             */
-/*   Updated: 2021/11/25 13:34:10 by chsimon          ###   ########.fr       */
+/*   Updated: 2021/11/25 19:38:48 by chsimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <stddef.h>
 
-void	*ft_bzero(void *s, size_t n)
+void	ft_bzero(void *s, size_t n)
 {
 	int	i;
 
@@ -22,14 +22,12 @@ void	*ft_bzero(void *s, size_t n)
 		*((unsigned char *)s + i++) = '\0';
 }
 
-
-
+/*
 #include <strings.h>
 #include <string.h>
 #include <stdio.h>
 
 void    ft_print_memory(void *t, size_t n, size_t nb_bytes);
-/*
 int	main(void)
 {
 	int	t[] = {0, 1 , 2, 3};

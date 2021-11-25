@@ -6,7 +6,7 @@
 /*   By: chsimon <chsimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/06 18:33:38 by chsimon           #+#    #+#             */
-/*   Updated: 2021/11/25 15:18:48 by chsimon          ###   ########.fr       */
+/*   Updated: 2021/11/25 19:38:08 by chsimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,10 @@ void	*ft_memcpy(void *dest, const void *src, size_t n)
 
 	i = 0;
 	while (n--)
-		*((unsigned char *) dest + i++) = *((unsigned char *) src + i);
+	{	
+		*((unsigned char *) dest + i) = *((unsigned char *) src + i);
+		i++;
+	}
 	return (dest);
 }
 

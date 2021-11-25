@@ -6,7 +6,7 @@
 /*   By: chsimon <chsimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/07 16:52:04 by chsimon           #+#    #+#             */
-/*   Updated: 2021/10/07 18:15:26 by chsimon          ###   ########.fr       */
+/*   Updated: 2021/11/25 19:39:21 by chsimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 char	*ft_strnstr(const char *big, const char *little, size_t len)
 {
-	int	i;
-	int	j;
+	long unsigned int	i;
+	long unsigned int	j;
 
 	i = 0;
 	if (*little == '\0')
