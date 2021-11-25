@@ -6,7 +6,7 @@
 /*   By: chsimon <chsimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/08 11:16:25 by chsimon           #+#    #+#             */
-/*   Updated: 2021/11/13 13:12:32 by chsimon          ###   ########.fr       */
+/*   Updated: 2021/11/25 12:35:21 by chsimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,7 +107,7 @@ char	**ft_split(char const *s, char c)
 	split_tab = malloc(sizeof(char *) * (x + 1));
 	if (!split_tab)
 		return (0);
-	string(s,c, split_tab);	
+	string(s, c, split_tab);	
 	fill_string(s, c, split_tab);
 	return (split_tab);
 }

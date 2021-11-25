@@ -6,7 +6,7 @@
 /*   By: chsimon <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/24 15:49:12 by chsimon           #+#    #+#             */
-/*   Updated: 2021/11/24 20:31:37 by chsimon          ###   ########.fr       */
+/*   Updated: 2021/11/25 16:17:29 by chsimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,19 @@
 #include <ctype.h>
 #include <string.h>
 #include <stdio.h>
+#include <stdlib.h>
+
+void    ft_print_memory(void *t, size_t n, size_t nb_bytes);
 
 int	main(void)
 {
 	int	i;
 	int	wrong;
+	char	*str[] = {"Hello world", "Hello\0 world", "", "test", "0", NULL};	
+	char	*str1;
+	char	*str2;
+	int	c[] = {0,-250, 250, -2147483648, 2147483647};
+	int	ic;
 
 // FT_ISALPHA
 	wrong = 0;
@@ -181,30 +189,67 @@ int	main(void)
 	printf("\n");
 	
 //FT_MEMSET
+
 	wrong = 0;
 	i = 0;	
 	printf("FT_MEMSET : ");
-	char *str_set[] = {"Hello world", "Hello\0 world", "", "test", "0", NULL};		
-	int c[] = {0,-250, 250, -2147483648, 2147483647};
-	int ic;
-	int n;
-	while (str_set[i])
+	int	n;
+
+	while (str[i])
 	{
-		n = 0;				
-		while (n <= strlen(str_set[i]))
-		{
-			printf("%ld\n", strlen(str_set[i]));
-			ic = 0;
-			while (ic < 6)
+		ic = 0;	
+		while (ic < 6)
+		{		
+			n = 0;	
+			while (n <= strlen(str[i]))
 			{
-				printf("%d-%d-%d\n", i, n, ic);	
-				if (memcmp(ft_memset(str_set, c[ic], n), memset(str_set, c[ic], n), sizeof(str_set) != 0))
+				str1 = ft_strdup(str[i]);
+				str2 = ft_strdup(str[i]);
+				ft_memset(str1, c[ic], n);
+				memset(str2, c[ic], n);
+				if (memcmp(str1, str2, strlen(str[i])) != 0)
 					{
 						wrong++;
-						printf("%s, ", str_set[i]);
+						printf("%s, ", str[i]);
 					}
-			ic++;
+				free(str1);
+				free(str2);
+				n++;
 			}
+			ic++;
+		}
+		i++;
+	}	
+	if (wrong == 0)
+		printf("OK");
+	printf("\n");
+
+//FT_BZERO
+
+	wrong = 0;
+	i = 0;	
+	printf("FT_BZERO : ");
+
+	while (str[i])
+	{
+		n = 0;	
+		while (n <= strlen(str[i]))
+		{
+			str1 = ft_strdup(str[i]);
+			str2 = ft_strdup(str[i]);
+			bzero(str1, n);
+			ft_bzero(str2, n);
+			if (memcmp(str1, str2, strlen(str[i])) != 0)
+				{
+					wrong++;
+					printf("[%s], ", str[i]);
+				}
+			//printf("%s n : %d\n", str[i], n);
+			//ft_print_memory(str1, strlen(str[i]) + 10, sizeof(str1[0]));
+			//ft_print_memory(str2, strlen(str[i]) + 10, sizeof(str2[0]));
+			//printf("\n");
+			free(str1);
+			free(str2);
 			n++;
 		}
 		i++;
@@ -212,4 +257,137 @@ int	main(void)
 	if (wrong == 0)
 		printf("OK");
 	printf("\n");
+
+//FT_MEMCPY
+
+	wrong = 0;
+	i = 0;	
+	printf("FT_MEMCPY : ");
+
+	while (str[i])
+	{
+		n = 0;	
+		while (n <= strlen(str[i]))
+		{
+			str1 = malloc(strlen(str[i]) * (sizeof(char) + 1));
+			str2 = malloc(strlen(str[i]) * (sizeof(char) + 1));
+			if (memcmp(memcpy(str1, str[i], n),ft_memcpy(str2, str[i], n), n) != 0)
+				{
+					wrong++;
+					printf("[%s], n : %d ", str[i], n);
+				}
+			//printf("%s n : %d\n", str[i], n);
+			//printf("   memcpy : ");
+			//ft_print_memory(str1, strlen(str1), sizeof(str1[0]));
+			//printf("ft_memcpy : ");
+			//ft_print_memory(str2, strlen(str2), sizeof(str2[0]));
+			//printf("\n");
+			free(str1);
+			free(str2);
+			n++;
+		}
+		
+		i++;
+	}
+	i = 0;
+	while (str[i])
+	{
+	ic = 0;
+		while (ic <= strlen(str[i]))
+		{
+		n = 0;
+			while (n <= strlen(str[i]))
+			{
+				str1 = ft_strdup(str[i]);
+				str2 = ft_strdup(str[i]);
+				if (memcmp(memcpy(&str1[ic], str1,n),ft_memcpy(&str2[ic], str1,n), strlen(str1)) != 0)
+				{
+					wrong++;
+					printf("[%s], n : %d ", str[i], n);
+				}
+				//printf("   avant : ");
+				//ft_print_memory(str1, strlen(str1), sizeof(str1[0]));
+				//printf("%s ic : %d -  n : %d\n", str[i], ic, n);
+				//printf("   memcpy : ");
+				//ft_print_memory(str1, strlen(str1), sizeof(str1[0]));
+				//printf("ft_memcpy : ");
+				//ft_print_memory(str2, strlen(str2), sizeof(str2[0]));
+				//printf("\n");
+				n++;
+			}
+		ic++;
+		}
+	i++;
+	}
+	if (wrong == 0)
+		printf("OK");
+	printf("\n");
+
+//FT_MEMOVE
+	wrong = 0;
+	i = 0;	
+	printf("FT_MEMMOVE : ");
+
+	while (str[i])
+	{
+		n = 0;	
+		while (n <= strlen(str[i]))
+		{
+			str1 = malloc(strlen(str[i]) * (sizeof(char) + 1));
+			str2 = malloc(strlen(str[i]) * (sizeof(char) + 1));
+			if (memcmp(memmove(str1, str[i], n),ft_memmove(str2, str[i], n), n) != 0)
+				{
+					wrong++;
+					printf("[%s], n : %d ", str[i], n);
+				}
+			//printf("%s n : %d\n", str[i], n);
+			//printf("   memmove : ");
+			//ft_print_memory(str1, strlen(str1), sizeof(str1[0]));
+			//printf("ft_memmove : ");
+			//ft_print_memory(str2, strlen(str2), sizeof(str2[0]));
+			//printf("\n");
+			free(str1);
+			free(str2);
+			n++;
+		}
+		
+		i++;
+	}
+	i = 0;
+	while (str[i])
+	{
+	ic = 0;
+		while (ic <= strlen(str[i]))
+		{
+		n = 0;
+			while (n <= strlen(str[i]))
+			{
+				str1 = ft_strdup(str[i]);
+				str2 = ft_strdup(str[i]);
+				if (memcmp(memmove(&str1[ic], str1,n),ft_memmove(&str2[ic], str1,n), strlen(str1)) != 0)
+				{
+					wrong++;
+					printf("[%s], n : %d ", str[i], n);
+				}
+				//printf("   avant : ");
+				//ft_print_memory(str1, strlen(str1), sizeof(str1[0]));
+				//printf("%s ic : %d -  n : %d\n", str[i], ic, n);
+				//printf("   memmove : ");
+				//ft_print_memory(str1, strlen(str1), sizeof(str1[0]));
+				//printf("ft_memmove : ");
+				//ft_print_memory(str2, strlen(str2), sizeof(str2[0]));
+				//printf("\n");
+				n++;
+			}
+		ic++;
+		}
+	i++;
+	}
+	if (wrong == 0)
+		printf("OK");
+	printf("\n");
+
+
+
+
 }

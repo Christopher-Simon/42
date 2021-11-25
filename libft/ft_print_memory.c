@@ -6,7 +6,7 @@
 /*   By: chsimon <chsimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/06 17:52:10 by chsimon           #+#    #+#             */
-/*   Updated: 2021/10/11 15:00:51 by chsimon          ###   ########.fr       */
+/*   Updated: 2021/11/25 13:32:24 by chsimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,8 @@ void	ft_print_memory(void *t, size_t n, size_t nb_bytes)
 	i = 0;
 	while (i < n)
 	{
-		if (i % nb_bytes == 0)
-			printf("\n");
+	//	if (i % nb_bytes == 0)
+	//		printf("\n");
 		data = *((unsigned char *)t + i);
 		printf("%02x ", data);
 		i++;

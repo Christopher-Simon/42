@@ -6,11 +6,12 @@
 /*   By: chsimon <chsimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/05 17:02:43 by chsimon           #+#    #+#             */
-/*   Updated: 2021/11/24 19:58:45 by chsimon          ###   ########.fr       */
+/*   Updated: 2021/11/25 12:34:18 by chsimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stddef.h>
+#include "libft.h"
 
 void	*ft_memset(void *s, int c, size_t n)
 {
@@ -21,24 +22,11 @@ void	*ft_memset(void *s, int c, size_t n)
 		*((unsigned char *)s + i++) = c;
 	return (s);
 }
-
-/*
 #include <string.h>
 #include <stdio.h>
+#include <stdlib.h>
 
-int	ft_memcmp(void *s1, void *s2, size_t n)
-{
-	int i;
-
-	i = n;
-	printf("%x\n", *(unsigned char*)s1);
-	while (n-- && (*(unsigned char*)s1++ == *(unsigned char*)s2++))
-		if (n == 0)
-			return (1);
-	printf("fails at the byte %ld\n", i - n - 1);
-	return (0);
-}
-
+/*
 void	print_memory(void *t, size_t n, size_t nb_bytes)
 {
 	unsigned char	data;
@@ -76,4 +64,43 @@ int	main (void)
 	print_memory(t2, sizeof(t2), sizeof(t2[0]));
 	printf("\n----\n");
 	printf("%d\n", memcmp(t1, t2, sizeof(t2)));
+}*/
+/*
+int	main(void)
+{
+	int	wrong = 0;
+	int	i = 0;	
+	printf("FT_MEMSET : ");
+	char	*str_set[] = {"Hello world", "Hello\0 world", "", "test", "0", NULL};	
+	char	*str_set1;
+	char	*str_set2;
+	int	c[] = {0,-250, 250, -2147483648, 2147483647};
+	int	ic;
+	int	n;
+	while (str_set[i])
+	{
+		ic = 0;	
+		while (ic < 6)
+		{		
+			n = 0;	
+			while (n <= strlen(str_set[i]))
+			{
+				str_set1 = ft_strdup(str_set[i]);
+				str_set2 = ft_strdup(str_set[i]);
+				if (memcmp(ft_memset(str_set1, c[ic], n), memset(str_set2, c[ic], n), strlen(str_set[i])) != 0)
+					{
+						wrong++;
+						printf("%s, ", str_set[i]);
+					}
+				free(str_set1);
+				free(str_set2);
+				n++;
+			}
+			ic++;
+		}
+		i++;
+	}	
+	if (wrong == 0)
+		printf("OK");
+	printf("\n");
 }*/

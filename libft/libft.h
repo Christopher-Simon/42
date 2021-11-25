@@ -6,7 +6,7 @@
 /*   By: chsimon <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/24 15:33:05 by chsimon           #+#    #+#             */
-/*   Updated: 2021/11/24 18:31:07 by chsimon          ###   ########.fr       */
+/*   Updated: 2021/11/25 12:26:55 by chsimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ int	ft_atoi(const char *nptr);
 
 char *ft_substr(char const *s, unsigned int start, size_t len);
 char    *ft_strtrim(char const *s1, char const *set);
+char	*ft_strdup(const char *s);
 
 
 #endif

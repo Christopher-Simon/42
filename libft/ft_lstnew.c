@@ -6,7 +6,7 @@
 /*   By: chsimon <chsimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/15 19:08:35 by chsimon           #+#    #+#             */
-/*   Updated: 2021/11/24 18:37:54 by chsimon          ###   ########.fr       */
+/*   Updated: 2021/11/25 14:39:33 by chsimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -166,18 +166,22 @@ int	main(void)
 	printf("create a list\n");
 	list = ft_lstnew(p);
 	ft_print_lst(list);
+	
 	printf("add to front\n");
 	p = &y;
 	new_list = ft_lstnew(p);	
 	ft_lstadd_front(&list, new_list);
 	ft_print_lst(list);
 	printf("size : %d\n", ft_lstsize(list));
+	
 	printf("---dernier element de la liste %d\n\n", *(int *)ft_lstlast(list)->content);
+	
 	printf("add to back\n");
 	p = &z;
 	new_list = ft_lstnew(p);	
 	ft_lstadd_back(&list, new_list);
 	ft_print_lst(list);
+	
 	printf("---dernier element de la liste %d\n\n", *(int *)ft_lstlast(list)->content);
 	printf("---+1 tout all content\n");
 	ft_lstiter(list,f);	

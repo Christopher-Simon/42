@@ -6,7 +6,7 @@
 /*   By: chsimon <chsimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/13 14:30:11 by chsimon           #+#    #+#             */
-/*   Updated: 2021/11/24 18:27:35 by chsimon          ###   ########.fr       */
+/*   Updated: 2021/11/25 15:00:55 by chsimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,8 +66,8 @@ char	*ft_strtrim(char const *s1, char const *set)
 	trim = ft_substr((char *)s1, j, s1len - j - k);
 	return (trim);
 }
-
 /*
+
 #include <stdio.h>
 int	main(int ac, char **av)
 {
