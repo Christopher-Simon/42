@@ -6,29 +6,27 @@
 /*   By: chsimon <chsimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/15 15:51:20 by chsimon           #+#    #+#             */
-/*   Updated: 2021/11/24 18:22:21 by chsimon          ###   ########.fr       */
+/*   Updated: 2021/11/26 15:13:24 by chsimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <unistd.h>
 
-void	ft_putchar_fd(char c, int fd);
-
 void	ft_putnbr_fd(int n, int fd)
 {
 	unsigned int	a;
-		
+
 	if (n < 0)
 	{
 		ft_putchar_fd('-', fd);
 		a = n * (-1);
 	}
-	else 
-		a = n;	
+	else
+		a = n;
 	if (a / 10 != 0)
-		ft_putnbr_fd( a / 10,fd);
-	ft_putchar_fd(a % 10 + '0' , fd);
+		ft_putnbr_fd(a / 10, fd);
+	ft_putchar_fd(a % 10 + '0', fd);
 }
 /*
 int	main(void)

@@ -6,14 +6,12 @@
 /*   By: chsimon <chsimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/15 15:38:26 by chsimon           #+#    #+#             */
-/*   Updated: 2021/11/24 18:22:52 by chsimon          ###   ########.fr       */
+/*   Updated: 2021/11/26 18:02:16 by chsimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <unistd.h>
-
-int	ft_strlen(char *str);
 
 void	ft_putstr_fd(char *s, int fd)
 {

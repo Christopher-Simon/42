@@ -6,14 +6,13 @@
 /*   By: chsimon <chsimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/08 11:16:25 by chsimon           #+#    #+#             */
-/*   Updated: 2021/11/25 12:35:21 by chsimon          ###   ########.fr       */
+/*   Updated: 2021/11/26 15:16:23 by chsimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 #include <stdlib.h>
-
-unsigned int	ft_strlcpy(char *dest, char *src, unsigned int size);
+#include "libft.h"
 
 int	count_word(char const *s, char c)
 {
@@ -50,11 +49,8 @@ char	**string(char const *s, char c, char **split_tab)
 		{
 			count++;
 			len = 0;
-			while (s[i] && s[i] != c)
-			{
+			while (s[i++] && s[i] != c)
 				len++;
-				i++;
-			}
 			split_tab[count - 1] = malloc(sizeof(char) * (len + 1));
 			if (!s[count - 1])
 				return (0);
@@ -93,12 +89,11 @@ char	**fill_string(char const *s, char c, char **split_tab)
 	}
 	split_tab[count] = '\0';
 	return (split_tab);
-
 }
 
 char	**ft_split(char const *s, char c)
 {
-	int	x;
+	int		x;
 	char	**split_tab;
 
 	if (!s)
@@ -107,7 +102,7 @@ char	**ft_split(char const *s, char c)
 	split_tab = malloc(sizeof(char *) * (x + 1));
 	if (!split_tab)
 		return (0);
-	string(s, c, split_tab);	
+	string(s, c, split_tab);
 	fill_string(s, c, split_tab);
 	return (split_tab);
 }

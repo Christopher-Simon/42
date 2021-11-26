@@ -6,7 +6,7 @@
 /*   By: chsimon <chsimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/13 14:30:11 by chsimon           #+#    #+#             */
-/*   Updated: 2021/11/25 19:28:52 by chsimon          ###   ########.fr       */
+/*   Updated: 2021/11/26 15:05:26 by chsimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,11 @@ int	trim_start(char const *s1, char const *set)
 	int	i;
 	int	j;
 	int	len;
-	
+
 	len = ft_strlen((char *)set);
 	j = 0;
 	i = 0;
-	while ( ft_strncmp((char *)&s1[j], set, len) == 0)
+	while (ft_strncmp((char *)&s1[j], set, len) == 0)
 	{	
 		i++;
 		j += len;
@@ -30,16 +30,16 @@ int	trim_start(char const *s1, char const *set)
 	return (j);
 }
 
-int	trim_end(char const *s1, char const *set,int s1len)
+int	trim_end(char const *s1, char const *set, int s1len)
 {
 	int	i;
 	int	k;
 	int	len;
-	
+
 	len = ft_strlen((char *)set);
 	k = 0;
 	i = 0;
-	while (ft_strncmp((char *)&s1[s1len - len -  (i * len)], set, len) == 0)
+	while (ft_strncmp((char *)&s1[s1len - len - (i * len)], set, len) == 0)
 	{	
 		i++;
 		k += len;
@@ -47,12 +47,11 @@ int	trim_end(char const *s1, char const *set,int s1len)
 	return (k);
 }
 
-
 char	*ft_strtrim(char const *s1, char const *set)
 {
-	int	s1len;
-	int	j;
-	int	k;
+	int		s1len;
+	int		j;
+	int		k;
 	char	*trim;
 
 	s1len = ft_strlen((char *)s1);

@@ -6,7 +6,7 @@
 /*   By: chsimon <chsimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/06 17:53:05 by chsimon           #+#    #+#             */
-/*   Updated: 2021/10/11 23:00:15 by chsimon          ###   ########.fr       */
+/*   Updated: 2021/11/26 15:10:49 by chsimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,9 +75,14 @@ int	main(void)
 
 	ft_print_memory(t1, sizeof(t1), sizeof(t1[0]));
 	ft_print_memory(t2, sizeof(t2), sizeof(t2[0]));
-	printf("memcmp --- %d, ft --- %d\n", memcmp(t1, t2, sizeof(t1)), ft_memcmp(t1, t2, sizeof(t1)));
-	printf("memcmp --- %d, ft --- %d\n", memcmp(at1, at2, sizeof(at1)), ft_memcmp(at1, at2, sizeof(at1)));
-	printf("memcmp --- %d, ft --- %d\n", memcmp(bt1, bt2, sizeof(bt1)), ft_memcmp(bt1, bt2, sizeof(bt1)));
-	printf("memcmp --- %d, ft --- %d\n", memcmp(ct1, ct2, sizeof(ct1)), ft_memcmp(ct1, ct2, sizeof(ct1)));
-	printf("memcmp --- %d, ft --- %d\n", memcmp(s1, s2, sizeof(s1)), ft_memcmp(s1, s2, sizeof(s1)));
+	printf("memcmp --- %d, ft --- %d\n", memcmp(t1, t2, 
+sizeof(t1)), ft_memcmp(t1, t2, sizeof(t1)));
+	printf("memcmp --- %d, ft --- %d\n", memcmp(at1, at2, 
+sizeof(at1)), ft_memcmp(at1, at2, sizeof(at1)));
+	printf("memcmp --- %d, ft --- %d\n", memcmp(bt1, bt2, 
+sizeof(bt1)), ft_memcmp(bt1, bt2, sizeof(bt1)));
+	printf("memcmp --- %d, ft --- %d\n", memcmp(ct1, ct2, 
+sizeof(ct1)), ft_memcmp(ct1, ct2, sizeof(ct1)));
+	printf("memcmp --- %d, ft --- %d\n", memcmp(s1, s2, 
+sizeof(s1)), ft_memcmp(s1, s2, sizeof(s1)));
 }*/

@@ -6,12 +6,11 @@
 /*   By: chsimon <chsimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/12 11:12:48 by chsimon           #+#    #+#             */
-/*   Updated: 2021/11/24 18:16:01 by chsimon          ###   ########.fr       */
+/*   Updated: 2021/11/26 14:44:18 by chsimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
-#include <stddef.h>
 #include "libft.h"
 
 void	*ft_calloc(size_t nmemb, size_t size)
@@ -47,14 +46,14 @@ int	main(void)
 	ft_print_memory(s_copy, sizeof(s_copy), sizeof(s_copy[0]));
 	ft_strlcpy(s_copy,s, sizeof(s));	
 	ft_print_memory(s_copy, sizeof(s_copy), sizeof(s_copy[0]));
-	printf("%s\n", s_copy);
+	printf("\n%s\n", s_copy);
 	free(s_copy);
 	printf("%ld\n", sizeof(s));
 	
 	s_copy = (char *)ft_calloc(ft_strlen(s),sizeof(char));
 	if (s_copy == NULL)
 		return (0);
-	printf("%s\n", s_copy);
+	printf("\n%s\n", s_copy);
 	ft_print_memory(s_copy, sizeof(s_copy), sizeof(s_copy[0]));
 	ft_strlcpy(s_copy,s, sizeof(s));
 	ft_print_memory(s_copy, sizeof(s_copy), sizeof(s_copy[0]));

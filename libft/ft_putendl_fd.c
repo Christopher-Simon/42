@@ -6,16 +6,14 @@
 /*   By: chsimon <chsimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/15 15:44:20 by chsimon           #+#    #+#             */
-/*   Updated: 2021/11/24 18:21:55 by chsimon          ###   ########.fr       */
+/*   Updated: 2021/11/26 15:06:27 by chsimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <unistd.h>
 
-int	ft_strlen(char *str);
-
-void 	ft_putendl_fd(char *s, int fd)
+void	ft_putendl_fd(char *s, int fd)
 {
 	write(fd, s, ft_strlen(s));
 	write(1, "\n", 1);

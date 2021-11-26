@@ -6,20 +6,18 @@
 /*   By: chsimon <chsimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/13 10:48:22 by chsimon           #+#    #+#             */
-/*   Updated: 2021/10/13 14:27:33 by chsimon          ###   ########.fr       */
+/*   Updated: 2021/11/26 14:56:11 by chsimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
-
-int		ft_strlen(char *str);
-unsigned int	ft_strlcpy(char *dest, char *src, unsigned int size);
+#include "libft.h"
 
 char	*ft_strjoin(char const *s1, char const *s2)
 {
+	int		len1;
+	int		len2;
 	char	*s_join;
-	int	len1;
-	int	len2;
 
 	len1 = ft_strlen((char *)s1);
 	len2 = ft_strlen((char *)s2);

@@ -1,3 +1,4 @@
+NAME =	libft.a
 CC=gcc
 CFLAGS= -Wall -Wextra -Werror
 SRCS=	ft_isprint.c \
@@ -34,9 +35,19 @@ SRCS=	ft_isprint.c \
 	ft_strdup.c \
 	ft_strrchr.c
 
-all : $(SRCS)
-	$(CC) -c $(CFLAGS) $^
+RM= rm -f
+OBJS= $(SRCS:.c=.o)
+
+all : $(NAME)
+
+$(NAME) : $(OBJS)
+	ar -rcs $@ $^
+$(OBJS) :
+	$(CC) $(CFLAGS) -c $(SRCS) 
 clean :	
-	rm *.o
+	$(RM) $(OBJS)
 
+fclean : clean
+	$(RM) $(NAME)
 
+re : 	fclean all

@@ -6,14 +6,12 @@
 /*   By: chsimon <chsimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/12 18:14:45 by chsimon           #+#    #+#             */
-/*   Updated: 2021/10/12 18:57:13 by chsimon          ###   ########.fr       */
+/*   Updated: 2021/11/26 15:06:53 by chsimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
-
-unsigned int	ft_strlcpy(char *dest, char *src, unsigned int size);
-int		ft_strlen(char *str);
+#include "libft.h"
 
 char	*ft_strdup(const char *s)
 {
