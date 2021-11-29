@@ -6,7 +6,7 @@
 /*   By: chsimon <chsimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/07 16:52:04 by chsimon           #+#    #+#             */
-/*   Updated: 2021/11/25 19:39:21 by chsimon          ###   ########.fr       */
+/*   Updated: 2021/11/29 15:58:16 by chsimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 	while (i < len && big[i])
 	{
 		j = 0;
-		while (big[i + j] == little[j])
+		while (big[i + j] == little[j] && i + j < len)
 		{
 			if (little[j + 1] == '\0')
 				return ((char *)big + i);
@@ -31,9 +31,8 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 		}
 		i++;
 	}
-	return ('\0');
+	return (0);
 }
-
 /*
 #include <stdio.h>
 #include <string.h>
@@ -41,10 +40,14 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 
 int	main(void)
 {
-	char	big[] = "Hello'\0' world!";
+	char	*big[] = { "Hello'\0' world!",  "Hello world!", "", "test" ,NULL};
 	char	little[] = "world";
-	int	len;
 
-	printf("strnstr :%s\n",strnstr(big, little, sizeof(big)));
-	printf("ft_     :%s\n",ft_strnstr(big, little, sizeof(big)));
+	int	i = 0;
+//	printf("strnstr :%s\n",strnstr(big, little, sizeof(big)));
+	while (big [i])
+	{
+		printf("ft_     :%s\n",ft_strnstr(big[i], little, sizeof(big)));
+		i++;
+	}
 }*/
