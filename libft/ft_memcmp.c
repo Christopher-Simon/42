@@ -6,7 +6,7 @@
 /*   By: chsimon <chsimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/06 17:53:05 by chsimon           #+#    #+#             */
-/*   Updated: 2021/11/26 15:10:49 by chsimon          ###   ########.fr       */
+/*   Updated: 2021/11/30 11:40:58 by chsimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,12 @@
 
 int	ft_memcmp(void *s1, void *s2, size_t n)
 {
-	unsigned long int	i;
+	int	i;
 
 	i = 0;
-	if (*(unsigned char *)s1 != *(unsigned char *)s2)
-		return (*(unsigned char *)s1 - *(unsigned char *)s2);
-	while (i <= n)
+	if (n == 0)
+		return (0);
+	while (n--)
 	{
 		if ((*((unsigned char *)s1 + i)) != (*((unsigned char *)s2 + i)))
 		{
@@ -31,27 +31,11 @@ int	ft_memcmp(void *s1, void *s2, size_t n)
 	return (0);
 }
 /*
-
 #include <stdio.h>
 #include <string.h>
+#include "libft.h"
 
-void	ft_print_memory(void *t, size_t n, size_t nb_bytes)
-{
-	unsigned char	data;
-	int		i;
-
-	printf("-----Launching ft_print_memory-----");
-	i = 0;
-	while (i < n)
-	{
-		if (i % nb_bytes == 0)
-			printf("\n");
-		data = *((unsigned char *)t + i);
-		printf("%02x ", data);
-		i++;
-	}
-	printf("\n");
-}
+void	ft_print_memory(void *t, size_t n, size_t nb_bytes);
 
 int	main(void)
 {
@@ -73,8 +57,8 @@ int	main(void)
 	int	s1[] = {10, 2, 3};
 	int	s2[] = {1, 4, 3};
 
-	ft_print_memory(t1, sizeof(t1), sizeof(t1[0]));
-	ft_print_memory(t2, sizeof(t2), sizeof(t2[0]));
+	//ft_print_memory(t1, sizeof(t1), sizeof(t1[0]));
+	//ft_print_memory(t2, sizeof(t2), sizeof(t2[0]));
 	printf("memcmp --- %d, ft --- %d\n", memcmp(t1, t2, 
 sizeof(t1)), ft_memcmp(t1, t2, sizeof(t1)));
 	printf("memcmp --- %d, ft --- %d\n", memcmp(at1, at2, 

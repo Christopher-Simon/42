@@ -6,7 +6,7 @@
 /*   By: chsimon <chsimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/14 20:15:29 by chsimon           #+#    #+#             */
-/*   Updated: 2021/11/26 16:02:13 by chsimon          ###   ########.fr       */
+/*   Updated: 2021/11/30 12:13:52 by chsimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 		str[i] = f(i, s[i]);
 	return (str);
 }
-/*
+
 char	up(unsigned int i, char c)
 {
 	c += i;
@@ -45,4 +45,4 @@ int	main(int ac, char **av)
 		return (0);
 	}
 	printf("%s\n", ft_strmapi(av[1], &up));
-}*/
+}
