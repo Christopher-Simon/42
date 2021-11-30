@@ -6,16 +6,18 @@
 /*   By: chsimon <chsimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/05 16:52:50 by chsimon           #+#    #+#             */
-/*   Updated: 2021/11/24 18:54:42 by chsimon          ###   ########.fr       */
+/*   Updated: 2021/11/30 15:49:23 by chsimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_strlen(char *str)
+#include "libft.h"
+
+size_t	ft_strlen(const char *s)
 {
 	int	i;
 
 	i = 0;
-	while (str[i] != '\0')
+	while (s[i] != '\0')
 		i++;
 	return (i);
 }

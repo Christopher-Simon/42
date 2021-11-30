@@ -6,45 +6,49 @@
 /*   By: chsimon <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/07 21:23:30 by chsimon           #+#    #+#             */
-/*   Updated: 2021/11/29 18:13:04 by chsimon          ###   ########.fr       */
+/*   Updated: 2021/11/30 16:08:19 by chsimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdio.h>
 
-unsigned int	ft_strlcpy(char *dest, char *src, unsigned int size)
+size_t	ft_strlcpy(char *dst, char *src, size_t size)
 {
 	unsigned int	i;
 
 	i = 0;
-	if (!src[i])
+	if (!src)
 		return (0);
 	if (size == 0)
 		return (ft_strlen(src));
 	while (src[i] && i < size - 1)
 	{
-		dest[i] = src[i];
+		dst[i] = src[i];
 		i++;
 	}
-	while (i < size)
+	while (i < size && src[0])
 	{
-		dest[i] = '\0';
+		dst[i] = '\0';
 		i++;
 	}
+	if (!src[0])
+		dst[0] = '\0';
 	return (ft_strlen(src));
 }
 /*
 #include <bsd/string.h>
 #include <stdio.h>
+#include <stdlib.h>
 
 int	main(void)
 {
 	char	src[] = "";
-	char	dest[15] = "rrrrr";
-	char	*dest2;
+	char	dest[15] = "rrrrrr\0\0\0\0\0\0\0";
+	char	dest2[15] = "rrrrrr\0\0\0\0\0\0\0";
 
-	printf("%d\n",ft_strlcpy(dest, src, 15));
-	//strlcpy(dest2, src, 15);
-	printf("%s", dest);	
-	//printf("%s", dest2);	
+	printf("%ld\n", ft_strlcpy(dest, src, 15));
+	printf("%ld\n", strlcpy(dest2, src, 15));
+	printf("%s\n", &dest[1]);	
+	printf("%s\n", &dest2[1]);	
 }*/
