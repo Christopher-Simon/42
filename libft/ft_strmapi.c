@@ -6,7 +6,7 @@
 /*   By: chsimon <chsimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/14 20:15:29 by chsimon           #+#    #+#             */
-/*   Updated: 2021/11/30 13:47:55 by chsimon          ###   ########.fr       */
+/*   Updated: 2021/12/01 10:48:56 by chsimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,8 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 		return (0);
 	i = ft_strlen((char *)s);
 	str = malloc(sizeof(char) * (i + 1));
+	if (!str)
+		return (0);
 	ft_strlcpy(str, (char *)s, i + 1);
 	if (!str)
 		return (0);

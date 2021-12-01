@@ -6,12 +6,13 @@
 /*   By: chsimon <chsimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/13 13:17:23 by chsimon           #+#    #+#             */
-/*   Updated: 2021/11/30 20:28:47 by chsimon          ###   ########.fr       */
+/*   Updated: 2021/12/01 11:33:27 by chsimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 #include <stdlib.h>
+#include "libft.h"
 
 int	int_size(int n)
 {
@@ -28,7 +29,7 @@ int	int_size(int n)
 	return (i);
 }
 
-char	*fill_string(unsigned int nb, int neg, char *str, int i)
+char	*fill(unsigned int nb, int neg, char *str, int i)
 {
 	while (i-- > (0 + neg))
 	{
@@ -59,7 +60,7 @@ char	*ft_itoa(int n)
 	str = malloc(sizeof(char) * (i + 1));
 	if (!str)
 		return (0);
-	fill_string(nb, neg, str, i);
+	fill(nb, neg, str, i);
 	str[i] = '\0';
 	return (str);
 }

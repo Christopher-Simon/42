@@ -6,7 +6,7 @@
 /*   By: chsimon <chsimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/08 11:16:25 by chsimon           #+#    #+#             */
-/*   Updated: 2021/11/26 15:16:23 by chsimon          ###   ########.fr       */
+/*   Updated: 2021/12/01 13:04:48 by chsimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,7 +87,7 @@ char	**fill_string(char const *s, char c, char **split_tab)
 		if (s[i])
 			i++;
 	}
-	split_tab[count] = '\0';
+	split_tab[count] = "\0";
 	return (split_tab);
 }
 
