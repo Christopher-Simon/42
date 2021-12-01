@@ -6,7 +6,7 @@
 /*   By: chsimon <chsimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/13 00:12:50 by chsimon           #+#    #+#             */
-/*   Updated: 2021/12/01 15:21:38 by chsimon          ###   ########.fr       */
+/*   Updated: 2021/12/01 21:00:28 by chsimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
 	char	*sub;
 
+	if (!s)
+		return (0);
 	if (start > ft_strlen(s))
 		return ((char *)ft_calloc(sizeof(char), 1));
 	if (len > ft_strlen(&s[start]))

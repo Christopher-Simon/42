@@ -6,7 +6,7 @@
 /*   By: chsimon <chsimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/06 23:02:53 by chsimon           #+#    #+#             */
-/*   Updated: 2021/11/30 11:30:27 by chsimon          ###   ########.fr       */
+/*   Updated: 2021/12/01 21:07:26 by chsimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,23 +39,23 @@ void	ft_print_memory(void *t, size_t n, size_t nb_bytes);
 
 int	main(void)
 {
-	char	t[] = "lorem ipum dolor sit a";
-	char	t2[] = "lorem ipum dolor sit a";
+	char	t[] = "";
+	char	t2[] = "";
 	char	*dest;
 	char	*dest2;
-	int		n = 8;
+	int		n = 0;
 	int		c = 1;
 	
 	dest = t + 1;
 	dest2 = t2 + 1;
 	printf("memmove\n");
-	memmove(dest, t, n);
+	memmove(((void*)0), ((void*)0), 5);
 //	ft_print_memory(t, sizeof(t), sizeof(t[0]));
 	printf("%s\n", dest);
 
 	printf("\nft_memmove\n");
 	printf("\n%s\n", dest2);
-	ft_memmove(dest2, t2,  n);
+	ft_memmove(((void*)0), ((void*)0), 5);
 //	ft_print_memory(t2, sizeof(t2), sizeof(t2[0]));
 	printf("\n%s\n", dest2);
 }*/

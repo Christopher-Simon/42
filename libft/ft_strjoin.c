@@ -6,7 +6,7 @@
 /*   By: chsimon <chsimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/13 10:48:22 by chsimon           #+#    #+#             */
-/*   Updated: 2021/11/26 14:56:11 by chsimon          ###   ########.fr       */
+/*   Updated: 2021/12/01 21:15:03 by chsimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	int		len2;
 	char	*s_join;
 
+	if (!s1 || !s2)
+		return (0);
 	len1 = ft_strlen((char *)s1);
 	len2 = ft_strlen((char *)s2);
 	s_join = (char *)malloc((len1 + len2 + 1) * sizeof(char));

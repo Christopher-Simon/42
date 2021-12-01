@@ -6,7 +6,7 @@
 /*   By: chsimon <chsimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/08 11:16:25 by chsimon           #+#    #+#             */
-/*   Updated: 2021/12/01 13:04:48 by chsimon          ###   ########.fr       */
+/*   Updated: 2021/12/01 20:48:31 by chsimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,47 +14,59 @@
 #include <stdlib.h>
 #include "libft.h"
 
-int	count_word(char const *s, char c)
+size_t	count_word(char const *s, char c)
 {
-	int	i;
-	int	count;
+	int		i;
+	size_t	x;
 
 	i = 0;
-	count = 0;
+	x = 0;
 	while (s[i])
 	{
 		if (s[i] != c)
 		{
-			count++;
+			x++;
 			while (s[i] && s[i] != c)
 				i++;
 		}
 		if (s[i])
 			i++;
 	}
-	return (count);
+	return (x);
 }
 
-char	**string(char const *s, char c, char **split_tab)
+int	split_free(char **split_tab, size_t x)
 {
-	int	i;
-	int	count;
+	if (!split_tab[x -1])
+	{
+		while (x--)
+			free(split_tab[x]);
+		free(split_tab);
+		return (1);
+	}
+	return (0);
+}
+
+char	**string(char const *s, char c, char **split_tab, size_t x)
+{
 	int	len;
+	int	i;
 
 	i = 0;
-	count = 0;
 	while (s[i])
 	{
 		if (s[i] != c)
 		{
-			count++;
+			x++;
 			len = 0;
-			while (s[i++] && s[i] != c)
+			while (s[i] && s[i] != c)
+			{
 				len++;
-			split_tab[count - 1] = malloc(sizeof(char) * (len + 1));
-			if (!s[count - 1])
+				i++;
+			}
+			split_tab[x - 1] = malloc(sizeof(char) * (len + 1));
+			if (split_free(split_tab, x))
 				return (0);
-			split_tab[count - 1][len] = '\0';
 		}
 		if (s[i])
 			i++;
@@ -87,13 +99,13 @@ char	**fill_string(char const *s, char c, char **split_tab)
 		if (s[i])
 			i++;
 	}
-	split_tab[count] = "\0";
+	split_tab[count] = NULL;
 	return (split_tab);
 }
 
 char	**ft_split(char const *s, char c)
 {
-	int		x;
+	size_t	x;
 	char	**split_tab;
 
 	if (!s)
@@ -102,25 +114,8 @@ char	**ft_split(char const *s, char c)
 	split_tab = malloc(sizeof(char *) * (x + 1));
 	if (!split_tab)
 		return (0);
-	string(s, c, split_tab);
+	x = 0;
+	string(s, c, split_tab, x);
 	fill_string(s, c, split_tab);
 	return (split_tab);
 }
-/*
-int	main(int ac, char **av)
-{
-	char	**split;
-	int	i = 0;
-	
-	if (ac != 3)
-	{
-		printf("mauvais arguments");
-		return (0);
-	}
-
-	split = ft_split(av[1], av[2][0]);
-	while (split[i])
-	{
-	printf("%s\n", split[i++]);
-	}
-}*/
