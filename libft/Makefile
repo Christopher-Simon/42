@@ -35,20 +35,37 @@ SRCS=	ft_isprint.c \
 	ft_memset.c \
 	ft_strdup.c \
 	ft_strrchr.c
+BONUS=	ft_lstadd_back.c \
+	ft_lstadd_front.c \
+	ft_lstclear.c \
+	ft_lstdelone.c \
+	ft_lstiter.c \
+	ft_lstlast.c \
+	ft_lstmap.c \
+	ft_lstnew.c \
+	ft_lstsize.c
 
 RM= rm -f
 OBJS= $(SRCS:.c=.o)
+BNS= $(BONUS:.c=.o)
 
 all : $(NAME)
 
 $(NAME) : $(OBJS)
 	ar -rcs $@ $^
-$(OBJS) :
-	$(CC) $(CFLAGS) -c $(SRCS) 
+
+bonus : $(OBJS) $(BNS)
+	ar -rcs $(NAME) $^ 
+
+.o : .c
+	$(CC) $(CFLAGS) -c $< -o $@ -I ./
+
 clean :	
-	$(RM) $(OBJS)
+	$(RM) $(OBJS) $(BNS)
 
 fclean : clean
 	$(RM) $(NAME)
 
 re : 	fclean all
+
+.PHONY : all clean fclean re bonus
