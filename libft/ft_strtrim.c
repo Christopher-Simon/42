@@ -6,7 +6,7 @@
 /*   By: chsimon <chsimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/13 14:30:11 by chsimon           #+#    #+#             */
-/*   Updated: 2021/12/01 16:11:36 by chsimon          ###   ########.fr       */
+/*   Updated: 2021/12/03 11:07:34 by chsimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,8 @@ int	char_is_set(char c, char const *set)
 
 char	*ft_strtrim(char const *s1, char const *set)
 {
-	int		s1len;
-	int		i;
+	size_t	s1len;
+	size_t	i;
 	char	*trim;
 
 	i = 0;
@@ -40,7 +40,7 @@ char	*ft_strtrim(char const *s1, char const *set)
 	s1len = ft_strlen((char *)s1) - 1;
 	while (char_is_set(s1[i], set))
 		i++;
-	while (char_is_set(s1[s1len], set))
+	while (char_is_set(s1[s1len], set) && s1len)
 		s1len--;
 	trim = ft_substr((char *)s1, i, s1len - i + 1);
 	return (trim);
@@ -49,9 +49,8 @@ char	*ft_strtrim(char const *s1, char const *set)
 #include <stdio.h>
 int	main(void)
 {
-	
-	char	s1[] = "123";
-	char	set[] = "";
+	char s1[] = "          ";
+	char	set[] = " ";
 	
 	char	*trim;
 	
