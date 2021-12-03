@@ -6,7 +6,7 @@
 /*   By: chsimon <chsimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/05 16:52:50 by chsimon           #+#    #+#             */
-/*   Updated: 2021/11/30 15:49:23 by chsimon          ###   ########.fr       */
+/*   Updated: 2021/12/03 11:24:59 by chsimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@ size_t	ft_strlen(const char *s)
 		i++;
 	return (i);
 }
-
 /*
 #include <stdio.h>
 

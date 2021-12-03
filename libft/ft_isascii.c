@@ -6,16 +6,16 @@
 /*   By: chsimon <chsimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/05 15:01:58 by chsimon           #+#    #+#             */
-/*   Updated: 2021/11/24 17:18:14 by chsimon          ###   ########.fr       */
+/*   Updated: 2021/12/03 11:26:31 by chsimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 int	ft_isascii(int c)
 {
 	if (c >= 0 && c <= 127)
 		return (1);
 	return (0);
 }
-
 /*
 
 #include <ctype.h>

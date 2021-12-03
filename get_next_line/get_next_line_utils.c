@@ -1,36 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_toupper.c                                       :+:      :+:    :+:   */
+/*   get_next_line_utils.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: chsimon <chsimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/06 23:57:02 by chsimon           #+#    #+#             */
-/*   Updated: 2021/12/03 11:27:22 by chsimon          ###   ########.fr       */
+/*   Created: 2021/12/03 16:04:52 by chsimon           #+#    #+#             */
+/*   Updated: 2021/12/03 16:46:27 by chsimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_toupper(int c)
+#include <unistd.h>
+#include <stddef.h>
+
+size_t  ft_strlen(char *s)
 {
-	if (c >= 97 && c <= 122)
-		c -= 32;
-	return (c);
+    int i;
+    
+    i = 0;
+    while (s[i])
+        s++;
+    return (i);
 }
-/*
-#include <stdio.h>
-#include <ctype.h>
 
-int	main(void)
+void    ft_putchar_fd(char *s, int fd)
 {
-	char	str[] = "HeLlo world!";
-	int	i;	
-
-	i = 0;
-	printf("%s\n", str);
-	while(str[i])
-		printf("%c", toupper(str[i++]));
-	i = 0;
-	printf("\n");
-	while(str[i])
-		printf("%c", ft_toupper(str[i++]));
-}*/
+    write(1, s, ft_strlen(s));
+}

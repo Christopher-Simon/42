@@ -6,11 +6,10 @@
 /*   By: chsimon <chsimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/14 20:15:29 by chsimon           #+#    #+#             */
-/*   Updated: 2021/12/01 10:48:56 by chsimon          ###   ########.fr       */
+/*   Updated: 2021/12/03 11:25:16 by chsimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
 #include <stdlib.h>
 #include "libft.h"
 

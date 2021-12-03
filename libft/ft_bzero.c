@@ -6,7 +6,7 @@
 /*   By: chsimon <chsimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/06 17:42:59 by chsimon           #+#    #+#             */
-/*   Updated: 2021/11/25 19:38:48 by chsimon          ###   ########.fr       */
+/*   Updated: 2021/12/03 11:21:26 by chsimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@ void	ft_bzero(void *s, size_t n)
 	while (n--)
 		*((unsigned char *)s + i++) = '\0';
 }
-
 /*
 #include <strings.h>
 #include <string.h>

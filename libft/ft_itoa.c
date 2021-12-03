@@ -6,11 +6,10 @@
 /*   By: chsimon <chsimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/13 13:17:23 by chsimon           #+#    #+#             */
-/*   Updated: 2021/12/01 11:33:27 by chsimon          ###   ########.fr       */
+/*   Updated: 2021/12/03 11:26:38 by chsimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
 #include <stdlib.h>
 #include "libft.h"
 
@@ -64,7 +63,6 @@ char	*ft_itoa(int n)
 	str[i] = '\0';
 	return (str);
 }
-
 /*
 int	main(void)
 {

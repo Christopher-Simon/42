@@ -6,7 +6,7 @@
 /*   By: chsimon <chsimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/12 11:12:48 by chsimon           #+#    #+#             */
-/*   Updated: 2021/11/26 14:44:18 by chsimon          ###   ########.fr       */
+/*   Updated: 2021/12/03 11:21:34 by chsimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,6 @@ void	*ft_calloc(size_t nmemb, size_t size)
 	ft_bzero(copy, nmemb * size);
 	return (copy);
 }
-
 /*
 #include <stdio.h>
 #include <stdlib.h>

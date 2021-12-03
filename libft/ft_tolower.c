@@ -6,11 +6,9 @@
 /*   By: chsimon <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/26 15:00:09 by chsimon           #+#    #+#             */
-/*   Updated: 2021/11/26 15:00:12 by chsimon          ###   ########.fr       */
+/*   Updated: 2021/12/03 11:25:58 by chsimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include <ctype.h>
 
 int	ft_tolower(int c)
 {
@@ -21,6 +19,7 @@ int	ft_tolower(int c)
 /*
 
 #include <stdio.h>
+#include <ctype.h>
 
 int	main(void)
 {
