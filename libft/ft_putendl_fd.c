@@ -6,7 +6,7 @@
 /*   By: chsimon <chsimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/15 15:44:20 by chsimon           #+#    #+#             */
-/*   Updated: 2021/11/26 15:06:27 by chsimon          ###   ########.fr       */
+/*   Updated: 2021/12/03 10:18:14 by chsimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,10 @@
 
 void	ft_putendl_fd(char *s, int fd)
 {
+	if (!s)
+		return ;
 	write(fd, s, ft_strlen(s));
-	write(1, "\n", 1);
+	write(fd, "\n", 1);
 }
 /*
 int	main(int ac, char **av)
