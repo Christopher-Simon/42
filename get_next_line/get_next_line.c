@@ -6,7 +6,7 @@
 /*   By: chsimon <chsimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/03 14:28:14 by chsimon           #+#    #+#             */
-/*   Updated: 2021/12/06 15:54:55 by chsimon          ###   ########.fr       */
+/*   Updated: 2021/12/06 22:39:33 by chsimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,15 @@
 #include <unistd.h>
 #include "get_next_line.h"
 
+char    *switch_buffer(int fd)
+{
+    
+}
 
 char    *get_next_line(int fd)
 {
     char    *buf;
-    char    *line_1; 
-    char    *line_2; 
+    char    *line; 
     int     ret;
     size_t     i;
     size_t     flag;
@@ -38,10 +41,10 @@ char    *get_next_line(int fd)
     printf("%ld\n", i);
     if (flag == 1)
     {
-        line_1 = (char *)malloc(sizeof(char) * i);
-        ft_strlcpy(line_1, (const char *)buf, i);
+        line = (char *)malloc(sizeof(char) * i);
+        ft_strlcpy(line, (const char *)buf, i);
     }
-    return (line_1);
+    return (line);
 }
 
 int main(void)
