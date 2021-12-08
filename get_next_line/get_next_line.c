@@ -6,7 +6,7 @@
 /*   By: chsimon <chsimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/03 14:28:14 by chsimon           #+#    #+#             */
-/*   Updated: 2021/12/08 17:10:22 by chsimon          ###   ########.fr       */
+/*   Updated: 2021/12/08 19:03:44 by chsimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ char	*get_buf(int fd, char *buf, int *final)
 	int	ret;
 
 	ret = read(fd, buf, BUFFER_SIZE);
+	if (ret < 0)
+		return (NULL);
 	if (ret == 0)
 		(*final)++;
 	buf[ret] = '\0';
@@ -31,7 +33,13 @@ char	*backtrack(int fd, char *buf, char *memory, int *final)
 	size_t	i;
 
 	if (ft_strchr(memory, '\n') == 0)
-		get_buf(fd, buf, final);
+	{
+		if (!get_buf(fd, buf, final))
+		{
+			free (memory);
+			return (NULL);
+		}
+	}
 	else
 		return (memory);
 	i = 0;
@@ -53,7 +61,10 @@ char	*get_next_line_suite(char *memory, char *line, size_t *i)
 		(*i)++;
 	memory = malloc(sizeof(char) * (ft_strlen(line) - (*i) + 1));
 	if (!memory)
-		return (0);
+	{
+		free (line);
+		return (NULL);
+	}
 	return (memory);
 }
 
@@ -65,16 +76,20 @@ char	*get_next_line(int fd)
 	static char	*memory;
 	int			final;
 
+	if (fd < 0)
+		return (NULL);
 	final = 0;
 	if (!memory)
 		memory = ft_calloc(sizeof(char), 1);
 	line = backtrack(fd, buf, memory, &final);
-	if (!*line)
+	if (!line)
 	{
 		free (line);
-		return (NULL);
+		return (0);
 	}
 	memory = get_next_line_suite(memory, line, &i);
+	if (!memory)
+		return (NULL);
 	if (!final)
 	{
 		ft_strlcpy(memory, &line[i + 1], ft_strlen(line) - i + 1);
@@ -85,28 +100,28 @@ char	*get_next_line(int fd)
 	return (line);
 }
 /*
-int main(void)
+int main(int ac, char **av)
 {
     int fd;
     int ret;
     char *line;
     
-    fd = open("Test", O_RDONLY);
+    //fd = open(av[1], O_RDONLY);
+    //fd = 0;
     if (fd == -1)
     {
         printf("non");
         return (0);
     }
-    line = get_next_line(fd);
-    
+    line = get_next_line(-1);
     while (line)
     {
         printf("%s", line);
         free(line);
         line = get_next_line(fd);
     }
-    free (line);
-    if (close(fd) == -1)
+    //free (line);
+  	if (close(fd) == -1)
     {
         printf("\nclose echec");
         return (0);
