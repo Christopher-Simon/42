@@ -4,3 +4,21 @@ Hello Chris,
 
 - Comment sont vos harengs pomme a l huile ?
 - Le chef vous en mettra un ramequin, vous vous en ferez une idee.
+
+static int i
+static char * Test = calloc(1000000);
+int buff
+int j;
+test++;
+while (!n)
+{
+    buf = read(fd, test + i, buffer_size);
+    i += buf
+    while (i - buf + j != i)
+        j++;
+        if (test[i - buff + j] == '\n')
+            n = i - buff + j;
+}
+test[0] = i;
+return (strndup(test - i, n))
+

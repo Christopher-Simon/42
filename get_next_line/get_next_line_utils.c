@@ -6,7 +6,7 @@
 /*   By: chsimon <chsimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/03 16:04:52 by chsimon           #+#    #+#             */
-/*   Updated: 2021/12/07 23:30:10 by chsimon          ###   ########.fr       */
+/*   Updated: 2021/12/08 16:59:24 by chsimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@ size_t  ft_strlen(const char *s)
 {
     int i;
     
+	if (!s)
+		return (0);
     i = 0;
     while (s[i])
         i++;
@@ -70,4 +72,20 @@ char	*ft_strchr(const char *s, int c)
 		i++;
 	}
 	return (0);
+}
+
+void	*ft_calloc(size_t nmemb, size_t size)
+{
+	char	*copy;
+	int	    i;
+    size_t  n;
+
+    n = nmemb * size;
+	i = 0;
+	copy = malloc(nmemb * size);
+	if (!copy)
+		return (0);
+	while (n--)
+		*((unsigned char *)copy + i++) = '\0';
+	return (copy);
 }
