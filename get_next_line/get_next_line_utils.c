@@ -6,7 +6,7 @@
 /*   By: chsimon <chsimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/03 16:04:52 by chsimon           #+#    #+#             */
-/*   Updated: 2021/12/06 15:54:03 by chsimon          ###   ########.fr       */
+/*   Updated: 2021/12/07 23:30:10 by chsimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,4 +54,20 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	ft_strlcpy(s_join, (char *)s1, (len1) + 1);
 	ft_strlcpy(&s_join[len1], (char *)s2, len2 + 1);
 	return (s_join);
+}
+
+char	*ft_strchr(const char *s, int c)
+{
+	size_t	i;
+	size_t	len;
+
+	i = 0;
+	len = ft_strlen(s);
+	while (i <= len)
+	{
+		if (s[i] == (const char)c)
+			return ((char *)&s[i]);
+		i++;
+	}
+	return (0);
 }
