@@ -68,6 +68,8 @@ char	*get_next_line(int fd)
 	size_t		n;
 	static char	*memory[1024];
 
+	if (fd < 0 || fd > 1024 || BUFFER_SIZE <= 0)
+		return (NULL);
 	n = 0;
 	line = ft_calloc(sizeof(char), 1);
 	if (memory[fd])

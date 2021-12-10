@@ -21,6 +21,7 @@ char	*get_buf(int fd, char *buf, char *line, size_t *n)
 	if (ret <= 0 && line[0] == '\0')
 	{
 		free(line);
+		line = NULL;
 		return (NULL);
 	}
 	else if (ret == 0 && line)
@@ -68,6 +69,8 @@ char	*get_next_line(int fd)
 	size_t		n;
 	static char	*memory[1024];
 
+	if (fd < 0 || fd > 1024 || BUFFER_SIZE <= 0)
+		return (NULL);
 	n = 0;
 	line = ft_calloc(sizeof(char), 1);
 	if (memory[fd])
