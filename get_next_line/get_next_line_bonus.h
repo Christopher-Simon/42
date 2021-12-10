@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   get_next_line_bonus.h                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: chsimon <chsimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/06 12:49:28 by chsimon           #+#    #+#             */
-/*   Updated: 2021/12/10 10:26:43 by chsimon          ###   ########.fr       */
+/*   Created: 2021/12/10 10:09:09 by chsimon           #+#    #+#             */
+/*   Updated: 2021/12/10 10:26:41 by chsimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
+#ifndef GET_NEXT_LINE_BONUS_H
+# define GET_NEXT_LINE__BONUS_H
 
 # include <stddef.h>
 # include <stdlib.h>

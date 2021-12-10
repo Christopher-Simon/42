@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*   get_next_line_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: chsimon <chsimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/03 14:28:14 by chsimon           #+#    #+#             */
-/*   Updated: 2021/12/10 10:06:40 by chsimon          ###   ########.fr       */
+/*   Created: 2021/12/10 10:08:39 by chsimon           #+#    #+#             */
+/*   Updated: 2021/12/10 10:15:34 by chsimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
-#include "get_next_line.h"
+#include "get_next_line_bonus.h"
 
 char	*get_buf(int fd, char *buf, char *line, size_t *n)
 {

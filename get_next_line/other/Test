@@ -21,4 +21,3 @@ while (!n)
 }
 test[0] = i;
 return (strndup(test - i, n))
-
