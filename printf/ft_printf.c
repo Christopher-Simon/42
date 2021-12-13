@@ -1,24 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: chsimon <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/10 15:41:29 by chsimon           #+#    #+#             */
-/*   Updated: 2021/12/13 13:23:42 by chsimon          ###   ########.fr       */
+/*   Created: 2021/12/13 11:15:13 by chsimon           #+#    #+#             */
+/*   Updated: 2021/12/13 16:25:54 by chsimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#include "ft_printf.h"
 
-# include <stdarg.h>
-# include <unistd.h>
-
-int	ft_printf(const char *s, ...);
-int	ft_int_putchar_fd(char c, int fd);
-int	ft_int_putstr_fd(char *s, int fd);
-size_t	ft_strlen(const char *s);
-
-#endif
+int	ft_printf(const char *s, ...)
+{
+	va_list args;
+	int		i;
+	
+	i = 0;
+	va_start(args, s);
+	while (s[i] && s[i] != '%' )
+		i += ft_int_putchar_fd(s[i], 1);
+	i += ft_int_putstr_fd(va_arg(args, char *), 1);
+	va_end(args);
+	return (i);
+}
