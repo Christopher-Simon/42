@@ -1,22 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: chsimon <chsimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/12 18:58:33 by chsimon           #+#    #+#             */
-/*   Updated: 2022/01/04 17:20:54 by chsimon          ###   ########.fr       */
+/*   Created: 2021/11/15 15:25:40 by chsimon           #+#    #+#             */
+/*   Updated: 2022/01/04 16:28:25 by chsimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include "printf.h"
+#include <unistd.h>
 
-
-int	main(void)
+int	ft_putchar_fd(char c, int fd)
 {
-	char	*str = "Hello, world !";
-//	printf("\n--%d--\n",printf("Salut à tous,\n%s", str));
-	printf("\n--%d--\n",ft_printf("Salut à tous,\n%s", str));
+	write(fd, &c, 1);
+	return (1);
 }
+/*
+int	main(int ac, char **av)
+{
+	if (ac != 2)
+		return (0);
+	ft_putchar_fd(av[1][0], 1);
+}*/
