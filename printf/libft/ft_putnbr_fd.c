@@ -6,7 +6,7 @@
 /*   By: chsimon <chsimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/15 15:51:20 by chsimon           #+#    #+#             */
-/*   Updated: 2021/11/26 15:13:24 by chsimon          ###   ########.fr       */
+/*   Updated: 2022/01/12 12:51:27 by chsimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,3 @@ void	ft_putnbr_fd(int n, int fd)
 		ft_putnbr_fd(a / 10, fd);
 	ft_putchar_fd(a % 10 + '0', fd);
 }
-/*
-int	main(void)
-{
-	ft_putnbr_fd(2147483647, 1);
-}*/
