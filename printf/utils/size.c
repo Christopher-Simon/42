@@ -6,17 +6,23 @@
 /*   By: chsimon <chsimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/12 18:29:08 by chsimon           #+#    #+#             */
-/*   Updated: 2022/01/12 18:34:39 by chsimon          ###   ########.fr       */
+/*   Updated: 2022/03/16 12:04:24 by chsimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdio.h>
 #include "../printf.h"
 
-int	find_nb_size(int n)
+int	find_nb_size(t_flags *flag, long int n)
 {
 	int	i;
 
 	i = 0;
+	if (n < 0)
+	{
+		flag->neg++;
+		i++;
+	}
 	if (n == 0)
 		return (1);
 	while (n != 0)
@@ -27,7 +33,26 @@ int	find_nb_size(int n)
 	return (i);
 }
 
-int	find_prec(const char *s)
+int	find_prec(t_flags *flag, const char *s)
+{
+	int	i;
+	(void)flag;
+
+	i = 0;
+	while (s[i])
+	{
+		if (s[i] == '.')
+		{
+			flag->prec = ft_atoi(&s[i + 1]);
+			return (flag->prec);
+		}
+		i++;
+	}
+	flag->prec = 0;
+	return (flag->prec);
+}
+
+int	find_width(t_flags *flag, const char *s)
 {
 	int	i;
 
@@ -35,37 +60,44 @@ int	find_prec(const char *s)
 	while (s[i])
 	{
 		if (s[i] == '.')
-			return (ft_atoi(&s[i + 1]));
+			break;
+		if (ft_isdigit(s[i]) && s[i] != '0')
+			{
+			flag->width = ft_atoi(&s[i]);	
+			return (flag->width);
+			}
 		i++;
 	}
+	flag->width = 0;
+	return (flag->width);
+}
+
+int find_hash(t_flags *flag, const char *s) 
+{
+	(void)flag;
+
+	if (ft_strchr(s, '#'))
+		return (2);
 	return (0);
 }
 
-int	find_width(const char *s)
+int find_zero(t_flags *flag, const char *s) 
 {
-	int	i;
-
-	i = 0;
+	int i;
+	
+	i = 0;	
 	while (s[i])
 	{
-		if (ft_isdigit(s[i]))
-			return (ft_atoi(&s[i]));
+		if (ft_isdigit(s[i]) && s[i] != '0')
+			break;
+		if (s[i] == '0')
+			{
+			flag->zero = 1;	
+			return (flag->width);
+			}
 		i++;
+		
 	}
-	return (0);
-}
-
-int	max_size(int w, int p, int n)
-{
-	if (w > p)
-	{
-		if (w > n)
-			return (w);
-	}
-	if (p > w)
-	{
-		if (p > n)
-			return (p);
-	}
-	return (n);
+	flag->zero = 0;	
+	return (flag->width);
 }

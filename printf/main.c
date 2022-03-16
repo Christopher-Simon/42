@@ -6,7 +6,7 @@
 /*   By: chsimon <chsimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/12 18:58:33 by chsimon           #+#    #+#             */
-/*   Updated: 2022/01/12 18:39:05 by chsimon          ###   ########.fr       */
+/*   Updated: 2022/03/16 18:12:08 by chsimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,21 @@
 
 int	main(void)
 {
+	int y = -2147483648;
+	// char *y = "Hello, world !";
+	char	*str = "%+ 040.20d";
 
-ft_printf("%10.4d",42);
-printf("\n");
-printf("%10.4d|.10d",42);
+	printf("\n");
+	printf("\ntaille: %d", ft_printf(str, y));
+	printf("\n");
+	printf("\ntaille: %d", printf(str, y));
+	printf("\n");
 
 /*
-Flags : 
+-433000444
+0x5579e630f004
+unsigned long int max : 9223372036854775807
+Flags :
 The -	: For the width, align the number on the left.
 The +	: Add a '+' in front of positive signed numeric types
 The ' '	: For the width, add a space
@@ -30,10 +38,9 @@ The 0	: For the width, adds 0s
 The #	: for X and x  
 The .	: Precision : Adds 0s inside the width (makes it bigger if needed), can't use 0 with it
 
-
-%c :	 
-%s :	
-%p :	
+%c :	W 
+%s :	W
+%p :	W
 %d :	W. -0 +
 %i :	W. -0 +
 %u :	W. -0 +

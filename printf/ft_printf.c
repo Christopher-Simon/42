@@ -6,42 +6,105 @@
 /*   By: chsimon <chsimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/12 19:02:15 by chsimon           #+#    #+#             */
-/*   Updated: 2022/01/12 19:18:20 by chsimon          ###   ########.fr       */
+/*   Updated: 2022/03/16 14:31:30 by chsimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 #include "printf.h"
 
-char	*str_fill(char *str, int n, int nb, int d)
+
+int flag_i(t_flags flag, int x, const char *s, int i)
 {
-	while (nb-- >= 0)
-	{
-		str[n - nb] = d % 10;
-		d /= 10;
-	}
-	return (str);
+	x = find_nb_size(&flag, i);
+	if (x < find_width(&flag, s))
+		x = find_width(&flag, s);
+	if (x < find_prec(&flag, s))
+		x = find_prec(&flag, s);
+	if (ft_strchr(s, '+') && (x == flag.size || x <= find_prec(&flag, s)))
+		x++;
+	if (flag.neg && x == find_prec(&flag, s))
+		x++;
+	return (x);
+}
+
+int flag_u(t_flags flag, int x, const char *s, int d)
+{
+	unsigned int i;
+
+	if (d < 0)
+		i = 4294967296 + d;
+	else 
+		i = d;
+	x = find_nb_size(&flag, i);
+	if (x < find_width(&flag, s))
+		x = find_width(&flag, s);
+	if (x < find_prec(&flag, s))
+		x = find_prec(&flag, s);
+	return (x);
+}
+
+int flag_x(t_flags flag, int x, const char *s, long int i)
+{
+	(void) flag;
+	(void) s;
+
+	char *r = ft_convert_base(ft_itoa(i), "0123456789", "0123456789abcdef");
+	x = ft_strlen(r);
+	if (x < find_prec(&flag, s))
+		x = find_prec(&flag, s);
+	if (ft_strchr(s, '#'))
+		x += 2;
+	if (x < find_width(&flag, s))
+		x = find_width(&flag, s);
+	if (flag.neg && x == find_prec(&flag, s))
+		x++;
+	free(r);
+	return (x);
+}
+
+int flag_big_x(t_flags flag, int x, const char *s, int i)
+{
+	(void) flag;
+	(void) s;
+
+	char *r = ft_convert_base(ft_itoa(i), "0123456789", "0123456789abcdef");
+	x = ft_strlen(r);
+	if (x < find_prec(&flag, s))
+		x = find_prec(&flag, s);
+	if (ft_strchr(s, '#'))
+		x += 2;
+	if (x < find_width(&flag, s))
+		x = find_width(&flag, s);
+	if (flag.neg && x == find_prec(&flag, s))
+		x++;
+	free(r);
+	return (x);
 }
 
 int	ft_printf(const char *s, ...)
 {
 	va_list	args;
-	char *str;
 	t_flags flag;
+	int x;
 
 	va_start(args, s);
-	flag.width = find_width(s);
-	flag.prec = find_prec(s);
-	flag.nb_size = find_nb_size(va_arg(args, int));
-	flag.size = max_size(flag.width, flag.prec, flag.nb_size);
-	str = malloc(sizeof(char)*(flag.size + 1));
-	if (!str)
-		return (0);
-	ft_memset(str, ' ', max_size(flag.width, flag.prec, flag.nb_size));
-	printf("%s|\n",str);
-	str_fill(str, flag.size, flag.nb_size, va_arg(args, int));
-	printf("%s|\n",str);
+	if (ft_strchr(s, 'c'))
+		x = flag_c(flag, 0, s, va_arg(args, int));
+	if (ft_strchr(s, 's'))
+		x = flag_s(flag, 0, s, va_arg(args, char *));
+	if (ft_strchr(s, 'p'))
+		x = flag_p(flag, 0, s, va_arg(args, unsigned long));
+	if (ft_strchr(s, 'd'))
+		x = flag_d(flag, 0, s, va_arg(args, int));
+	if (ft_strchr(s, 'i'))
+		x = flag_i(flag, 0, s, va_arg(args, int));
+	if (ft_strchr(s, 'u'))
+		x = flag_u(flag, 0, s, va_arg(args, int));
+	if (ft_strchr(s, 'x'))
+		x = flag_x(flag, 0, s, va_arg(args, long int));
+	if (ft_strchr(s, 'X'))
+		x = flag_big_x(flag, 0, s, va_arg(args, int));
 	va_end(args);
-	free (str);
-	return (1);
+	return (x);
 }
