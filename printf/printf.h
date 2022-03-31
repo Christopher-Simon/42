@@ -6,7 +6,7 @@
 /*   By: chsimon <chsimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/22 18:59:04 by chsimon           #+#    #+#             */
-/*   Updated: 2022/03/30 21:24:43 by chsimon          ###   ########.fr       */
+/*   Updated: 2022/03/31 03:00:34 by chsimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,5 +45,6 @@ int flag_s(t_flags flag, int x, const char *s, char *str);
 int flag_p(t_flags flag, int x, const char *s, unsigned long i);
 int flag_d(t_flags flag, int x, const char *s, int d);
 int flag_i(t_flags flag, int x, const char *s, int d);
+int flag_u(t_flags flag, int x, const char *s, int d);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: chsimon <chsimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/12 18:58:33 by chsimon           #+#    #+#             */
-/*   Updated: 2022/03/31 02:14:09 by chsimon          ###   ########.fr       */
+/*   Updated: 2022/03/31 04:33:40 by chsimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,14 +18,18 @@ int	main(void)
 {
 	// int y = 2;
 	// int y = 2147483647;
-	int y = -2147483648;
+	// int y = -2147483648;
+	int y = 1745977348;
+	// unsigned int y = 4294967295;
+	// unsigned int y = 0;
 	// char *y = "Hello, world !";
-	char	*str = "%+21i";
+	char	*str = "%+ 5.5i";
 
 	printf("\n");
 	printf("\ntaille: %d", ft_printf(str, y));
 	printf("\n");
 	printf("\ntaille: %d", printf(str, y));
+	// printf("\nlong int: %p", y);
 	printf("\n");
 
 /*

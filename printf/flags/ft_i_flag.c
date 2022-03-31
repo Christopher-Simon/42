@@ -6,7 +6,7 @@
 /*   By: chsimon <chsimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/30 21:08:51 by chsimon           #+#    #+#             */
-/*   Updated: 2022/03/31 02:13:25 by chsimon          ###   ########.fr       */
+/*   Updated: 2022/03/31 04:32:58 by chsimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -131,7 +131,7 @@ int flag_i(t_flags flag, int x, const char *s, int i)
 		x = flag.prec + flag.neg;
 	if (x < flag.width)
 		x = flag.width;
-	if ((flag.space || flag.plus) && flag.size >= flag.width)
+	if ((flag.space || flag.plus) && (x == flag.size || x == flag.prec))
 		x += 1 - flag.neg;
 	str = get_i(&flag, i);
 	r = malloc(sizeof(char) * (x + 1));
