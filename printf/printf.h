@@ -6,7 +6,7 @@
 /*   By: chsimon <chsimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/22 18:59:04 by chsimon           #+#    #+#             */
-/*   Updated: 2022/03/31 03:00:34 by chsimon          ###   ########.fr       */
+/*   Updated: 2022/03/31 15:39:13 by chsimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ typedef struct s_flags
 	int plus;
 	int space;
 	int zero;
+	int hash;
 } t_flags;
 
 int	ft_printf(const char *s, ...);
@@ -46,5 +47,7 @@ int flag_p(t_flags flag, int x, const char *s, unsigned long i);
 int flag_d(t_flags flag, int x, const char *s, int d);
 int flag_i(t_flags flag, int x, const char *s, int d);
 int flag_u(t_flags flag, int x, const char *s, int d);
+int flag_x(t_flags flag, int x, const char *s, long int i);
+int flag_big_x(t_flags flag, int x, const char *s, long int i);
 
 #endif

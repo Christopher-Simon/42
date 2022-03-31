@@ -6,51 +6,12 @@
 /*   By: chsimon <chsimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/12 19:02:15 by chsimon           #+#    #+#             */
-/*   Updated: 2022/03/31 03:00:03 by chsimon          ###   ########.fr       */
+/*   Updated: 2022/03/31 15:38:13 by chsimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 #include "printf.h"
-
-
-int flag_x(t_flags flag, int x, const char *s, long int i)
-{
-	(void) flag;
-	(void) s;
-
-	char *r = ft_convert_base(ft_itoa(i), "0123456789", "0123456789abcdef");
-	x = ft_strlen(r);
-	if (x < find_prec(&flag, s))
-		x = find_prec(&flag, s);
-	if (ft_strchr(s, '#'))
-		x += 2;
-	if (x < find_width(&flag, s))
-		x = find_width(&flag, s);
-	if (flag.neg && x == find_prec(&flag, s))
-		x++;
-	free(r);
-	return (x);
-}
-
-int flag_big_x(t_flags flag, int x, const char *s, int i)
-{
-	(void) flag;
-	(void) s;
-
-	char *r = ft_convert_base(ft_itoa(i), "0123456789", "0123456789abcdef");
-	x = ft_strlen(r);
-	if (x < find_prec(&flag, s))
-		x = find_prec(&flag, s);
-	if (ft_strchr(s, '#'))
-		x += 2;
-	if (x < find_width(&flag, s))
-		x = find_width(&flag, s);
-	if (flag.neg && x == find_prec(&flag, s))
-		x++;
-	free(r);
-	return (x);
-}
 
 int	ft_printf(const char *s, ...)
 {

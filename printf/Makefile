@@ -14,6 +14,8 @@ SRCS=	ft_printf.c\
 	flags/ft_d_flag.c\
 	flags/ft_i_flag.c\
 	flags/ft_u_flag.c\
+	flags/ft_x_flag.c\
+	flags/ft_big_x_flag.c\
 	libft/ft_itoa.c\
 	libft/ft_putchar_fd.c\
 	libft/ft_putstr_fd.c\

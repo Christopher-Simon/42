@@ -6,7 +6,7 @@
 /*   By: chsimon <chsimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/15 13:19:29 by chsimon           #+#    #+#             */
-/*   Updated: 2022/03/16 12:05:10 by chsimon          ###   ########.fr       */
+/*   Updated: 2022/03/31 14:12:22 by chsimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ void get_flags(t_flags *flag, const char *s)
 	flag->plus = 0;
 	flag->space = 0;
 	flag->zero = 0;
+	flag->hash = 0;
 
 	find_width(flag, s);
 	find_prec(flag, s);
@@ -34,4 +35,6 @@ void get_flags(t_flags *flag, const char *s)
 		flag->space = 1;
 	if (ft_strchr(s, '+'))
 		flag->plus = 1;
+	if (ft_strchr(s, '#'))
+		flag->hash = 1;
 }
