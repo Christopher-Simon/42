@@ -6,7 +6,7 @@
 /*   By: chsimon <chsimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/12 18:29:08 by chsimon           #+#    #+#             */
-/*   Updated: 2022/03/31 00:49:57 by chsimon          ###   ########.fr       */
+/*   Updated: 2022/03/31 17:21:18 by chsimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ int	find_prec(t_flags *flag, const char *s)
 			if (flag->prec == 0)
 			{
 				flag->prec = 1;
-				return (flag->prec);
+				return (0);
 			}
 			return (flag->prec);
 		}

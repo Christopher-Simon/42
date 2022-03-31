@@ -6,7 +6,7 @@
 /*   By: chsimon <chsimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/12 18:58:33 by chsimon           #+#    #+#             */
-/*   Updated: 2022/03/31 15:40:12 by chsimon          ###   ########.fr       */
+/*   Updated: 2022/04/01 01:56:05 by chsimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,12 +23,12 @@ int	main(void)
 	// unsigned int y = 4294967295;
 	// unsigned int y = 0;
 	char *y = "Hello, world !";
-	char	*str = "%#+ -0.X";
+	char	*str = "%+030p";
 
 	printf("\n");
-	printf("\ntaille: %d", ft_printf(str, y));
+	printf("|\ntaille: %d", ft_printf(str, y));
 	printf("\n");
-	printf("\ntaille: %d", printf(str, y));
+	printf("|\ntaille: %d", printf(str, y));
 	// printf("\nlong int: %p", y);
 	printf("\n");
 

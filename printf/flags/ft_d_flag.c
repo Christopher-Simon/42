@@ -6,7 +6,7 @@
 /*   By: chsimon <chsimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/16 14:24:59 by chsimon           #+#    #+#             */
-/*   Updated: 2022/03/31 04:30:52 by chsimon          ###   ########.fr       */
+/*   Updated: 2022/04/01 01:44:13 by chsimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,13 @@ static void prec(t_flags *flag, int x, char *r)
 		i = flag->prec;
 	if (flag->minus && (flag->space || flag->plus))
 		i--;
+	x--;
+	i--;
+	while(r[x] == ' ')
+	{
+		x--;
+		i--;
+	}
 	while (x-- && i--)
 	{
 		if (r[x] == ' ')
@@ -32,26 +39,33 @@ static void prec(t_flags *flag, int x, char *r)
 
 static void plus(int x, char *r)
 {
-	x++;
-	while (x--)
+	x--;
+	while(r[x] == ' ')
+		x--;
+	while (x >= 0)
 	{
 		if (r[x] == ' ')
 		{
 			r[x] = '+';
 			break;
 		}
+		x--;
 	}
 }
 
 static void neg(int x, char *r)
 {
-	while (x--)
+	x--;
+	while(r[x] == ' ')
+		x--;
+	while (x >= 0)
 	{
 		if (r[x] == ' ')
 		{
 			r[x] = '-';
 			break;
 		}
+		x--;
 	}
 }
 
@@ -62,10 +76,13 @@ static void zero(t_flags *flag, int x, char *r)
 	i = flag->width;
 	if (flag->neg || flag->plus || flag->space)
 		i--;
-	while (x-- && i--)
+	while(r[x] == ' ')
+		x--;
+	while (x >= 0 && i--)
 	{
 		if (r[x] == ' ')
 			r[x] = '0';
+		x--;
 	}
 }
 
@@ -76,27 +93,28 @@ void d_minus(t_flags *flag, int x, char *r, char *str)
 		x = flag->prec;
 	if ((flag->minus && (flag->space || flag->plus)) || flag->neg)
 		x++;
-	ft_strlcpy(&r[x - flag->size], str, flag->size + 1);
-	if (flag->neg)
-		r[0]='-';
-	if (flag->plus && !flag->neg)
-		r[0]='+';
+	ft_strcpy(&r[x - flag->size], str, flag->size);
+	// if (flag->neg)
+	// 	r[0]='-';
+	// if (flag->plus && !flag->neg)
+	// 	r[0]='+';
 }
 
 char	*d_fillis(t_flags *flag, int x, char *r, char *str)
 {
 	printf(" x : %d\n size : %d\n width : %d\n prec : %d\n\n", x, flag->size, flag->width, flag->prec);
 	ft_memset(r, ' ', x);
+	r[x + 1] = '\0';
 	if (!flag->minus)
-		ft_strlcpy(&r[x - (flag->size) - flag->minus], str, flag->size + 1);
+		ft_strcpy(&r[x - (flag->size) - flag->minus], str, flag->size);
 	else 
 		d_minus(flag, x, r ,str);
 	if (flag->prec)
 		prec(flag, x, r);
-	if (flag->neg)
-		neg(x, r);
 	if (flag->zero && !flag->prec && !flag->minus)
 		zero(flag, x, r);
+	if (flag->neg)
+		neg(x, r);
 	if (flag->plus && !flag->neg)
 		plus(x, r);
 	free(str);
@@ -138,6 +156,7 @@ int flag_d(t_flags flag, int x, const char *s, int d)
 	if (!r)
 		return(0);
 	d_fillis(&flag, x, r, str);
+	printf("taille r : %ld\n", ft_strlen(r));
 	ft_putstr_fd(r, 1);
 	free(r);
 	return (x);

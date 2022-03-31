@@ -6,59 +6,120 @@
 /*   By: chsimon <chsimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/16 14:23:56 by chsimon           #+#    #+#             */
-/*   Updated: 2022/03/16 14:24:21 by chsimon          ###   ########.fr       */
+/*   Updated: 2022/04/01 01:55:23 by chsimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 #include "../printf.h"
 
-char *p_fillis(t_flags *flag, int x, char *r, char *str)
+static void prec(t_flags *flag, int x, char *r)
 {
-	int push = 0;
-	
-	if (flag->space || flag->plus)
-		push = 1;
-	ft_memset(r, ' ', x);
-	if (flag->prec + 2 > flag->size)
-		ft_strlcpy(&r[x - flag->prec - 2], "0x", 3);
-	else
-		ft_strlcpy(&r[x - flag->size], "0x", 3);
-	if (flag->prec + 2 > flag->size)
-		ft_memset(&r[x - flag->prec], '0', (flag->prec + 2 - flag->size));
-	ft_strlcpy(&r[x - flag->size + 2], str, flag->size);
-	if (flag->space)
-		r[0] = ' ';
-	if (flag->plus && (flag->prec + 2 > flag->size))
-		r[x - flag->prec - 3] = '+';
-	else if (flag->plus)
-		r[x - flag->size - 1] = '+';
-	printf(" x : %d\n size : %d\n width : %d\n prec : %d\n\n", x, flag->size, flag->width, flag->prec);
-	if (flag->minus)
-	{
-		if (flag->plus)
-			r[0] = '+';
-		ft_strlcpy(&r[push], "0x", 3);
-		if (flag->prec > flag->size)
-			ft_memset(&r[2 + push], '0', (flag->prec - flag->size + 2));
-		else
-			flag->prec = flag->size - 2;
-		ft_strlcpy(&r[flag->prec - flag->size + 4 + push], str, flag->size - 1);
-		ft_memset(&r[flag->prec + 2 + push], ' ', x - flag->prec + 2);
-		r[x] = '\0';
-	}
-	// size > tout : rien
-	// w > tout 
-	// 		p > size : s'ajuste vers la gauche (0 ou +)
-	//		p < size : rien
-	// p + 2 > tout 
-	// 		size > w : 0x à gauche et 0 entre
-	// 		w > size : "
+	int i;
 
-	// if (flag->minus)
-	// 	ft_strlcpy(r, str, x + 1);
-	// else
-	// 	ft_strlcpy(&r[x - flag->size + 2], str, x + 1);
+	if (flag->minus)
+		i = x;
+	else 
+		i = flag->prec;
+	if (flag->minus && (flag->hash))
+		i -= 2;
+	if (flag->minus && (flag->plus || flag->space))
+		i -= 1;
+	x--;
+	i--;
+	while(r[x] == ' ')
+	{
+		x--;
+		i--;
+	}
+	while (x-- && i--)
+	{
+		if (r[x] == ' ')
+			r[x] = '0';
+	}
+}
+
+static void plus(int x, char *r)
+{
+	x--;
+	while(r[x] == ' ')
+		x--;
+	while (x >= 0)
+	{
+		if (r[x] == ' ')
+		{
+			r[x] = '+';
+			break;
+		}
+		x--;
+	}
+}
+
+static void zero(t_flags *flag, int x, char *r)
+{
+	int i;
+
+	i = flag->width - 1;
+	if (flag->plus || flag->space)
+		i--;
+	while(r[x] == ' ')
+		x--;
+	while (x >= 0 && i--)
+	{
+		if (r[x] == ' ')
+			r[x] = '0';
+		x--;
+	}
+}
+
+static void hash(t_flags *flag, int x, char *r)
+{
+	if (flag->minus)
+		x = flag->size;
+	while (x >= 0)
+	{
+		if (r[x] == ' ')
+		{
+			r[x] = 'x';
+			r[x - 1] = '0';
+			break;
+		}
+		x--;
+	}
+}
+
+void p_minus(t_flags *flag, int x, char *r, char *str)
+{
+	x = flag->size;
+	if (flag->prec > flag->size)
+		x = flag->prec;
+	if (flag->minus && (flag->space || flag->plus))
+		x++;
+	if (flag->hash)
+		x += 2;
+	ft_strcpy(&r[x - flag->size], str, flag->size);
+	// if (flag->neg)
+	// // 	r[0]='-';
+	// if (flag->plus && !flag->neg)
+	// 	r[0]='+';
+}
+
+char	*p_fillis(t_flags *flag, int x, char *r, char *str)
+{
+	printf(" x : %d\n size : %d\n width : %d\n prec : %d\n\n", x, flag->size, flag->width, flag->prec);
+	ft_memset(r, ' ', x);
+	if (!flag->minus)
+		ft_strcpy(&r[x - (flag->size) - flag->minus], str, flag->size);
+	else 
+		p_minus(flag, x, r ,str);
+	if (flag->prec)
+		prec(flag, x, r);
+	if (flag->zero && !flag->prec && !flag->minus)
+		zero(flag, x, r);
+	if (flag->hash)
+		hash(flag, x, r);
+	if (flag->plus && !flag->neg)
+		plus(x, r);
 	free(str);
 	return (r);
 }
@@ -70,32 +131,25 @@ int flag_p(t_flags flag, int x, const char *s, unsigned long i)
 
 	get_flags(&flag, s);
 	str = ft_dec_to_hex((unsigned long) i);
-	x = (ft_strlen(str) + 2);
-	flag.size = x;
-	if (ft_strchr(s, '-'))
-		flag.minus = 1;
-	if (x - 2 < flag.prec)
-		x = (flag.prec + 2);
+	x = ft_strlen(str) + 2;
+	flag.size = x - 2;
+	flag.hash = 1;
+	if (x < flag.prec + 2)
+		x = flag.prec + 2;
 	if (x < flag.width)
 		x = flag.width;
-	if (flag.space || flag.plus)
+	if ((flag.space || flag.plus) 
+		&& (x == (flag.size + 2)|| x == flag.prec + 2))
 	{
-		if ((find_prec(&flag, s) + 2) >= find_width(&flag, s))
-			x += 1;
-		else if (flag.size >= find_width(&flag, s))
-			x += 1;
-	}
-	if (flag.zero && !flag.prec)
-	{
-		flag.prec = flag.width - 2;
-		flag.width = 0;
-	}
+		printf("yes\n");
+		x += 1 - flag.neg;
+	}	
 	r = malloc(sizeof(char) * (x + 1));
 	if (!r)
 		return(0);
 	p_fillis(&flag, x, r, str);
+	printf("taille r : %ld\n", ft_strlen(r));
 	ft_putstr_fd(r, 1);
-	x = ft_strlen(r);
 	free(r);
 	return (x);
 }

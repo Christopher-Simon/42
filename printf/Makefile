@@ -8,6 +8,7 @@ SRCS=	ft_printf.c\
 	utils/ft_itoa_long.c\
 	utils/ft_dec_to_hex.c\
 	utils/ft_get_flags.c\
+	utils/ft_strcpy.c\
 	flags/ft_c_flag.c\
 	flags/ft_s_flag.c\
 	flags/ft_p_flag.c\
