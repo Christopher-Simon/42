@@ -6,7 +6,7 @@
 /*   By: chsimon <chsimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/12 18:29:08 by chsimon           #+#    #+#             */
-/*   Updated: 2022/03/16 12:04:24 by chsimon          ###   ########.fr       */
+/*   Updated: 2022/03/31 00:49:57 by chsimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,6 @@ int	find_nb_size(t_flags *flag, long int n)
 int	find_prec(t_flags *flag, const char *s)
 {
 	int	i;
-	(void)flag;
 
 	i = 0;
 	while (s[i])
@@ -44,6 +43,11 @@ int	find_prec(t_flags *flag, const char *s)
 		if (s[i] == '.')
 		{
 			flag->prec = ft_atoi(&s[i + 1]);
+			if (flag->prec == 0)
+			{
+				flag->prec = 1;
+				return (flag->prec);
+			}
 			return (flag->prec);
 		}
 		i++;

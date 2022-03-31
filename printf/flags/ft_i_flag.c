@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_d_flag.c                                        :+:      :+:    :+:   */
+/*   ft_i_flag.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: chsimon <chsimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/16 14:24:59 by chsimon           #+#    #+#             */
-/*   Updated: 2022/03/31 02:05:33 by chsimon          ###   ########.fr       */
+/*   Created: 2022/03/30 21:08:51 by chsimon           #+#    #+#             */
+/*   Updated: 2022/03/31 02:13:25 by chsimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ static void zero(t_flags *flag, int x, char *r)
 	}
 }
 
-void d_minus(t_flags *flag, int x, char *r, char *str)
+void i_minus(t_flags *flag, int x, char *r, char *str)
 {
 	x = flag->size;
 	if (flag->prec > flag->size)
@@ -83,14 +83,14 @@ void d_minus(t_flags *flag, int x, char *r, char *str)
 		r[0]='+';
 }
 
-char	*d_fillis(t_flags *flag, int x, char *r, char *str)
+char	*i_fillis(t_flags *flag, int x, char *r, char *str)
 {
 	printf(" x : %d\n size : %d\n width : %d\n prec : %d\n\n", x, flag->size, flag->width, flag->prec);
 	ft_memset(r, ' ', x);
 	if (!flag->minus)
 		ft_strlcpy(&r[x - (flag->size) - flag->minus], str, flag->size + 1);
 	else 
-		d_minus(flag, x, r ,str);
+		i_minus(flag, x, r ,str);
 	if (flag->prec)
 		prec(flag, x, r);
 	if (flag->neg)
@@ -103,12 +103,12 @@ char	*d_fillis(t_flags *flag, int x, char *r, char *str)
 	return (r);
 }
 
-char *get_d(t_flags *flag, int d)
+char *get_i(t_flags *flag, int i)
 {
 	char *str;
 	char *r;
 	
-	str = ft_itoa(d);
+	str = ft_itoa(i);
 	if (flag->neg)
 	{
 		r = ft_substr(str, 1, flag->size);
@@ -119,13 +119,13 @@ char *get_d(t_flags *flag, int d)
 	return (r);
 }
 
-int flag_d(t_flags flag, int x, const char *s, int d)
+int flag_i(t_flags flag, int x, const char *s, int i)
 {
 	char *r;
 	char *str;
 
 	get_flags(&flag, s);
-	x = find_nb_size(&flag, d);
+	x = find_nb_size(&flag, i);
 	flag.size = x - flag.neg; 
 	if (x < flag.prec)
 		x = flag.prec + flag.neg;
@@ -133,11 +133,11 @@ int flag_d(t_flags flag, int x, const char *s, int d)
 		x = flag.width;
 	if ((flag.space || flag.plus) && flag.size >= flag.width)
 		x += 1 - flag.neg;
-	str = get_d(&flag, d);
+	str = get_i(&flag, i);
 	r = malloc(sizeof(char) * (x + 1));
 	if (!r)
 		return(0);
-	d_fillis(&flag, x, r, str);
+	i_fillis(&flag, x, r, str);
 	ft_putstr_fd(r, 1);
 	free(r);
 	return (x);

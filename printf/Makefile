@@ -12,6 +12,7 @@ SRCS=	ft_printf.c\
 	flags/ft_s_flag.c\
 	flags/ft_p_flag.c\
 	flags/ft_d_flag.c\
+	flags/ft_i_flag.c\
 	libft/ft_itoa.c\
 	libft/ft_putchar_fd.c\
 	libft/ft_putstr_fd.c\
@@ -21,6 +22,9 @@ SRCS=	ft_printf.c\
 	libft/ft_memset.c\
 	libft/ft_atoi.c\
 	libft/ft_strchr.c\
+	libft/ft_substr.c\
+	libft/ft_calloc.c\
+	libft/ft_bzero.c\
 	main.c
 BONUS=	
 

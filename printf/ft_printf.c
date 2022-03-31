@@ -6,27 +6,13 @@
 /*   By: chsimon <chsimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/12 19:02:15 by chsimon           #+#    #+#             */
-/*   Updated: 2022/03/16 14:31:30 by chsimon          ###   ########.fr       */
+/*   Updated: 2022/03/30 21:24:25 by chsimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 #include "printf.h"
 
-
-int flag_i(t_flags flag, int x, const char *s, int i)
-{
-	x = find_nb_size(&flag, i);
-	if (x < find_width(&flag, s))
-		x = find_width(&flag, s);
-	if (x < find_prec(&flag, s))
-		x = find_prec(&flag, s);
-	if (ft_strchr(s, '+') && (x == flag.size || x <= find_prec(&flag, s)))
-		x++;
-	if (flag.neg && x == find_prec(&flag, s))
-		x++;
-	return (x);
-}
 
 int flag_u(t_flags flag, int x, const char *s, int d)
 {
