@@ -6,7 +6,7 @@
 /*   By: chsimon <chsimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/31 02:59:51 by chsimon           #+#    #+#             */
-/*   Updated: 2022/04/01 02:32:32 by chsimon          ###   ########.fr       */
+/*   Updated: 2022/04/01 17:11:46 by chsimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ void u_minus(t_flags *flag, int x, char *r, char *str)
 
 char	*u_fillis(t_flags *flag, int x, char *r, char *str)
 {
-	printf(" x : %d\n size : %d\n width : %d\n prec : %d\n\n", x, flag->size, flag->width, flag->prec);
+	// printf(" x : %d\n size : %d\n width : %d\n prec : %d\n\n", x, flag->size, flag->width, flag->prec);
 	ft_memset(r, ' ', x);
 	r[x] = '\0';
 	if (!flag->minus)
@@ -93,7 +93,7 @@ char *get_u(t_flags *flag, unsigned int d)
 	return (str);
 }
 
-int flag_u(t_flags flag, int x, const char *s, int d)
+int flag_u(t_flags flag, int x, char *s, int d)
 {
 	unsigned int i;
 	char *r;
@@ -115,7 +115,7 @@ int flag_u(t_flags flag, int x, const char *s, int d)
 	if (!r)
 		return(0);
 	u_fillis(&flag, x, r, str);
-	printf("taille r : %ld\n", ft_strlen(r));
+	// printf("taille r : %ld\n", ft_strlen(r));
 	ft_putstr_fd(r, 1);
 	free(r);
 	return (x);

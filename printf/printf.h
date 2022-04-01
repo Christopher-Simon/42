@@ -6,7 +6,7 @@
 /*   By: chsimon <chsimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/22 18:59:04 by chsimon           #+#    #+#             */
-/*   Updated: 2022/03/31 21:04:03 by chsimon          ###   ########.fr       */
+/*   Updated: 2022/04/01 23:41:31 by chsimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,14 +42,14 @@ char *ft_convert_base(char *nbr, char *base_from, char *base_to);
 char *ft_dec_to_hex(unsigned long i);
 char *ft_itoa_long(long int n);
 size_t	ft_strcpy(char *dst, const char *src, size_t size);
-void get_flags(t_flags *flag, const char *s);
-int flag_c(t_flags flag, int x, const char *s, int c);
-int flag_s(t_flags flag, int x, const char *s, char *str);
-int flag_p(t_flags flag, int x, const char *s, unsigned long i);
-int flag_d(t_flags flag, int x, const char *s, int d);
-int flag_i(t_flags flag, int x, const char *s, int d);
-int flag_u(t_flags flag, int x, const char *s, int d);
-int flag_x(t_flags flag, int x, const char *s, long int i);
-int flag_big_x(t_flags flag, int x, const char *s, long int i);
+void get_flags(t_flags *flag, char *s);
+int flag_c(t_flags flag, int x, char *s, int c);
+int flag_s(t_flags flag, int x, char *s, char *str);
+int flag_p(t_flags flag, int x, char *s, unsigned long i);
+int flag_d(t_flags flag, int x, char *s, int d);
+int flag_i(t_flags flag, int x, char *s, int d);
+int flag_u(t_flags flag, int x, char *s, int d);
+int flag_x(t_flags flag, int x, char *s, long int i);
+int flag_big_x(t_flags flag, int x, char *s, long int i);
 
 #endif

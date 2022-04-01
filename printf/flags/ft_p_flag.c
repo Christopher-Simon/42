@@ -6,7 +6,7 @@
 /*   By: chsimon <chsimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/16 14:23:56 by chsimon           #+#    #+#             */
-/*   Updated: 2022/04/01 02:32:12 by chsimon          ###   ########.fr       */
+/*   Updated: 2022/04/01 23:39:50 by chsimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,7 +106,7 @@ void p_minus(t_flags *flag, int x, char *r, char *str)
 
 char	*p_fillis(t_flags *flag, int x, char *r, char *str)
 {
-	printf(" x : %d\n size : %d\n width : %d\n prec : %d\n\n", x, flag->size, flag->width, flag->prec);
+	// printf(" x : %d\n size : %d\n width : %d\n prec : %d\n\n", x, flag->size, flag->width, flag->prec);
 	ft_memset(r, ' ', x);
 	r[x] = '\0';
 	if (!flag->minus)
@@ -125,7 +125,7 @@ char	*p_fillis(t_flags *flag, int x, char *r, char *str)
 	return (r);
 }
 
-int flag_p(t_flags flag, int x, const char *s, unsigned long i)
+int flag_p(t_flags flag, int x, char *s, unsigned long i)
 {
 	char *str;
 	char *r;

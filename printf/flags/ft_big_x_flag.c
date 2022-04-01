@@ -6,7 +6,7 @@
 /*   By: chsimon <chsimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/31 15:32:26 by chsimon           #+#    #+#             */
-/*   Updated: 2022/04/01 02:34:17 by chsimon          ###   ########.fr       */
+/*   Updated: 2022/04/01 23:41:14 by chsimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,7 +86,7 @@ static void x_minus(t_flags *flag, int x, char *r, char *str)
 
 static char	*x_fillis(t_flags *flag, int x, char *r, char *str)
 {
-	printf(" x : %d\n size : %d\n width : %d\n prec : %d\n\n", x, flag->size, flag->width, flag->prec);
+	// printf(" x : %d\n size : %d\n width : %d\n prec : %d\n\n", x, flag->size, flag->width, flag->prec);
 	ft_memset(r, ' ', x);
 	r[x] = '\0';
 	if (!flag->minus)
@@ -105,7 +105,7 @@ static char	*x_fillis(t_flags *flag, int x, char *r, char *str)
 	return (r);
 }
 
-int flag_big_x(t_flags flag, int x, const char *s, long int i)
+int flag_big_x(t_flags flag, int x, char *s, long int i)
 {
 	char *r;
 	char *str;
