@@ -6,7 +6,7 @@
 /*   By: chsimon <chsimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/31 15:32:26 by chsimon           #+#    #+#             */
-/*   Updated: 2022/03/31 23:51:50 by chsimon          ###   ########.fr       */
+/*   Updated: 2022/04/01 02:07:45 by chsimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,11 +46,12 @@ static void zero(t_flags *flag, int x, char *r)
 	// 	i--;
 	while(r[x] == ' ')
 		x--;
-	while (x >= 0 && i--)
+	while (x >= 0 && i >= 0)
 	{
 		if (r[x] == ' ')
 			r[x] = '0';
 		x--;
+		i--;
 	}
 }
 
@@ -126,6 +127,7 @@ int flag_big_x(t_flags flag, int x, const char *s, long int i)
 	if (!r)
 		return(0);
 	x_fillis(&flag, x, r, str);
+	printf("taille r : %ld\n", ft_strlen(r));
 	ft_putstr_fd(r, 1);
 	free(r);
 	return (x);

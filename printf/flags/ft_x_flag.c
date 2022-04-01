@@ -6,7 +6,7 @@
 /*   By: chsimon <chsimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/31 12:44:18 by chsimon           #+#    #+#             */
-/*   Updated: 2022/03/31 23:51:55 by chsimon          ###   ########.fr       */
+/*   Updated: 2022/04/01 02:07:23 by chsimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,11 +46,12 @@ static void zero(t_flags *flag, int x, char *r)
 	// 	i--;
 	while(r[x] == ' ')
 		x--;
-	while (x >= 0 && i--)
+	while (x >= 0 && i >= 0)
 	{
 		if (r[x] == ' ')
 			r[x] = '0';
 		x--;
+		i--;
 	}
 }
 

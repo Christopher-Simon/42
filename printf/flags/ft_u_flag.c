@@ -6,7 +6,7 @@
 /*   By: chsimon <chsimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/31 02:59:51 by chsimon           #+#    #+#             */
-/*   Updated: 2022/03/31 12:43:51 by chsimon          ###   ########.fr       */
+/*   Updated: 2022/04/01 01:59:42 by chsimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,13 @@ static void prec(t_flags *flag, int x, char *r)
 		i = flag->prec;
 	// if (flag->minus && (flag->space || flag->plus))
 	// 	i--;
+	x--;
+	i--;
+	while(r[x] == ' ')
+	{
+		x--;
+		i--;
+	}
 	while (x-- && i--)
 	{
 		if (r[x] == ' ')
@@ -49,7 +56,7 @@ void u_minus(t_flags *flag, int x, char *r, char *str)
 		x = flag->prec;
 	// if ((flag->minus && (flag->space || flag->plus)) || flag->neg)
 	// 	x++;
-	ft_strlcpy(&r[x - flag->size], str, flag->size + 1);
+	ft_strcpy(&r[x - flag->size], str, flag->size);
 	// if (flag->neg)
 	// 	r[0]='-';
 	// if (flag->plus && !flag->neg)
@@ -61,7 +68,7 @@ char	*u_fillis(t_flags *flag, int x, char *r, char *str)
 	printf(" x : %d\n size : %d\n width : %d\n prec : %d\n\n", x, flag->size, flag->width, flag->prec);
 	ft_memset(r, ' ', x);
 	if (!flag->minus)
-		ft_strlcpy(&r[x - (flag->size) - flag->minus], str, flag->size + 1);
+		ft_strcpy(&r[x - (flag->size) - flag->minus], str, flag->size);
 	else 
 		u_minus(flag, x, r ,str);
 	if (flag->prec)
@@ -107,6 +114,7 @@ int flag_u(t_flags flag, int x, const char *s, int d)
 	if (!r)
 		return(0);
 	u_fillis(&flag, x, r, str);
+	printf("taille r : %ld\n", ft_strlen(r));
 	ft_putstr_fd(r, 1);
 	free(r);
 	return (x);
