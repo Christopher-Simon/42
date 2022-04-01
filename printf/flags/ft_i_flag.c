@@ -6,7 +6,7 @@
 /*   By: chsimon <chsimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/30 21:08:51 by chsimon           #+#    #+#             */
-/*   Updated: 2022/04/01 02:06:47 by chsimon          ###   ########.fr       */
+/*   Updated: 2022/04/01 02:31:39 by chsimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,7 +105,7 @@ char	*i_fillis(t_flags *flag, int x, char *r, char *str)
 {
 	printf(" x : %d\n size : %d\n width : %d\n prec : %d\n\n", x, flag->size, flag->width, flag->prec);
 	ft_memset(r, ' ', x);
-	r[x + 1] = '\0';
+	r[x] = '\0';
 	if (!flag->minus)
 		ft_strcpy(&r[x - (flag->size) - flag->minus], str, flag->size);
 	else 
