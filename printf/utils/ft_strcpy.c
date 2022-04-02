@@ -6,12 +6,12 @@
 /*   By: chsimon <chsimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/31 20:55:33 by chsimon           #+#    #+#             */
-/*   Updated: 2022/03/31 21:03:36 by chsimon          ###   ########.fr       */
+/*   Updated: 2022/04/02 15:48:08 by chsimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../printf.h"
-# include <stddef.h>
+#include <stddef.h>
 
 size_t	ft_strcpy(char *dst, const char *src, size_t size)
 {

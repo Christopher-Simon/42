@@ -6,7 +6,7 @@
 /*   By: chsimon <chsimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/21 21:32:02 by chsimon           #+#    #+#             */
-/*   Updated: 2022/03/14 12:59:35 by chsimon          ###   ########.fr       */
+/*   Updated: 2022/04/02 15:51:17 by chsimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,6 @@ char	*ft_putnbr_base(char *str, unsigned long int n, char *base, int count)
 	if (div != 0)
 		ft_putnbr_base(str, div, base, count - 1);
 	str[count] = base[mod];
-	// printf("%c", base[mod]);
-	// printf("div : %d\n", div);
 	return (str);
 }
 
@@ -76,8 +74,8 @@ char	*to_base(unsigned int nbr, char *base)
 
 char	*ft_convert_base(char *nbr, char *base_from, char *base_to)
 {
-	unsigned int a;
-	char	*str;
+	unsigned int	a;
+	char			*str;
 
 	if (check_base(base_from) == 0 )
 		return (0);

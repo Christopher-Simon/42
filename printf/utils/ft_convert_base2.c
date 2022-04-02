@@ -6,7 +6,7 @@
 /*   By: chsimon <chsimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/22 11:15:15 by chsimon           #+#    #+#             */
-/*   Updated: 2022/03/10 10:43:27 by chsimon          ###   ########.fr       */
+/*   Updated: 2022/04/02 15:51:45 by chsimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,10 +53,10 @@ int	check_pos(char *base, char c )
 
 unsigned int	debasulator(char *base, char *str)
 {
-	unsigned int a;
-	int	i;
-	int	c;
-	int	b;
+	unsigned int	a;
+	int				i;
+	int				c;
+	int				b;
 
 	i = 0;
 	c = 0;
@@ -83,7 +83,7 @@ unsigned int	debasulator(char *base, char *str)
 unsigned int	ft_atoi_base(char *str, char *base)
 {
 	unsigned int	a;
-	int	i;
+	int				i;
 
 	a = 0;
 	i = 0;

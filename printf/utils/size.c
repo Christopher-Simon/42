@@ -6,7 +6,7 @@
 /*   By: chsimon <chsimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/12 18:29:08 by chsimon           #+#    #+#             */
-/*   Updated: 2022/03/31 17:21:18 by chsimon          ###   ########.fr       */
+/*   Updated: 2022/04/02 15:47:33 by chsimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,44 +64,42 @@ int	find_width(t_flags *flag, const char *s)
 	while (s[i])
 	{
 		if (s[i] == '.')
-			break;
+			break ;
 		if (ft_isdigit(s[i]) && s[i] != '0')
-			{
-			flag->width = ft_atoi(&s[i]);	
+		{
+			flag->width = ft_atoi(&s[i]);
 			return (flag->width);
-			}
+		}
 		i++;
 	}
 	flag->width = 0;
 	return (flag->width);
 }
 
-int find_hash(t_flags *flag, const char *s) 
+int	find_hash(t_flags *flag, const char *s)
 {
 	(void)flag;
-
 	if (ft_strchr(s, '#'))
 		return (2);
 	return (0);
 }
 
-int find_zero(t_flags *flag, const char *s) 
+int	find_zero(t_flags *flag, const char *s)
 {
-	int i;
-	
-	i = 0;	
+	int	i;
+
+	i = 0;
 	while (s[i])
 	{
 		if (ft_isdigit(s[i]) && s[i] != '0')
-			break;
+			break ;
 		if (s[i] == '0')
-			{
-			flag->zero = 1;	
+		{
+			flag->zero = 1;
 			return (flag->width);
-			}
+		}
 		i++;
-		
 	}
-	flag->zero = 0;	
+	flag->zero = 0;
 	return (flag->width);
 }

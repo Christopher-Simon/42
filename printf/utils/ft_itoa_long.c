@@ -6,7 +6,7 @@
 /*   By: chsimon <chsimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/10 14:23:53 by chsimon           #+#    #+#             */
-/*   Updated: 2022/03/10 14:51:32 by chsimon          ###   ########.fr       */
+/*   Updated: 2022/04/02 15:48:38 by chsimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,12 +39,12 @@ char	*long_fill(unsigned long int nb, int neg, char *str, int i)
 	return (str);
 }
 
-char *ft_itoa_long(long int n)
+char	*ft_itoa_long(long int n)
 {
-	int				i;
-	char			*str;
+	int					i;
+	char				*str;
 	unsigned long int	nb;
-	int				neg;
+	int					neg;
 
 	nb = n;
 	if (n < 0)

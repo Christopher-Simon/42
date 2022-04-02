@@ -1,4 +1,4 @@
-NAME =	printf.a
+NAME =	libftprintf.a
 CC=gcc
 CFLAGS= -Wall -Wextra -Werror
 SRCS=	ft_printf.c\
@@ -12,11 +12,17 @@ SRCS=	ft_printf.c\
 	flags/ft_c_flag.c\
 	flags/ft_s_flag.c\
 	flags/ft_p_flag.c\
+	flags/ft_p_flag2.c\
 	flags/ft_d_flag.c\
+	flags/ft_d_flag2.c\
 	flags/ft_i_flag.c\
+	flags/ft_i_flag2.c\
 	flags/ft_u_flag.c\
+	flags/ft_u_flag2.c\
 	flags/ft_x_flag.c\
+	flags/ft_x_flag2.c\
 	flags/ft_big_x_flag.c\
+	flags/ft_big_x_flag2.c\
 	libft/ft_itoa.c\
 	libft/ft_putchar_fd.c\
 	libft/ft_putstr_fd.c\
@@ -27,9 +33,9 @@ SRCS=	ft_printf.c\
 	libft/ft_atoi.c\
 	libft/ft_strchr.c\
 	libft/ft_substr.c\
+	libft/ft_strlcpy.c\
 	libft/ft_calloc.c\
-	libft/ft_bzero.c\
-	main.c
+	libft/ft_bzero.c
 BONUS=	
 
 RM= rm -f

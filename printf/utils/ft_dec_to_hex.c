@@ -6,7 +6,7 @@
 /*   By: chsimon <chsimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/10 15:46:53 by chsimon           #+#    #+#             */
-/*   Updated: 2022/03/15 12:58:38 by chsimon          ###   ########.fr       */
+/*   Updated: 2022/04/02 15:50:39 by chsimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,6 @@ static char	*ft_putnbr_base(char *str, unsigned long n, char *base, int count)
 	if (div != 0)
 		ft_putnbr_base(str, div, base, count - 1);
 	str[count] = base[mod];
-	// printf("%c", base[mod]);
-	// printf("div : %d\n", div);
 	return (str);
 }
 
@@ -42,15 +40,14 @@ static int	size_malloc(unsigned long div, unsigned int base_len, int i)
 	return (i);
 }
 
-static char	*to_base(unsigned long  nbr, char *base)
+static char	*to_base(unsigned long nbr, char *base)
 {
-	unsigned int	base_len;
-	char			*str;
-	int				i;
+	unsigned int		base_len;
+	char				*str;
+	int					i;
 	unsigned long int	n;
 
 	i = 1;
-	// base_len = ft_strlen(base);
 	base_len = 16;
 	n = nbr;
 	i = size_malloc(n, base_len, i);
@@ -62,9 +59,10 @@ static char	*to_base(unsigned long  nbr, char *base)
 	return (str);
 }
 
-char *ft_dec_to_hex(unsigned long i)
+char	*ft_dec_to_hex(unsigned long i)
 {
-	char *str;
+	char	*str;
+
 	str = to_base((unsigned long)i, "0123456789abcdef");
 	return (str);
 }

@@ -6,14 +6,14 @@
 /*   By: chsimon <chsimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/15 13:19:29 by chsimon           #+#    #+#             */
-/*   Updated: 2022/04/01 17:07:48 by chsimon          ###   ########.fr       */
+/*   Updated: 2022/04/02 15:49:06 by chsimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 #include "../printf.h"
 
-void get_flags(t_flags *flag, char *s)
+void	get_flags(t_flags *flag, char *s)
 {
 	flag->minus = 0;
 	flag->nb_size = 0;
@@ -25,7 +25,6 @@ void get_flags(t_flags *flag, char *s)
 	flag->space = 0;
 	flag->zero = 0;
 	flag->hash = 0;
-
 	find_width(flag, s);
 	flag->prec_size = find_prec(flag, s);
 	find_zero(flag, s);
