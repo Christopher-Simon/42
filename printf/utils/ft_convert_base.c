@@ -6,7 +6,7 @@
 /*   By: chsimon <chsimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/21 21:32:02 by chsimon           #+#    #+#             */
-/*   Updated: 2022/04/02 15:51:17 by chsimon          ###   ########.fr       */
+/*   Updated: 2022/04/04 11:51:33 by chsimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ char	*ft_putnbr_base(char *str, unsigned long int n, char *base, int count)
 	return (str);
 }
 
-int	ft_strlen(char *str)
+static int	ft_strlen(char *str)
 {
 	int	i;
 

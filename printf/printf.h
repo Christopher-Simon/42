@@ -6,7 +6,7 @@
 /*   By: chsimon <chsimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/22 18:59:04 by chsimon           #+#    #+#             */
-/*   Updated: 2022/04/02 17:35:12 by chsimon          ###   ########.fr       */
+/*   Updated: 2022/04/04 11:48:21 by chsimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,8 @@ char	*ft_convert_base(char *nbr, char *base_from, char *base_to);
 char	*ft_dec_to_hex(unsigned long i);
 char	*ft_itoa_long(long int n);
 size_t	ft_strcpy(char *dst, const char *src, size_t size);
+int		check_flags(char *s);
+int		put_flag(char *s);
 void	get_flags(t_flags *flag, char *s);
 int		flag_c(t_flags flag, int x, char *s, int c);
 int		flag_s(t_flags flag, int x, char *s, char *str);

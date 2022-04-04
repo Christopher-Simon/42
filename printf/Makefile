@@ -3,6 +3,7 @@ CC=gcc
 CFLAGS= -Wall -Wextra -Werror
 SRCS=	ft_printf.c\
 	utils/size.c\
+	utils/checker.c\
 	utils/ft_convert_base.c\
 	utils/ft_convert_base2.c\
 	utils/ft_itoa_long.c\
