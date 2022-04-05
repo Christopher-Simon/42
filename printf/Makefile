@@ -1,6 +1,6 @@
 NAME =	libftprintf.a
 CC=gcc
-CFLAGS= -Wall -Wextra -Werror
+CFLAGS= -Wall -Wextra -Werror -g3
 SRCS=	utils/ft_printf.c\
 	utils/size.c\
 	utils/checker.c\
@@ -37,7 +37,7 @@ SRCS=	utils/ft_printf.c\
 	libft/ft_strlcpy.c\
 	libft/ft_calloc.c\
 	libft/ft_bzero.c
-BONUS=	
+BONUS=	all
 
 RM= rm -f
 OBJS= $(SRCS:.c=.o)

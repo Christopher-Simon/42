@@ -6,7 +6,7 @@
 /*   By: chsimon <chsimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/22 18:59:04 by chsimon           #+#    #+#             */
-/*   Updated: 2022/04/04 11:48:21 by chsimon          ###   ########.fr       */
+/*   Updated: 2022/04/05 12:20:09 by chsimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ typedef struct s_flags
 	int	space;
 	int	zero;
 	int	hash;
+	int	null;
 }	t_flags;
 
 int		ft_printf(const char *s, ...);

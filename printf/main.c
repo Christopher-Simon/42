@@ -6,7 +6,7 @@
 /*   By: chsimon <chsimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/12 18:58:33 by chsimon           #+#    #+#             */
-/*   Updated: 2022/04/05 10:40:30 by chsimon          ###   ########.fr       */
+/*   Updated: 2022/04/05 15:42:44 by chsimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,21 +17,24 @@
 int	main(void)
 {
 	// int y = 0;
-	int y = 2147483647;
+	//int y = 2147483647;
 	// int y = -2147483648;
 	// int y = 1745977348;
-	unsigned int u = 4294967295;
+	// unsigned int u = 4294967295;
 	// unsigned int y = 0;
-	// char *y = "Hello world !";
+	// char *y = "Hello world";
+	// char *y = "Hello, world";
 	// char z = 'c';
-	char	*str = "%++-00##  +/*&-é**&+i encore un test %+u";
+	char	*str = "hello, %.15%";
 
 	printf("\n");
-	printf("|\ntaille: %d", ft_printf(str, y, u));
+	printf("|\ntaille: %d", ft_printf("hello, %15%"));
 	printf("\n");
-	printf("|\ntaille: %d", printf(str, y, u));
+	printf("|\ntaille: %d", printf("hello, %%"));
 	// printf("\nlong int: %p", y);
 	printf("\n");
+
+}
 
 /*
 -433000444
@@ -94,4 +97,3 @@ The Precision flag
 	printf("%05d|05d\n", d);
 	printf("%- 5d|- 5d\n", d);
 */
-}

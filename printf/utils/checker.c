@@ -6,7 +6,7 @@
 /*   By: chsimon <chsimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/02 19:44:50 by chsimon           #+#    #+#             */
-/*   Updated: 2022/04/04 11:54:04 by chsimon          ###   ########.fr       */
+/*   Updated: 2022/04/05 15:52:31 by chsimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,10 +30,12 @@ int	check_flags(char *s)
 	int	i;
 
 	i = 1;
+	// printf("\nflag : %s\n", s);
 	if (!ft_strchr(s, 'c') && !ft_strchr(s, 's')
 		&& !ft_strchr(s, 'p') && !ft_strchr(s, 'd')
 		&& !ft_strchr(s, 'i') && !ft_strchr(s, 'u')
-		&& !ft_strchr(s, 'x') && !ft_strchr(s, 'X'))
+		&& !ft_strchr(s, 'x') && !ft_strchr(s, 'X')
+		&& !ft_strchr(&s[1], '%'))
 		return (0);
 	while (s[i] && !ft_isdigit(s[i]) && s[i] != '.')
 	{
