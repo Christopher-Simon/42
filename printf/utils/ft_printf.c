@@ -6,12 +6,12 @@
 /*   By: chsimon <chsimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/12 19:02:15 by chsimon           #+#    #+#             */
-/*   Updated: 2022/04/04 12:17:08 by chsimon          ###   ########.fr       */
+/*   Updated: 2022/04/04 15:03:36 by chsimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
-#include "printf.h"
+#include "../printf.h"
 
 int	argument(char *s, va_list args)
 {

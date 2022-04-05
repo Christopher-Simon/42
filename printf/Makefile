@@ -1,7 +1,7 @@
 NAME =	libftprintf.a
 CC=gcc
 CFLAGS= -Wall -Wextra -Werror
-SRCS=	ft_printf.c\
+SRCS=	utils/ft_printf.c\
 	utils/size.c\
 	utils/checker.c\
 	utils/ft_convert_base.c\
