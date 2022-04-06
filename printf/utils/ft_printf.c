@@ -6,7 +6,7 @@
 /*   By: chsimon <chsimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/12 19:02:15 by chsimon           #+#    #+#             */
-/*   Updated: 2022/04/05 15:52:48 by chsimon          ###   ########.fr       */
+/*   Updated: 2022/04/06 13:02:44 by chsimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,9 +35,9 @@ int	argument(char *s, va_list args)
 		x = flag_x(flag, 0, s, va_arg(args, long int));
 	if (ft_strchr(s, 'X'))
 		x = flag_big_x(flag, 0, s, va_arg(args, int));
-	if (ft_strchr(&s[1], '%'))
+	if (ft_strchr(s, '%'))
 	{
-		ft_putchar_fd('%',1);
+		ft_putchar_fd('%', 1);
 		x = 1;
 	}
 	return (x);
@@ -50,19 +50,18 @@ int	ft_printf2(const char *s, va_list args, int x, int i)
 
 	mem = 0;
 	if (!s)
-		return (0);
+		return (-1);
 	while (s[i])
 	{
 		if (s[i] != '%')
 			ft_putchar_fd(s[i], 1);
 		else
 		{
-			mem = i;
-			while (!ft_isalpha(s[i]))
+			mem = ++i;
+			while (s[i] && !ft_isalpha(s[i]) && s[i] != '%')
 				i++;
 			s_flag = ft_substr(s, mem, i - mem + 1);
-			// printf("\ns_flag : %s\n", s_flag);
-			// printf("\ncheck_flag : %d\n", check_flags(s_flag));
+			// printf("s_flag : %s\n", s_flag);
 			if (!check_flags(s_flag))
 				x += argument(s_flag, args);
 			else
@@ -70,6 +69,8 @@ int	ft_printf2(const char *s, va_list args, int x, int i)
 			x--;
 			free(s_flag);
 		}
+		if (!s[i])
+			return (x + 1);
 		i++;
 		x++;
 	}
