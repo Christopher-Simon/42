@@ -6,7 +6,7 @@
 /*   By: chsimon <chsimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/16 14:23:04 by chsimon           #+#    #+#             */
-/*   Updated: 2022/04/05 15:03:24 by chsimon          ###   ########.fr       */
+/*   Updated: 2022/04/06 14:55:49 by chsimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,24 @@ char	*s_fillis(t_flags *flag, int x, char *r, char *str)
 		ft_strcpy(&r[x - flag->size], str, flag->size);
 	else
 		ft_strcpy(r, str, flag->size);
+	return (r);
+}
+
+char	*flag_s_null(t_flags *flag, int *y, char *r, char *str)
+{
+
+	if (!flag->width &&flag->prec && flag->prec_size < 6)
+	{
+		*y = 0;
+	}
+	else if (flag->prec && flag->width)
+	{
+		*y = flag->width;
+	}
+	r = malloc(sizeof(char) * (*y + 1));
+	if (!r)
+		return (0);
+	s_fillis(flag, *y, r, str);
 	return (r);
 }
 
@@ -43,13 +61,15 @@ int	flag_s(t_flags flag, int x, char *s, char *str)
 	flag.size = x;
 	if (x < flag.width)
 		x = flag.width;
+	if (flag.null)
+	{
+		flag_s_null(&flag, &x, r, "(null)");
+		return (x);
+	}
 	r = malloc(sizeof(char) * (x + 1));
 	if (!r)
 		return (0);
-	if (!flag.null)
-		s_fillis(&flag, x, r, str);
-	else 
-		s_fillis(&flag, x, r, "(null)");
+	s_fillis(&flag, x, r, str);
 	ft_putstr_fd(r, 1);
 	free(r);
 	if (flag.prec && (flag.size == flag.prec_size))

@@ -6,7 +6,7 @@
 /*   By: chsimon <chsimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/16 14:20:40 by chsimon           #+#    #+#             */
-/*   Updated: 2022/04/02 16:02:57 by chsimon          ###   ########.fr       */
+/*   Updated: 2022/04/06 13:29:22 by chsimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,10 @@ char	*c_fillis(t_flags *flag, int x, char *r, int c)
 int	flag_c(t_flags flag, int x, char *s, int c)
 {
 	char	*r;
+	int 	i;
 
 	x = 1;
+	i = 0;
 	get_flags(&flag, s);
 	if (x < flag.width)
 		x = flag.width;
@@ -36,7 +38,9 @@ int	flag_c(t_flags flag, int x, char *s, int c)
 	if (!r)
 		return (0);
 	c_fillis(&flag, x, r, c);
-	ft_putstr_fd(r, 1);
+	// ft_putstr_fd(r, 1);
+	while (i < x)
+		ft_putchar_fd(r[i++],1);
 	free(r);
 	return (x);
 }
