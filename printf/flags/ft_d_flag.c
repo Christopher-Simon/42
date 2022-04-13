@@ -6,7 +6,7 @@
 /*   By: chsimon <chsimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/16 14:24:59 by chsimon           #+#    #+#             */
-/*   Updated: 2022/04/02 17:28:38 by chsimon          ###   ########.fr       */
+/*   Updated: 2022/04/13 16:56:04 by chsimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,21 +39,40 @@ char	*get_d(t_flags *flag, int d)
 	return (r);
 }
 
+char	*flag_d_null(int x)
+{
+	char *str;
+
+	str = malloc(x + 1);
+	if (!str)
+		return(0);
+	ft_strlcpy(str, " ", 2);
+	return (str);
+}
+
 int	flag_d(t_flags flag, int x, char *s, int d)
 {
 	char	*r;
 	char	*str;
 
 	get_flags(&flag, s);
-	x = find_nb_size(&flag, d);
+	if (!d && flag.prec_size == 0)
+		flag.null = 1;
+	if (flag.null && flag.prec && flag.prec_size == 0)
+		x = flag.prec_size;
+	else
+		x = find_nb_size(&flag, d);
 	flag.size = x - flag.neg;
-	if (x < flag.prec)
+	if (x < flag.prec && !flag.null)
 		x = flag.prec + flag.neg;
 	if (x < flag.width)
 		x = flag.width;
 	if ((flag.space || flag.plus) && (x == flag.size || x == flag.prec))
 		x += 1 - flag.neg;
-	str = get_d(&flag, d);
+	if (flag.null && flag.prec && flag.prec_size == 0)
+		str = flag_d_null(1);
+	else
+		str = get_d(&flag, d);
 	r = malloc(sizeof(char) * (x + 1));
 	if (!r)
 		return (0);

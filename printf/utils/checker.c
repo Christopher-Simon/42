@@ -6,7 +6,7 @@
 /*   By: chsimon <chsimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/02 19:44:50 by chsimon           #+#    #+#             */
-/*   Updated: 2022/04/06 12:04:36 by chsimon          ###   ########.fr       */
+/*   Updated: 2022/04/13 18:29:43 by chsimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,13 @@ int	flag_first(char c)
 	return (0);
 }
 
+int	ft_isdig_not_0(int c)
+{
+	if (c >= '1' && c <= '9')
+		return (1);
+	return (0);
+}
+
 int	check_flags(char *s)
 {
 	int	i;
@@ -38,7 +45,7 @@ int	check_flags(char *s)
 		{
 		return (0);
 		}
-	while (s[i] && !ft_isdigit(s[i]) && s[i] != '.')
+	while (s[i] && !ft_isdig_not_0(s[i]) && s[i] != '.')
 	{
 		if (!flag_first(s[i]))
 			return (i);

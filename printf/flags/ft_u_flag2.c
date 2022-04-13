@@ -6,7 +6,7 @@
 /*   By: chsimon <chsimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/02 17:17:30 by chsimon           #+#    #+#             */
-/*   Updated: 2022/04/02 17:23:38 by chsimon          ###   ########.fr       */
+/*   Updated: 2022/04/13 16:58:38 by chsimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,13 +17,15 @@ static void	prec(t_flags *flag, int x, char *r)
 {
 	int	i;
 
+	if (!x)
+		return ;
 	if (flag->minus)
 		i = x;
 	else
 		i = flag->prec;
 	x--;
 	i--;
-	while (r[x] == ' ')
+	while (r[x] == ' ' && x > 0)
 	{
 		x--;
 		i--;

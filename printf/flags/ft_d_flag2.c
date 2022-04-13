@@ -6,7 +6,7 @@
 /*   By: chsimon <chsimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/02 17:27:49 by chsimon           #+#    #+#             */
-/*   Updated: 2022/04/02 17:28:41 by chsimon          ###   ########.fr       */
+/*   Updated: 2022/04/13 17:48:14 by chsimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,19 +17,24 @@ static void	prec(t_flags *flag, int x, char *r)
 {
 	int	i;
 
+	if (!x)
+		return ;
 	if (flag->minus)
 		i = x;
 	else
 		i = flag->prec;
-	if (flag->minus && (flag->space || flag->plus))
+	if (flag->minus && (flag->neg || flag->space || flag->plus))
 		i--;
 	x--;
 	i--;
-	while (r[x] == ' ')
+	while (r[x] == ' ' && x > 0)
 	{
 		x--;
 		i--;
 	}
+	//test
+	// printf("x = %d & i = %d\n", x, i);
+	// printf("i : %d\n", i);
 	while (x-- && i--)
 	{
 		if (r[x] == ' ')
@@ -37,9 +42,15 @@ static void	prec(t_flags *flag, int x, char *r)
 	}
 }
 
-static void	plus(int x, char *r)
+static void	plus(t_flags *flag, int x, char *r)
 {
-	x--;
+	if (!flag->null)
+		x--;
+	if (flag->null && flag->plus && flag->minus)
+	{
+		x--;	
+		r[0] = '+';
+	}
 	while (r[x] == ' ')
 		x--;
 	while (x >= 0)
@@ -102,7 +113,7 @@ char	*d_fillis(t_flags *flag, int x, char *r, char *str)
 	if (flag->neg)
 		neg(x, r);
 	if (flag->plus && !flag->neg)
-		plus(x, r);
+		plus(flag, x, r);
 	free(str);
 	return (r);
 }

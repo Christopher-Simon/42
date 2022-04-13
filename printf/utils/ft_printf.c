@@ -6,7 +6,7 @@
 /*   By: chsimon <chsimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/12 19:02:15 by chsimon           #+#    #+#             */
-/*   Updated: 2022/04/08 14:57:18 by chsimon          ###   ########.fr       */
+/*   Updated: 2022/04/13 16:08:07 by chsimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int	argument(char *s, va_list args)
 	if (ft_strchr(s, 'd'))
 		x = flag_d(flag, 0, s, va_arg(args, int));
 	if (ft_strchr(s, 'i'))
-		x = flag_i(flag, 0, s, va_arg(args, int));
+		x = flag_d(flag, 0, s, va_arg(args, int));
 	if (ft_strchr(s, 'u'))
 		x = flag_u(flag, 0, s, va_arg(args, int));
 	if (ft_strchr(s, 'x'))
