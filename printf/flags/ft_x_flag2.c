@@ -6,7 +6,7 @@
 /*   By: chsimon <chsimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/02 17:24:08 by chsimon           #+#    #+#             */
-/*   Updated: 2022/04/13 17:15:18 by chsimon          ###   ########.fr       */
+/*   Updated: 2022/04/13 18:47:47 by chsimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,9 +65,11 @@ static void	hash(t_flags *flag, int x, char *r)
 		{
 			r[x] = 'x';
 			r[x - 1] = '0';
-			break ;
+			return ;
 		}
 	}
+	r[1] = 'x';
+	r[0] = '0';
 }
 
 void	x_minus(t_flags *flag, int x, char *r, char *str)
@@ -90,10 +92,10 @@ char	*x_fillis(t_flags *flag, int x, char *r, char *str)
 		x_minus(flag, x, r, str);
 	if (flag->prec)
 		prec(flag, x, r);
-	if (flag->hash)
-		hash(flag, x, r);
 	if (flag->zero && !flag->prec && !flag->minus)
 		zero(flag, x, r);
+	if (flag->hash)
+		hash(flag, x, r);
 	free(str);
 	return (r);
 }

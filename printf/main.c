@@ -6,7 +6,7 @@
 /*   By: chsimon <chsimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/12 18:58:33 by chsimon           #+#    #+#             */
-/*   Updated: 2022/04/13 18:35:44 by chsimon          ###   ########.fr       */
+/*   Updated: 2022/04/13 18:49:58 by chsimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 
 int	main(void)
 {
-	int y = 34;
+	int y = 43;
 	// int y = 2;
 	//int y = 2147483647;
 	// int y = -2147483648;
@@ -29,7 +29,7 @@ int	main(void)
 	// char *y = "Hello, world !";
 	// char y = '\0';
 
-	char	*str = "%#5X";
+	char	*str = "%#015X";
 
 	printf("\n");
 	printf("|\ntaille: %d", ft_printf(str, y));
