@@ -6,7 +6,7 @@
 /*   By: chsimon <chsimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/31 02:59:51 by chsimon           #+#    #+#             */
-/*   Updated: 2022/05/05 16:14:36 by chsimon          ###   ########.fr       */
+/*   Updated: 2022/05/05 17:34:04 by chsimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,20 @@ char	*flag_u_null(int x)
 	return (str);
 }
 
+int	magic_u(t_flags *flag, int x, unsigned int i)
+{
+	if (flag->null && flag->prec && flag->prec_size == 0)
+		x = flag->prec_size;
+	else
+		x = find_nb_size(flag, i);
+	flag->size = x;
+	if (x < flag->prec && !flag->null)
+		x = flag->prec;
+	if (x < flag->width)
+		x = flag->width;
+	return (x);
+}
+
 int	flag_u(t_flags flag, int x, char *s, int d)
 {
 	unsigned int	i;
@@ -46,15 +60,7 @@ int	flag_u(t_flags flag, int x, char *s, int d)
 		i = 4294967296 + d;
 	else
 		i = d;
-	if (flag.null && flag.prec && flag.prec_size == 0)
-		x = flag.prec_size;
-	else
-		x = find_nb_size(&flag, i);
-	flag.size = x;
-	if (x < flag.prec && !flag.null)
-		x = flag.prec;
-	if (x < flag.width)
-		x = flag.width;
+	x = magic_u(& flag, x, i);
 	if (flag.null && flag.prec && flag.prec_size == 0)
 		str = flag_u_null(1);
 	else

@@ -6,7 +6,7 @@
 /*   By: chsimon <chsimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/22 18:59:04 by chsimon           #+#    #+#             */
-/*   Updated: 2022/04/05 12:20:09 by chsimon          ###   ########.fr       */
+/*   Updated: 2022/05/05 18:15:53 by chsimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,8 @@ char	*ft_itoa_long(long int n);
 size_t	ft_strcpy(char *dst, const char *src, size_t size);
 int		check_flags(char *s);
 int		put_flag(char *s);
+int		flag_first(char c);
+int		ft_isdig_not_0(int c);
 void	get_flags(t_flags *flag, char *s);
 int		flag_c(t_flags flag, int x, char *s, int c);
 int		flag_s(t_flags flag, int x, char *s, char *str);

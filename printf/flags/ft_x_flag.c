@@ -6,7 +6,7 @@
 /*   By: chsimon <chsimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/31 12:44:18 by chsimon           #+#    #+#             */
-/*   Updated: 2022/05/05 16:19:21 by chsimon          ###   ########.fr       */
+/*   Updated: 2022/05/05 16:34:16 by chsimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,20 @@ char	*flag_x_null(int x)
 	return (str);
 }
 
+int	magic_x(t_flags *flag, int x, long int i)
+{
+	flag->size = x;
+	if (x < flag->prec && !flag->null)
+		x = flag->prec;
+	if (flag->hash && i != 0)
+		x += 2;
+	else
+		flag->hash = 0;
+	if (x < flag->width)
+		x = flag->width;
+	return (x);
+}
+
 int	flag_x(t_flags flag, int x, char *s, long int i)
 {
 	char	*r;
@@ -40,15 +54,7 @@ int	flag_x(t_flags flag, int x, char *s, long int i)
 	else
 		str = ft_convert_base(ft_itoa(i), "0123456789", "0123456789abcdef");
 	x = ft_strlen(str);
-	flag.size = x;
-	if (x < flag.prec && !flag.null)
-		x = flag.prec;
-	if (flag.hash && i != 0)
-		x += 2;
-	else
-		flag.hash = 0;
-	if (x < flag.width)
-		x = flag.width;
+	x = magic_x(&flag, x, i);
 	r = malloc(sizeof(char) * (x + 1));
 	if (!r)
 		return (0);

@@ -6,7 +6,7 @@
 /*   By: chsimon <chsimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/16 14:23:56 by chsimon           #+#    #+#             */
-/*   Updated: 2022/05/05 16:18:28 by chsimon          ###   ########.fr       */
+/*   Updated: 2022/05/05 17:49:31 by chsimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,36 +36,43 @@ char	*flag_p_null(int x)
 	return (str);
 }
 
+char	*magic_p(t_flags *flag, int *x, unsigned long i, char *str)
+{
+	if (!flag->null)
+	{
+		str = ft_dec_to_hex((unsigned long) i);
+		*x = ft_strlen(str) + 2;
+		flag->size = *x - 2;
+		flag->hash = 1;
+		if (*x < flag->prec + 2)
+			*x = flag->prec + 2;
+		if (*x < flag->width)
+			*x = flag->width;
+		if ((flag->space || flag->plus)
+			&& (*x == (flag->size + 2) || *x == flag->prec + 2))
+			*x += 1 - flag->neg;
+	}
+	else
+	{
+		str = flag_p_null(5);
+		*x = ft_strlen(str);
+		flag->size = *x;
+		if (*x < flag->width)
+			*x = flag->width;
+	}
+	return (str);
+}
+
 int	flag_p(t_flags flag, int x, char *s, unsigned long i)
 {
 	char	*str;
 	char	*r;
 
+	str = "";
 	get_flags(&flag, s);
 	if (!i)
 		flag.null = 1;
-	if (!flag.null)
-	{
-		str = ft_dec_to_hex((unsigned long) i);
-		x = ft_strlen(str) + 2;
-		flag.size = x - 2;
-		flag.hash = 1;
-		if (x < flag.prec + 2)
-			x = flag.prec + 2;
-		if (x < flag.width)
-			x = flag.width;
-		if ((flag.space || flag.plus)
-			&& (x == (flag.size + 2) || x == flag.prec + 2))
-			x += 1 - flag.neg;
-	}
-	else
-	{
-		str = flag_p_null(5);
-		x = ft_strlen(str);
-		flag.size = x;
-		if (x < flag.width)
-			x = flag.width;
-	}
+	str = magic_p(&flag, &x, i, str);
 	r = malloc(sizeof(char) * (x + 1));
 	if (!r)
 		return (0);

@@ -6,7 +6,7 @@
 /*   By: chsimon <chsimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/16 14:24:59 by chsimon           #+#    #+#             */
-/*   Updated: 2022/05/05 16:18:58 by chsimon          ###   ########.fr       */
+/*   Updated: 2022/05/05 17:39:01 by chsimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,22 @@ char	*flag_d_null(int x)
 	return (str);
 }
 
+int	magic_d(t_flags *flag, int x, int d)
+{
+	if (flag->null && flag->prec && flag->prec_size == 0)
+		x = flag->prec_size;
+	else
+		x = find_nb_size(flag, d);
+	flag->size = x - flag->neg;
+	if (x < flag->prec && !flag->null)
+		x = flag->prec + flag->neg;
+	if (x < flag->width)
+		x = flag->width;
+	if ((flag->space || flag->plus) && (x == flag->size || x == flag->prec))
+		x += 1 - flag->neg;
+	return (x);
+}
+
 int	flag_d(t_flags flag, int x, char *s, int d)
 {
 	char	*r;
@@ -58,17 +74,7 @@ int	flag_d(t_flags flag, int x, char *s, int d)
 	get_flags(&flag, s);
 	if (!d && flag.prec_size == 0)
 		flag.null = 1;
-	if (flag.null && flag.prec && flag.prec_size == 0)
-		x = flag.prec_size;
-	else
-		x = find_nb_size(&flag, d);
-	flag.size = x - flag.neg;
-	if (x < flag.prec && !flag.null)
-		x = flag.prec + flag.neg;
-	if (x < flag.width)
-		x = flag.width;
-	if ((flag.space || flag.plus) && (x == flag.size || x == flag.prec))
-		x += 1 - flag.neg;
+	x = magic_d(&flag, x, d);
 	if (flag.null && flag.prec && flag.prec_size == 0)
 		str = flag_d_null(1);
 	else

@@ -6,7 +6,7 @@
 /*   By: chsimon <chsimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/16 14:23:04 by chsimon           #+#    #+#             */
-/*   Updated: 2022/05/05 16:20:08 by chsimon          ###   ########.fr       */
+/*   Updated: 2022/05/05 17:36:31 by chsimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,9 +58,7 @@ int	flag_s(t_flags flag, int x, char *s, char *str)
 			str = ft_substr(str, 0, flag.prec_size);
 	}
 	else
-	{
 		str = flag_s_null(&flag);
-	}
 	x = ft_strlen(str);
 	flag.size = x;
 	if (x < flag.width)
