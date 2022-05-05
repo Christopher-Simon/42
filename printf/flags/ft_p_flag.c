@@ -6,7 +6,7 @@
 /*   By: chsimon <chsimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/16 14:23:56 by chsimon           #+#    #+#             */
-/*   Updated: 2022/04/11 20:44:36 by chsimon          ###   ########.fr       */
+/*   Updated: 2022/05/05 16:18:28 by chsimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,9 +29,9 @@ char	*flag_p_null(int x)
 {
 	char	*str;
 
-	str = malloc(sizeof(char)* (x+1));
+	str = malloc(sizeof(char) * (x + 1));
 	if (!str)
-		return (0);	
+		return (0);
 	ft_strlcpy(str, "(nil)", 6);
 	return (str);
 }
@@ -56,9 +56,9 @@ int	flag_p(t_flags flag, int x, char *s, unsigned long i)
 			x = flag.width;
 		if ((flag.space || flag.plus)
 			&& (x == (flag.size + 2) || x == flag.prec + 2))
-			x += 1 - flag.neg;	
+			x += 1 - flag.neg;
 	}
-	else 
+	else
 	{
 		str = flag_p_null(5);
 		x = ft_strlen(str);

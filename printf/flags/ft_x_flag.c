@@ -6,7 +6,7 @@
 /*   By: chsimon <chsimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/31 12:44:18 by chsimon           #+#    #+#             */
-/*   Updated: 2022/04/13 17:28:33 by chsimon          ###   ########.fr       */
+/*   Updated: 2022/05/05 16:19:21 by chsimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,14 +15,14 @@
 
 char	*flag_x_null(int x)
 {
-	char *str;
+	char	*str;
 
 	str = malloc(x + 1);
 	if (!str)
-		return(0);
+		return (0);
 	if (!x)
 		str[0] = '\0';
-	else 	
+	else
 		ft_strlcpy(str, " ", 2);
 	return (str);
 }

@@ -6,7 +6,7 @@
 /*   By: chsimon <chsimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/02 19:44:50 by chsimon           #+#    #+#             */
-/*   Updated: 2022/04/13 18:29:43 by chsimon          ###   ########.fr       */
+/*   Updated: 2022/05/05 16:20:57 by chsimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,9 +42,9 @@ int	check_flags(char *s)
 		&& !ft_strchr(s, 'i') && !ft_strchr(s, 'u')
 		&& !ft_strchr(s, 'x') && !ft_strchr(s, 'X')
 		&& ft_strchr(&s[1], '%'))
-		{
+	{
 		return (0);
-		}
+	}
 	while (s[i] && !ft_isdig_not_0(s[i]) && s[i] != '.')
 	{
 		if (!flag_first(s[i]))

@@ -6,7 +6,7 @@
 /*   By: chsimon <chsimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/16 14:23:04 by chsimon           #+#    #+#             */
-/*   Updated: 2022/04/11 20:40:37 by chsimon          ###   ########.fr       */
+/*   Updated: 2022/05/05 16:20:08 by chsimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,21 +26,21 @@ char	*s_fillis(t_flags *flag, int x, char *r, char *str)
 
 char	*flag_s_null(t_flags *flag)
 {
-	char *str;
+	char	*str;
 
 	if (flag->prec && flag->prec_size < 6)
 	{
 		str = malloc(1);
 		if (!str)
-			return (0);	
+			return (0);
 		str[0] = '\0';
 	}
-	else 
+	else
 	{
-		str = malloc(sizeof(char)* (6+1));
+		str = malloc(sizeof(char) * (6 + 1));
 		if (!str)
-			return (0);	
-	 	ft_strlcpy(str, "(null)", 7);
+			return (0);
+		ft_strlcpy(str, "(null)", 7);
 	}
 	return (str);
 }

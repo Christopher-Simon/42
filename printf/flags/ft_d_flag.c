@@ -6,7 +6,7 @@
 /*   By: chsimon <chsimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/16 14:24:59 by chsimon           #+#    #+#             */
-/*   Updated: 2022/04/13 16:56:04 by chsimon          ###   ########.fr       */
+/*   Updated: 2022/05/05 16:18:58 by chsimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,11 +41,11 @@ char	*get_d(t_flags *flag, int d)
 
 char	*flag_d_null(int x)
 {
-	char *str;
+	char	*str;
 
 	str = malloc(x + 1);
 	if (!str)
-		return(0);
+		return (0);
 	ft_strlcpy(str, " ", 2);
 	return (str);
 }

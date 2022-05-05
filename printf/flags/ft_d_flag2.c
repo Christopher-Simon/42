@@ -6,7 +6,7 @@
 /*   By: chsimon <chsimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/02 17:27:49 by chsimon           #+#    #+#             */
-/*   Updated: 2022/04/13 17:48:14 by chsimon          ###   ########.fr       */
+/*   Updated: 2022/05/05 16:14:17 by chsimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,9 +32,6 @@ static void	prec(t_flags *flag, int x, char *r)
 		x--;
 		i--;
 	}
-	//test
-	// printf("x = %d & i = %d\n", x, i);
-	// printf("i : %d\n", i);
 	while (x-- && i--)
 	{
 		if (r[x] == ' ')
@@ -48,7 +45,7 @@ static void	plus(t_flags *flag, int x, char *r)
 		x--;
 	if (flag->null && flag->plus && flag->minus)
 	{
-		x--;	
+		x--;
 		r[0] = '+';
 	}
 	while (r[x] == ' ')
