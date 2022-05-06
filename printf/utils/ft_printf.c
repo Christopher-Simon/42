@@ -6,19 +6,17 @@
 /*   By: chsimon <chsimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/12 19:02:15 by chsimon           #+#    #+#             */
-/*   Updated: 2022/05/05 18:09:54 by chsimon          ###   ########.fr       */
+/*   Updated: 2022/05/06 14:42:55 by chsimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 #include "../printf.h"
 
-int	argument2(char *s, va_list args)
+int	argument2(char *s, va_list args, int x)
 {
-	int		x;
 	t_flags	flag;
 
-	x = 0;
 	if (ft_strchr(s, 'i'))
 		x = flag_d(flag, 0, s, va_arg(args, int));
 	if (ft_strchr(s, 'u'))
@@ -49,7 +47,7 @@ int	argument(char *s, va_list args)
 		x = flag_p(flag, 0, s, va_arg(args, unsigned long));
 	if (ft_strchr(s, 'd'))
 		x = flag_d(flag, 0, s, va_arg(args, int));
-	x = argument2(s, args);
+	x = argument2(s, args, x);
 	return (x);
 }
 

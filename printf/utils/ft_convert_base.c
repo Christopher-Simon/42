@@ -6,7 +6,7 @@
 /*   By: chsimon <chsimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/21 21:32:02 by chsimon           #+#    #+#             */
-/*   Updated: 2022/04/04 11:51:33 by chsimon          ###   ########.fr       */
+/*   Updated: 2022/05/06 14:39:51 by chsimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,9 +77,9 @@ char	*ft_convert_base(char *nbr, char *base_from, char *base_to)
 	unsigned int	a;
 	char			*str;
 
-	if (check_base(base_from) == 0 )
+	if (check_base(base_from) == 0)
 		return (0);
-	if (check_base(base_to) == 0 )
+	if (check_base(base_to) == 0)
 		return (0);
 	a = ft_atoi_base(nbr, base_from);
 	free(nbr);
