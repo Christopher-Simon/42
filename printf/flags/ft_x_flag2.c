@@ -6,7 +6,7 @@
 /*   By: chsimon <chsimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/02 17:24:08 by chsimon           #+#    #+#             */
-/*   Updated: 2022/04/13 18:47:47 by chsimon          ###   ########.fr       */
+/*   Updated: 2022/05/06 16:41:52 by chsimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,6 @@ static void	prec(t_flags *flag, int x, char *r)
 {
 	int	i;
 
-	if (!x)
-		return ;
 	if (flag->minus)
 		i = x;
 	else
