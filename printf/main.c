@@ -6,17 +6,18 @@
 /*   By: chsimon <chsimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/12 18:58:33 by chsimon           #+#    #+#             */
-/*   Updated: 2022/05/06 01:15:42 by chsimon          ###   ########.fr       */
+/*   Updated: 2022/05/08 11:32:07 by chsimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
+#include <limits.h>
 #include "printf.h"
 
 
 int	main(void)
 {
-	// int y = 5;
+	int y = 0;
 	// int y = 2;
 	//int y = 2147483647;
 	// int y = -2147483648;
@@ -26,10 +27,10 @@ int	main(void)
 	// char *y = NULL;
 	// char *y = "\0";
 	// char *y = "";
-	char *y = "Hello, world !";
+	// char *y = "Hello, world !";
 	// char y = '\0';
 
-	char	*str = "%4x";
+	char	*str = "%-.x";
 
 	printf("\n");
 	printf("|\ntaille: %d", ft_printf(str, y));

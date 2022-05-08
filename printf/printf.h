@@ -6,7 +6,7 @@
 /*   By: chsimon <chsimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/22 18:59:04 by chsimon           #+#    #+#             */
-/*   Updated: 2022/05/05 18:15:53 by chsimon          ###   ########.fr       */
+/*   Updated: 2022/05/06 16:17:18 by chsimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,5 +65,8 @@ int		flag_x(t_flags flag, int x, char *s, long int i);
 char	*x_fillis(t_flags *flag, int x, char *r, char *str);
 int		flag_big_x(t_flags flag, int x, char *s, long int i);
 char	*big_x_fillis(t_flags *flag, int x, char *r, char *str);
+char	*flag_big_x_null(int x);
+int		magic_big_x(t_flags *flag, int x, long int i);
+void	x_zero(t_flags *flag, int x, char *r);
 
 #endif

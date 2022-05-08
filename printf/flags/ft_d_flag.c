@@ -6,7 +6,7 @@
 /*   By: chsimon <chsimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/16 14:24:59 by chsimon           #+#    #+#             */
-/*   Updated: 2022/05/05 17:39:01 by chsimon          ###   ########.fr       */
+/*   Updated: 2022/05/06 15:10:24 by chsimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ int	magic_d(t_flags *flag, int x, int d)
 	else
 		x = find_nb_size(flag, d);
 	flag->size = x - flag->neg;
-	if (x < flag->prec && !flag->null)
+	if (x <= flag->prec && !flag->null)
 		x = flag->prec + flag->neg;
 	if (x < flag->width)
 		x = flag->width;
