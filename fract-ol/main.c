@@ -61,14 +61,28 @@ losange(t_data *img, int color)
 
 }
 
-void	ft_drawline(int x1, int x2, int y1, int y2)
+void fx(int x, t_data *img)
 {
-	
-	while (x1 < x2)
+	int y;
+
+	y = 200;
+	while (x < 200)
 	{
-		ft_mlx_pixel_put(img, )
+		mlx_pixel_put(mlx, mlx_win, 200, 200, 0x00FF0000);
+		ft_mlx_pixel_put(img, x, y, 0x00FF0000);
+		y++;
+		x++;
 	}
 }
+
+// void	ft_drawline(int x1, int x2, int y1, int y2)
+// {
+	
+// 	while (x1 < x2)
+// 	{
+// 		ft_mlx_pixel_put(img, )
+// 	}
+// }
 
 int	main(void)
 {
@@ -80,7 +94,8 @@ int	main(void)
 	mlx_win = mlx_new_window(mlx, 495, 495, "Hello, world!");
 	img.img = mlx_new_image(mlx, 495, 495);
 	img.addr = mlx_get_data_addr(img.img, &img.bits_per_pixel, &img.line_length, &img.endian);
-	losange(&img, 0x00FF0000);
+	// losange(&img, 0x00FF0000);
+	fx(0, &img);
 	mlx_put_image_to_window(mlx, mlx_win, img.img, 0, 0);
 	mlx_loop(mlx);
 }
