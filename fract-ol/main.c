@@ -23,6 +23,7 @@ void	square(t_data *img, int color)
 {
 	int	line;
 	int	column;
+	(void)color;
 
 	line = 100;
 	column = 100;
@@ -46,6 +47,7 @@ void	losange(t_data *img, int color)
 	int	center_line;
 	int	x;
 
+	(void)color;
 	height = 100;
 	center_col = 250;
 	center_line = 250;
