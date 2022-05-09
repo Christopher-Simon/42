@@ -39,7 +39,7 @@ void	square(t_data *img, int color)
 
 }
 
-losange(t_data *img, int color)
+void	losange(t_data *img, int color)
 {
 	int	height;
 	int	center_col;
@@ -61,15 +61,6 @@ losange(t_data *img, int color)
 
 }
 
-void	ft_drawline(int x1, int x2, int y1, int y2)
-{
-	
-	while (x1 < x2)
-	{
-		ft_mlx_pixel_put(img, )
-	}
-}
-
 int	main(void)
 {
 	void	*mlx;
@@ -84,3 +75,5 @@ int	main(void)
 	mlx_put_image_to_window(mlx, mlx_win, img.img, 0, 0);
 	mlx_loop(mlx);
 }
+
+//gcc -I/usr/include -Iminilibx-linux -Lminilibx-linux -c main.c -o main.o  -lmlx_Linux  -L/usr/lib -Iminilibx-linux -lXext -lX11 -lm -lz 
