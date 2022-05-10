@@ -1,15 +1,8 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <mlx.h>
-
-typedef struct s_data 
-{
-	void	*img;
-	char	*addr;
-	int		bits_per_pixel;
-	int		line_length;
-	int		endian;
-}	t_data;
+#include <math.h>
+#include "ft_fractol.h"
 
 void	ft_mlx_pixel_put(t_data *data, int x, int y, int color)
 {
@@ -62,22 +55,76 @@ void	losange(t_data *img, int color)
 	}
 }
 
+// int	c_value(int x, int y)
+// {
 
+// }
+
+// int	is_mandel(double c)
+// {
+// 	int x;
+// 	double z;
+
+// 	z = 0;
+// 	x = 0;
+// 	while (x++ < 100 && z != INFINITY)
+// 	{
+// 		z = z*z + c;
+// 		printf("%d : %f\n",x, z);
+// 	}
+// 	return (1);
+// }
+
+void	window(t_mlx *mlx)
+{
+	mlx->win_height = 400;
+	mlx->win_width = 400;
+	mlx->ptr = mlx_init();
+	mlx->win = mlx_new_window(mlx->ptr, mlx->win_width, mlx->win_height, "Hello, world!");;
+}
+
+void	scale(t_mlx *mlx, t_plane *plane)
+{
+	plane->min_imgr = -2;
+	plane->max_imgr = 2;
+
+
+	plane->min_real = -2;
+	plane->max_real = 2;
+
+
+	plane->real_factor = (plane->max_real - plane->min_real) / mlx->win_width;
+	plane->imgr_factor = (plane->max_imgr - plane->min_imgr) / mlx->win_height;
+	printf("plane->real_factor: %f \n", plane->real_factor);
+	printf("plane->imgr_factor: %f \n", plane->imgr_factor);
+
+
+	//test avec x et y
+	int x = 300;
+	int y = 300;
+	double c_re;
+	double c_im;
+	c_re = plane->min_real + (x * plane->real_factor);
+	c_im = plane->max_imgr - (y * plane->imgr_factor);
+	printf("(x plane, y plane)\n(%f, %f)", c_re, c_im);
+}
 
 
 int	main(void)
 {
-	void	*mlx;
-	void	*mlx_win;
 	t_data	img;
+	t_mlx	mlx;
+	t_plane	plane;
 
-	mlx = mlx_init();
-	mlx_win = mlx_new_window(mlx, 495, 495, "Hello, world!");
-	img.img = mlx_new_image(mlx, 495, 495);
+	window(&mlx);
+	img.img = mlx_new_image(mlx.ptr, mlx.win_width, mlx.win_height);
 	img.addr = mlx_get_data_addr(img.img, &img.bits_per_pixel, &img.line_length, &img.endian);
-	losange(&img, 0x00FF0000);
-	mlx_put_image_to_window(mlx, mlx_win, img.img, 0, 0);
-	mlx_loop(mlx);
+	ft_mlx_pixel_put(&img, 100, 300, 0x00FF0000);
+	scale(&mlx, &plane);
+
+	// mlx_put_image_to_window(mlx.ptr, mlx.win, img.img, 0, 0);
+	// mlx_loop(mlx.ptr);
+	// is_mandel(1);
 }
 
 //gcc -I/usr/include -Iminilibx-linux -Lminilibx-linux -c main.c -o main.o  -lmlx_Linux  -L/usr/lib -Iminilibx-linux -lXext -lX11 -lm -lz 
