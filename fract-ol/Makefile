@@ -1,26 +1,22 @@
-NAME =	libftprintf.a
+NAME =	fractol
 CC=gcc
-CFLAGS= -Wall -Wextra -Werror -g3
-SRCS=	
-BONUS=	all
+CFLAGS=	-Wall -Wextra -Werror -g3
+
+SRCS=	main.c \
 
 RM= rm -f
-OBJS= $(SRCS:.c=.o)
-BNS= $(BONUS:.c=.o)
+OBJ= $(SRCS:.c=.o)
 
 all : $(NAME)
 
-$(NAME) : $(OBJS)
-	ar -rcs $@ $^
+$(NAME) : $(OBJ)
+	$(CC) $(OBJ) -Lmlx_linux -lmlx_Linux -L/usr/lib -Imlx_linux -lXext -lX11 -lm -lz -o $@
 
-bonus : $(OBJS) $(BNS)
-	ar -rcs $(NAME) $^ 
-
-.o : .c
-	$(CC) $(CFLAGS) -c $< -o $@ -I ./
+%.o : %.c
+	$(CC) $(CFLAGS) -I/usr/include -Imlx_linux -O3 -c $< -o $@
 
 clean :	
-	$(RM) $(OBJS) $(BNS)
+	$(RM) $(OBJ)
 
 fclean : clean
 	$(RM) $(NAME)
