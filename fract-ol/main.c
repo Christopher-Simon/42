@@ -60,8 +60,10 @@ void	losange(t_data *img, int color)
 		ft_mlx_pixel_put(img, center_line - height, center_col - (x),0x00FF0000);
 		x++;
 	}
-
 }
+
+
+
 
 int	main(void)
 {
