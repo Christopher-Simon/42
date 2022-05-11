@@ -22,12 +22,12 @@ int	red_cross_close(t_mlx *mlx)
 
 void	iniate(t_data *data)
 {
-	// ft_bzero(data->img.addr, W_HEIGHT * W_WIDTH * (data->img.bits_per_pixel / 8));
+	ft_bzero(data->img.addr, W_HEIGHT * W_WIDTH * (data->img.bits_per_pixel / 8));
 	data->real_factor = (data->max_real - data->min_real) / (W_WIDTH - 1);
 	data->imgr_factor = (data->max_imgr - data->min_imgr) / (W_HEIGHT - 1);
-	mandel(data);
+	// mandel(data);
 	// julia(&mlx, &data, &img);
-	// burning_ship(&mlx, &data, &img);
+	burning_ship(data);
 	mlx_put_image_to_window(data->mlx.ptr, data->mlx.win, data->img.img, 0, 0);
 }
 
@@ -58,10 +58,10 @@ void	fractol(void)
 	get_data(&data);
 	iniate(&data);
 
-	// mlx_key_hook(mlx.win, close, &mlx);
-	// mlx_hook(mlx.win, 17, 0, red_cross_close, &mlx);
+	mlx_key_hook(mlx.win, close, &mlx);
+	mlx_hook(mlx.win, 17, 0, red_cross_close, &mlx);
 	printf("%f\n", data.min_imgr);
-	mlx_key_hook(mlx.win, zoom, &data);
+	// mlx_key_hook(mlx.win, zoom, &data);
 
 	mlx_loop(mlx.ptr);
 }
@@ -70,5 +70,8 @@ int	main(void)
 {
 	fractol();
 }
-
+// destroy kill loop mlx bb (peut etre loop end mais c'est gus alors a voir)
+// destroy img
+// destroy window
+// destroy mlx
 //gcc -I/usr/include -Iminilibx-linux -Lminilibx-linux -c main.c -o main.o  -lmlx_Linux  -L/usr/lib -Iminilibx-linux -lXext -lX11 -lm -lz 

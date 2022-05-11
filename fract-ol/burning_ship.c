@@ -6,7 +6,7 @@
 /*   By: chsimon <chsimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/11 12:31:03 by chsimon           #+#    #+#             */
-/*   Updated: 2022/05/11 18:34:16 by chsimon          ###   ########.fr       */
+/*   Updated: 2022/05/11 19:30:48 by chsimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,18 +29,8 @@ int	b_ship_color(int count)
 		return(0x00FFFFFF);
 }
 
-void	burning_ship(t_data *data, t_img *img)
+void	burning_ship(t_data *data)
 {
-	data->min_imgr = -2;
-	data->max_imgr = 2;
-
-
-	data->min_real = -2;
-	data->max_real = 2;
-
-
-	data->real_factor = (data->max_real - data->min_real) / (W_WIDTH - 1);
-	data->imgr_factor = (data->max_imgr - data->min_imgr) / (W_HEIGHT - 1);
 	// printf("data->real_factor: %f \n", data->real_factor);
 	// printf("data->imgr_factor: %f \n", data->imgr_factor);
 
@@ -75,7 +65,7 @@ void	burning_ship(t_data *data, t_img *img)
 			{
 				if (count == 100)
 				{
-					ft_mlx_pixel_put(img, x, y, 0x00FF0000);
+					ft_mlx_pixel_put(&data->img, x, y, 0x00FF0000);
 					break;
 				}
 				z_re_mem = z_re * z_re - z_im * z_im + c_re;
@@ -84,7 +74,7 @@ void	burning_ship(t_data *data, t_img *img)
 				count++;
 			}
 			if (count < 100)
-				ft_mlx_pixel_put(img, x, y, b_ship_color(count));
+				ft_mlx_pixel_put(&data->img, x, y, b_ship_color(count));
 			y++;
 		}
 		x++;	

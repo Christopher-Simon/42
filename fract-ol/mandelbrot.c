@@ -6,7 +6,7 @@
 /*   By: chsimon <chsimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/11 12:28:20 by chsimon           #+#    #+#             */
-/*   Updated: 2022/05/11 19:20:36 by chsimon          ###   ########.fr       */
+/*   Updated: 2022/05/11 19:26:08 by chsimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,8 +64,8 @@ void	mandel(t_data *data)
 				data->z_re = data->z_re_mem;
 				count++;
 			}
-			// if (count < 20)
-			// 	ft_mlx_pixel_put(&data->img, x, y, mandel_color(count));
+			if (count < 20)
+				ft_mlx_pixel_put(&data->img, x, y, mandel_color(count));
 			y++;
 		}
 		x++;	
