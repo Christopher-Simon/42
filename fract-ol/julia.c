@@ -6,7 +6,7 @@
 /*   By: chsimon <chsimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/11 12:47:51 by chsimon           #+#    #+#             */
-/*   Updated: 2022/05/11 18:34:36 by chsimon          ###   ########.fr       */
+/*   Updated: 2022/05/11 23:43:51 by chsimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 #include <math.h>
 #include "ft_fractol.h"
 
-void	julia(t_data *data, t_img *img)
+void	julia(t_data *data)
 {
 	data->min_imgr = -2;
 	data->max_imgr = 2;
@@ -60,7 +60,7 @@ void	julia(t_data *data, t_img *img)
 			{
 				if (count == 20)
 				{
-					ft_mlx_pixel_put(img, x, y, 0x00FF0000);
+					ft_mlx_pixel_put(&data->img, x, y, 0x00FF0000);
 					break;
 				}
 				z_re_mem = z_re * z_re - z_im * z_im + k_re;

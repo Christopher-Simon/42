@@ -25,9 +25,9 @@ void	iniate(t_data *data)
 	ft_bzero(data->img.addr, W_HEIGHT * W_WIDTH * (data->img.bits_per_pixel / 8));
 	data->real_factor = (data->max_real - data->min_real) / (W_WIDTH - 1);
 	data->imgr_factor = (data->max_imgr - data->min_imgr) / (W_HEIGHT - 1);
-	// mandel(data);
-	// julia(&mlx, &data, &img);
-	burning_ship(data);
+	mandel(data);
+	// julia(data);
+	// burning_ship(data);
 	mlx_put_image_to_window(data->mlx.ptr, data->mlx.win, data->img.img, 0, 0);
 }
 
@@ -61,7 +61,7 @@ void	fractol(void)
 	mlx_key_hook(mlx.win, close, &mlx);
 	mlx_hook(mlx.win, 17, 0, red_cross_close, &mlx);
 	printf("%f\n", data.min_imgr);
-	// mlx_key_hook(mlx.win, zoom, &data);
+	mlx_key_hook(mlx.win, zoom, &data);
 
 	mlx_loop(mlx.ptr);
 }

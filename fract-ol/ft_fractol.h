@@ -6,7 +6,7 @@
 /*   By: chsimon <chsimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/10 15:17:43 by chsimon           #+#    #+#             */
-/*   Updated: 2022/05/11 19:28:25 by chsimon          ###   ########.fr       */
+/*   Updated: 2022/05/11 23:43:22 by chsimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ typedef struct s_data
 
 void	mandel(t_data *data);
 void	burning_ship(t_data *data);
-void	julia(t_data *data, t_img *img);
+void	julia(t_data *data);
 void	iniate(t_data *data);
 void	ft_mlx_pixel_put(t_img *data, int x, int y, int color);
 int		zoom(int keycode, t_data *data);

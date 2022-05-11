@@ -6,7 +6,7 @@
 /*   By: chsimon <chsimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/11 12:31:03 by chsimon           #+#    #+#             */
-/*   Updated: 2022/05/11 19:30:48 by chsimon          ###   ########.fr       */
+/*   Updated: 2022/05/11 23:38:40 by chsimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,14 +19,16 @@
 
 int	b_ship_color(int count)
 {
-	if (count < 25)
-		return(0x00000000);
+	if (count < 10)
+		return(0x00280000);
+	if (count < 15)
+		return(0x00480000);
+	else if (count < 25)
+		return(0x00680000);
 	else if (count < 50)
-		return(0x000000FF);
-	else if (count < 75)
-		return(0x0000FF00);
+		return(0x00C00000);
 	else
-		return(0x00FFFFFF);
+		return(0x00FFFF00);
 }
 
 void	burning_ship(t_data *data)
@@ -63,9 +65,9 @@ void	burning_ship(t_data *data)
 			count = 0;
 			while ((z_re*z_re + z_im + z_im < 4))
 			{
-				if (count == 100)
+				if (count == 255)
 				{
-					ft_mlx_pixel_put(&data->img, x, y, 0x00FF0000);
+					ft_mlx_pixel_put(&data->img, x, y, 0x00000000);
 					break;
 				}
 				z_re_mem = z_re * z_re - z_im * z_im + c_re;
@@ -73,7 +75,7 @@ void	burning_ship(t_data *data)
 				z_re = z_re_mem;
 				count++;
 			}
-			if (count < 100)
+			if (count < 255)
 				ft_mlx_pixel_put(&data->img, x, y, b_ship_color(count));
 			y++;
 		}
