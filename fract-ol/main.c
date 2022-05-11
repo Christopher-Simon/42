@@ -115,19 +115,6 @@ void	julia(t_mlx *mlx, t_plane *plane, t_data *img)
 	z_re_mem = 0;
 	double	k_re = 0.353;
 	double	k_im = 0.288;
-	// while ((z_re*z_re + z_im + z_im < 4))
-	// {
-	// 	if (count == 20)
-	// 	{
-	// 		ft_mlx_pixel_put(img, x, y, 0x00FF0000);
-	// 		printf("it's in");
-	// 		break;
-	// 	}
-	// 	z_re_mem = z_re * z_re - z_im * z_im + c_re;
-	// 	z_im = 2 * z_re * z_im + c_im;
-	// 	z_re = z_re_mem;
-	// 	count++;
-	// }
 
 	
 	while (x < mlx->win_width)
@@ -241,6 +228,69 @@ void	mandel(t_mlx *mlx, t_plane *plane, t_data *img)
 	// printf("(x plane, y plane)\n(%f, %f)", c_re, c_im);
 }
 
+void	burning_ship(t_mlx *mlx, t_plane *plane, t_data *img)
+{
+	plane->min_imgr = -1.5;
+	plane->max_imgr = -0.5;
+
+
+	plane->min_real = -1.5;
+	plane->max_real = -0.5;
+
+
+	plane->real_factor = (plane->max_real - plane->min_real) / (mlx->win_width - 1);
+	plane->imgr_factor = (plane->max_imgr - plane->min_imgr) / (mlx->win_height - 1);
+	printf("plane->real_factor: %f \n", plane->real_factor);
+	printf("plane->imgr_factor: %f \n", plane->imgr_factor);
+
+
+	//test avec x et y
+	int x = 0;
+	int y = 0;
+	int	count = 0;
+	double c_re;
+	double c_im;
+	double z_re;
+	double z_re_mem;
+	double z_im;
+
+	c_im = plane->max_imgr - (y * plane->imgr_factor);
+	c_re = plane->min_real + (x * plane->real_factor);
+	printf("c_re : %f, c_im : %f\n", c_re, c_im);
+	z_re_mem = 0;
+	
+	while (x < mlx->win_width)
+	{
+		c_re = plane->min_real + (x * plane->real_factor);
+		y = 0;
+		while (y < mlx->win_height)
+		{
+			c_im = plane->max_imgr - (y * plane->imgr_factor);
+			z_re = c_re;
+			z_im = c_im;
+			z_re_mem = 0;
+			count = 0;
+			while ((z_re*z_re + z_im + z_im < 4))
+			{
+				if (count == 100)
+				{
+					ft_mlx_pixel_put(img, x, y, 0x00FF0000);
+					break;
+				}
+				z_re_mem = z_re * z_re - z_im * z_im + c_re;
+				z_im = fabs(2 * z_re * z_im) + c_im;
+				z_re = z_re_mem;
+				count++;
+			}
+			y++;
+		}
+		x++;	
+	}
+	
+
+	
+	// printf("(x plane, y plane)\n(%f, %f)", c_re, c_im);
+}
 
 int	main(void)
 {
@@ -252,7 +302,7 @@ int	main(void)
 	img.img = mlx_new_image(mlx.ptr, mlx.win_width, mlx.win_height);
 	img.addr = mlx_get_data_addr(img.img, &img.bits_per_pixel, &img.line_length, &img.endian);
 	// ft_mlx_pixel_put(&img, 100, 300, 0x00FF0000);
-	julia(&mlx, &plane, &img);
+	burning_ship(&mlx, &plane, &img);
 
 	mlx_put_image_to_window(mlx.ptr, mlx.win, img.img, 0, 0);
 	mlx_loop(mlx.ptr);
