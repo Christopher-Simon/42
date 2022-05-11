@@ -1,8 +1,13 @@
 NAME =	fractol
 CC=gcc
-CFLAGS=	-Wall -Wextra -Werror -g3
+CFLAGS=	-Wall -Wextra -Werror -g3 -Ofast
 
-SRCS=	main.c \
+SRCS=	fractol.c \
+	mandelbrot.c \
+	burning_ship.c \
+	julia.c \
+	utils.c \
+
 
 RM= rm -f
 OBJ= $(SRCS:.c=.o)
