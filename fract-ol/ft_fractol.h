@@ -6,7 +6,7 @@
 /*   By: chsimon <chsimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/10 15:17:43 by chsimon           #+#    #+#             */
-/*   Updated: 2022/05/11 23:43:22 by chsimon          ###   ########.fr       */
+/*   Updated: 2022/05/12 17:14:08 by chsimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ typedef struct s_img
 
 typedef struct s_data 
 {
+	int		flag;
 	double	min_imgr;
 	double	max_imgr;
 	double	min_real;
@@ -40,7 +41,9 @@ typedef struct s_data
 	double	real_factor;
 	double	imgr_factor;
 	double	c_re;
-	double	c_im;
+	double	c_im;	
+	double	k_re;
+	double	k_im;
 	double	z_re;
 	double	z_re_mem;
 	double	z_im;
@@ -55,7 +58,10 @@ void	iniate(t_data *data);
 void	ft_mlx_pixel_put(t_img *data, int x, int y, int color);
 int		zoom(int keycode, t_data *data);
 void	ft_bzero(void *s, size_t n);
+int		ft_memcmp(void *s1, void *s2, size_t n);
+size_t	ft_strlen(const char *s);
 int		trans(int keycode, t_data *data);
 void	window(t_mlx *mlx);
+int	quit(t_data	*data);
 
 #endif

@@ -7,6 +7,7 @@ SRCS=	fractol.c \
 	burning_ship.c \
 	julia.c \
 	utils.c \
+	hook.c \
 
 
 RM= rm -f
@@ -26,6 +27,12 @@ clean :
 fclean : clean
 	$(RM) $(NAME)
 
-re : 	fclean all
+re : 	
+		$(MAKE) fclean
+		$(MAKE) all
 
+test:
+		$(MAKE) re
+		./fractol mandel
+		
 .PHONY : all clean fclean re bonus

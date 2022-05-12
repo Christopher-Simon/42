@@ -6,7 +6,7 @@
 /*   By: chsimon <chsimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/11 12:47:51 by chsimon           #+#    #+#             */
-/*   Updated: 2022/05/11 23:43:51 by chsimon          ###   ########.fr       */
+/*   Updated: 2022/05/12 15:59:44 by chsimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,58 +16,51 @@
 #include <math.h>
 #include "ft_fractol.h"
 
+int	julia_color(int count)
+{
+	if (count < 0.01)
+		return(0x00FFFFFF);
+	else if (count < 0.02)
+		return(0x000000FF);
+	else if (count < 0.05)
+		return(0x0000FF00);
+	else
+		return(0x00FFFFFF);
+}
+
 void	julia(t_data *data)
 {
-	data->min_imgr = -2;
-	data->max_imgr = 2;
 
-
-	data->min_real = -2;
-	data->max_real = 2;
-
-
-	data->real_factor = (data->max_real - data->min_real) / (W_WIDTH - 1);
-	data->imgr_factor = (data->max_imgr - data->min_imgr) / (W_HEIGHT - 1);
-	// printf("data->real_factor: %f \n", data->real_factor);
-	// printf("data->imgr_factor: %f \n", data->imgr_factor);
 
 	int x = 0;
 	int y = 0;
 	int	count = 0;
-	double c_re;
-	double c_im;
-	double z_re;
-	double z_re_mem;
-	double z_im;
-	c_im = data->max_imgr - (y * data->imgr_factor);
-	c_re = data->min_real + (x * data->real_factor);
-	// printf("c_re : %f, c_im : %f\n", c_re, c_im);
-	z_re_mem = 0;
-	double	k_re = 0.370;
-	double	k_im = 0.295;
+	data->z_re_mem = 0;	
 	while (x < W_WIDTH)
 	{
-		c_re = data->min_real + (x * data->real_factor);
+		data->c_re = data->min_real + (x * data->real_factor);
 		y = 0;
 		while (y < W_HEIGHT)
 		{
-			c_im = data->max_imgr - (y * data->imgr_factor);
-			z_re = c_re;
-			z_im = c_im;
-			z_re_mem = 0;
+			data->c_im = data->max_imgr - (y * data->imgr_factor);
+			data->z_re = data->c_re;
+			data->z_im = data->c_im;
+			data->z_re_mem = 0;
 			count = 0;
-			while ((z_re*z_re + z_im + z_im < 4))
+			while ((data->z_re*data->z_re + data->z_im + data->z_im < 4))
 			{
 				if (count == 20)
 				{
 					ft_mlx_pixel_put(&data->img, x, y, 0x00FF0000);
 					break;
 				}
-				z_re_mem = z_re * z_re - z_im * z_im + k_re;
-				z_im = 2 * z_re * z_im + k_im;
-				z_re = z_re_mem;
+				data->z_re_mem = data->z_re * data->z_re - data->z_im * data->z_im + data->k_re;
+				data->z_im = 2 * data->z_re * data->z_im + data->k_im;
+				data->z_re = data->z_re_mem;
 				count++;
 			}
+			// if (count < 20)
+			// 	ft_mlx_pixel_put(&data->img, x, y, 0x00FF0000);
 			y++;
 		}
 		x++;	
