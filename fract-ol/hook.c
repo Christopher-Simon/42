@@ -6,7 +6,7 @@
 /*   By: chsimon <chsimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/12 15:39:42 by chsimon           #+#    #+#             */
-/*   Updated: 2022/05/12 17:12:58 by chsimon          ###   ########.fr       */
+/*   Updated: 2022/05/12 19:11:46 by chsimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,29 @@ int	quit(t_data	*data)
 		mlx_destroy_display(data->mlx.ptr);
 		free(data->mlx.ptr);
 		exit(0);
-		return (0);
+}
+
+int	mouse(int keycode, int x, int y, t_data *data)
+{
+	printf("\n%f\n", data->real_factor);
+	(void)x;
+	(void)y;
+	if (keycode == 5)
+	{
+		data->min_imgr *= 0.8;
+		data->max_imgr *= 0.8;
+		data->min_real *= 0.8;
+		data->max_real *= 0.8;
+	}
+	if (keycode == 4)
+	{
+		data->min_imgr *= 1.2;
+		data->max_imgr *= 1.2;
+		data->min_real *= 1.2;
+		data->max_real *= 1.2;
+	}
+	iniate(data);
+	return (0);
 }
 
 int	zoom(int keycode, t_data *data)

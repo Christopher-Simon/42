@@ -6,7 +6,7 @@
 /*   By: chsimon <chsimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/11 12:37:11 by chsimon           #+#    #+#             */
-/*   Updated: 2022/05/12 15:39:36 by chsimon          ###   ########.fr       */
+/*   Updated: 2022/05/12 17:43:14 by chsimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,14 @@ void	ft_mlx_pixel_put(t_img *img, int x, int y, int color)
 void	window(t_mlx *mlx)
 {
 	mlx->ptr = mlx_init();
-	mlx->win = mlx_new_window(mlx->ptr, W_WIDTH, W_HEIGHT, "Hello, world!");;
+	if (mlx->ptr == 0)
+		exit (0);
+	mlx->win = mlx_new_window(mlx->ptr, W_WIDTH, W_HEIGHT, "Hello, world!");
+	if (!mlx->win)
+	{
+		mlx_destroy_display(mlx->ptr);
+		free(mlx->ptr);
+		exit (0);
+	}
 }
 

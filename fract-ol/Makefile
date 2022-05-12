@@ -31,8 +31,21 @@ re :
 		$(MAKE) fclean
 		$(MAKE) all
 
-test:
+testm:
 		$(MAKE) re
-		./fractol mandel
-		
+		./fractol mandelbrot
+
+testj:
+		$(MAKE) re
+		./fractol julia
+testn:
+		$(MAKE) re
+		./fractol burning_ship
+testi:
+		$(MAKE) re
+		env -i valgrind ./fractol mandelbrot
+testv:
+		$(MAKE) re
+		valgrind ./fractol mandelbrot
+
 .PHONY : all clean fclean re bonus
