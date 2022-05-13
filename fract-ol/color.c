@@ -6,7 +6,7 @@
 /*   By: chsimon <chsimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/13 16:43:41 by chsimon           #+#    #+#             */
-/*   Updated: 2022/05/13 22:07:14 by chsimon          ###   ########.fr       */
+/*   Updated: 2022/05/13 22:32:32 by chsimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,17 @@
 #include <math.h>
 #include "ft_fractol.h"
 
+int	color_2(int count)
+{
+	if (count < 5)
+		return(0x00FFFFFF);
+	else if (count < 10)
+		return(0x000000FF);
+	else if (count < 15)
+		return(0x0000FF00);
+	else
+		return(0x00FFFFFF);
+}
 
 int	julia_color(int count)
 {
@@ -65,6 +76,10 @@ int	color(int count, t_data *data)
 		return(b_ship_color(count));	
 	else if (data->color == 4)	
 		return(julia_color(count));
+	else if (data->color == 5)	
+		return(color_2(count));
+	else if (data->color == 6)	
+		return(create_trgb(255, 255, (int)log(count)*100,0));
 	else
 	{
 		data->color = 1;
