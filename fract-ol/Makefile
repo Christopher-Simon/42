@@ -8,6 +8,7 @@ SRCS=	fractol.c \
 	julia.c \
 	utils.c \
 	hook.c \
+	color.c \
 
 
 RM= rm -f
@@ -16,7 +17,7 @@ OBJ= $(SRCS:.c=.o)
 all : $(NAME)
 
 $(NAME) : $(OBJ)
-	$(CC) $(OBJ) -Lmlx_linux -lmlx_Linux -L/usr/lib -Imlx_linux -lXext -lX11 -lm -lz -o $@
+	$(CC) $(OBJ) -Lmlx_linux -lmlx_Linux -L/usr/lib -Imlx_linux -lXext -lX11 -lm -lz -O3 -o $@
 
 %.o : %.c
 	$(CC) $(CFLAGS) -I/usr/include -Imlx_linux -O3 -c $< -o $@
@@ -38,7 +39,7 @@ testm:
 testj:
 		$(MAKE) re
 		./fractol julia
-testn:
+testb:
 		$(MAKE) re
 		./fractol burning_ship
 testi:

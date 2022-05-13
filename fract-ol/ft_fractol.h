@@ -6,7 +6,7 @@
 /*   By: chsimon <chsimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/10 15:17:43 by chsimon           #+#    #+#             */
-/*   Updated: 2022/05/12 19:10:54 by chsimon          ###   ########.fr       */
+/*   Updated: 2022/05/14 00:11:05 by chsimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ typedef struct s_img
 typedef struct s_data 
 {
 	int		flag;
+	int		color;
 	double	min_imgr;
 	double	max_imgr;
 	double	min_real;
@@ -55,6 +56,7 @@ void	mandel(t_data *data);
 void	burning_ship(t_data *data);
 void	julia(t_data *data);
 void	iniate(t_data *data);
+void	get_data(t_data *data);
 void	ft_mlx_pixel_put(t_img *data, int x, int y, int color);
 int		zoom(int keycode, t_data *data);
 void	ft_bzero(void *s, size_t n);
@@ -62,7 +64,9 @@ int		ft_memcmp(void *s1, void *s2, size_t n);
 size_t	ft_strlen(const char *s);
 int		trans(int keycode, t_data *data);
 void	window(t_mlx *mlx);
-int	mouse(int keycode, int x, int y, t_data *data);
+int		mouse(int keycode, int x, int y, t_data *data);
+int		color(int count, t_data *data);
+int		create_trgb(int t, int r, int g, int b);
 int		quit(t_data	*data);
 
 #endif
