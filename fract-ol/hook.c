@@ -6,7 +6,7 @@
 /*   By: chsimon <chsimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/12 15:39:42 by chsimon           #+#    #+#             */
-/*   Updated: 2022/05/12 19:11:46 by chsimon          ###   ########.fr       */
+/*   Updated: 2022/05/13 14:59:33 by chsimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,11 @@ int	mouse(int keycode, int x, int y, t_data *data)
 
 int	zoom(int keycode, t_data *data)
 {
+	double	centre;
+
+	centre = (data->min_imgr * 	data->max_imgr * 
+		data->min_real * data->max_real)/4; 
+	printf("%f\n", centre);
 	if (keycode == 65307)
 	{
 		quit(data);
