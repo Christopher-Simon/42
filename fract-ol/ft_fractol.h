@@ -6,7 +6,7 @@
 /*   By: chsimon <chsimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/10 15:17:43 by chsimon           #+#    #+#             */
-/*   Updated: 2022/05/12 19:15:59 by chsimon          ###   ########.fr       */
+/*   Updated: 2022/05/13 21:48:09 by chsimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ typedef struct s_img
 typedef struct s_data 
 {
 	int		flag;
+	int		color;
 	double	min_imgr;
 	double	max_imgr;
 	double	min_real;
@@ -63,6 +64,8 @@ size_t	ft_strlen(const char *s);
 int		trans(int keycode, t_data *data);
 void	window(t_mlx *mlx);
 int		mouse(int keycode, int x, int y, t_data *data);
+int		color(int count, t_data *data);
+int		create_trgb(int t, int r, int g, int b);
 int		quit(t_data	*data);
 
 #endif

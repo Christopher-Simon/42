@@ -6,7 +6,7 @@
 /*   By: chsimon <chsimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/11 12:47:51 by chsimon           #+#    #+#             */
-/*   Updated: 2022/05/12 15:59:44 by chsimon          ###   ########.fr       */
+/*   Updated: 2022/05/13 22:06:52 by chsimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,17 +16,7 @@
 #include <math.h>
 #include "ft_fractol.h"
 
-int	julia_color(int count)
-{
-	if (count < 0.01)
-		return(0x00FFFFFF);
-	else if (count < 0.02)
-		return(0x000000FF);
-	else if (count < 0.05)
-		return(0x0000FF00);
-	else
-		return(0x00FFFFFF);
-}
+
 
 void	julia(t_data *data)
 {
@@ -49,9 +39,9 @@ void	julia(t_data *data)
 			count = 0;
 			while ((data->z_re*data->z_re + data->z_im + data->z_im < 4))
 			{
-				if (count == 20)
+				if (count == 150)
 				{
-					ft_mlx_pixel_put(&data->img, x, y, 0x00FF0000);
+					ft_mlx_pixel_put(&data->img, x, y, 0x00000000);
 					break;
 				}
 				data->z_re_mem = data->z_re * data->z_re - data->z_im * data->z_im + data->k_re;
@@ -59,8 +49,8 @@ void	julia(t_data *data)
 				data->z_re = data->z_re_mem;
 				count++;
 			}
-			// if (count < 20)
-			// 	ft_mlx_pixel_put(&data->img, x, y, 0x00FF0000);
+			if (count < 150)
+				ft_mlx_pixel_put(&data->img, x, y, color(count, data));
 			y++;
 		}
 		x++;	

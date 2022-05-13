@@ -6,7 +6,7 @@
 /*   By: chsimon <chsimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/11 12:31:03 by chsimon           #+#    #+#             */
-/*   Updated: 2022/05/12 16:14:03 by chsimon          ###   ########.fr       */
+/*   Updated: 2022/05/13 22:03:15 by chsimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,19 +16,7 @@
 #include <math.h>
 #include "ft_fractol.h"
 
-int	b_ship_color(int count)
-{
-	if (count < 10)
-		return (0x00280000);
-	if (count < 15)
-		return (0x00480000);
-	else if (count < 25)
-		return (0x00680000);
-	else if (count < 50)
-		return (0x00C00000);
-	else
-		return (0x00FFFF00);
-}
+
 
 void	burning_ship(t_data *data)
 {
@@ -50,7 +38,7 @@ void	burning_ship(t_data *data)
 			count = 0;
 			while ((data->z_re * data->z_re + data->z_im + data->z_im < 4))
 			{
-				if (count == 255)
+				if (count == 150)
 				{
 					ft_mlx_pixel_put(&data->img, x, y, 0x00000000);
 					break ;
@@ -60,8 +48,8 @@ void	burning_ship(t_data *data)
 				data->z_re = data->z_re_mem;
 				count++;
 			}
-			if (count < 255)
-				ft_mlx_pixel_put(&data->img, x, y, b_ship_color(count));
+			if (count < 150)
+				ft_mlx_pixel_put(&data->img, x, y, color(count, data));
 			y++;
 		}
 		x++;	

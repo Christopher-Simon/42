@@ -6,7 +6,7 @@
 /*   By: chsimon <chsimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/12 16:13:04 by chsimon           #+#    #+#             */
-/*   Updated: 2022/05/12 18:50:39 by chsimon          ###   ########.fr       */
+/*   Updated: 2022/05/13 21:38:02 by chsimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,7 @@ void	get_data(t_data *data)
 	data->max_real = 2;
 	data->k_re = 0.370;
 	data->k_im = 0.295;
+	data->color = 1;
 }
 
 
