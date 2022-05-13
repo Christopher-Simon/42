@@ -6,7 +6,7 @@
 /*   By: chsimon <chsimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/12 15:39:42 by chsimon           #+#    #+#             */
-/*   Updated: 2022/05/12 19:11:46 by chsimon          ###   ########.fr       */
+/*   Updated: 2022/05/12 19:15:48 by chsimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,8 @@ int	quit(t_data	*data)
 		exit(0);
 }
 
-int	mouse(int keycode, int x, int y, t_data *data)
+int	mouse(int keycode, t_data *data)
 {
-	printf("\n%f\n", data->real_factor);
 	(void)x;
 	(void)y;
 	if (keycode == 5)
