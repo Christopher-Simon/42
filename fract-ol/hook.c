@@ -6,7 +6,7 @@
 /*   By: chsimon <chsimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/12 15:39:42 by chsimon           #+#    #+#             */
-/*   Updated: 2022/05/14 00:10:37 by chsimon          ###   ########.fr       */
+/*   Updated: 2022/05/14 12:02:51 by chsimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,83 +16,29 @@
 #include <math.h>
 #include "ft_fractol.h"
 
-int	quit(t_data	*data)
-{
-		mlx_destroy_image(data->mlx.ptr, data->img.img);
-		mlx_destroy_window(data->mlx.ptr, data->mlx.win);
-		mlx_destroy_display(data->mlx.ptr);
-		free(data->mlx.ptr);
-		exit(0);
-}
-
 int	mouse(int keycode, int x, int y, t_data *data)
 {
-	double	center_x;
-	// double	center_y;
-	double	ecart_max;
-	double	ecart_min;
-	double	ecart_ajust_max;
-	double	ecart_ajust_min;
+	double	center;
+	double	ecart_ajust;
 	double	cpl_x;
 	double	cpl_y;
-	
-	center_x = data->min_real - ((data->min_real - data->max_real)/2);
-	// center_y = data->min_imgr - ((data->min_imgr - data->max_imgr)/2);
-	ecart_min = data->min_real - center_x;
-	ecart_max = data->max_real - center_x;
-	cpl_x = data->min_real + (x * data->real_factor);	
-	cpl_y = data->max_imgr - (y * data->imgr_factor);	
-	// ecart_min = data->min_real - cpl_x;
-	// ecart_max = data->max_real - cpl_x;
-	printf("%f, %f\n", cpl_x, cpl_y);
-	if (keycode == 4)
+
+	center = data->min_real - ((data->min_real - data->max_real) / 2);
+	cpl_x = data->min_real + (x * data->real_factor);
+	cpl_y = data->max_imgr - (y * data->imgr_factor);
+	if (keycode == 1)
+		ecart_ajust = (data->max_real - center) * 0.8;
+	else if (keycode == 3)
+		ecart_ajust = (data->max_real - center) * 1.2;
+	if (keycode == 1 || keycode == 3)
 	{
-		ecart_ajust_max = ecart_max * 0.8;
-		ecart_ajust_min = ecart_min * 0.8;
-		data->min_imgr = cpl_y + ecart_ajust_min;
-		data->max_imgr = cpl_y + ecart_ajust_max;
-		data->min_real = cpl_x + ecart_ajust_min;
-		data->max_real = cpl_x + ecart_ajust_max;
+		data->min_imgr = cpl_y - ecart_ajust;
+		data->max_imgr = cpl_y + ecart_ajust;
+		data->min_real = cpl_x - ecart_ajust;
+		data->max_real = cpl_x + ecart_ajust;
 	}
-	else if (keycode == 5)
-	{
-		ecart_ajust_max = ecart_max * 1.2;
-		ecart_ajust_min = ecart_min * 1.2;
-		data->min_imgr = cpl_y + ecart_ajust_min;
-		data->max_imgr = cpl_y + ecart_ajust_max;
-		data->min_real = cpl_x + ecart_ajust_min;
-		data->max_real = cpl_x + ecart_ajust_max;
-	}
-	//  printf("%f, %f, %f, %f\n", data->min_imgr,
-	// 	data->max_imgr,
-	// 	data->min_real,
-	// 	data->max_real);
 	iniate(data);
 	return (0);
-}
-
-void	small_mouv(int keycode, t_data *data)
-{
-	if (keycode == 'w')
-	{
-		data->min_imgr += 0.01;
-		data->max_imgr += 0.01;
-	}
-	if (keycode == 'a')
-	{
-		data->min_real -= 0.01;
-		data->max_real -= 0.01;
-	}
-	if (keycode == 's')
-	{
-		data->min_imgr -= 0.01;
-		data->max_imgr -= 0.01;
-	}
-	if (keycode == 'd')
-	{
-		data->min_real += 0.01;
-		data->max_real += 0.01;
-	}
 }
 
 void	mouv(int keycode, t_data *data)
@@ -119,7 +65,7 @@ void	mouv(int keycode, t_data *data)
 	}
 }
 
-void param_julia(int keycode, t_data *data)
+void	param_julia(int keycode, t_data *data)
 {
 	if (keycode == 'h')
 	{
@@ -133,7 +79,7 @@ void param_julia(int keycode, t_data *data)
 	}
 }
 
-void param_color(int keycode, t_data *data)
+void	param_color(int keycode, t_data *data)
 {
 	(void)keycode;
 	// if (keycode - 48 > 0 && keycode - 48 < 10)
@@ -141,9 +87,8 @@ void param_color(int keycode, t_data *data)
 	data->color++;
 }
 
-int	zoom(int keycode, t_data *data)
+int	utils_hook(int keycode, t_data *data)
 {
-	printf("%d\n", keycode);
 	if (keycode == 65307)
 	{
 		quit(data);
@@ -158,10 +103,9 @@ int	zoom(int keycode, t_data *data)
 		iniate(data);
 	}
 	mouv(keycode, data);
-	small_mouv(keycode, data);
 	param_julia(keycode, data);
 	if (keycode == 'c')
 		param_color(keycode, data);
 	iniate(data);
-	return(0);
+	return (0);
 }
