@@ -6,7 +6,7 @@
 /*   By: chsimon <chsimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/12 16:13:04 by chsimon           #+#    #+#             */
-/*   Updated: 2022/05/14 12:02:51 by chsimon          ###   ########.fr       */
+/*   Updated: 2022/05/14 12:39:52 by chsimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,12 @@ void	iniate(t_data *data)
 		* (data->img.bpp / 8));
 	data->real_factor = (data->max_real - data->min_real) / (W_WIDTH - 1);
 	data->imgr_factor = (data->max_imgr - data->min_imgr) / (W_HEIGHT - 1);
-	number_cruncher(data);
+	if (data->flag == 1)
+		number_cruncher(data, &mandel_equation);
+	if (data->flag == 2)
+		number_cruncher(data, &julia_equation);
+	if (data->flag == 3)
+		number_cruncher(data, &burning_ship_equation);
 	mlx_put_image_to_window(data->mlx.ptr, data->mlx.win, data->img.img, 0, 0);
 }
 

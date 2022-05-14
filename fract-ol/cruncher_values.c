@@ -6,7 +6,7 @@
 /*   By: chsimon <chsimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/14 11:56:28 by chsimon           #+#    #+#             */
-/*   Updated: 2022/05/14 11:56:51 by chsimon          ###   ########.fr       */
+/*   Updated: 2022/05/14 12:46:05 by chsimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,10 @@
 #include <math.h>
 #include "ft_fractol.h"
 
-void	init_values(t_data *data, int *x, int *y)
+void	init_values(t_data *data, t_pos *pos)
 {
-	*x = 0;
-	*y = 0;
+	pos->x = 0;
+	pos->y = 0;
 	data->z_re_mem = 0;
 }
 

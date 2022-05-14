@@ -6,7 +6,7 @@
 /*   By: chsimon <chsimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/11 12:28:20 by chsimon           #+#    #+#             */
-/*   Updated: 2022/05/14 11:57:55 by chsimon          ###   ########.fr       */
+/*   Updated: 2022/05/14 12:49:55 by chsimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,43 +40,38 @@ void	julia_equation(t_data *data)
 	data->z_re = data->z_re_mem;
 }
 
-void	calculation_loop(t_data *data, int x, int y, int count)
+void	calculation_loop(t_data *data, t_pos *pos,
+	int count, void (*equation)(t_data *data))
 {
 	while ((data->z_re * data->z_re + data->z_im + data->z_im < 4))
 	{
 		if (count == 250)
 		{
-			ft_mlx_pixel_put(&data->img, x, y, 0x00000000);
+			ft_mlx_pixel_put(&data->img, pos->x, pos->y, 0x00000000);
 			break ;
 		}
-		if (data->flag == 1)
-			mandel_equation(data);
-		if (data->flag == 2)
-			julia_equation(data);
-		if (data->flag == 3)
-			burning_ship_equation(data);
+		equation(data);
 		count++;
 	}
 	if (count < 250)
-		ft_mlx_pixel_put(&data->img, x, y, color(count, data));
+		ft_mlx_pixel_put(&data->img, pos->x, pos->y, color(count, data));
 }
 
-void	number_cruncher(t_data *data)
+void	number_cruncher(t_data *data, void (*equation)(t_data *data))
 {
-	int	x;
-	int	y;
+	t_pos	pos;
 
-	init_values(data, &x, &y);
-	while (x < W_WIDTH)
+	init_values(data, &pos);
+	while (pos.x < W_WIDTH)
 	{
-		data->c_re = data->min_real + (x * data->real_factor);
-		y = 0;
-		while (y < W_HEIGHT)
+		data->c_re = data->min_real + (pos.x * data->real_factor);
+		pos.y = 0;
+		while (pos.y < W_HEIGHT)
 		{
-			get_cpl(data, y);
-			calculation_loop(data, x, y, 0);
-			y++;
+			get_cpl(data, pos.y);
+			calculation_loop(data, &pos, 0, equation);
+			pos.y++;
 		}
-		x++;
+		pos.x++;
 	}
 }

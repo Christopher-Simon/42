@@ -6,7 +6,7 @@
 /*   By: chsimon <chsimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/10 15:17:43 by chsimon           #+#    #+#             */
-/*   Updated: 2022/05/14 12:02:51 by chsimon          ###   ########.fr       */
+/*   Updated: 2022/05/14 12:49:06 by chsimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,12 @@
 
 # define W_HEIGHT 1000
 # define W_WIDTH 1000
+
+typedef struct s_pos
+{
+	int	x;
+	int	y;
+}	t_pos;
 
 typedef struct s_mlx
 {
@@ -52,10 +58,12 @@ typedef struct s_data
 	t_img	img;
 }	t_data;
 
-void	number_cruncher(t_data *data);
+void	number_cruncher(t_data *data, void (*equation)(t_data *data));
+void	mandel_equation(t_data *data);
+void	burning_ship_equation(t_data *data);
+void	julia_equation(t_data *data);
 void	iniate(t_data *data);
 void	get_data(t_data *data);
-void	init_values(t_data *data, int *x, int *y);
 void	get_cpl(t_data *data, int y);
 void	ft_mlx_pixel_put(t_img *data, int x, int y, int color);
 int		utils_hook(int keycode, t_data *data);
@@ -69,6 +77,6 @@ int		color(int count, t_data *data);
 int		create_trgb(int t, int r, int g, int b);
 int		quit(t_data	*data);
 void	init_img(t_img *img, t_mlx *mlx);
-void	init_values(t_data *data, int *x, int *y);
+void	init_values(t_data *data, t_pos *pos);
 
 #endif
