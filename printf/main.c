@@ -6,7 +6,7 @@
 /*   By: chsimon <chsimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/12 18:58:33 by chsimon           #+#    #+#             */
-/*   Updated: 2022/05/05 17:52:33 by chsimon          ###   ########.fr       */
+/*   Updated: 2022/05/06 12:34:38 by chsimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int	main(void)
 	char *y = "Hello, world !";
 	// char y = '\0';
 
-	char	*str = "%p";
+	char	*str = "%i";
 
 	printf("\n");
 	printf("|\ntaille: %d", ft_printf(str, y));
