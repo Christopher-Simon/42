@@ -6,15 +6,24 @@
 /*   By: chsimon <chsimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/12 16:13:04 by chsimon           #+#    #+#             */
-/*   Updated: 2022/05/14 12:39:52 by chsimon          ###   ########.fr       */
+/*   Updated: 2022/05/19 18:15:38 by chsimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
+#include <unistd.h>
 #include <stdio.h>
 #include <mlx.h>
 #include <math.h>
 #include "ft_fractol.h"
+
+void	ft_putstr_fd(char *s, int fd)
+{
+	if (!s)
+		return ;
+	if (!write(fd, s, ft_strlen(s)))
+		return ;
+}
 
 void	iniate(t_data *data)
 {
@@ -48,6 +57,9 @@ void	fractol(int flag)
 	t_mlx	mlx;
 	t_img	img;
 
+	ft_putstr_fd("Change between fractals with P\nColors with C\n", 1);
+	ft_putstr_fd("Move with the arrows\n", 1);
+	ft_putstr_fd("For Julia, change param with H & J\n", 1);
 	window(&mlx);
 	init_img(&img, &mlx);
 	data.flag = flag;
@@ -65,7 +77,8 @@ int	main(int argc, char **argv)
 {
 	if (argc != 2)
 	{
-		printf("Please choose between : \nmandelbrot\njulia\nburning_ship\n");
+		ft_putstr_fd("Please choose between : \n", 1);
+		ft_putstr_fd("mandelbrot\njulia\nburning_ship\n", 1);
 		return (0);
 	}
 	if (!ft_memcmp(argv[1], "mandelbrot", ft_strlen("mandelbrot")))
@@ -76,7 +89,8 @@ int	main(int argc, char **argv)
 		fractol(3);
 	else
 	{
-		printf("Please choose between : \nmandelbrot\njulia\nburning_ship\n");
+		ft_putstr_fd("Please choose between : \n", 1);
+		ft_putstr_fd("mandelbrot\njulia\nburning_ship\n", 1);
 		return (0);
 	}
 }

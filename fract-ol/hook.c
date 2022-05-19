@@ -6,7 +6,7 @@
 /*   By: chsimon <chsimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/12 15:39:42 by chsimon           #+#    #+#             */
-/*   Updated: 2022/05/14 12:02:51 by chsimon          ###   ########.fr       */
+/*   Updated: 2022/05/19 18:14:17 by chsimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,14 +23,15 @@ int	mouse(int keycode, int x, int y, t_data *data)
 	double	cpl_x;
 	double	cpl_y;
 
+	ecart_ajust = 0;
 	center = data->min_real - ((data->min_real - data->max_real) / 2);
 	cpl_x = data->min_real + (x * data->real_factor);
 	cpl_y = data->max_imgr - (y * data->imgr_factor);
-	if (keycode == 1)
+	if (keycode == 1 || keycode == 4)
 		ecart_ajust = (data->max_real - center) * 0.8;
-	else if (keycode == 3)
+	else if (keycode == 3 || keycode == 5)
 		ecart_ajust = (data->max_real - center) * 1.2;
-	if (keycode == 1 || keycode == 3)
+	if (ecart_ajust)
 	{
 		data->min_imgr = cpl_y - ecart_ajust;
 		data->max_imgr = cpl_y + ecart_ajust;
@@ -82,8 +83,6 @@ void	param_julia(int keycode, t_data *data)
 void	param_color(int keycode, t_data *data)
 {
 	(void)keycode;
-	// if (keycode - 48 > 0 && keycode - 48 < 10)
-	// 	data->color = keycode - 48;
 	data->color++;
 }
 

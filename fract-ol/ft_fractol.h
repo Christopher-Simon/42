@@ -6,7 +6,7 @@
 /*   By: chsimon <chsimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/10 15:17:43 by chsimon           #+#    #+#             */
-/*   Updated: 2022/05/14 12:49:06 by chsimon          ###   ########.fr       */
+/*   Updated: 2022/05/19 18:03:53 by chsimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,5 +78,6 @@ int		create_trgb(int t, int r, int g, int b);
 int		quit(t_data	*data);
 void	init_img(t_img *img, t_mlx *mlx);
 void	init_values(t_data *data, t_pos *pos);
+void	ft_putstr_fd(char *s, int fd);
 
 #endif
