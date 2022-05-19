@@ -6,12 +6,12 @@
 /*   By: chsimon <chsimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/10 15:46:53 by chsimon           #+#    #+#             */
-/*   Updated: 2022/04/02 15:50:39 by chsimon          ###   ########.fr       */
+/*   Updated: 2022/05/09 11:17:47 by chsimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
-#include "../printf.h"
+#include "../ft_printf.h"
 
 static char	*ft_putnbr_base(char *str, unsigned long n, char *base, int count)
 {

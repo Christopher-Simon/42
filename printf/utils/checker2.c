@@ -6,12 +6,12 @@
 /*   By: chsimon <chsimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/05 18:13:28 by chsimon           #+#    #+#             */
-/*   Updated: 2022/05/05 18:19:28 by chsimon          ###   ########.fr       */
+/*   Updated: 2022/05/09 11:17:47 by chsimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
-#include "../printf.h"
+#include "../ft_printf.h"
 
 int	flag_first(char c)
 {

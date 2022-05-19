@@ -6,12 +6,12 @@
 /*   By: chsimon <chsimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/02 17:17:30 by chsimon           #+#    #+#             */
-/*   Updated: 2022/04/13 16:58:38 by chsimon          ###   ########.fr       */
+/*   Updated: 2022/05/09 11:17:47 by chsimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
-#include "../printf.h"
+#include "../ft_printf.h"
 
 static void	prec(t_flags *flag, int x, char *r)
 {

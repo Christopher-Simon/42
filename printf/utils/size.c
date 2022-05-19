@@ -6,12 +6,12 @@
 /*   By: chsimon <chsimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/12 18:29:08 by chsimon           #+#    #+#             */
-/*   Updated: 2022/04/06 13:16:48 by chsimon          ###   ########.fr       */
+/*   Updated: 2022/05/09 11:17:47 by chsimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
-#include "../printf.h"
+#include "../ft_printf.h"
 
 int	find_nb_size(t_flags *flag, long int n)
 {

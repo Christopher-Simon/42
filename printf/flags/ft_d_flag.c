@@ -6,12 +6,12 @@
 /*   By: chsimon <chsimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/16 14:24:59 by chsimon           #+#    #+#             */
-/*   Updated: 2022/05/06 15:10:24 by chsimon          ###   ########.fr       */
+/*   Updated: 2022/05/09 11:17:47 by chsimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
-#include "../printf.h"
+#include "../ft_printf.h"
 
 void	d_minus(t_flags *flag, int x, char *r, char *str)
 {

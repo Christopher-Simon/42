@@ -6,31 +6,31 @@
 /*   By: chsimon <chsimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/12 18:58:33 by chsimon           #+#    #+#             */
-/*   Updated: 2022/05/08 11:32:07 by chsimon          ###   ########.fr       */
+/*   Updated: 2022/05/09 17:39:32 by chsimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 #include <limits.h>
-#include "printf.h"
+#include "ft_printf.h"
 
 
 int	main(void)
 {
-	int y = 0;
+	// int y = 0;
 	// int y = 2;
-	//int y = 2147483647;
+	// int y = 2147483647;
 	// int y = -2147483648;
 	// int y = 1745977348;
 	// unsigned int u = 4294967295;
 	// unsigned int y = 0;
-	// char *y = NULL;
+	char *y = NULL;
 	// char *y = "\0";
 	// char *y = "";
 	// char *y = "Hello, world !";
 	// char y = '\0';
 
-	char	*str = "%-.x";
+	char	*str = "Hello %s wdawdsd";
 
 	printf("\n");
 	printf("|\ntaille: %d", ft_printf(str, y));

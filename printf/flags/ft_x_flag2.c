@@ -6,19 +6,19 @@
 /*   By: chsimon <chsimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/02 17:24:08 by chsimon           #+#    #+#             */
-/*   Updated: 2022/05/08 11:36:57 by chsimon          ###   ########.fr       */
+/*   Updated: 2022/05/09 11:17:47 by chsimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
-#include "../printf.h"
+#include "../ft_printf.h"
 
 static void	prec(t_flags *flag, int x, char *r)
 {
 	int	i;
 
 	if (!x)
-		return;
+		return ;
 	if (flag->minus)
 		i = x;
 	else
