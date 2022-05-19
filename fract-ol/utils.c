@@ -6,7 +6,7 @@
 /*   By: chsimon <chsimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/11 12:37:11 by chsimon           #+#    #+#             */
-/*   Updated: 2022/05/12 17:43:14 by chsimon          ###   ########.fr       */
+/*   Updated: 2022/05/14 11:59:21 by chsimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,21 +58,11 @@ void	ft_mlx_pixel_put(t_img *img, int x, int y, int color)
 {
 	char	*dst;
 
-	dst = img->addr + (y * img->line_length + x * (img->bits_per_pixel / 8));
-	*(unsigned int*)dst = color;
+	dst = img->addr + (y * img->ll + x * (img->bpp / 8));
+	*(unsigned int *)dst = color;
 }
 
-void	window(t_mlx *mlx)
+int	create_trgb(int t, int r, int g, int b)
 {
-	mlx->ptr = mlx_init();
-	if (mlx->ptr == 0)
-		exit (0);
-	mlx->win = mlx_new_window(mlx->ptr, W_WIDTH, W_HEIGHT, "Hello, world!");
-	if (!mlx->win)
-	{
-		mlx_destroy_display(mlx->ptr);
-		free(mlx->ptr);
-		exit (0);
-	}
+	return (t << 24 | r << 16 | g << 8 | b);
 }
-

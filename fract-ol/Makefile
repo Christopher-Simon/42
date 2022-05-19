@@ -3,10 +3,10 @@ CC=gcc
 CFLAGS=	-Wall -Wextra -Werror -g3 -Ofast
 
 SRCS=	fractol.c \
-	mandelbrot.c \
-	burning_ship.c \
-	julia.c \
+	cruncher.c \
+	cruncher_values.c \
 	utils.c \
+	init.c \
 	hook.c \
 	color.c \
 
