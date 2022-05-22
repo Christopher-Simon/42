@@ -6,17 +6,23 @@
 /*   By: chsimon <chsimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/02 17:05:41 by chsimon           #+#    #+#             */
+<<<<<<< HEAD
 /*   Updated: 2022/05/06 11:51:01 by chsimon          ###   ########.fr       */
+=======
+/*   Updated: 2022/05/08 11:37:17 by chsimon          ###   ########.fr       */
+>>>>>>> e65a5d4e449fda9104a4d58d5ddd77b76bf808cb
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
-#include "../printf.h"
+#include "printf.h"
 
 static void	prec(t_flags *flag, int x, char *r)
 {
 	int	i;
 
+	if (!x)
+		return;
 	if (flag->minus)
 		i = x;
 	else
@@ -37,7 +43,7 @@ static void	prec(t_flags *flag, int x, char *r)
 	}
 }
 
-static void	zero(t_flags *flag, int x, char *r)
+void	x_zero(t_flags *flag, int x, char *r)
 {
 	int	i;
 
@@ -91,7 +97,7 @@ char	*big_x_fillis(t_flags *flag, int x, char *r, char *str)
 	if (flag->prec)
 		prec(flag, x, r);
 	if (flag->zero && !flag->prec && !flag->minus)
-		zero(flag, x, r);
+		x_zero(flag, x, r);
 	if (flag->hash)
 		hash(flag, x, r);
 	free(str);

@@ -1,30 +1,52 @@
-NAME =	libftprintf.a
+NAME =	fractol
 CC=gcc
-CFLAGS= -Wall -Wextra -Werror -g3
-SRCS=	
-BONUS=	all
+CFLAGS=	-Wall -Wextra -Werror -g3 -Ofast
+
+SRCS=	fractol.c \
+	cruncher.c \
+	cruncher_values.c \
+	utils.c \
+	init.c \
+	hook.c \
+	color.c \
+
 
 RM= rm -f
-OBJS= $(SRCS:.c=.o)
-BNS= $(BONUS:.c=.o)
+OBJ= $(SRCS:.c=.o)
 
 all : $(NAME)
 
-$(NAME) : $(OBJS)
-	ar -rcs $@ $^
+$(NAME) : $(OBJ)
+	$(CC) $(OBJ) -Lmlx_linux -lmlx_Linux -L/usr/lib -Imlx_linux -lXext -lX11 -lm -lz -O3 -o $@
 
-bonus : $(OBJS) $(BNS)
-	ar -rcs $(NAME) $^ 
-
-.o : .c
-	$(CC) $(CFLAGS) -c $< -o $@ -I ./
+%.o : %.c
+	$(CC) $(CFLAGS) -I/usr/include -Imlx_linux -O3 -c $< -o $@
 
 clean :	
-	$(RM) $(OBJS) $(BNS)
+	$(RM) $(OBJ)
 
 fclean : clean
 	$(RM) $(NAME)
 
-re : 	fclean all
+re : 	
+		$(MAKE) fclean
+		$(MAKE) all
+
+testm:
+		$(MAKE) re
+		./fractol mandelbrot
+
+testj:
+		$(MAKE) re
+		./fractol julia
+testb:
+		$(MAKE) re
+		./fractol burning_ship
+testi:
+		$(MAKE) re
+		env -i valgrind ./fractol mandelbrot
+testv:
+		$(MAKE) re
+		valgrind ./fractol mandelbrot
 
 .PHONY : all clean fclean re bonus

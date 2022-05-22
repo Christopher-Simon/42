@@ -6,7 +6,11 @@
 /*   By: chsimon <chsimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/16 14:23:56 by chsimon           #+#    #+#             */
+<<<<<<< HEAD
 /*   Updated: 2022/05/06 11:51:01 by chsimon          ###   ########.fr       */
+=======
+/*   Updated: 2022/05/06 15:26:40 by chsimon          ###   ########.fr       */
+>>>>>>> e65a5d4e449fda9104a4d58d5ddd77b76bf808cb
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +72,7 @@ int	flag_p(t_flags flag, int x, char *s, unsigned long i)
 	char	*str;
 	char	*r;
 
-	str = "";
+	str = NULL;
 	get_flags(&flag, s);
 	if (!i)
 		flag.null = 1;

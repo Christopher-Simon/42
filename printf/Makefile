@@ -38,7 +38,6 @@ SRCS=	utils/ft_printf.c\
 	libft/ft_strlcpy.c\
 	libft/ft_calloc.c\
 	libft/ft_bzero.c
-BONUS=	all
 
 RM= rm -f
 OBJS= $(SRCS:.c=.o)
@@ -52,7 +51,7 @@ $(NAME) : $(OBJS)
 bonus : $(OBJS) $(BNS)
 	ar -rcs $(NAME) $^ 
 
-.o : .c
+.c.o :
 	$(CC) $(CFLAGS) -c $< -o $@ -I ./
 
 clean :	
