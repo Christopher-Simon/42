@@ -6,12 +6,12 @@
 /*   By: chsimon <chsimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/02 19:44:50 by chsimon           #+#    #+#             */
-/*   Updated: 2022/05/06 11:50:40 by chsimon          ###   ########.fr       */
+/*   Updated: 2022/05/22 19:13:23 by chsimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
-#include "../printf.h"
+#include "../ft_printf.h"
 
 int	check_flags(char *s)
 {

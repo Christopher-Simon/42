@@ -6,12 +6,12 @@
 /*   By: chsimon <chsimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/16 14:20:40 by chsimon           #+#    #+#             */
-/*   Updated: 2022/05/06 11:51:01 by chsimon          ###   ########.fr       */
+/*   Updated: 2022/05/22 19:12:28 by chsimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
-#include "../printf.h"
+#include "../ft_printf.h"
 
 char	*c_fillis(t_flags *flag, int x, char *r, int c)
 {

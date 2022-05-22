@@ -1,0 +1,9 @@
+make --dry-run --keep-going --print-directory
+make: Entering directory '/home/christopher/42/push_swap'
+gcc -Wall -Wextra -Werror -g3 -c push_swap.c -o push_swap.o
+ 
+gcc -Wall -Wextra -Werror -g3 -c stack_utils.c -o stack_utils.o
+gcc -Wall -Wextra -Werror -g3 -c actions.c -o actions.o
+gcc push_swap.o stack_utils.o actions.o -o push-swap
+make: Leaving directory '/home/christopher/42/push_swap'
+ 

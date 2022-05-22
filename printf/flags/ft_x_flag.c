@@ -6,16 +6,11 @@
 /*   By: chsimon <chsimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/31 12:44:18 by chsimon           #+#    #+#             */
-<<<<<<< HEAD
-/*   Updated: 2022/05/06 11:51:01 by chsimon          ###   ########.fr       */
-=======
-/*   Updated: 2022/05/06 16:41:47 by chsimon          ###   ########.fr       */
->>>>>>> e65a5d4e449fda9104a4d58d5ddd77b76bf808cb
+/*   Updated: 2022/05/22 19:13:10 by chsimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include "../printf.h"
+#include "../ft_printf.h"
 
 char	*flag_x_null(int x)
 {
