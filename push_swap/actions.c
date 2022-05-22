@@ -6,7 +6,7 @@
 /*   By: chsimon <chsimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/21 20:09:47 by chsimon           #+#    #+#             */
-/*   Updated: 2022/05/22 19:09:54 by chsimon          ###   ########.fr       */
+/*   Updated: 2022/05/22 19:40:25 by chsimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,5 +107,40 @@ void	push_b(t_full_stack *stack)
 
 void	rotate_a(t_full_stack *stack)
 {
-	
+	printf("ra\n");
+	stack->a->begin = 0;
+	stack->a->next->begin = 1;
+	stack->a = stack->a->next;
+}
+
+void	rotate_b(t_full_stack *stack)
+{
+	printf("rb\n");
+	stack->b->begin = 0;
+	stack->b->next->begin = 1;
+	stack->b = stack->b->next;
+}
+
+void	reverse_rotate_a(t_full_stack *stack)
+{
+	t_stack *old_root;
+
+	printf("rra\n");
+	old_root = stack->a;
+	while (stack->a->next->begin != 1)
+		stack->a = stack->a->next;
+	stack->a->begin = 1;
+	old_root->begin = 0;
+}
+
+void	reverse_rotate_b(t_full_stack *stack)
+{
+	t_stack *old_root;
+
+	printf("rra\n");
+	old_root = stack->b;
+	while (stack->b->next->begin != 1)
+		stack->b = stack->b->next;
+	stack->b->begin = 1;
+	old_root->begin = 0;
 }

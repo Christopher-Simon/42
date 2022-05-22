@@ -6,7 +6,7 @@
 /*   By: chsimon <chsimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 10:25:47 by chsimon           #+#    #+#             */
-/*   Updated: 2022/05/22 19:00:58 by chsimon          ###   ########.fr       */
+/*   Updated: 2022/05/22 19:42:13 by chsimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,20 +27,25 @@ int	main(void)
 	print_stack(stack);
 	swap_a(stack);
 	print_stack(stack);
+	swap_a(stack);
+	print_stack(stack);
+	push_b(stack);
+	print_stack(stack);
 	push_b(stack);
 	print_stack(stack);
 	push_b(stack);
 	print_stack(stack);
-	swap_b(stack);
-	print_stack(stack);
-	swap_b(stack);
-	print_stack(stack);
-	push_b(stack);
-	print_stack(stack);
-	swap_b(stack);
-	print_stack(stack);
-	swap_b(stack);
-	print_stack(stack);
+	// swap_b(stack);
+	// print_stack(stack);
+	// swap_b(stack);
+	// print_stack(stack);
+	// push_b(stack);
+	// print_stack(stack);
+	// swap_b(stack);
+	// print_stack(stack);
+	// swap_b(stack);
+	// print_stack(stack);
+
 	// push_b(stack);
 	// print_stack(stack);
 	// push_b(stack);
@@ -49,11 +54,27 @@ int	main(void)
 	// {
 	// 	push_b(stack);
 	// 	print_stack(stack);
+	// // }
+	// while (stack->b)
+	// {
+	// 	push_a(stack);
+	// 	print_stack(stack);
 	// }
-	while (stack->b)
-	{
-		push_a(stack);
-		print_stack(stack);
-	}
+
+
+	// rotate_a(stack);
+	// print_stack(stack);	
+	rotate_b(stack);
+	print_stack(stack);
+	rotate_b(stack);
+	print_stack(stack);
+	rotate_b(stack);
+	print_stack(stack);
+	rotate_b(stack);
+	print_stack(stack);
+	// reverse_rotate_a(stack);
+	// print_stack(stack);
+	// reverse_rotate_b(stack);
+	// print_stack(stack);
 	return (0);
 }
