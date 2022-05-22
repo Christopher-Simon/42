@@ -1,34 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   ft_lstnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: chsimon <chsimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/19 10:25:47 by chsimon           #+#    #+#             */
-/*   Updated: 2022/05/22 08:45:52 by chsimon          ###   ########.fr       */
+/*   Created: 2021/11/15 19:08:35 by chsimon           #+#    #+#             */
+/*   Updated: 2021/12/01 21:21:24 by chsimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_push_swap.h"
 #include <stdlib.h>
+#include "libft.h"
 
-int	main(void)
+t_list	*ft_lstnew(void *content)
 {
-	int		tab[] = {5 , 15 , 1};
-	int 	count;
-	t_stack	*a;
-	t_stack	*b;
+	t_list	*root;
 
-	count = 0;
-	a = ft_begin(tab[0]);
-	b = NULL;
-	while (count++ < 2)
-		ft_stack_new(a, tab[count]);
-	print_stack(a, b);
-	a = swap_a(a);
-	print_stack(a, b);
-	b = push_b(&a, b);
-	print_stack(a, b);
-	return (0);
+	root = malloc(sizeof(t_list));
+	if (!root)
+		return (0);
+	root->content = content;
+	root->next = NULL;
+	return (root);
 }

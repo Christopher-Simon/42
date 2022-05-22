@@ -1,52 +1,62 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   lst_utils.c                                        :+:      :+:    :+:   */
+/*   stack_utils.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: chsimon <chsimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 10:34:03 by chsimon           #+#    #+#             */
-/*   Updated: 2022/05/19 10:42:00 by chsimon          ###   ########.fr       */
+/*   Updated: 2022/05/21 22:02:41 by chsimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_push_swap"
+#include "ft_push_swap.h"
 
-s_stack *ft_stack_begin(int d)
+t_stack *ft_begin(int d)
 {
-	t_list	*root;
+	t_stack	*root;
 
-	root = malloc(sizeof(t_stack_a));
+	root = malloc(sizeof(t_stack));
 	if (!root)
 		return (0);
 	root->value = d;
 	root->begin = 1;
 	root->next = NULL;
-	return (root);
+	return(root);
 }
 
-s_stack *ft_stack_new(int d)
+void	ft_stack_new(t_stack *ptr, int d)
 {
-	t_list	*root;
+	t_stack	*new;
 
-	root = malloc(sizeof(t_stack));
-	if (!root)
-		return (0);
-	root->value = d;
-	root->begin = 0;
-	root->next = NULL;
-	return (root);
+	new = malloc(sizeof(t_stack));
+	if (!new)
+		return ;
+	new->value = d;
+	new->begin = 0;
+	while (ptr->next != NULL)
+	{
+		ptr = ptr->next;
+	}
+	ptr->next = new;
 }
 
-s_stack *ft_stack_to_front(int d)
+void	print_stack(t_stack *a, t_stack *b)
 {
-	t_list	*root;
-
-	root = malloc(sizeof(t_stack));
-	if (!root)
-		return (0);
-	root->value = d;
-	root->begin = 0;
-	root->next = NULL;
-	return (root);
+	printf("a    b\n");
+	while (a != NULL || b != NULL)
+	{
+		if (a)
+		{
+			printf("%-5d", a->value);
+			a = a->next;
+		}
+		if (b)
+		{
+			printf("%d", b->value);
+			b = b->next;
+		}
+		printf("\n");
+	}
+	printf("\n");
 }
