@@ -6,15 +6,16 @@
 /*   By: chsimon <chsimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 10:34:03 by chsimon           #+#    #+#             */
-/*   Updated: 2022/05/21 22:02:41 by chsimon          ###   ########.fr       */
+/*   Updated: 2022/05/22 09:16:47 by chsimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_push_swap.h"
 
-t_stack *ft_begin(int d)
+t_stack *ft_begin(t_full_stack stack, int d)
 {
 	t_stack	*root;
+	stack;
 
 	root = malloc(sizeof(t_stack));
 	if (!root)
