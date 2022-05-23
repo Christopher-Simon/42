@@ -6,7 +6,7 @@
 /*   By: chsimon <chsimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/23 16:55:05 by chsimon           #+#    #+#             */
-/*   Updated: 2022/05/23 20:11:08 by chsimon          ###   ########.fr       */
+/*   Updated: 2022/05/23 21:02:26 by chsimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ int	median(t_full_stack *stack)
 	}
 	root = med_stack->a;
 	// print_stack(med_stack);
-	algo(med_stack);
+	low_algo(med_stack);
 	// print_stack(med_stack);
 	while 	( i++ < stack_length(stack->a)/2)
 	{

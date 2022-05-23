@@ -6,7 +6,7 @@
 /*   By: chsimon <chsimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 10:27:27 by chsimon           #+#    #+#             */
-/*   Updated: 2022/05/23 19:25:17 by chsimon          ###   ########.fr       */
+/*   Updated: 2022/05/23 20:39:37 by chsimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,11 +42,22 @@ void	rotate_a(t_full_stack *stack);
 void	rotate_b(t_full_stack *stack);
 void	reverse_rotate_a(t_full_stack *stack);
 void	reverse_rotate_b(t_full_stack *stack);
+void	s_swap_a(t_full_stack *stack);
+void	s_swap_b(t_full_stack *stack);
+void	s_push_a(t_full_stack *stack);
+void	s_push_b(t_full_stack *stack);
+void	s_rotate_a(t_full_stack *stack);
+void	s_rotate_b(t_full_stack *stack);
+void	s_reverse_rotate_a(t_full_stack *stack);
+void	s_reverse_rotate_b(t_full_stack *stack);
+t_stack	*remove_root(t_stack *lst);
+t_stack	*add_root(t_stack *lst, t_stack *root);
 int     ft_atoi(const char *nptr);
 int		stack_length(t_stack *lst);
 int		check_order(t_full_stack *stack);
 int		median(t_full_stack *stack);
 void	algo(t_full_stack *stack);
+void	low_algo(t_full_stack *stack);
 
 
 

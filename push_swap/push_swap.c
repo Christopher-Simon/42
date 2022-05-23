@@ -6,7 +6,7 @@
 /*   By: chsimon <chsimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 10:25:47 by chsimon           #+#    #+#             */
-/*   Updated: 2022/05/23 20:07:15 by chsimon          ###   ########.fr       */
+/*   Updated: 2022/05/23 20:39:13 by chsimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,19 +29,14 @@ int	main(int argc, char **argv)
 	ft_begin(stack, ft_atoi(argv[++i]));
 	while (i++ < argc - 1)
 		ft_stack_new(stack, ft_atoi(argv[i]));
-	// print_stack(stack);
-	// algo(stack);
-	// printf("order ? : %d\n", check_order(stack));
-	// printf("length : %d\n",stack_length(stack->a));
-	// print_stack(stack);
-	median(stack);
+	algo(stack);
+	// printf("%d\n", median(stack));
 	free_stack(stack);
 
 
-
-
-
-
+	// print_stack(stack);
+	// printf("order ? : %d\n", check_order(stack));
+	// print_stack(stack);
 
 
 	
