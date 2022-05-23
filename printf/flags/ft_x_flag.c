@@ -6,11 +6,10 @@
 /*   By: chsimon <chsimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/31 12:44:18 by chsimon           #+#    #+#             */
-/*   Updated: 2022/05/09 11:17:47 by chsimon          ###   ########.fr       */
+/*   Updated: 2022/05/22 19:13:10 by chsimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
 #include "../ft_printf.h"
 
 char	*flag_x_null(int x)

@@ -5,6 +5,7 @@ CFLAGS=	-Wall -Wextra -Werror -g3
 SRCS=	push_swap.c \
 	stack_utils.c \
 	actions.c \
+	utils.c \
 
 RM= rm -f
 OBJ= $(SRCS:.c=.o)

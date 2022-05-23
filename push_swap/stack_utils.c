@@ -6,58 +6,105 @@
 /*   By: chsimon <chsimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 10:34:03 by chsimon           #+#    #+#             */
-/*   Updated: 2022/05/22 09:16:47 by chsimon          ###   ########.fr       */
+/*   Updated: 2022/05/23 00:18:30 by chsimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_push_swap.h"
 
-t_stack *ft_begin(t_full_stack stack, int d)
+void	ft_begin(t_full_stack *stack, int d)
 {
-	t_stack	*root;
-	stack;
+	t_stack	*a;
+	t_stack	*b;
 
-	root = malloc(sizeof(t_stack));
-	if (!root)
-		return (0);
-	root->value = d;
-	root->begin = 1;
-	root->next = NULL;
-	return(root);
+	a = malloc(sizeof(t_stack));
+	if (!a)
+		return ;
+	a->value = d;
+	a->begin = 1;
+	a->next = a;
+	b = NULL;
+	stack->a = a;
+	stack->b = b;
 }
 
-void	ft_stack_new(t_stack *ptr, int d)
+void	ft_stack_new(t_full_stack *stack, int d)
 {
 	t_stack	*new;
+	t_stack	*root;
 
+	root = stack->a;
 	new = malloc(sizeof(t_stack));
 	if (!new)
 		return ;
 	new->value = d;
 	new->begin = 0;
-	while (ptr->next != NULL)
+	new->next = root;
+	while (stack->a->next != root)
 	{
-		ptr = ptr->next;
+		stack->a = stack->a->next;
 	}
-	ptr->next = new;
+	stack->a->next = new;
+	while (stack->a != root)
+		stack->a = stack->a->next;
 }
 
-void	print_stack(t_stack *a, t_stack *b)
+int	stack_length(t_stack *lst)
 {
-	printf("a    b\n");
-	while (a != NULL || b != NULL)
+	int	i;
+
+	i = 1;
+	while (lst->next->begin != 1)
 	{
-		if (a)
+		lst = lst->next;
+		i++;	
+	}
+	return (i);
+}
+
+void	print_stack(t_full_stack *stack)
+{
+	int	end_a = 0;
+	int	end_b = 0;
+
+	printf("a    b\n");
+	if (stack->a)
+	{
+		printf("%-5d", stack->a->value);
+		stack->a = stack->a->next;
+	}
+	else
+		printf("     ");
+	if (stack->b)
+	{
+		printf("%d", stack->b->value);
+		stack->b = stack->b->next;
+	}
+	printf("\n");
+	while ((end_a == 0 || end_b == 0))
+	{
+		if (stack->a && stack->a->begin != 1)
 		{
-			printf("%-5d", a->value);
-			a = a->next;
+			printf("%-5d", stack->a->value);
+			stack->a = stack->a->next;
 		}
-		if (b)
+		else
 		{
-			printf("%d", b->value);
-			b = b->next;
+			printf("     ");
+			end_a = 1;
 		}
+		if (stack->b && stack->b->begin != 1)
+		{
+			printf("%d", stack->b->value);
+			stack->b = stack->b->next;
+		}
+		else
+			end_b = 1;
 		printf("\n");
 	}
 	printf("\n");
+	// while (stack->a && stack->a->begin != 1)
+	// 	stack->a = stack->a->next;
+	// while (stack->b && stack->b->begin != 1)
+	// 	stack->b = stack->b->next;
 }

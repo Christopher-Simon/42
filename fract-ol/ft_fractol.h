@@ -6,7 +6,7 @@
 /*   By: chsimon <chsimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/10 15:17:43 by chsimon           #+#    #+#             */
-/*   Updated: 2022/05/19 18:03:53 by chsimon          ###   ########.fr       */
+/*   Updated: 2022/05/22 12:24:16 by chsimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 
 # define W_HEIGHT 1000
 # define W_WIDTH 1000
+
+# include <stddef.h>
 
 typedef struct s_pos
 {

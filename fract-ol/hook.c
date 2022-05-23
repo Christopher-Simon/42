@@ -6,7 +6,7 @@
 /*   By: chsimon <chsimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/12 15:39:42 by chsimon           #+#    #+#             */
-/*   Updated: 2022/05/19 18:14:17 by chsimon          ###   ########.fr       */
+/*   Updated: 2022/05/22 12:25:46 by chsimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,7 +103,7 @@ int	utils_hook(int keycode, t_data *data)
 	}
 	mouv(keycode, data);
 	param_julia(keycode, data);
-	if (keycode == 'c')
+	if (keycode =='c')
 		param_color(keycode, data);
 	iniate(data);
 	return (0);

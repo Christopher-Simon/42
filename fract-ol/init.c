@@ -6,7 +6,7 @@
 /*   By: chsimon <chsimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/14 11:43:18 by chsimon           #+#    #+#             */
-/*   Updated: 2022/05/14 11:56:39 by chsimon          ###   ########.fr       */
+/*   Updated: 2022/05/17 16:53:35 by chsimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	window(t_mlx *mlx)
 	mlx->ptr = mlx_init();
 	if (mlx->ptr == 0)
 		exit (0);
-	mlx->win = mlx_new_window(mlx->ptr, W_WIDTH, W_HEIGHT, "Hello, world!");
+	mlx->win = mlx_new_window(mlx->ptr, W_WIDTH, W_HEIGHT, "Fract-ol");
 	if (!mlx->win)
 	{
 		mlx_destroy_display(mlx->ptr);

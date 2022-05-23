@@ -5,9 +5,8 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
- 
 
-# Make data base, printed on Sat May 21 20:43:07 2022
+# Make data base, printed on Sun May 22 20:42:32 2022
 
 # Variables
 
@@ -21,7 +20,7 @@ GNUMAKEFLAGS :=
 DESKTOP_SESSION = ubuntu
 # default
 .SHELLFLAGS := -c
-# makefile (from 'Makefile', line 10)
+# makefile (from 'Makefile', line 11)
 OBJ = $(SRCS:.c=.o)
 # environment
 XDG_SESSION_CLASS = user
@@ -47,7 +46,7 @@ XMODIFIERS = @im=ibus
 CURDIR := /home/christopher/42/push_swap
 # makefile
 SHELL = /bin/sh
-# makefile (from 'Makefile', line 9)
+# makefile (from 'Makefile', line 10)
 RM = rm -f
 # environment
 SNAP_DATA = /var/snap/code/97
@@ -60,7 +59,6 @@ JOURNAL_STREAM = 8:37821
 # makefile (from 'Makefile', line 3)
 CFLAGS = -Wall -Wextra -Werror -g3
 # environment
- 
 XDG_CONFIG_DIRS = /etc/xdg/xdg-ubuntu:/etc/xdg
 # environment
 SNAP_INSTANCE_NAME = code
@@ -94,7 +92,6 @@ VSCODE_CWD = /home/christopher/42/push_swap
 GSETTINGS_SCHEMA_DIR = /snap/code/97/usr/share/glib-2.0/schemas
 # default
 MAKE_HOST := x86_64-pc-linux-gnu
- 
 # environment
 PATH = /home/christopher/.nvm/versions/node/v17.3.1/bin:/home/christopher/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
 # environment
@@ -128,7 +125,6 @@ GDK_PIXBUF_MODULEDIR = /snap/code/97/usr/lib/x86_64-linux-gnu/gdk-pixbuf-2.0/2.1
 # default
 .FEATURES := target-specific order-only second-expansion else-if shortest-stem undefine oneshell archives jobserver output-sync check-symlink load
 # environment
- 
 ELECTRON_NO_ATTACH_CONSOLE = 1
 # environment
 LS_COLORS = rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:
@@ -199,7 +195,7 @@ MAKECMDGOALS := all
 # environment
 QT_IM_MODULE = ibus
 # makefile (from 'Makefile', line 5)
-SRCS = push_swap.c stack_utils.c actions.c 
+SRCS = push_swap.c stack_utils.c actions.c utils.c 
 # environment
 SNAP_USER_DATA = /home/christopher/snap/code/97
 # environment
@@ -207,7 +203,6 @@ SHLVL = 1
 # makefile (from 'Makefile', line 2)
 CC = gcc
 # environment
- 
 GNOME_SHELL_SESSION_MODE = ubuntu
 # default
 MAKE_VERSION := 4.2.1
@@ -281,6 +276,7 @@ SUFFIXES :=
 SNAP_REEXEC = 
 # environment
 CHROME_DESKTOP = code-url-handler.desktop
+ 
 # environment
 WINDOWPATH = 2
 # default
@@ -310,15 +306,14 @@ TERMINATOR_UUID = urn:uuid:5129d50e-5912-4072-bb71-7234f347b526
 
 # Directories
 
-# . (device 2053, inode 1707161): 13 files, no impossibilities.
+# . (device 2053, inode 1707161): 14 files, no impossibilities.
 
-# 13 files, no impossibilities in 1 directories.
- 
+# 14 files, no impossibilities in 1 directories.
 
 # Implicit Rules
 
 %.o: %.c
-#  recipe to execute (from 'Makefile', line 18):
+#  recipe to execute (from 'Makefile', line 19):
 	$(CC) $(CFLAGS) -c $< -o $@
 
 # 1 implicit rules, 0 (0.0%) terminal.
@@ -328,7 +323,7 @@ TERMINATOR_UUID = urn:uuid:5129d50e-5912-4072-bb71-7234f347b526
 # Not a target:
 push_swap.c:
 #  Implicit rule search has been done.
-#  Last modified 2022-05-21 20:19:49.751537738
+#  Last modified 2022-05-22 20:41:14.4199857
 #  File has been updated.
 #  Successfully updated.
 
@@ -348,7 +343,6 @@ all: push-swap
 #  File has not been updated.
 
 # Not a target:
- 
 actions.o:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
@@ -357,19 +351,18 @@ actions.o:
 # Not a target:
 Makefile:
 #  Implicit rule search has been done.
-#  Last modified 2022-05-21 20:43:03.070906392
+#  Last modified 2022-05-22 20:42:30.89404629
 #  File has been updated.
 #  Successfully updated.
 
-push-swap: push_swap.o stack_utils.o actions.o
+push-swap: push_swap.o stack_utils.o actions.o utils.o
 #  Implicit rule search has not been done.
-#  Last modified 2022-05-21 19:29:54.726499514
+#  Last modified 2022-05-22 20:30:31.156622434
 #  File has been updated.
 #  Needs to be updated (-q is set).
 # variable set hash-table stats:
 # Load=0/32=0%, Rehash=0, Collisions=0/5=0%
- 
-#  recipe to execute (from 'Makefile', line 15):
+#  recipe to execute (from 'Makefile', line 16):
 	$(CC) $(OBJ) -o $@
 
 bonus:
@@ -383,7 +376,7 @@ fclean: clean
 #  Implicit rule search has not been done.
 #  File does not exist.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 24):
+#  recipe to execute (from 'Makefile', line 25):
 	$(RM) $(NAME)
 
 # Not a target:
@@ -403,7 +396,7 @@ re:
 #  Implicit rule search has not been done.
 #  File does not exist.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 27):
+#  recipe to execute (from 'Makefile', line 28):
 		$(MAKE) fclean
 		$(MAKE) all
 
@@ -412,13 +405,13 @@ clean:
 #  Implicit rule search has not been done.
 #  File does not exist.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 21):
+#  recipe to execute (from 'Makefile', line 22):
 	$(RM) $(OBJ)
 
 push_swap.o: push_swap.c
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: 'push_swap'
-#  Last modified 2022-05-21 19:29:54.657726491
+#  Last modified 2022-05-22 20:30:31.11662344
 #  File has been updated.
 #  Needs to be updated (-q is set).
 # automatic
@@ -438,26 +431,30 @@ push_swap.o: push_swap.c
 # automatic
 # ? := push_swap.c
 # variable set hash-table stats:
- 
 # Load=8/32=25%, Rehash=0, Collisions=1/15=7%
-#  recipe to execute (from 'Makefile', line 18):
+#  recipe to execute (from 'Makefile', line 19):
 	$(CC) $(CFLAGS) -c $< -o $@
 
+# Not a target:
+utils.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
 # files hash-table stats:
-# Load=14/1024=1%, Rehash=0, Collisions=0/39=0%
+# Load=15/1024=1%, Rehash=0, Collisions=0/41=0%
 # VPATH Search Paths
 
 # No 'vpath' search paths.
 
 # No general ('VPATH' variable) search path.
 
-# strcache buffers: 1 (0) / strings = 27 / storage = 242 B / avg = 8 B
-# current buf: size = 8162 B / used = 242 B / count = 27 / avg = 8 B
+# strcache buffers: 1 (0) / strings = 28 / storage = 251 B / avg = 8 B
+# current buf: size = 8162 B / used = 251 B / count = 28 / avg = 8 B
 
- 
-# strcache performance: lookups = 49 / hit rate = 44%
+# strcache performance: lookups = 51 / hit rate = 45%
 # hash-table stats:
-# Load=27/8192=0%, Rehash=0, Collisions=1/49=2%
-# Finished Make data base on Sat May 21 20:43:07 2022
+# Load=28/8192=0%, Rehash=0, Collisions=1/51=2%
+# Finished Make data base on Sun May 22 20:42:32 2022
 
  

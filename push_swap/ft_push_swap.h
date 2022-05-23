@@ -6,7 +6,7 @@
 /*   By: chsimon <chsimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 10:27:27 by chsimon           #+#    #+#             */
-/*   Updated: 2022/05/22 08:46:45 by chsimon          ###   ########.fr       */
+/*   Updated: 2022/05/23 00:17:12 by chsimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,10 +30,18 @@ typedef struct s_full_stack
 	struct s_stack *b;
 }	t_full_stack;
 
-t_stack	*ft_begin(int d);
-void	ft_stack_new(t_stack *ptr, int d);
-void	print_stack(t_stack *a, t_stack *b);
-t_stack	*swap_a(t_stack *a);
-t_stack	*push_b(t_stack **a, t_stack *b);
+void	ft_begin(t_full_stack *stack, int d);
+void	ft_stack_new(t_full_stack *stack, int d);
+void	print_stack(t_full_stack *stack);
+void	swap_a(t_full_stack *stack);
+void	swap_b(t_full_stack *stack);
+void	push_a(t_full_stack *stack);
+void	push_b(t_full_stack *stack);
+void	rotate_a(t_full_stack *stack);
+void	rotate_b(t_full_stack *stack);
+void	reverse_rotate_a(t_full_stack *stack);
+void	reverse_rotate_b(t_full_stack *stack);
+int     ft_atoi(const char *nptr);
+int		stack_length(t_stack *lst);
 
 #endif
