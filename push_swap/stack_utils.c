@@ -6,7 +6,7 @@
 /*   By: chsimon <chsimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 10:34:03 by chsimon           #+#    #+#             */
-/*   Updated: 2022/05/23 00:18:30 by chsimon          ###   ########.fr       */
+/*   Updated: 2022/05/23 20:02:15 by chsimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,49 @@ int	stack_length(t_stack *lst)
 		i++;	
 	}
 	return (i);
+}
+
+//check que ce soit des ints et qu'il n'y ait pas de doublon
+// int	valid_input(char *argv)
+// {
+// 	while (argv++)
+// 		printf("%c", )
+// }
+
+int	check_order(t_full_stack *stack)
+{
+	t_stack	*root;
+
+	root = stack->a;
+	if (root->next->begin == 1)
+		return (1);
+	while (root->value < root->next->value)
+	{
+		root = root->next;
+		if (root->next->begin == 1)
+			return (1);
+	}
+	return (0);
+}
+
+
+void	free_stack(t_full_stack *stack)
+{
+	t_stack	*root;
+
+	root = stack->a;
+	stack->a = stack->a->next;
+	while (stack->a->next->begin != 1)
+		stack->a = stack->a->next;
+	stack->a->next = NULL;
+	stack->a = root;
+	while (root != NULL)
+	{
+		root = root->next;
+		free(stack->a);
+		stack->a = root;
+	}
+	free(stack);
 }
 
 void	print_stack(t_full_stack *stack)
