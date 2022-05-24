@@ -6,13 +6,13 @@
 /*   By: chsimon <chsimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/23 20:32:13 by chsimon           #+#    #+#             */
-/*   Updated: 2022/05/23 21:10:36 by chsimon          ###   ########.fr       */
+/*   Updated: 2022/05/23 23:31:47 by chsimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_push_swap.h"
 
-void	algo(t_full_stack *stack)
+void	get_mediane(t_full_stack *stack)
 {
 	int	med;
 	int	half;
@@ -32,5 +32,19 @@ void	algo(t_full_stack *stack)
 	}
 	while (stack->a->begin != 1)
 		stack->a = stack->a->next;
+}
+
+void	counting(t_full_stack *stack)
+{
+	
+}
+
+void	algo(t_full_stack *stack)
+{
+	get_mediane(stack);
+	print_stack(stack);
+	while (stack_length(stack->a) > 3)
+		push_b(stack);
+	counting(stack);
 	print_stack(stack);
 }
