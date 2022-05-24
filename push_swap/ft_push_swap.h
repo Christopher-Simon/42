@@ -6,7 +6,7 @@
 /*   By: chsimon <chsimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 10:27:27 by chsimon           #+#    #+#             */
-/*   Updated: 2022/05/23 20:39:37 by chsimon          ###   ########.fr       */
+/*   Updated: 2022/05/24 12:18:35 by chsimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ typedef struct s_stack
 {
 	int				value;
 	int				begin;
+	int				min;
 	struct s_stack	*next;
 }	t_stack;
 
@@ -58,7 +59,6 @@ int		check_order(t_full_stack *stack);
 int		median(t_full_stack *stack);
 void	algo(t_full_stack *stack);
 void	low_algo(t_full_stack *stack);
-
-
+void	sort_3(t_full_stack *stack);
 
 #endif

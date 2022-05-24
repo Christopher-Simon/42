@@ -6,14 +6,12 @@
 /*   By: chsimon <chsimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 10:25:47 by chsimon           #+#    #+#             */
-/*   Updated: 2022/05/23 20:39:13 by chsimon          ###   ########.fr       */
+/*   Updated: 2022/05/24 15:44:52 by chsimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_push_swap.h"
 #include <stdlib.h>
-
-
 
 int	main(int argc, char **argv)
 {
@@ -30,7 +28,10 @@ int	main(int argc, char **argv)
 	while (i++ < argc - 1)
 		ft_stack_new(stack, ft_atoi(argv[i]));
 	algo(stack);
-	// printf("%d\n", median(stack));
+	// printf("%d\n", median(stack));.
+	
+	// print_stack(stack);
+	print_stack(stack);
 	free_stack(stack);
 
 
