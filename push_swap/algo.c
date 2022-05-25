@@ -6,7 +6,7 @@
 /*   By: chsimon <chsimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/23 20:32:13 by chsimon           #+#    #+#             */
-/*   Updated: 2022/05/24 18:18:33 by chsimon          ###   ########.fr       */
+/*   Updated: 2022/05/25 09:17:53 by chsimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,30 +49,72 @@ int	get_max(t_stack *stack)
 	return (max);
 }
 
+si chosen rra & rrb	
+	rrr while
+si chosen ra & rb	
+	rr while
+chosen ra & rrb
+chosen rra & rb
+	
+int	get_count(t_full_stack *stack, int index_a, int index_b)
+{
+	int	ra;
+	int	rb;
+	int	rra;
+	int	rrb;
+
+
+	ra = index_a - 1;
+	if (ra == 0)
+		rra = 0;
+	else
+		rra = stack_length(stack->a) - ra;
+	rb = index_b - 1;
+	if (rb == 0)
+		rrb = 0;
+	else
+		rrb = stack_length(stack->b) - rb;
+	printf("ra :%d rra : %d rb : %d rrb : %d\n", ra, rra, rb, rrb);
+	
+	if (stack_length(stack->a) <= stack_length(stack->b))
+	{
+		if (rb < rrb)
+			rrb = 0;
+		else
+			rb = 0;
+		if (rrb)
+			ra = 0;
+		else
+			rra = 0;
+	printf("ra :%d rra : %d rb : %d rrb : %d\n", ra, rra, rb, rrb);
+	}
+
+	printf("%d\n", rra + rrb + ra + rb);
+	return(1);
+}
+
 void	counting(t_full_stack *stack)
 {
-	// int	ra
-	// int	rb
-	// int	rra
-	// int	rrb
-	// int	index_a;
-	// int	index_b;
+
 	int	ppdpg;
 	t_stack	*ptr_a;
 	t_stack	*ptr_b;
+	int	index_a;
+	int	index_b;
 
-	// ra = stack_length(stack_a) - index_a;
-	// rra = stack_length(stack_a) - ra;
-	// rb = stack_length(stack_b) - index_b;
-	// rrb = stack_length(stack_b) - ra;
-
+	index_a = 1;
+	index_b = 1;
 	ptr_a = stack->a;
 	ptr_b = stack->b;
 	ppdpg = stack->a->value;
 	while (ptr_a->value < ptr_b->value)
+	{
+		index_a++;
 		ptr_a = ptr_a->next;
+	}
 	ppdpg = ptr_a->value;
-	printf("val_b : %d ppdpg : %d\n", ptr_b->value, ppdpg);
+	get_count(stack, index_a, index_b);
+	printf("val_b : %d ppdpg : %d index_a : %d index_b : %d\n", ptr_b->value, ppdpg, index_a, index_b);
 
 	ptr_b = ptr_b->next;
 	
@@ -81,10 +123,16 @@ void	counting(t_full_stack *stack)
 	{
 		ppdpg = stack->a->value;
 		ptr_a = stack->a;
+		index_a = 1;
 		while (ptr_a->value < ptr_b->value)
+		{
+			index_a++;
 			ptr_a = ptr_a->next;
+		}
 		ppdpg = ptr_a->value;
-		printf("val_b : %d ppdpg : %d\n", ptr_b->value, ppdpg);
+		index_b++;
+		get_count(stack, index_a, index_b);
+		printf("val_b : %d ppdpg : %d index_a : %d index_b : %d\n", ptr_b->value, ppdpg, index_a, index_b);
 		ptr_b = ptr_b->next;
 	}
 	// stack length

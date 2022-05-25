@@ -6,7 +6,7 @@
 /*   By: chsimon <chsimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 10:25:47 by chsimon           #+#    #+#             */
-/*   Updated: 2022/05/24 15:44:52 by chsimon          ###   ########.fr       */
+/*   Updated: 2022/05/25 07:01:37 by chsimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,8 @@ int	main(int argc, char **argv)
 	algo(stack);
 	// printf("%d\n", median(stack));.
 	
-	// print_stack(stack);
 	print_stack(stack);
+
 	free_stack(stack);
 
 
