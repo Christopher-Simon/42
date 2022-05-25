@@ -6,7 +6,7 @@
 /*   By: chsimon <chsimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/21 20:09:47 by chsimon           #+#    #+#             */
-/*   Updated: 2022/05/24 11:55:51 by chsimon          ###   ########.fr       */
+/*   Updated: 2022/05/25 13:12:21 by chsimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -143,4 +143,18 @@ void	reverse_rotate_b(t_full_stack *stack)
 		stack->b = stack->b->next;
 	stack->b->begin = 1;
 	old_root->begin = 0;
+}
+
+void	rr(t_full_stack *stack)
+{
+	printf("rr\n");
+	s_rotate_a(stack);
+	s_rotate_b(stack);
+}
+
+void	rrr(t_full_stack *stack)
+{
+	printf("rrr\n");
+	s_reverse_rotate_a(stack);
+	s_reverse_rotate_b(stack);	
 }
