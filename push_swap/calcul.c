@@ -6,7 +6,7 @@
 /*   By: chsimon <chsimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/23 16:55:05 by chsimon           #+#    #+#             */
-/*   Updated: 2022/05/23 21:02:26 by chsimon          ###   ########.fr       */
+/*   Updated: 2022/05/25 18:39:24 by chsimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,4 +42,50 @@ int	median(t_full_stack *stack)
 	med_stack->a = root;
 	free_stack(med_stack);
 	return (i);
+}
+
+void	get_min(int *a, int *b)
+{
+	if (*a > *b)
+		*a = 0;
+	else
+		*b = 0;
+}
+
+int	get_max(t_stack *stack)
+{
+	int	max;
+
+	max = stack->value;
+	stack = stack->next;
+	while (stack->begin != 1)
+	{
+		if (max < stack->value)
+			max = stack->value;
+		stack = stack->next;
+	}
+	return (max);
+}
+
+t_ppdpg	send_min(t_full_stack *stack)
+{
+	t_ppdpg	min;
+	t_stack *ptr;
+	int		index;
+
+	ptr = stack->a;
+	min.value = ptr->value;
+	index = 1;
+	ptr = ptr->next;
+	while (ptr->begin != 1)
+	{
+		index++;
+		if (min.value > ptr->value)
+		{
+			min.index = index;
+			min.value = ptr->value;
+		}
+		ptr = ptr->next;
+	}
+	return (min);
 }

@@ -6,57 +6,96 @@
 /*   By: chsimon <chsimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/23 20:32:13 by chsimon           #+#    #+#             */
-/*   Updated: 2022/05/25 09:17:53 by chsimon          ###   ########.fr       */
+/*   Updated: 2022/05/25 18:45:19 by chsimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_push_swap.h"
 
-void	get_median(t_full_stack *stack)
+void	execut_order_66(t_full_stack *stack, int ra, int rb, int rra, int rrb)
 {
-	int	med;
-	int	half;
-	int	even;
-	
-	even = 1;
-	if (stack_length(stack->a) % 2 == 0)
-		even = 0;
-	half = stack_length(stack->a) / 2;
-	med = median(stack);
-	while (stack_length(stack->a) != half + even)
+	while (ra || rb || rra || rrb)
 	{
-		if (stack->a->value < med)
-			push_b(stack);
-		else
+		if (rra & rrb)
+		{
+			rra--;	
+			rrb--;	
+			rrr(stack);
+		}
+		else if (rra)
+		{
+			rra--;
+			reverse_rotate_a(stack);
+		}
+		else if (rrb)
+		{
+			rrb--;			
+			reverse_rotate_b(stack);
+		}
+		if (ra & rb)
+		{
+			ra--;
+			rb--;
+			rr(stack);
+		}
+		else if (ra)
+		{
+			ra--;
 			rotate_a(stack);
+		}
+		else if (rb)
+		{
+			rb--;
+			rotate_b(stack);
+		}
 	}
-	while (stack->a->begin != 1)
-		stack->a = stack->a->next;
+	push_a(stack);
 }
 
-int	get_max(t_stack *stack)
+int	count_value(int ra, int rb, int rra, int rrb)
 {
-	int	max;
+	int	count;
 
-	max = stack->value;
-	stack = stack->next;
-	while (stack->begin != 1)
+	count = 0;
+	while (ra || rb || rra || rrb)
 	{
-		if (max < stack->value)
-			max = stack->value;
-		stack = stack->next;
+		if (rra & rrb)
+		{
+			rra--;	
+			rrb--;	
+			count++;
+		}
+		else if (rra)
+		{
+			rra--;
+			count++;
+		}
+		else if (rrb)
+		{
+			rrb--;			
+			count++;
+		}
+		if (ra & rb)
+		{
+			ra--;
+			rb--;
+			count++;
+		}
+		else if (ra)
+		{
+			ra--;
+			count++;
+		}
+		else if (rb)
+		{
+			rb--;
+			count++;
+		}
 	}
-	return (max);
+	return (count);
 }
 
-si chosen rra & rrb	
-	rrr while
-si chosen ra & rb	
-	rr while
-chosen ra & rrb
-chosen rra & rb
-	
-int	get_count(t_full_stack *stack, int index_a, int index_b)
+int	get_count(t_full_stack *stack, int index_a, int index_b, int flag)
 {
 	int	ra;
 	int	rb;
@@ -74,114 +113,113 @@ int	get_count(t_full_stack *stack, int index_a, int index_b)
 		rrb = 0;
 	else
 		rrb = stack_length(stack->b) - rb;
-	printf("ra :%d rra : %d rb : %d rrb : %d\n", ra, rra, rb, rrb);
-	
-	if (stack_length(stack->a) <= stack_length(stack->b))
-	{
-		if (rb < rrb)
-			rrb = 0;
-		else
-			rb = 0;
-		if (rrb)
-			ra = 0;
-		else
-			rra = 0;
-	printf("ra :%d rra : %d rb : %d rrb : %d\n", ra, rra, rb, rrb);
-	}
-
-	printf("%d\n", rra + rrb + ra + rb);
-	return(1);
+	// printf("ra :%d rra : %d rb : %d rrb : %d\n", ra, rra, rb, rrb);
+	get_min(&ra, &rra);
+	get_min(&rb, &rrb);
+	if (flag == 1)
+		execut_order_66(stack, ra, rb, rra, rrb);
+	// printf("count : %d\n", count_value(ra, rb, rra, rrb));
+	// printf("%dra :%d rra : %d rb : %d rrb : %d\n", flag, ra, rra, rb, rrb);
+	return(count_value(ra, rb, rra, rrb));
+	// return (1);
 }
 
-void	counting(t_full_stack *stack)
-{
+// void	counting(t_full_stack *stack)
+// {
+// 	t_stack	*ptr_a;
+// 	t_stack	*ptr_b;
+// 	int	index_a;
+// 	int	index_b;
+// 	int	ppdpg_count;
 
-	int	ppdpg;
-	t_stack	*ptr_a;
-	t_stack	*ptr_b;
-	int	index_a;
-	int	index_b;
+// 	ptr_b = stack->b;
+// 	ppdpg_count = 0;
+// 	ptr_a = stack->a;
+// 	index_a = 1;
+// 	index_b = 1;
+// 	while (ptr_a->value < ptr_b->value)
+// 	{
+// 		index_a++;
+// 		ptr_a = ptr_a->next;
+// 	}
+// 	// ppdpg = index_a;
+// 	index_b++;
+// 	ppdpg_count = get_count(stack, index_a, index_b);
 
-	index_a = 1;
-	index_b = 1;
-	ptr_a = stack->a;
-	ptr_b = stack->b;
-	ppdpg = stack->a->value;
-	while (ptr_a->value < ptr_b->value)
-	{
-		index_a++;
-		ptr_a = ptr_a->next;
-	}
-	ppdpg = ptr_a->value;
-	get_count(stack, index_a, index_b);
-	printf("val_b : %d ppdpg : %d index_a : %d index_b : %d\n", ptr_b->value, ppdpg, index_a, index_b);
-
-	ptr_b = ptr_b->next;
+// 	ptr_b = stack->b->next;
 	
+// 	while (ptr_b->begin != 1)
+// 	{
+// 		ptr_a = stack->a;
+// 		index_a = 1;
+// 		index_b = 1;
+// 		while (ptr_a->value < ptr_b->value)
+// 		{
+// 			index_a++;
+// 			ptr_a = ptr_a->next;
+// 		}
+// 		// ppdpg = index_a;
+// 		index_b++;
+// 		if (ppdpg_count > get_count(stack, index_a, index_b))
+// 			ppdpg_count = get_count(stack, index_a, index_b);
+// 		ptr_b = stack->b;
+// 		break;
+// 	}
+// }
 
+t_combi	selection(t_full_stack *stack)
+{
+	t_ppdpg	ppdpg;
+	t_combi	combi;
+	t_stack	*ptr_b;
+	int		index_b;
+	int		count;
+
+	ptr_b = stack->b;
+	index_b = 1;
+	ppdpg.index = for_b_find_direct_above(ptr_b->value, stack);
+	count = get_count(stack, ppdpg.index, index_b, 0);
+	combi.index_ppdpg = ppdpg.index;
+	combi.index_b = index_b;
+	index_b++;
+	ptr_b = ptr_b->next;
 	while (ptr_b->begin != 1)
 	{
-		ppdpg = stack->a->value;
-		ptr_a = stack->a;
-		index_a = 1;
-		while (ptr_a->value < ptr_b->value)
+		ppdpg.index = for_b_find_direct_above(ptr_b->value, stack);
+		if (count > get_count(stack, ppdpg.index, index_b, 0))
 		{
-			index_a++;
-			ptr_a = ptr_a->next;
+			combi.index_ppdpg = ppdpg.index;
+			combi.index_b = index_b;
+			count = get_count(stack, ppdpg.index, index_b, 0);
 		}
-		ppdpg = ptr_a->value;
-		index_b++;
-		get_count(stack, index_a, index_b);
-		printf("val_b : %d ppdpg : %d index_a : %d index_b : %d\n", ptr_b->value, ppdpg, index_a, index_b);
 		ptr_b = ptr_b->next;
+		index_b++;
 	}
-	// stack length
-	// index
-	// nb r = stack_length - index
-	// nb rr = stack_length - r
-	// Pour a et b 
-	// Lier : 
-	// a->value 
+	// printf("combi. ppdpg_index %d b_index %d count %d\n", combi.index_ppdpg, combi.index_b, count);
+	return (combi);
 }
 
-void	sort_3(t_full_stack *stack)
+void	get_to_end(t_full_stack *stack)
 {
-	int	a;
-	int	b;
-	int	c;
-
-	a = stack->a->value;
-	b = stack->a->next->value;
-	c = stack->a->next->next->value;
-	if (a < b && b < c)
-		return ;
-	if (a < b && b > c)
+	t_ppdpg min;
+		
+	min = send_min(stack);
+	if (min.index < stack_length(stack->a))
 	{
-		if (a > c)
-			reverse_rotate_a(stack);
-		else 
-		{
-			swap_a(stack);
-			rotate_a(stack);			
-		}
-	}
-	if (a > b && b < c)
-	{
-		if (a > c)
+		while (stack->a->value != min.value)
 			rotate_a(stack);
-		else
-			swap_a(stack);
 	}
-	if (a > b && b > c)
+	else
 	{
-		rotate_a(stack);
-		swap_a(stack);
+		while (stack->a->value != min.value)
+			reverse_rotate_a(stack);
 	}
 }
 
 void	algo(t_full_stack *stack)
 {
-	int	max;
+	int		max;
+	t_combi	combi;
 
 	get_median(stack);
 	max = get_max(stack->a);
@@ -193,6 +231,13 @@ void	algo(t_full_stack *stack)
 			rotate_a(stack);
 	}
 	sort_3(stack);
-	print_stack(stack);
-	counting(stack);
+	// print_stack(stack);
+	while (stack->b)
+	{
+		combi = selection(stack);
+		// printf("combi  %d %d", combi.index_ppdpg, combi.index_b);
+		get_count(stack, combi.index_ppdpg, combi.index_b, 1);	
+	}
+	get_to_end(stack);
+	
 }

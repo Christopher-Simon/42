@@ -10,6 +10,8 @@ SRCS=	push_swap.c \
 	calcul.c \
 	low_algo.c \
 	algo.c \
+	algo_utils.c \
+	direct_above.c \
 
 RM= rm -f
 OBJ= $(SRCS:.c=.o)

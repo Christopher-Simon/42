@@ -6,7 +6,7 @@
 /*   By: chsimon <chsimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 10:27:27 by chsimon           #+#    #+#             */
-/*   Updated: 2022/05/24 12:18:35 by chsimon          ###   ########.fr       */
+/*   Updated: 2022/05/25 18:44:23 by chsimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,19 @@
 # include <stdlib.h>
 # include <stddef.h>
 # include <stdio.h>
+
+typedef struct s_ppdpg
+{
+	int	index;
+	int	value;
+}	t_ppdpg;
+
+typedef struct s_combi
+{
+	int	index_ppdpg;
+	int index_b;
+	int count;
+}	t_combi;
 
 typedef struct s_stack
 {
@@ -43,6 +56,8 @@ void	rotate_a(t_full_stack *stack);
 void	rotate_b(t_full_stack *stack);
 void	reverse_rotate_a(t_full_stack *stack);
 void	reverse_rotate_b(t_full_stack *stack);
+void	rr(t_full_stack *stack);
+void	rrr(t_full_stack *stack);
 void	s_swap_a(t_full_stack *stack);
 void	s_swap_b(t_full_stack *stack);
 void	s_push_a(t_full_stack *stack);
@@ -57,8 +72,16 @@ int     ft_atoi(const char *nptr);
 int		stack_length(t_stack *lst);
 int		check_order(t_full_stack *stack);
 int		median(t_full_stack *stack);
+void	get_median(t_full_stack *stack);
 void	algo(t_full_stack *stack);
 void	low_algo(t_full_stack *stack);
 void	sort_3(t_full_stack *stack);
+void	get_min(int *a, int *b);
+int		get_max(t_stack *stack);
+void	execut_order_66(t_full_stack *stack, int ra, int rb, int rra, int rrb);
+int		for_b_find_direct_above(int b, t_full_stack *stack);
+t_combi	selection(t_full_stack *stack);
+t_ppdpg	send_min(t_full_stack *stack);
+void	get_to_end(t_full_stack *stack);
 
 #endif
