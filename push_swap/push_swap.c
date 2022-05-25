@@ -6,7 +6,7 @@
 /*   By: chsimon <chsimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 10:25:47 by chsimon           #+#    #+#             */
-/*   Updated: 2022/05/25 18:45:31 by chsimon          ###   ########.fr       */
+/*   Updated: 2022/05/25 19:50:35 by chsimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,8 @@ int	main(int argc, char **argv)
 	// printf("index %d val %d", min.index, min.value);
 	// get_min()
 	// push_b(stack);
-	// print_stack(stack);
+	print_stack(stack);
+	printf("%d",check_order(stack));
 	// for_b_find_direct_above(stack->b->value, stack);
 	// selection(stack);
 
