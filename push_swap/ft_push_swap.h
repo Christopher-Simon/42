@@ -6,7 +6,7 @@
 /*   By: chsimon <chsimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 10:27:27 by chsimon           #+#    #+#             */
-/*   Updated: 2022/05/25 18:44:23 by chsimon          ###   ########.fr       */
+/*   Updated: 2022/05/25 21:34:47 by chsimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,5 +83,6 @@ int		for_b_find_direct_above(int b, t_full_stack *stack);
 t_combi	selection(t_full_stack *stack);
 t_ppdpg	send_min(t_full_stack *stack);
 void	get_to_end(t_full_stack *stack);
+char	**ft_split(char const *s, char c);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: chsimon <chsimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/23 20:32:13 by chsimon           #+#    #+#             */
-/*   Updated: 2022/05/25 18:45:19 by chsimon          ###   ########.fr       */
+/*   Updated: 2022/05/25 20:52:36 by chsimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -236,8 +236,27 @@ void	algo(t_full_stack *stack)
 	{
 		combi = selection(stack);
 		// printf("combi  %d %d", combi.index_ppdpg, combi.index_b);
-		get_count(stack, combi.index_ppdpg, combi.index_b, 1);	
+		get_count(stack, combi.index_ppdpg, combi.index_b, 1);
+		// if (!check_order(stack))
+		// 	print_stack(stack);
 	}
 	get_to_end(stack);
 	
 }
+
+// check_rotation(t_full_stack stack)
+// {
+// 	t_ppdpg min;
+		
+// 	min = send_min(stack);
+// 	if (min.index < stack_length(stack->a))
+// 	{
+// 		while (stack->a->value != min.value)
+// 			rotate_a(stack);
+// 	}
+// 	else
+// 	{
+// 		while (stack->a->value != min.value)
+// 			reverse_rotate_a(stack);
+// 	}
+// }

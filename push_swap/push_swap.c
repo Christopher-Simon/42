@@ -6,7 +6,7 @@
 /*   By: chsimon <chsimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 10:25:47 by chsimon           #+#    #+#             */
-/*   Updated: 2022/05/25 19:50:35 by chsimon          ###   ########.fr       */
+/*   Updated: 2022/05/25 21:40:42 by chsimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,18 +16,40 @@
 int	main(int argc, char **argv)
 {
 	t_full_stack	*stack;
+	char			**arguments;
 	int				i;
 
 	i = 0;
-	if (argc <= 1)
-		return (0);
+	// 	printf("%s\n", argv[1]);
+	// if (argc <= 1)
+	// {
+	// }
+	arguments = ft_split(argv[1], ' ');
 	stack = malloc(sizeof(t_full_stack));
 	if (!stack)
 		return (0);
 	ft_begin(stack, ft_atoi(argv[++i]));
-	while (i++ < argc - 1)
-		ft_stack_new(stack, ft_atoi(argv[i]));
+	if (!arguments)
+	{
+		while (i++ < argc - 1)
+			ft_stack_new(stack, ft_atoi(argv[i]));
+	}
+	else
+	{
+		while (arguments[i++])
+			ft_stack_new(stack, ft_atoi(arguments[i]));
+	}
 	algo(stack);
+	// swap_a(stack);
+	// print_stack(stack);
+	// printf("%d",check_order(stack));
+	
+	free_stack(stack);
+
+	// for_b_find_direct_above(stack->b->value, stack);
+	// selection(stack);
+
+
 	// t_ppdpg	min;
 	// min = send_min(stack);
 	// print_stack(stack);
@@ -35,17 +57,7 @@ int	main(int argc, char **argv)
 	// printf("index %d val %d", min.index, min.value);
 	// get_min()
 	// push_b(stack);
-	print_stack(stack);
-	printf("%d",check_order(stack));
-	// for_b_find_direct_above(stack->b->value, stack);
-	// selection(stack);
 
-	
-	free_stack(stack);
-
-
-
-	// swap_a(stack);
 	// print_stack(stack);
 	// push_b(stack);
 	// push_b(stack);
