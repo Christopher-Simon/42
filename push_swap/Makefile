@@ -1,4 +1,5 @@
 NAME =	push_swap
+BNAME =	checker
 CC=gcc
 CFLAGS=	-Wall -Wextra -Werror -g3
 
@@ -13,17 +14,24 @@ SRCS=	push_swap.c \
 	algo_utils.c \
 	direct_above.c \
 	ft_split.c \
+	get_next_line/get_next_line_utils.c \
+	get_next_line/get_next_line.c \
 
 RM= rm -f
 OBJ= $(SRCS:.c=.o)
 
 all : $(NAME)
 
+bonus : $(BNAME)
+
 $(NAME) : $(OBJ)
-	$(CC) $(OBJ) -o $@
+	$(CC) $(OBJ) -o $@ 
+
+$(BNAME) : $(OBJ)
+	$(CC) $(OBJ) -o $@ 
 
 %.o : %.c
-	$(CC) $(CFLAGS) -c $< -o $@
+	$(CC) $(CFLAGS) -D BUFFER_SIZE=5 -c $< -o $@
 
 clean :	
 	$(RM) $(OBJ)

@@ -6,7 +6,7 @@
 /*   By: chsimon <chsimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/23 20:32:13 by chsimon           #+#    #+#             */
-/*   Updated: 2022/05/25 20:52:36 by chsimon          ###   ########.fr       */
+/*   Updated: 2022/05/26 15:54:42 by chsimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,10 @@
 
 void	execut_order_66(t_full_stack *stack, int ra, int rb, int rra, int rrb)
 {
+	// printf("ra : %d,rb : %d,rra : %d,rrb : %d\n", ra, rb, rra, rrb);
 	while (ra || rb || rra || rrb)
 	{
-		if (rra & rrb)
+		if (rra && rrb)
 		{
 			rra--;	
 			rrb--;	
@@ -32,7 +33,7 @@ void	execut_order_66(t_full_stack *stack, int ra, int rb, int rra, int rrb)
 			rrb--;			
 			reverse_rotate_b(stack);
 		}
-		if (ra & rb)
+		if (ra && rb)
 		{
 			ra--;
 			rb--;
@@ -59,7 +60,7 @@ int	count_value(int ra, int rb, int rra, int rrb)
 	count = 0;
 	while (ra || rb || rra || rrb)
 	{
-		if (rra & rrb)
+		if (rra && rrb)
 		{
 			rra--;	
 			rrb--;	
@@ -75,7 +76,7 @@ int	count_value(int ra, int rb, int rra, int rrb)
 			rrb--;			
 			count++;
 		}
-		if (ra & rb)
+		if (ra && rb)
 		{
 			ra--;
 			rb--;
@@ -124,48 +125,6 @@ int	get_count(t_full_stack *stack, int index_a, int index_b, int flag)
 	// return (1);
 }
 
-// void	counting(t_full_stack *stack)
-// {
-// 	t_stack	*ptr_a;
-// 	t_stack	*ptr_b;
-// 	int	index_a;
-// 	int	index_b;
-// 	int	ppdpg_count;
-
-// 	ptr_b = stack->b;
-// 	ppdpg_count = 0;
-// 	ptr_a = stack->a;
-// 	index_a = 1;
-// 	index_b = 1;
-// 	while (ptr_a->value < ptr_b->value)
-// 	{
-// 		index_a++;
-// 		ptr_a = ptr_a->next;
-// 	}
-// 	// ppdpg = index_a;
-// 	index_b++;
-// 	ppdpg_count = get_count(stack, index_a, index_b);
-
-// 	ptr_b = stack->b->next;
-	
-// 	while (ptr_b->begin != 1)
-// 	{
-// 		ptr_a = stack->a;
-// 		index_a = 1;
-// 		index_b = 1;
-// 		while (ptr_a->value < ptr_b->value)
-// 		{
-// 			index_a++;
-// 			ptr_a = ptr_a->next;
-// 		}
-// 		// ppdpg = index_a;
-// 		index_b++;
-// 		if (ppdpg_count > get_count(stack, index_a, index_b))
-// 			ppdpg_count = get_count(stack, index_a, index_b);
-// 		ptr_b = stack->b;
-// 		break;
-// 	}
-// }
 
 t_combi	selection(t_full_stack *stack)
 {
@@ -231,32 +190,10 @@ void	algo(t_full_stack *stack)
 			rotate_a(stack);
 	}
 	sort_3(stack);
-	// print_stack(stack);
 	while (stack->b)
 	{
 		combi = selection(stack);
-		// printf("combi  %d %d", combi.index_ppdpg, combi.index_b);
 		get_count(stack, combi.index_ppdpg, combi.index_b, 1);
-		// if (!check_order(stack))
-		// 	print_stack(stack);
 	}
 	get_to_end(stack);
-	
 }
-
-// check_rotation(t_full_stack stack)
-// {
-// 	t_ppdpg min;
-		
-// 	min = send_min(stack);
-// 	if (min.index < stack_length(stack->a))
-// 	{
-// 		while (stack->a->value != min.value)
-// 			rotate_a(stack);
-// 	}
-// 	else
-// 	{
-// 		while (stack->a->value != min.value)
-// 			reverse_rotate_a(stack);
-// 	}
-// }

@@ -6,7 +6,7 @@
 /*   By: chsimon <chsimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/25 11:11:43 by chsimon           #+#    #+#             */
-/*   Updated: 2022/05/25 11:12:28 by chsimon          ###   ########.fr       */
+/*   Updated: 2022/05/26 16:06:03 by chsimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,10 +27,10 @@ void	sort_3(t_full_stack *stack)
 	{
 		if (a > c)
 			reverse_rotate_a(stack);
-		else 
+		else
 		{
 			swap_a(stack);
-			rotate_a(stack);			
+			rotate_a(stack);
 		}
 	}
 	if (a > b && b < c)
@@ -52,7 +52,7 @@ void	get_median(t_full_stack *stack)
 	int	med;
 	int	half;
 	int	even;
-	
+
 	even = 1;
 	if (stack_length(stack->a) % 2 == 0)
 		even = 0;
@@ -65,6 +65,4 @@ void	get_median(t_full_stack *stack)
 		else
 			rotate_a(stack);
 	}
-	while (stack->a->begin != 1)
-		stack->a = stack->a->next;
 }
