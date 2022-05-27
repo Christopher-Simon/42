@@ -6,7 +6,7 @@
 /*   By: chsimon <chsimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 10:25:47 by chsimon           #+#    #+#             */
-/*   Updated: 2022/05/27 19:32:48 by chsimon          ###   ########.fr       */
+/*   Updated: 2022/05/27 21:08:23 by chsimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,10 +39,7 @@ int	main(int argc, char **argv)
 	if (!check_double(stack))
 		return (0);
 	if (stack_length(stack->a) == 2)
-	{
-		if (stack->a->value > stack->a->next->value)
-			swap_a(stack);
-	}
+		swap_a(stack);
 	else if (stack_length(stack->a) == 3)
 		sort_3(stack);
 	else

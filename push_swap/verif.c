@@ -6,7 +6,7 @@
 /*   By: chsimon <chsimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/27 13:58:02 by chsimon           #+#    #+#             */
-/*   Updated: 2022/05/27 21:05:41 by chsimon          ###   ########.fr       */
+/*   Updated: 2022/05/27 21:07:29 by chsimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,19 +27,11 @@ int	verif_arg(char *arg)
 	if (!ft_strlen(arg))
 		return (0);
 	while (arg[i])
-	{
-		// if (!ft_isdigit(arg[i]) && (i != 0 && arg[i] == '-'))
-
-		
-		if (!ft_isdigit(arg[i]))
-		{
-			if (i != 0 || (i == 0 && arg[i] != '-'))
-				return (0);
-		}	
+	{	
+		if (!ft_isdigit(arg[i]) && (i != 0 || (i == 0 && arg[i] != '-')))
+			return (0);
 		i++;
 	}
-	// if ((arg[0] == '-' && !arg[1]))
-	// 	return (0);
 	return (1);
 }
 
