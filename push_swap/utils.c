@@ -6,15 +6,17 @@
 /*   By: chsimon <chsimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/22 20:42:19 by chsimon           #+#    #+#             */
-/*   Updated: 2022/05/26 16:14:34 by chsimon          ###   ########.fr       */
+/*   Updated: 2022/05/27 18:35:51 by chsimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_atoi(const char *nptr)
+#include "ft_push_swap.h"
+
+long int	ft_atol(const char *nptr, t_full_stack *stack)
 {
-	int	a;
-	int	i;
-	int	neg;
+	long int	a;
+	int			i;
+	int			neg;
 
 	i = 0;
 	a = 0;
@@ -33,5 +35,12 @@ int	ft_atoi(const char *nptr)
 		i++;
 	}
 	a *= neg;
+	if (a > 214748364 || a < -2147483648)
+	{
+		if (stack)
+			free_stack(stack);
+		exit(1);
+	}
+	printf("%ld\n", a);
 	return (a);
 }

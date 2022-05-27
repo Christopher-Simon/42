@@ -6,7 +6,7 @@
 /*   By: chsimon <chsimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 10:25:47 by chsimon           #+#    #+#             */
-/*   Updated: 2022/05/27 15:46:55 by chsimon          ###   ########.fr       */
+/*   Updated: 2022/05/27 18:32:44 by chsimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,37 +24,26 @@ int	main(int argc, char **argv)
 	if (argc <= 1)
 		return (0);
 	if (!verif(argv))
-	{
-		printf("No");	
 		return (0);
-	}
-	else
-	{
-		printf("Yes");	
-		return (0);
-	}
 	stack = malloc(sizeof(t_full_stack));
 	if (!stack)
 		return (0);
-	ft_begin(stack, ft_atoi(argv[++i]));
+	ft_begin(stack, ft_atol(argv[++i], stack));
 		while (i++ < argc - 1)
-			ft_stack_new(stack, ft_atoi(argv[i]));
-	// if (check_order(stack))
-	// 	return (0);
-	// if (stack_length(stack->a) == 2)
-	// {
-	// 	if (stack->a->value > stack->a->next->value)
-	// 		swap_a(stack);
-	// }
-	// else if (stack_length(stack->a) == 3)
-	// 	sort_3(stack);
-	// else
-	// 	algo(stack);
+			ft_stack_new(stack, ft_atol(argv[i], stack));
+	print_stack(stack);
+	if (check_order(stack))
+		return (0);
+	if (stack_length(stack->a) == 2)
+	{
+		if (stack->a->value > stack->a->next->value)
+			swap_a(stack);
+	}
+	else if (stack_length(stack->a) == 3)
+		sort_3(stack);
+	else
+		algo(stack);
 
-
-
-	
-	// print_stack(stack);
 	// swap_a(stack);
 	// print_stack(stack);
 	// push_b(stack);

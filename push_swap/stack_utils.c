@@ -6,7 +6,7 @@
 /*   By: chsimon <chsimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 10:34:03 by chsimon           #+#    #+#             */
-/*   Updated: 2022/05/27 16:00:09 by chsimon          ###   ########.fr       */
+/*   Updated: 2022/05/27 16:19:08 by chsimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,49 +99,48 @@ void	free_stack(t_full_stack *stack)
 	free(stack);
 }
 
-// void	print_stack(t_full_stack *stack)
-// {
-// 	int	end_a = 0;
-// 	int	end_b = 0;
+void	print_stack(t_full_stack *stack)
+{
+	int	end_a = 0;
+	int	end_b = 0;
 
-// 	printf("a    b\n");
-// 	if (stack->a)
-// 	{
-// 		printf("%-5d", stack->a->value);
-// 		stack->a = stack->a->next;
-// 	}
-// 	else
-// 		printf("     ");
-// 	if (stack->b)
-// 	{
-// 		printf("%d", stack->b->value);
-// 		stack->b = stack->b->next;
-// 	}
-// 	printf("\n");
-// 	while ((end_a == 0 || end_b == 0))
-// 	{
-// 		if (stack->a && stack->a->begin != 1)
-// 		{
-// 			printf("%-5d", stack->a->value);
-// 			stack->a = stack->a->next;
-// 		}
-// 		else
-// 		{
-// 			printf("     ");
-// 			end_a = 1;
-// 		}
-// 		if (stack->b && stack->b->begin != 1)
-// 		{
-// 			printf("%d", stack->b->value);
-// 			stack->b = stack->b->next;
-// 		}
-// 		else
-// 			end_b = 1;
-// 		printf("\n");
-// 	}
-// 	printf("\n");
-// 	// while (stack->a && stack->a->begin != 1)
-// 	// 	stack->a = stack->a->next;
-// 	// while (stack->b && stack->b->begin != 1)
-// 	// 	stack->b = stack->b->next;
-// }
+	printf("a    b\n");
+	if (stack->a)
+	{
+		printf("%-5d", stack->a->value);
+		stack->a = stack->a->next;
+	}
+	else
+		printf("     ");
+	if (stack->b)
+	{
+		printf("%d", stack->b->value);
+		stack->b = stack->b->next;
+	}
+	printf("\n");
+	while ((end_a == 0 || end_b == 0))
+	{
+		if (stack->a && stack->a->begin != 1)
+		{
+			printf("%-5d", stack->a->value);
+			stack->a = stack->a->next;
+		}
+		else
+		{
+			printf("     ");
+			end_a = 1;
+		}
+		if (stack->b && stack->b->begin != 1)
+		{
+			printf("%d", stack->b->value);
+			stack->b = stack->b->next;
+		}
+		else
+			end_b = 1;
+		printf("\n");
+	}
+	// while (stack->a && stack->a->begin != 1)
+	// 	stack->a = stack->a->next;
+	// while (stack->b && stack->b->begin != 1)
+	// 	stack->b = stack->b->next;
+}

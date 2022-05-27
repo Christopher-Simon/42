@@ -14,7 +14,6 @@ SRCS=	push_swap.c \
 	verif.c \
 	algo_utils.c \
 	direct_above.c \
-	ft_split.c \
 	get_next_line/get_next_line_utils.c \
 	get_next_line/get_next_line.c \
 

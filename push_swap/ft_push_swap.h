@@ -6,7 +6,7 @@
 /*   By: chsimon <chsimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 10:27:27 by chsimon           #+#    #+#             */
-/*   Updated: 2022/05/27 15:58:42 by chsimon          ###   ########.fr       */
+/*   Updated: 2022/05/27 18:33:26 by chsimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,6 @@
 # include <stddef.h>
 # include <stdio.h>
 # include "./get_next_line/get_next_line.h"
-
-# define TRUE 1
 
 typedef struct s_ppdpg
 {
@@ -71,7 +69,7 @@ void	s_reverse_rotate_a(t_full_stack *stack);
 void	s_reverse_rotate_b(t_full_stack *stack);
 t_stack	*remove_root(t_stack *lst);
 t_stack	*add_root(t_stack *lst, t_stack *root);
-int     ft_atoi(const char *nptr);
+long int	ft_atol(const char *nptr, t_full_stack *stack);
 int		stack_length(t_stack *lst);
 int		check_order(t_full_stack *stack);
 int		median(t_full_stack *stack);
