@@ -6,11 +6,24 @@
 /*   By: chsimon <chsimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/22 20:42:19 by chsimon           #+#    #+#             */
-/*   Updated: 2022/05/27 19:22:58 by chsimon          ###   ########.fr       */
+/*   Updated: 2022/05/27 19:30:10 by chsimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_push_swap.h"
+
+int	overflow_check(long int a, t_full_stack *stack)
+{
+	if (a < -2147483648 || a > 2147483647 )
+	{
+		if (stack->a)
+			free_stack(stack);
+		else
+			free(stack);
+		exit(1);
+	}
+	return (0);
+}
 
 long int	ft_atol(const char *nptr, t_full_stack *stack)
 {
@@ -35,14 +48,6 @@ long int	ft_atol(const char *nptr, t_full_stack *stack)
 		i++;
 	}
 	a *= neg;
-	if (a > 214748364 || a < -2147483648)
-	{
-		if (stack->a)
-			free_stack(stack);
-		else
-			free(stack);
-		exit(1);
-	}
-	printf("%ld\n", a);
+	overflow_check(a, stack);
 	return (a);
 }

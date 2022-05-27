@@ -6,7 +6,7 @@
 /*   By: chsimon <chsimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 10:25:47 by chsimon           #+#    #+#             */
-/*   Updated: 2022/05/27 19:14:34 by chsimon          ###   ########.fr       */
+/*   Updated: 2022/05/27 19:32:48 by chsimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,6 @@ int	main(int argc, char **argv)
 		sort_3(stack);
 	else
 		algo(stack);
-
 	// swap_a(stack);
 	// print_stack(stack);
 	// push_b(stack);
