@@ -17,6 +17,20 @@ SRCS=	push_swap.c \
 	get_next_line/get_next_line_utils.c \
 	get_next_line/get_next_line.c \
 
+BSRCS=	checker.c \
+	stack_utils.c \
+	actions.c \
+	s_actions.c \
+	utils.c \
+	calcul.c \
+	low_algo.c \
+	algo.c \
+	verif.c \
+	algo_utils.c \
+	direct_above.c \
+	get_next_line/get_next_line_utils.c \
+	get_next_line/get_next_line.c \
+
 RM= rm -f
 OBJ= $(SRCS:.c=.o)
 
