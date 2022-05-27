@@ -6,7 +6,7 @@
 /*   By: chsimon <chsimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/22 20:42:19 by chsimon           #+#    #+#             */
-/*   Updated: 2022/05/27 18:35:51 by chsimon          ###   ########.fr       */
+/*   Updated: 2022/05/27 19:22:58 by chsimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,8 +37,10 @@ long int	ft_atol(const char *nptr, t_full_stack *stack)
 	a *= neg;
 	if (a > 214748364 || a < -2147483648)
 	{
-		if (stack)
+		if (stack->a)
 			free_stack(stack);
+		else
+			free(stack);
 		exit(1);
 	}
 	printf("%ld\n", a);

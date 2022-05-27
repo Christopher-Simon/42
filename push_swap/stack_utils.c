@@ -6,7 +6,7 @@
 /*   By: chsimon <chsimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 10:34:03 by chsimon           #+#    #+#             */
-/*   Updated: 2022/05/27 16:19:08 by chsimon          ###   ########.fr       */
+/*   Updated: 2022/05/27 19:20:59 by chsimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,6 +78,52 @@ int	check_order(t_full_stack *stack)
 			return (1);
 	}
 	return (0);
+}
+
+int	check_double_2(t_stack *stack, int index, int value)
+{
+	t_stack *ptr;
+	int	index_2;
+
+	ptr = stack;
+	index_2 = 1;
+	if (value == ptr->value && index != index_2)
+		return (0);
+	ptr = ptr->next;
+	index_2++;
+	while (ptr->begin != 1)
+	{
+		if (value == ptr->value && index != index_2)
+			return (0);
+		index_2++;
+		ptr = ptr->next;
+	}
+	return (1);
+}
+
+int	check_double(t_full_stack *stack)
+{
+	t_stack	*ptr;
+	int		index;
+
+	index = 1;
+	ptr = stack->a;
+	if (!check_double_2(stack->a, index, ptr->value))
+	{
+		free_stack(stack);
+		return (0);
+	}
+	ptr = ptr->next;
+	while (ptr->begin != 1)
+	{
+		if (!check_double_2(stack->a, index, ptr->value))
+		{
+			free_stack(stack);
+			return (0);
+		}
+		ptr = ptr->next;
+	}
+	return (1);	
 }
 
 void	free_stack(t_full_stack *stack)

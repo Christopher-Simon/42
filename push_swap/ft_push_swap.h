@@ -6,7 +6,7 @@
 /*   By: chsimon <chsimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 10:27:27 by chsimon           #+#    #+#             */
-/*   Updated: 2022/05/27 18:33:26 by chsimon          ###   ########.fr       */
+/*   Updated: 2022/05/27 19:00:41 by chsimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,5 +85,6 @@ t_combi	selection(t_full_stack *stack);
 t_ppdpg	send_min(t_full_stack *stack);
 void	get_to_end(t_full_stack *stack);
 int		verif(char **argv);
+int		check_double(t_full_stack *stack);
 
 #endif
