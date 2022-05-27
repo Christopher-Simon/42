@@ -6,7 +6,7 @@
 /*   By: chsimon <chsimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 10:25:47 by chsimon           #+#    #+#             */
-/*   Updated: 2022/05/26 16:16:39 by chsimon          ###   ########.fr       */
+/*   Updated: 2022/05/27 15:46:55 by chsimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,13 +23,37 @@ int	main(int argc, char **argv)
 	i = 0;
 	if (argc <= 1)
 		return (0);
+	if (!verif(argv))
+	{
+		printf("No");	
+		return (0);
+	}
+	else
+	{
+		printf("Yes");	
+		return (0);
+	}
 	stack = malloc(sizeof(t_full_stack));
 	if (!stack)
 		return (0);
 	ft_begin(stack, ft_atoi(argv[++i]));
 		while (i++ < argc - 1)
 			ft_stack_new(stack, ft_atoi(argv[i]));
-	algo(stack);
+	// if (check_order(stack))
+	// 	return (0);
+	// if (stack_length(stack->a) == 2)
+	// {
+	// 	if (stack->a->value > stack->a->next->value)
+	// 		swap_a(stack);
+	// }
+	// else if (stack_length(stack->a) == 3)
+	// 	sort_3(stack);
+	// else
+	// 	algo(stack);
+
+
+
+	
 	// print_stack(stack);
 	// swap_a(stack);
 	// print_stack(stack);

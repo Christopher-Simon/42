@@ -11,6 +11,7 @@ SRCS=	push_swap.c \
 	calcul.c \
 	low_algo.c \
 	algo.c \
+	verif.c \
 	algo_utils.c \
 	direct_above.c \
 	ft_split.c \
