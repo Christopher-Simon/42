@@ -90,7 +90,7 @@ void	s_rotate_b(t_full_stack *stack)
 
 void	s_reverse_rotate_a(t_full_stack *stack)
 {
-	t_stack *old_root;
+	t_stack	*old_root;
 
 	old_root = stack->a;
 	while (stack->a->next->begin != 1)
@@ -101,7 +101,7 @@ void	s_reverse_rotate_a(t_full_stack *stack)
 
 void	s_reverse_rotate_b(t_full_stack *stack)
 {
-	t_stack *old_root;
+	t_stack	*old_root;
 
 	old_root = stack->b;
 	while (stack->b->next->begin != 1)

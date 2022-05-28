@@ -6,7 +6,7 @@
 /*   By: chsimon <chsimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 10:34:03 by chsimon           #+#    #+#             */
-/*   Updated: 2022/05/23 20:02:15 by chsimon          ###   ########.fr       */
+/*   Updated: 2022/05/27 19:39:18 by chsimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,23 +51,18 @@ void	ft_stack_new(t_full_stack *stack, int d)
 
 int	stack_length(t_stack *lst)
 {
-	int	i;
+	int		i;
+	t_stack	*ptr;
 
+	ptr = lst;
 	i = 1;
-	while (lst->next->begin != 1)
+	while (ptr->next->begin != 1)
 	{
-		lst = lst->next;
-		i++;	
+		ptr = ptr->next;
+		i++;
 	}
 	return (i);
 }
-
-//check que ce soit des ints et qu'il n'y ait pas de doublon
-// int	valid_input(char *argv)
-// {
-// 	while (argv++)
-// 		printf("%c", )
-// }
 
 int	check_order(t_full_stack *stack)
 {
@@ -85,6 +80,57 @@ int	check_order(t_full_stack *stack)
 	return (0);
 }
 
+int	check_double_2(t_stack *stack, int index, int value)
+{
+	t_stack *ptr;
+	int	index_2;
+
+	ptr = stack;
+	index_2 = 1;
+	if (value == ptr->value && index != index_2)
+	{
+		return (0);
+	}
+	ptr = ptr->next;
+	index_2++;
+	while (ptr->begin != 1)
+	{
+		if (value == ptr->value && index != index_2)
+		{
+			return (0);
+		}
+		index_2++;
+		ptr = ptr->next;
+	}
+	return (1);
+}
+
+int	check_double(t_full_stack *stack)
+{
+	t_stack	*ptr;
+	int		index;
+
+	index = 1;
+	ptr = stack->a;
+	if (!check_double_2(stack->a, index, ptr->value))
+	{
+		free_stack(stack);
+		return (0);
+	}
+	index++;
+	ptr = ptr->next;
+	while (ptr->begin != 1)
+	{
+		if (!check_double_2(stack->a, index, ptr->value))
+		{
+			free_stack(stack);
+			return (0);
+		}
+		index++;
+		ptr = ptr->next;
+	}
+	return (1);	
+}
 
 void	free_stack(t_full_stack *stack)
 {
@@ -145,7 +191,6 @@ void	print_stack(t_full_stack *stack)
 			end_b = 1;
 		printf("\n");
 	}
-	printf("\n");
 	// while (stack->a && stack->a->begin != 1)
 	// 	stack->a = stack->a->next;
 	// while (stack->b && stack->b->begin != 1)

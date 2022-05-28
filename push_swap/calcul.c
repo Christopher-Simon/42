@@ -6,7 +6,7 @@
 /*   By: chsimon <chsimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/23 16:55:05 by chsimon           #+#    #+#             */
-/*   Updated: 2022/05/25 18:39:24 by chsimon          ###   ########.fr       */
+/*   Updated: 2022/05/27 19:53:08 by chsimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,31 +15,29 @@
 int	median(t_full_stack *stack)
 {
 	t_full_stack	*med_stack;
-	t_stack			*root;
+	t_stack			*ptr;
 	int				i;
 
 	i = 0;
+	ptr = stack->a;
 	med_stack = malloc(sizeof(t_full_stack));
 	if (!med_stack)
 		return (0);
-	ft_begin(med_stack, stack->a->value);
-	stack->a = stack->a->next;
-	while (stack->a->begin != 1)
+	ft_begin(med_stack, ptr->value);
+	ptr = ptr->next;
+	while (ptr->begin != 1)
 	{
-		// printf("%d\n", stack->a->value);
-		ft_stack_new(med_stack, stack->a->value);
-		stack->a = stack->a->next;
+		ft_stack_new(med_stack, ptr->value);
+		ptr = ptr->next;
 	}
-	root = med_stack->a;
-	// print_stack(med_stack);
 	low_algo(med_stack);
-	// print_stack(med_stack);
-	while 	( i++ < stack_length(stack->a)/2)
+	while (i++ < stack_length(stack->a) / 2)
 	{
 		med_stack->a = med_stack->a->next;
 	}
 	i = med_stack->a->value;
-	med_stack->a = root;
+	while (med_stack->a->begin != 1)
+		med_stack->a = med_stack->a->next;
 	free_stack(med_stack);
 	return (i);
 }
@@ -54,15 +52,17 @@ void	get_min(int *a, int *b)
 
 int	get_max(t_stack *stack)
 {
-	int	max;
+	int		max;
+	t_stack	*ptr;
 
-	max = stack->value;
-	stack = stack->next;
-	while (stack->begin != 1)
+	ptr = stack;
+	max = ptr->value;
+	ptr = ptr->next;
+	while (ptr->begin != 1)
 	{
-		if (max < stack->value)
-			max = stack->value;
-		stack = stack->next;
+		if (max < ptr->value)
+			max = ptr->value;
+		ptr = ptr->next;
 	}
 	return (max);
 }
@@ -70,7 +70,7 @@ int	get_max(t_stack *stack)
 t_ppdpg	send_min(t_full_stack *stack)
 {
 	t_ppdpg	min;
-	t_stack *ptr;
+	t_stack	*ptr;
 	int		index;
 
 	ptr = stack->a;

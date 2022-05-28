@@ -6,7 +6,7 @@
 /*   By: chsimon <chsimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/21 20:09:47 by chsimon           #+#    #+#             */
-/*   Updated: 2022/05/25 13:12:21 by chsimon          ###   ########.fr       */
+/*   Updated: 2022/05/26 16:08:15 by chsimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -123,7 +123,7 @@ void	rotate_b(t_full_stack *stack)
 
 void	reverse_rotate_a(t_full_stack *stack)
 {
-	t_stack *old_root;
+	t_stack	*old_root;
 
 	printf("rra\n");
 	old_root = stack->a;
@@ -135,9 +135,9 @@ void	reverse_rotate_a(t_full_stack *stack)
 
 void	reverse_rotate_b(t_full_stack *stack)
 {
-	t_stack *old_root;
+	t_stack	*old_root;
 
-	printf("rra\n");
+	printf("rrb\n");
 	old_root = stack->b;
 	while (stack->b->next->begin != 1)
 		stack->b = stack->b->next;
@@ -156,5 +156,5 @@ void	rrr(t_full_stack *stack)
 {
 	printf("rrr\n");
 	s_reverse_rotate_a(stack);
-	s_reverse_rotate_b(stack);	
+	s_reverse_rotate_b(stack);
 }
