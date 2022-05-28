@@ -6,7 +6,7 @@
 /*   By: chsimon <chsimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 10:25:47 by chsimon           #+#    #+#             */
-/*   Updated: 2022/05/25 21:40:42 by chsimon          ###   ########.fr       */
+/*   Updated: 2022/05/25 23:02:45 by chsimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,22 +20,26 @@ int	main(int argc, char **argv)
 	int				i;
 
 	i = 0;
-	// 	printf("%s\n", argv[1]);
+	printf("%s\n", argv[1]);
 	// if (argc <= 1)
+	// 	return (0);
 	// {
 	// }
 	arguments = ft_split(argv[1], ' ');
+	printf("oui");
+	printf("%d\n", arguments[1]);
 	stack = malloc(sizeof(t_full_stack));
 	if (!stack)
 		return (0);
-	ft_begin(stack, ft_atoi(argv[++i]));
 	if (!arguments)
 	{
+	ft_begin(stack, ft_atoi(argv[++i]));
 		while (i++ < argc - 1)
 			ft_stack_new(stack, ft_atoi(argv[i]));
 	}
 	else
 	{
+	ft_begin(stack, ft_atoi(arguments[++i]));
 		while (arguments[i++])
 			ft_stack_new(stack, ft_atoi(arguments[i]));
 	}
