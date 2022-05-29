@@ -33,6 +33,7 @@ BSRCS=	checker.c \
 
 RM= rm -f
 OBJ= $(SRCS:.c=.o)
+OBJS= $(BSRCS:.c=.o)
 
 all : $(NAME)
 
@@ -41,8 +42,8 @@ bonus : $(BNAME)
 $(NAME) : $(OBJ)
 	$(CC) $(OBJ) -o $@ 
 
-$(BNAME) : $(OBJ)
-	$(CC) $(OBJ) -o $@ 
+$(BNAME) : $(OBJS)
+	$(CC) $(OBJS) -o $@ 
 
 %.o : %.c
 	$(CC) $(CFLAGS) -D BUFFER_SIZE=5 -c $< -o $@
