@@ -6,7 +6,7 @@
 /*   By: chsimon <chsimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/26 16:03:57 by chsimon           #+#    #+#             */
-/*   Updated: 2022/05/30 17:38:54 by chsimon          ###   ########.fr       */
+/*   Updated: 2022/05/30 19:22:15 by chsimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,7 @@ void	get_instructions(char *instructions, t_full_stack *stack)
 	else
 	{
 		ft_printf("Error\n");
+		free_stack(stack);
 		exit (1);
 	}
 }
@@ -85,9 +86,16 @@ int	main(int argc, char **argv)
 			break ;
 		get_instructions(instructions, stack);
 	}
+	if (stack->b)
+	{
+		free_stack(stack);
+		return (0);
+	}
 	if (check_order(stack))
 		ft_printf("OK\n");
 	else
 		ft_printf("KO\n");
+	free_stack(stack);
+	exit(1);
 	return (1);
 }

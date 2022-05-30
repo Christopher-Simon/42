@@ -13,6 +13,7 @@ SRCS=	push_swap.c \
 	srcs/median.c \
 	low_algo.c \
 	algo.c \
+	algo_2.c \
 	algo_utils.c \
 	direct_above.c \
 	init_lst.c \
@@ -20,11 +21,14 @@ SRCS=	push_swap.c \
 BSRCS=	checker.c \
 	srcs/stack_utils.c \
 	srcs/actions.c \
+	srcs/actions_2.c \
+	srcs/actions_3.c \
 	srcs/verif.c \
 	srcs/atol.c \
 	srcs/median.c \
 	low_algo.c \
 	algo.c \
+	algo_2.c \
 	algo_utils.c \
 	direct_above.c \
 	init_lst.c \

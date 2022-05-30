@@ -6,7 +6,7 @@
 /*   By: chsimon <chsimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 10:34:03 by chsimon           #+#    #+#             */
-/*   Updated: 2022/05/30 17:38:54 by chsimon          ###   ########.fr       */
+/*   Updated: 2022/05/30 19:05:34 by chsimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,12 @@ int	check_order(t_full_stack *stack)
 {
 	t_stack	*root;
 
+	if (!stack->a)
+	{
+		ft_printf("Error\n");
+		free_stack(stack);
+		exit (1);
+	}
 	root = stack->a;
 	if (root->next->begin == 1)
 		return (1);
@@ -43,22 +49,30 @@ int	check_order(t_full_stack *stack)
 	return (0);
 }
 
+void	free_mini_stack(t_stack *stack)
+{
+	t_stack	*root_a;
+
+	root_a = stack;
+	stack = stack->next;
+	while (stack->next->begin != 1)
+		stack = stack->next;
+	stack->next = NULL;
+	stack = root_a;
+	while (root_a != NULL)
+	{
+		root_a = root_a->next;
+		free(stack);
+		stack = root_a;
+	}
+}
+
 void	free_stack(t_full_stack *stack)
 {
-	t_stack	*root;
-
-	root = stack->a;
-	stack->a = stack->a->next;
-	while (stack->a->next->begin != 1)
-		stack->a = stack->a->next;
-	stack->a->next = NULL;
-	stack->a = root;
-	while (root != NULL)
-	{
-		root = root->next;
-		free(stack->a);
-		stack->a = root;
-	}
+	if (stack->a)
+		free_mini_stack(stack->a);
+	if (stack->b)
+		free_mini_stack(stack->b);
 	free(stack);
 }
 

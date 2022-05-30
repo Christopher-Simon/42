@@ -6,7 +6,7 @@
 /*   By: chsimon <chsimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 10:27:27 by chsimon           #+#    #+#             */
-/*   Updated: 2022/05/30 17:27:39 by chsimon          ###   ########.fr       */
+/*   Updated: 2022/05/30 18:30:39 by chsimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,6 +83,8 @@ void			sort_3(t_full_stack *stack);
 void			get_min(int *a, int *b);
 int				get_max(t_stack *stack);
 
+void			execut_order_66(t_full_stack *stack, t_move move);
+int				count_value(t_move move);
 int				for_b_find_direct_above(int b, t_full_stack *stack);
 t_combi			selection(t_full_stack *stack, int index_b, int count);
 t_ppdpg			send_min(t_full_stack *stack);
