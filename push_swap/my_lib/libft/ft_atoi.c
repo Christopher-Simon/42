@@ -1,44 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.c                                            :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: chsimon <chsimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/22 20:42:19 by chsimon           #+#    #+#             */
-/*   Updated: 2022/05/28 10:53:43 by chsimon          ###   ########.fr       */
+/*   Created: 2021/10/07 11:50:12 by chsimon           #+#    #+#             */
+/*   Updated: 2022/05/29 22:53:15 by chsimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_push_swap.h"
+#include "libft.h"
 
-int	overflow_check(long int a, t_full_stack *stack)
+int	ft_atoi(const char *nptr)
 {
-	if (a < -2147483648 || a > 2147483647)
-	{
-		if (stack->a)
-			free_stack(stack);
-		else
-			free(stack);
-		exit(1);
-	}
-	return (0);
-}
+	int	a;
+	int	i;
+	int	neg;
 
-long int	ft_atol(const char *nptr, t_full_stack *stack)
-{
-	long int	a;
-	int			i;
-	int			neg;
-
-	if (ft_strlen(nptr) > 12)
-	{
-		if (stack->a)
-			free_stack(stack);
-		else
-			free(stack);
-		exit(1);
-	}
 	i = 0;
 	a = 0;
 	while (nptr[i] == '\t' || nptr[i] == '\n' || nptr[i] == '\r'
@@ -56,6 +35,5 @@ long int	ft_atol(const char *nptr, t_full_stack *stack)
 		i++;
 	}
 	a *= neg;
-	overflow_check(a, stack);
 	return (a);
 }

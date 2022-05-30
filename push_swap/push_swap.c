@@ -6,14 +6,12 @@
 /*   By: chsimon <chsimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 10:25:47 by chsimon           #+#    #+#             */
-/*   Updated: 2022/05/27 21:08:23 by chsimon          ###   ########.fr       */
+/*   Updated: 2022/05/29 12:47:40 by chsimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_push_swap.h"
 #include <stdlib.h>
-
-// Check overflow long int 
 
 int	main(int argc, char **argv)
 {

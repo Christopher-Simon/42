@@ -6,7 +6,7 @@
 /*   By: chsimon <chsimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 10:27:27 by chsimon           #+#    #+#             */
-/*   Updated: 2022/05/27 20:15:51 by chsimon          ###   ########.fr       */
+/*   Updated: 2022/05/29 18:48:44 by chsimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 # include <stdlib.h>
 # include <stddef.h>
 # include <stdio.h>
-# include "./get_next_line/get_next_line.h"
+
 
 typedef struct s_ppdpg
 {

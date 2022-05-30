@@ -1,3 +1,7 @@
 {
-	"makefile.extensionOutputFolder": "./.vscode"
+	"makefile.extensionOutputFolder": "./.vscode",
+	"files.associations": {
+		"get_next_line.h": "c",
+		"libft.h": "c"
+	}
 }
