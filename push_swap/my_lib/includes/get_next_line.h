@@ -6,7 +6,7 @@
 /*   By: chsimon <chsimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/06 12:49:28 by chsimon           #+#    #+#             */
-/*   Updated: 2022/05/30 11:52:55 by chsimon          ###   ########.fr       */
+/*   Updated: 2022/05/30 18:24:04 by chsimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 # include "ft_my_lib.h"
 
 # ifndef BUFFER_SIZE
-#	define BUFFER_SIZE 1024
+#  define BUFFER_SIZE 1024
 # endif
 
 char	*get_next_line(int fd);
