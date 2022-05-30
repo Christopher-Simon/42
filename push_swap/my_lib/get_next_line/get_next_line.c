@@ -6,7 +6,7 @@
 /*   By: chsimon <chsimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/03 14:28:14 by chsimon           #+#    #+#             */
-/*   Updated: 2021/12/10 10:06:40 by chsimon          ###   ########.fr       */
+/*   Updated: 2022/05/30 11:52:34 by chsimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ char	*sep_line(char **memory, char *line, int fd)
 		free (line);
 		return (NULL);
 	}
-	if (ft_strchr(line, '\n'))
+	if (gnl_strchr(line, '\n'))
 	{
 		ft_strlcpy(memory[fd], &line[i + 1], ft_strlen(line) - i + 1);
 		line[i + 1] = '\0';
@@ -56,7 +56,7 @@ char	*sep_line(char **memory, char *line, int fd)
 
 char	*memory_check(char **memory, char *line, int fd)
 {
-	line = ft_strjoin(line, memory[fd]);
+	line = gnl_strjoin(line, memory[fd]);
 	free(memory[fd]);
 	memory[fd] = NULL;
 	return (line);
@@ -72,10 +72,10 @@ char	*get_next_line(int fd)
 	if (fd < 0 || fd > 1024 || BUFFER_SIZE <= 0)
 		return (NULL);
 	n = 0;
-	line = ft_calloc(sizeof(char), 1);
+	line = gnl_calloc(sizeof(char), 1);
 	if (memory[fd])
 		line = memory_check(memory, line, fd);
-	if (ft_strchr(line, '\n'))
+	if (gnl_strchr(line, '\n'))
 		n++;
 	while (n == 0)
 	{
@@ -83,8 +83,8 @@ char	*get_next_line(int fd)
 			return (NULL);
 		if (n)
 			return (line);
-		n = ft_strchr(buf, '\n');
-		line = ft_strjoin(line, buf);
+		n = gnl_strchr(buf, '\n');
+		line = gnl_strjoin(line, buf);
 	}
 	sep_line(memory, line, fd);
 	return (line);

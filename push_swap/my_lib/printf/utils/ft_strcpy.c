@@ -6,11 +6,11 @@
 /*   By: chsimon <chsimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/31 20:55:33 by chsimon           #+#    #+#             */
-/*   Updated: 2022/05/22 19:13:40 by chsimon          ###   ########.fr       */
+/*   Updated: 2022/05/30 11:53:11 by chsimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../ft_printf.h"
+#include "ft_printf.h"
 #include <stddef.h>
 
 size_t	ft_strcpy(char *dst, const char *src, size_t size)

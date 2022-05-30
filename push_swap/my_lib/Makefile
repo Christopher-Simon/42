@@ -1,4 +1,4 @@
-NAME= my_lib.a
+NAME= lib_my.a
 CC= gcc
 CFLAGS= -Wall -Wextra -Werror -g3
 
@@ -56,6 +56,7 @@ SRCS_GNL= $(addprefix $(PATH_GNL), \
 	get_next_line_utils.c)
 
 SRCS_PRINTF= $(addprefix $(PATH_PRINTF), \
+	utils/ft_printf.c \
 	utils/size.c\
 	utils/checker.c\
 	utils/checker2.c\
@@ -91,7 +92,7 @@ all : $(NAME)
 $(NAME) : $(OBJS)
 	ar -rcs $@ $^
 
-.o : .c
+.c.o :
 	$(CC) $(CFLAGS) -c $< -o $@ -I ./includes
 
 clean :	

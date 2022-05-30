@@ -6,7 +6,7 @@
 /*   By: chsimon <chsimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/06 12:49:28 by chsimon           #+#    #+#             */
-/*   Updated: 2022/05/29 22:54:18 by chsimon          ###   ########.fr       */
+/*   Updated: 2022/05/30 11:52:55 by chsimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,8 @@
 # endif
 
 char	*get_next_line(int fd);
-size_t	ft_strlen(const char *s);
-size_t	ft_strlcpy(char *dst, const char *src, size_t size);
-char	*ft_strjoin(char *s1, char *s2);
-void	*ft_calloc(size_t nmemb, size_t size);
+char	*gnl_strjoin(char *s1, char *s2);
+void	*gnl_calloc(size_t nmemb, size_t size);
+size_t	gnl_strchr(const char *s, int c);
 
 #endif

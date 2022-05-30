@@ -6,41 +6,13 @@
 /*   By: chsimon <chsimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/03 16:04:52 by chsimon           #+#    #+#             */
-/*   Updated: 2021/12/10 10:20:42 by chsimon          ###   ########.fr       */
+/*   Updated: 2022/05/30 11:51:02 by chsimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-size_t	ft_strlen(const char *s)
-{
-	int	i;
-
-	if (!s)
-		return (0);
-	i = 0;
-	while (s[i])
-		i++;
-	return (i);
-}	
-
-size_t	ft_strlcpy(char *dst, const char *src, size_t size)
-{
-	size_t	i;
-
-	i = 0;
-	if (size <= 0)
-		return (ft_strlen(src));
-	while (src[i] && i < size - 1)
-	{
-		dst[i] = src[i];
-		i++;
-	}
-	dst[i] = '\0';
-	return (ft_strlen(src));
-}
-
-char	*ft_strjoin(char *s1, char *s2)
+char	*gnl_strjoin(char *s1, char *s2)
 {
 	int		len1;
 	int		len2;
@@ -59,7 +31,7 @@ char	*ft_strjoin(char *s1, char *s2)
 	return (s_join);
 }
 
-size_t	ft_strchr(const char *s, int c)
+size_t	gnl_strchr(const char *s, int c)
 {
 	size_t	i;
 	size_t	len;
@@ -75,7 +47,7 @@ size_t	ft_strchr(const char *s, int c)
 	return (0);
 }
 
-void	*ft_calloc(size_t nmemb, size_t size)
+void	*gnl_calloc(size_t nmemb, size_t size)
 {
 	char	*copy;
 	int		i;

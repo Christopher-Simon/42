@@ -6,12 +6,12 @@
 /*   By: chsimon <chsimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/31 15:32:26 by chsimon           #+#    #+#             */
-/*   Updated: 2022/05/22 19:12:24 by chsimon          ###   ########.fr       */
+/*   Updated: 2022/05/30 11:53:52 by chsimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
-#include "../ft_printf.h"
+#include "ft_printf.h"
 
 char	*flag_big_x_null(int x)
 {

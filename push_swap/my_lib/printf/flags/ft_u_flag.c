@@ -6,12 +6,12 @@
 /*   By: chsimon <chsimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/31 02:59:51 by chsimon           #+#    #+#             */
-/*   Updated: 2022/05/22 19:13:03 by chsimon          ###   ########.fr       */
+/*   Updated: 2022/05/30 11:55:14 by chsimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
-#include "../ft_printf.h"
+#include "ft_printf.h"
 
 char	*get_u(t_flags *flag, unsigned int d)
 {

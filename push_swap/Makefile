@@ -4,59 +4,64 @@ CC=gcc
 CFLAGS=	-Wall -Wextra -Werror -g3
 
 SRCS=	push_swap.c \
-	stack_utils.c \
-	actions.c \
-	s_actions.c \
-	utils.c \
-	calcul.c \
+	srcs/stack_utils.c \
+	srcs/actions.c \
+	srcs/actions_2.c \
+	srcs/actions_3.c \
+	srcs/verif.c \
+	srcs/atol.c \
+	srcs/median.c \
 	low_algo.c \
 	algo.c \
-	verif.c \
 	algo_utils.c \
 	direct_above.c \
-	get_next_line/get_next_line_utils.c \
-	get_next_line/get_next_line.c \
+	init_lst.c \
 
 BSRCS=	checker.c \
-	stack_utils.c \
-	actions.c \
-	s_actions.c \
-	utils.c \
-	calcul.c \
+	srcs/stack_utils.c \
+	srcs/actions.c \
+	srcs/verif.c \
+	srcs/atol.c \
+	srcs/median.c \
 	low_algo.c \
 	algo.c \
-	verif.c \
 	algo_utils.c \
 	direct_above.c \
-	get_next_line/get_next_line_utils.c \
-	get_next_line/get_next_line.c \
+	init_lst.c \
 
 RM= rm -f
 OBJ= $(SRCS:.c=.o)
-OBJS= $(BSRCS:.c=.o)
+BOBJ= $(BSRCS:.c=.o)
 
-all : $(NAME)
-	make -C printf
+INCS= -I includes -I my_lib/includes
+MY_LIB= my_lib/my_lib.a
+
+all : $(MY_LIB) $(NAME)
 
 bonus : $(BNAME)
 
-$(NAME) : $(OBJ)
-	$(CC) $(OBJ) -o $@ 
+$(NAME) :  $(OBJ) 
+	$(CC) $(CFLAGS) -L my_lib $(OBJ) -o $@ $(INCS) -l_my
 
-$(BNAME) : $(OBJS)
-	$(CC) $(OBJS) -o $@ 
+$(BNAME) : $(BOBJ)
+	$(CC) $(CFLAGS) -L my_lib $(BOBJ) -o $@ $(INCS) -l_my
 
-%.o : %.c
-	$(CC) $(CFLAGS) -D BUFFER_SIZE=5 -c $< -o $@
+.c.o :
+	$(CC) $(CFLAGS) $(INCS) -c $< -o $@ 
+
+my_lib/my_lib.a:
+	make -C my_lib all
 
 clean :	
-	$(RM) $(OBJ)
+	$(RM) $(OBJ) $(BOBJ)
+	make -C my_lib clean
 
 fclean : clean
-	$(RM) $(NAME)
+	$(RM) $(NAME) $(BNAME)
+	$(RM) my_lib/my_lib.a
 
 re : 	
-		$(MAKE) fclean
-		$(MAKE) all
+		make fclean
+		make all
 
 .PHONY : all clean fclean re bonus
