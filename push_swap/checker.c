@@ -6,7 +6,7 @@
 /*   By: chsimon <chsimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/26 16:03:57 by chsimon           #+#    #+#             */
-/*   Updated: 2022/05/29 12:58:55 by chsimon          ###   ########.fr       */
+/*   Updated: 2022/05/29 17:03:03 by chsimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,29 +56,34 @@ void	get_instructions(char *instructions, t_full_stack *stack)
 {
 	if(!ft_strncmp(instructions, "sa\n", ft_strlen(instructions)))
 		s_swap_a(stack);
-	if(!ft_strncmp(instructions, "sb\n", ft_strlen(instructions)))
+	else if(!ft_strncmp(instructions, "sb\n", ft_strlen(instructions)))
 		s_swap_b(stack);
-	if(!ft_strncmp(instructions, "pa\n", ft_strlen(instructions)))
+	else if(!ft_strncmp(instructions, "pa\n", ft_strlen(instructions)))
 		s_push_a(stack);
-	if(!ft_strncmp(instructions, "pb\n", ft_strlen(instructions)))
+	else if(!ft_strncmp(instructions, "pb\n", ft_strlen(instructions)))
 		s_push_b(stack);
-	if(!ft_strncmp(instructions, "ra\n", ft_strlen(instructions)))
+	else if(!ft_strncmp(instructions, "ra\n", ft_strlen(instructions)))
 		s_rotate_a(stack);
-	if(!ft_strncmp(instructions, "rb\n", ft_strlen(instructions)))
+	else if(!ft_strncmp(instructions, "rb\n", ft_strlen(instructions)))
 		s_rotate_b(stack);	
-	if(!ft_strncmp(instructions, "rr\n", ft_strlen(instructions)))
+	else if(!ft_strncmp(instructions, "rr\n", ft_strlen(instructions)))
 	{
 		s_rotate_a(stack);
 		s_rotate_b(stack);
 	}	
-	if(!ft_strncmp(instructions, "rra\n", ft_strlen(instructions)))
+	else if(!ft_strncmp(instructions, "rra\n", ft_strlen(instructions)))
 		s_reverse_rotate_a(stack);
-	if(!ft_strncmp(instructions, "rrb\n", ft_strlen(instructions)))
+	else if(!ft_strncmp(instructions, "rrb\n", ft_strlen(instructions)))
 		s_reverse_rotate_b(stack);
-	if(!ft_strncmp(instructions, "rrr\n", ft_strlen(instructions)))
+	else if(!ft_strncmp(instructions, "rrr\n", ft_strlen(instructions)))
 	{
 		s_reverse_rotate_a(stack);
 		s_reverse_rotate_b(stack);
+	}
+	else
+	{
+		printf("Error\n");
+		exit (1);
 	}
 }
 

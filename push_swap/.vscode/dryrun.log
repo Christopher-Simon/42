@@ -1,6 +1,7 @@
-make --dry-run --always-make --keep-going --print-directory
+make --dry-run --keep-going --print-directory
 make: Entering directory '/home/christopher/42/push_swap'
 gcc -Wall -Wextra -Werror -g3 -D BUFFER_SIZE=5 -c push_swap.c -o push_swap.o
+ 
 gcc -Wall -Wextra -Werror -g3 -D BUFFER_SIZE=5 -c stack_utils.c -o stack_utils.o
 gcc -Wall -Wextra -Werror -g3 -D BUFFER_SIZE=5 -c actions.c -o actions.o
 gcc -Wall -Wextra -Werror -g3 -D BUFFER_SIZE=5 -c s_actions.c -o s_actions.o
@@ -11,8 +12,8 @@ gcc -Wall -Wextra -Werror -g3 -D BUFFER_SIZE=5 -c algo.c -o algo.o
 gcc -Wall -Wextra -Werror -g3 -D BUFFER_SIZE=5 -c verif.c -o verif.o
 gcc -Wall -Wextra -Werror -g3 -D BUFFER_SIZE=5 -c algo_utils.c -o algo_utils.o
 gcc -Wall -Wextra -Werror -g3 -D BUFFER_SIZE=5 -c direct_above.c -o direct_above.o
-gcc -Wall -Wextra -Werror -g3 -D BUFFER_SIZE=5 -c get_next_line/get_next_line_utils.c -o get_next_line/get_next_line_utils.o
-gcc -Wall -Wextra -Werror -g3 -D BUFFER_SIZE=5 -c get_next_line/get_next_line.c -o get_next_line/get_next_line.o
-gcc push_swap.o stack_utils.o actions.o s_actions.o utils.o calcul.o low_algo.o algo.o verif.o algo_utils.o direct_above.o get_next_line/get_next_line_utils.o get_next_line/get_next_line.o -o push_swap 
 make: Leaving directory '/home/christopher/42/push_swap'
  
+make: *** No rule to make target 'get_next_line/get_next_line_utils.o', needed by 'push_swap'.
+make: *** No rule to make target 'get_next_line/get_next_line.o', needed by 'push_swap'.
+

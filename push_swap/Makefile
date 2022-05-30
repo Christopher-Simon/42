@@ -36,6 +36,7 @@ OBJ= $(SRCS:.c=.o)
 OBJS= $(BSRCS:.c=.o)
 
 all : $(NAME)
+	make -C printf
 
 bonus : $(BNAME)
 
