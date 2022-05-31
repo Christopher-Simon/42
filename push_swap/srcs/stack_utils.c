@@ -6,7 +6,7 @@
 /*   By: chsimon <chsimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 10:34:03 by chsimon           #+#    #+#             */
-/*   Updated: 2022/05/30 19:05:34 by chsimon          ###   ########.fr       */
+/*   Updated: 2022/05/31 14:54:08 by chsimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,44 +76,44 @@ void	free_stack(t_full_stack *stack)
 	free(stack);
 }
 
-// void	print_stack(t_full_stack *stack)
-// {
-// 	int	end_a = 0;
-// 	int	end_b = 0;
+void	print_stack(t_full_stack *stack)
+{
+	int	end_a = 0;
+	int	end_b = 0;
 
-// 	ft_printf("a    b\n");
-// 	if (stack->a)
-// 	{
-// 		ft_printf("%-5d", stack->a->value);
-// 		stack->a = stack->a->next;
-// 	}
-// 	else
-// 		ft_printf("     ");
-// 	if (stack->b)
-// 	{
-// 		ft_printf("%d", stack->b->value);
-// 		stack->b = stack->b->next;
-// 	}
-// 	ft_printf("\n");
-// 	while ((end_a == 0 || end_b == 0))
-// 	{
-// 		if (stack->a && stack->a->begin != 1)
-// 		{
-// 			ft_printf("%-5d", stack->a->value);
-// 			stack->a = stack->a->next;
-// 		}
-// 		else
-// 		{
-// 			ft_printf("     ");
-// 			end_a = 1;
-// 		}
-// 		if (stack->b && stack->b->begin != 1)
-// 		{
-// 			ft_printf("%d", stack->b->value);
-// 			stack->b = stack->b->next;
-// 		}
-// 		else
-// 			end_b = 1;
-// 		ft_printf("\n");
-// 	}
-// }
+	ft_printf("a    b\n");
+	if (stack->a)
+	{
+		ft_printf("%-5d", stack->a->value);
+		stack->a = stack->a->next;
+	}
+	else
+		ft_printf("     ");
+	if (stack->b)
+	{
+		ft_printf("%d", stack->b->value);
+		stack->b = stack->b->next;
+	}
+	ft_printf("\n");
+	while ((end_a == 0 || end_b == 0))
+	{
+		if (stack->a && stack->a->begin != 1)
+		{
+			ft_printf("%-5d", stack->a->value);
+			stack->a = stack->a->next;
+		}
+		else
+		{
+			ft_printf("     ");
+			end_a = 1;
+		}
+		if (stack->b && stack->b->begin != 1)
+		{
+			ft_printf("%d", stack->b->value);
+			stack->b = stack->b->next;
+		}
+		else
+			end_b = 1;
+		ft_printf("\n");
+	}
+}

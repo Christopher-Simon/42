@@ -6,7 +6,7 @@
 /*   By: chsimon <chsimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 10:27:27 by chsimon           #+#    #+#             */
-/*   Updated: 2022/05/31 13:01:36 by chsimon          ###   ########.fr       */
+/*   Updated: 2022/05/31 14:54:30 by chsimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ typedef struct s_full_stack
 t_full_stack	*init_lst(int argc, char **argv);
 int				ft_begin(t_full_stack *stack, int d);
 int				ft_stack_new(t_full_stack *stack, int d);
-// void			print_stack(t_full_stack *stack);
+void			print_stack(t_full_stack *stack);
 void			free_stack(t_full_stack *stack);
 
 void			swap_a(t_full_stack *stack, int silent);

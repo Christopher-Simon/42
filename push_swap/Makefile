@@ -42,7 +42,7 @@ MY_LIB= my_lib/my_lib.a
 
 all : $(MY_LIB) $(NAME)
 
-bonus : $(BNAME)
+bonus : $(MY_LIB) $(BNAME)
 
 $(NAME) :  $(OBJ) 
 	$(CC) $(CFLAGS) -L my_lib $(OBJ) -o $@ $(INCS) -l_my

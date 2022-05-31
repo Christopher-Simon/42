@@ -6,7 +6,7 @@
 /*   By: chsimon <chsimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/03 16:04:52 by chsimon           #+#    #+#             */
-/*   Updated: 2022/05/31 13:42:38 by chsimon          ###   ########.fr       */
+/*   Updated: 2022/05/31 14:42:15 by chsimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ int	free_fd(char **memory)
 	while (i <= 1024)
 	{
 		if (memory[i])
-			free(memory);
+			free(memory[i]);
 		i++;
 	}
 	return (1);

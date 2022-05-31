@@ -6,7 +6,7 @@
 /*   By: chsimon <chsimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/30 15:06:01 by chsimon           #+#    #+#             */
-/*   Updated: 2022/05/31 12:10:14 by chsimon          ###   ########.fr       */
+/*   Updated: 2022/05/31 14:38:59 by chsimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,8 @@ t_full_stack	*init_lst(int argc, char **argv)
 	stack = malloc(sizeof(t_full_stack));
 	if (!stack)
 		return (NULL);
+	stack->a = NULL;
+	stack->b = NULL;
 	if (!ft_begin(stack, ft_atol(argv[++i], stack)))
 		return (NULL);
 	while (i++ < argc - 1)
