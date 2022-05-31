@@ -6,7 +6,7 @@
 /*   By: chsimon <chsimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/26 16:03:57 by chsimon           #+#    #+#             */
-/*   Updated: 2022/05/31 15:01:03 by chsimon          ###   ########.fr       */
+/*   Updated: 2022/05/31 15:03:36 by chsimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,11 +22,10 @@ int	free_gnl(char *instructions)
 
 int	get_instructions(char *instructions, t_full_stack *stack)
 {
-	if (!ft_strncmp(instructions, "sa\n", ft_strlen(instructions)))
-	{
-		ft_printf("yes");
+	if (ft_strlen(instructions) == 0)
+		return (1);
+	else if (!ft_strncmp(instructions, "sa\n", ft_strlen(instructions)))
 		swap_a(stack, 0);
-	}
 	else if (!ft_strncmp(instructions, "sb\n", ft_strlen(instructions)))
 		swap_b(stack, 0);
 	else if (!ft_strncmp(instructions, "pa\n", ft_strlen(instructions)))
@@ -76,13 +75,11 @@ int	main(int argc, char **argv)
 	stack = init_lst(argc, argv);
 	if (!stack)
 		return (0);
-	print_stack(stack);
 	if (!check_double(stack))
 	{
 		ft_printf("Error\n");
 		return (0);
 	}
-	print_stack(stack);
 	instructions = get_next_line(0);
 	if (!get_instructions(instructions, stack))
 		return (0);
@@ -95,7 +92,6 @@ int	main(int argc, char **argv)
 		if (!get_instructions(instructions, stack))
 			return (0);
 	}
-	print_stack(stack);
 	if (stack->b)
 	{
 		free_stack(stack);
