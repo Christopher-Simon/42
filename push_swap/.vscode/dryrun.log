@@ -1,19 +1,20 @@
-make --dry-run --keep-going --print-directory
+make --dry-run --always-make --keep-going --print-directory
 make: Entering directory '/home/christopher/42/push_swap'
-gcc -Wall -Wextra -Werror -g3 -D BUFFER_SIZE=5 -c push_swap.c -o push_swap.o
- 
-gcc -Wall -Wextra -Werror -g3 -D BUFFER_SIZE=5 -c stack_utils.c -o stack_utils.o
-gcc -Wall -Wextra -Werror -g3 -D BUFFER_SIZE=5 -c actions.c -o actions.o
-gcc -Wall -Wextra -Werror -g3 -D BUFFER_SIZE=5 -c s_actions.c -o s_actions.o
-gcc -Wall -Wextra -Werror -g3 -D BUFFER_SIZE=5 -c utils.c -o utils.o
-gcc -Wall -Wextra -Werror -g3 -D BUFFER_SIZE=5 -c calcul.c -o calcul.o
-gcc -Wall -Wextra -Werror -g3 -D BUFFER_SIZE=5 -c low_algo.c -o low_algo.o
-gcc -Wall -Wextra -Werror -g3 -D BUFFER_SIZE=5 -c algo.c -o algo.o
-gcc -Wall -Wextra -Werror -g3 -D BUFFER_SIZE=5 -c verif.c -o verif.o
-gcc -Wall -Wextra -Werror -g3 -D BUFFER_SIZE=5 -c algo_utils.c -o algo_utils.o
-gcc -Wall -Wextra -Werror -g3 -D BUFFER_SIZE=5 -c direct_above.c -o direct_above.o
+make -C my_lib all
+gcc -Wall -Wextra -Werror -g3 -I includes -I my_lib/includes -c push_swap.c -o push_swap.o 
+gcc -Wall -Wextra -Werror -g3 -I includes -I my_lib/includes -c srcs/stack_utils.c -o srcs/stack_utils.o 
+gcc -Wall -Wextra -Werror -g3 -I includes -I my_lib/includes -c srcs/actions.c -o srcs/actions.o 
+gcc -Wall -Wextra -Werror -g3 -I includes -I my_lib/includes -c srcs/actions_2.c -o srcs/actions_2.o 
+gcc -Wall -Wextra -Werror -g3 -I includes -I my_lib/includes -c srcs/actions_3.c -o srcs/actions_3.o 
+gcc -Wall -Wextra -Werror -g3 -I includes -I my_lib/includes -c srcs/verif.c -o srcs/verif.o 
+gcc -Wall -Wextra -Werror -g3 -I includes -I my_lib/includes -c srcs/atol.c -o srcs/atol.o 
+gcc -Wall -Wextra -Werror -g3 -I includes -I my_lib/includes -c srcs/median.c -o srcs/median.o 
+gcc -Wall -Wextra -Werror -g3 -I includes -I my_lib/includes -c low_algo.c -o low_algo.o 
+gcc -Wall -Wextra -Werror -g3 -I includes -I my_lib/includes -c algo.c -o algo.o 
+gcc -Wall -Wextra -Werror -g3 -I includes -I my_lib/includes -c algo_2.c -o algo_2.o 
+gcc -Wall -Wextra -Werror -g3 -I includes -I my_lib/includes -c algo_utils.c -o algo_utils.o 
+gcc -Wall -Wextra -Werror -g3 -I includes -I my_lib/includes -c direct_above.c -o direct_above.o 
+gcc -Wall -Wextra -Werror -g3 -I includes -I my_lib/includes -c init_lst.c -o init_lst.o 
+gcc -Wall -Wextra -Werror -g3 -L my_lib push_swap.o srcs/stack_utils.o srcs/actions.o srcs/actions_2.o srcs/actions_3.o srcs/verif.o srcs/atol.o srcs/median.o low_algo.o algo.o algo_2.o algo_utils.o direct_above.o init_lst.o -o push_swap -I includes -I my_lib/includes -l_my
 make: Leaving directory '/home/christopher/42/push_swap'
  
-make: *** No rule to make target 'get_next_line/get_next_line_utils.o', needed by 'push_swap'.
-make: *** No rule to make target 'get_next_line/get_next_line.o', needed by 'push_swap'.
-

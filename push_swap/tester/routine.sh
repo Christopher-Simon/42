@@ -12,6 +12,6 @@ do
 	# ../push_swap $ARG
 	../push_swap $ARG | wc -l
 	../push_swap $ARG | ../checker_linux $ARG 
-	#../push_swap $ARG | ../checker $ARG
+	../push_swap $ARG | ../checker $ARG
 	#sleep 0.2
 done

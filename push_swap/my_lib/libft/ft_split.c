@@ -6,7 +6,7 @@
 /*   By: chsimon <chsimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/08 11:16:25 by chsimon           #+#    #+#             */
-/*   Updated: 2021/12/03 11:26:59 by chsimon          ###   ########.fr       */
+/*   Updated: 2022/05/31 16:02:02 by chsimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ size_t	count_word(char const *s, char c)
 
 int	split_free(char **split_tab, size_t x)
 {
-	if (!split_tab[x -1])
+	if (!split_tab[x - 1])
 	{
 		while (x--)
 			free(split_tab[x]);
