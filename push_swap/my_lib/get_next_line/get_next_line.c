@@ -6,7 +6,7 @@
 /*   By: chsimon <chsimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/03 14:28:14 by chsimon           #+#    #+#             */
-/*   Updated: 2022/05/30 11:52:34 by chsimon          ###   ########.fr       */
+/*   Updated: 2022/05/31 13:49:29 by chsimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,16 @@ char	*memory_check(char **memory, char *line, int fd)
 	return (line);
 }
 
+int	gnl_nagic(int fd, char **memory)
+{
+	if (fd < 0 || fd > 1024 || BUFFER_SIZE <= 0)
+	{
+		free_fd(memory);
+		return (0);
+	}
+	return (1);
+}
+
 char	*get_next_line(int fd)
 {
 	char		buf[BUFFER_SIZE + 1];
@@ -69,7 +79,7 @@ char	*get_next_line(int fd)
 	size_t		n;
 	static char	*memory[1024];
 
-	if (fd < 0 || fd > 1024 || BUFFER_SIZE <= 0)
+	if (!gnl_nagic(fd, memory))
 		return (NULL);
 	n = 0;
 	line = gnl_calloc(sizeof(char), 1);

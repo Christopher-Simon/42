@@ -6,7 +6,7 @@
 /*   By: chsimon <chsimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/22 20:42:19 by chsimon           #+#    #+#             */
-/*   Updated: 2022/05/30 17:38:54 by chsimon          ###   ########.fr       */
+/*   Updated: 2022/05/31 14:12:41 by chsimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,9 +56,6 @@ long int	ft_atol(const char *nptr, t_full_stack *stack)
 	int			i;
 	int			neg;
 
-	while (*nptr == '0' && nptr[1] != '\0')
-		nptr++;
-	long_check(nptr, stack);
 	i = 0;
 	a = 0;
 	while (nptr[i] == '\t' || nptr[i] == '\n' || nptr[i] == '\r'
@@ -70,6 +67,9 @@ long int	ft_atol(const char *nptr, t_full_stack *stack)
 		neg = 1;
 	if (nptr[i] == '+' || nptr[i] == '-')
 		i++;
+	while (nptr[i] == '0' && nptr[i + 1] != '\0')
+		i++;
+	long_check(&nptr[i], stack);
 	a = atol_while(nptr, i, a);
 	a *= neg;
 	overflow_check(a, stack);

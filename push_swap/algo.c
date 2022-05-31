@@ -6,7 +6,7 @@
 /*   By: chsimon <chsimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/23 20:32:13 by chsimon           #+#    #+#             */
-/*   Updated: 2022/05/30 18:41:24 by chsimon          ###   ########.fr       */
+/*   Updated: 2022/05/31 12:23:13 by chsimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,12 +81,13 @@ void	get_to_end(t_full_stack *stack)
 	}
 }
 
-void	algo(t_full_stack *stack)
+int	algo(t_full_stack *stack)
 {
 	int		max;
 	t_combi	combi;
 
-	get_median(stack);
+	if (!get_median(stack))
+		return (0);
 	max = get_max(stack->a);
 	while (stack_length(stack->a) > 3)
 	{
@@ -102,4 +103,5 @@ void	algo(t_full_stack *stack)
 		get_count(stack, combi.index_ppdpg, combi.index_b, 1);
 	}
 	get_to_end(stack);
+	return (1);
 }

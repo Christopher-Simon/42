@@ -6,7 +6,7 @@
 /*   By: chsimon <chsimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 10:25:47 by chsimon           #+#    #+#             */
-/*   Updated: 2022/05/30 17:38:54 by chsimon          ###   ########.fr       */
+/*   Updated: 2022/05/31 13:00:05 by chsimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,14 +28,18 @@ int	post_init_check(t_full_stack *stack)
 	return (1);
 }
 
-void	init_tri(t_full_stack *stack)
+int	init_tri(t_full_stack *stack)
 {
 	if (stack_length(stack->a) == 2)
 		swap_a(stack, 0);
 	else if (stack_length(stack->a) == 3)
 		sort_3(stack);
 	else
-		algo(stack);
+	{
+		if (!algo(stack))
+			return (0);
+	}
+	return (1);
 }
 
 int	main(int argc, char **argv)
@@ -53,8 +57,11 @@ int	main(int argc, char **argv)
 		return (0);
 	}
 	stack = init_lst(argc, argv);
+	if (!stack)
+		return (0);
 	post_init_check(stack);
-	init_tri(stack);
+	if (!init_tri(stack))
+		return (0);
 	free_stack(stack);
 	return (0);
 }

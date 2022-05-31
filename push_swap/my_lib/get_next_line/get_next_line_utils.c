@@ -6,7 +6,7 @@
 /*   By: chsimon <chsimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/03 16:04:52 by chsimon           #+#    #+#             */
-/*   Updated: 2022/05/30 11:51:02 by chsimon          ###   ########.fr       */
+/*   Updated: 2022/05/31 13:42:38 by chsimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,4 +61,18 @@ void	*gnl_calloc(size_t nmemb, size_t size)
 	while (n--)
 		*((unsigned char *)copy + i++) = '\0';
 	return (copy);
+}
+
+int	free_fd(char **memory)
+{
+	int	i;
+
+	i = 0;
+	while (i <= 1024)
+	{
+		if (memory[i])
+			free(memory);
+		i++;
+	}
+	return (1);
 }

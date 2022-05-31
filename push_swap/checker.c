@@ -6,14 +6,21 @@
 /*   By: chsimon <chsimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/26 16:03:57 by chsimon           #+#    #+#             */
-/*   Updated: 2022/05/30 19:22:15 by chsimon          ###   ########.fr       */
+/*   Updated: 2022/05/31 13:41:19 by chsimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_push_swap.h"
 #include <stddef.h>
 
-void	get_instructions(char *instructions, t_full_stack *stack)
+int	free_gnl(char *instructions)
+{
+	free(instructions);
+	get_next_line(-1);
+	return (0);
+}
+
+int	get_instructions(char *instructions, t_full_stack *stack)
 {
 	if (!ft_strncmp(instructions, "sa\n", ft_strlen(instructions)))
 		swap_a(stack, 1);
@@ -44,18 +51,18 @@ void	get_instructions(char *instructions, t_full_stack *stack)
 	else
 	{
 		ft_printf("Error\n");
+		free_gnl(instructions);
 		free_stack(stack);
-		exit (1);
+		return (0);
 	}
+	return (1);
 }
 
 int	main(int argc, char **argv)
 {
 	char			*instructions;
 	t_full_stack	*stack;
-	int				i;
 
-	i = 0;
 	if (argc == 1)
 		return (0);
 	if (!verif(argv))
@@ -63,12 +70,9 @@ int	main(int argc, char **argv)
 		ft_printf("Error\n");
 		return (0);
 	}
-	stack = malloc(sizeof(t_full_stack));
+	stack = init_lst(argc, argv);
 	if (!stack)
 		return (0);
-	ft_begin(stack, ft_atol(argv[++i], stack));
-	while (i++ < argc - 1)
-		ft_stack_new(stack, ft_atol(argv[i], stack));
 	if (!check_double(stack))
 	{
 		ft_printf("Error\n");
@@ -76,26 +80,37 @@ int	main(int argc, char **argv)
 	}
 	instructions = get_next_line(0);
 	if (!instructions)
+	{
+		free_stack(stack);
 		return (0);
-	get_instructions(instructions, stack);
+	}
+	if (!get_instructions(instructions, stack))
+		return (0);
 	while (instructions)
 	{
 		free(instructions);
 		instructions = get_next_line(0);
 		if (!instructions)
 			break ;
-		get_instructions(instructions, stack);
+		if (!get_instructions(instructions, stack))
+			return (0);
 	}
 	if (stack->b)
 	{
 		free_stack(stack);
+		ft_printf("KO\n");
 		return (0);
 	}
 	if (check_order(stack))
+	{
 		ft_printf("OK\n");
+		free_stack(stack);
+		return (1);
+	}
 	else
+	{
 		ft_printf("KO\n");
-	free_stack(stack);
-	exit(1);
-	return (1);
+		free_stack(stack);
+		return (0);
+	}
 }

@@ -6,7 +6,7 @@
 /*   By: chsimon <chsimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/25 11:11:43 by chsimon           #+#    #+#             */
-/*   Updated: 2022/05/30 16:20:51 by chsimon          ###   ########.fr       */
+/*   Updated: 2022/05/31 11:55:35 by chsimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,4 +73,29 @@ t_ppdpg	send_min(t_full_stack *stack)
 		ptr = ptr->next;
 	}
 	return (min);
+}
+
+void	get_min(int *a, int *b)
+{
+	if (*a > *b)
+		*a = 0;
+	else
+		*b = 0;
+}
+
+int	get_max(t_stack *stack)
+{
+	int		max;
+	t_stack	*ptr;
+
+	ptr = stack;
+	max = ptr->value;
+	ptr = ptr->next;
+	while (ptr->begin != 1)
+	{
+		if (max < ptr->value)
+			max = ptr->value;
+		ptr = ptr->next;
+	}
+	return (max);
 }

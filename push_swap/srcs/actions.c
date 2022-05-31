@@ -6,7 +6,7 @@
 /*   By: chsimon <chsimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/21 20:09:47 by chsimon           #+#    #+#             */
-/*   Updated: 2022/05/30 17:38:54 by chsimon          ###   ########.fr       */
+/*   Updated: 2022/05/31 10:58:01 by chsimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ void	swap_a(t_full_stack *stack, int silent)
 	t_stack	*pos_1;
 	t_stack	*pos_2;
 
+	if (!stack->a)
+		return ;
 	if (stack_length(stack->a) < 2)
 		return ;
 	if (!silent)
@@ -41,6 +43,8 @@ void	swap_b(t_full_stack *stack, int silent)
 	t_stack	*pos_1;
 	t_stack	*pos_2;
 
+	if (!stack->b)
+		return ;
 	if (stack_length(stack->b) < 2)
 		return ;
 	if (!silent)

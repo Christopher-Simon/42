@@ -6,7 +6,7 @@
 /*   By: chsimon <chsimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 10:27:27 by chsimon           #+#    #+#             */
-/*   Updated: 2022/05/30 18:30:39 by chsimon          ###   ########.fr       */
+/*   Updated: 2022/05/31 13:01:36 by chsimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include <stddef.h>
 # include <stdio.h>
 # include "ft_my_lib.h"
+// # define malloc(...) 0
 
 typedef struct s_ppdpg
 {
@@ -54,9 +55,9 @@ typedef struct s_full_stack
 }	t_full_stack;
 
 t_full_stack	*init_lst(int argc, char **argv);
-void			ft_begin(t_full_stack *stack, int d);
-void			ft_stack_new(t_full_stack *stack, int d);
-void			print_stack(t_full_stack *stack);
+int				ft_begin(t_full_stack *stack, int d);
+int				ft_stack_new(t_full_stack *stack, int d);
+// void			print_stack(t_full_stack *stack);
 void			free_stack(t_full_stack *stack);
 
 void			swap_a(t_full_stack *stack, int silent);
@@ -75,9 +76,8 @@ t_stack			*add_root(t_stack *lst, t_stack *root);
 long int		ft_atol(const char *nptr, t_full_stack *stack);
 int				stack_length(t_stack *lst);
 int				check_order(t_full_stack *stack);
-int				median(t_full_stack *stack);
-void			get_median(t_full_stack *stack);
-void			algo(t_full_stack *stack);
+int				get_median(t_full_stack *stack);
+int				algo(t_full_stack *stack);
 void			low_algo(t_full_stack *stack);
 void			sort_3(t_full_stack *stack);
 void			get_min(int *a, int *b);
