@@ -6,7 +6,7 @@
 /*   By: chsimon <chsimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/01 10:59:40 by chsimon           #+#    #+#             */
-/*   Updated: 2022/06/02 11:58:59 by chsimon          ###   ########.fr       */
+/*   Updated: 2022/06/02 14:05:27 by chsimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ void	sighandler(int signum)
 	if (signum == SIGUSR1)
 	{
 		if 	(g_client.flag == 1)
-			send_bit(ft_strlen(g_client.str));
+			send_bit(g_client.str[0]);
 		// if 	(g_client.flag == 2)
 		// {
 		// 	ft_printf("send 1st char");	
@@ -74,7 +74,7 @@ int	main(int argc, char **argv)
 	g_client.len = ft_strlen(g_client.str);
 	signal(SIGUSR1, sighandler);
 	signal(SIGUSR2, sighandler);
-	send_bit(g_client.len);
+	send_bit(g_client.str[0]);
 	while (1)
 		sleep(1);
 	return (1);

@@ -6,7 +6,7 @@
 /*   By: chsimon <chsimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/01 10:59:45 by chsimon           #+#    #+#             */
-/*   Updated: 2022/06/02 12:01:30 by chsimon          ###   ########.fr       */
+/*   Updated: 2022/06/02 14:04:25 by chsimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,7 @@ int	get_bit(int signum, siginfo_t *info)
 	else
 	{
 		ft_printf("\n%d\n", g_serv.b);
+		ft_printf("\n%c\n", g_serv.b);
 		g_serv.i = 16;
 		return (1);
 	}
@@ -78,13 +79,13 @@ void	sighandler(int signum, siginfo_t *info, void *ucontext_t)
 		usleep(20);
 		kill(info->si_pid, SIGUSR2);
 	}
-	if (get_bit(signum, info) && g_serv.flag == 2)
-	{
-		ft_printf("step 2");
-		ft_printf("%c\n", g_serv.b);
-		usleep(20);
-		kill(info->si_pid, SIGUSR2);
-	}
+	// if (get_bit(signum, info) && g_serv.flag == 2)
+	// {
+	// 	ft_printf("step 2");
+	// 	ft_printf("%c\n", g_serv.b);
+	// 	usleep(20);
+	// 	kill(info->si_pid, SIGUSR2);
+	// }
 }
 
 int	main(void)
