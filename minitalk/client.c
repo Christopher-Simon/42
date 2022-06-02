@@ -6,7 +6,7 @@
 /*   By: chsimon <chsimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/01 10:59:40 by chsimon           #+#    #+#             */
-/*   Updated: 2022/06/02 03:03:13 by chsimon          ###   ########.fr       */
+/*   Updated: 2022/06/02 11:58:59 by chsimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,80 +15,67 @@
 
 typedef struct g_global
 {
-	int				serv_pid;
-	unsigned char	b;
-	int				i;
+	int		serv_pid;
+	int		b;
+	int		i;
+	char	*str;
+	int		flag;
+	int		len;
 }	t_global;
 
-t_global	g_test;
+t_global	g_client;
 
-// void	bit_le_routeur(int a)
-// {
-// 	t_char	b;
-
-// 	b->b >> i = a;
-// 	b->i--;
-// }
-
-// unsigned char	bit_r(unsigned char a)
-// {
-// 	unsigned char	b;
-
-// 	ft_putnbr_base(a, "01");
-// 	ft_printf("\n_______________END______________\n");
-// 	return (1);
-// }
-
-
-int	test(int a)
+int	send_bit(int a)
 {
-	ft_printf("_______________TEST________________\n");
-	ft_putnbr_base(a, "01");
-	ft_printf("\n%d\n", a);
-	// a >>= 1;
-	g_test.i--;
-	ft_printf("i : %d\n", g_test.i);
-	ft_printf("%d", (a >> g_test.i) & 1);
-	if (((a >> g_test.i) & 1))
-		kill(g_test.serv_pid, SIGUSR1);
-	if (!((a >> g_test.i) & 1))
-		kill(g_test.serv_pid, SIGUSR2);
-	ft_printf("\n%d\n", (a >> g_test.i) & 1);
-	ft_printf("\n");
-	// int	b;
-	
-	// b = 0;
-	// b |= (((a >> i) & 1) << i);
-	// i = 16;
-	// while (i-- > 0)
-	// 	ft_printf("%d", (b >> i) & 1);
-	return (1);
+	g_client.i--;
+	if (((a >> g_client.i) & 1))
+		kill(g_client.serv_pid, SIGUSR1);
+	if (!((a >> g_client.i) & 1))
+		kill(g_client.serv_pid, SIGUSR2);
+	ft_printf("%d\n",g_client.i);
+	return (0);
 }
 
 void	sighandler(int signum)
 {
-	if (signum == SIGUSR1) 
-		test(253);
-	if (signum == SIGUSR2)
-		exit (1);
+	if (signum == SIGUSR1)
+	{
+		if 	(g_client.flag == 1)
+			send_bit(ft_strlen(g_client.str));
+		// if 	(g_client.flag == 2)
+		// {
+		// 	ft_printf("send 1st char");	
+		// 	send_bit(g_client.str[0]);
+		// }
 
+	}
+	if (signum == SIGUSR2)
+	{
+		g_client.flag++;
+		g_client.i = 16;
+		ft_printf("i %d, flag %d, len %d\n", g_client.i, g_client.flag, g_client.len);
+		// usleep(20);
+		// if (g_client.flag == 2)
+		// 	sighandler(SIGUSR1);
+		if (g_client.flag == 2)
+			exit (1);
+	}
 }
 
 int	main(int argc, char **argv)
 {
 	(void)argc;
-	if (argc <= 1)
+	if (argc <= 2)
 		return (0);
-	ft_putnbr_base(2147483647, "01");
-	ft_printf("\n%d\n", getpid());
-	g_test.i = 16;
-	g_test.serv_pid = ft_atoi(argv[1]);
+	g_client.i = 16;
+	g_client.serv_pid = ft_atoi(argv[1]);
+	g_client.str = argv[2];
+	g_client.flag = 1;
+	g_client.len = ft_strlen(g_client.str);
 	signal(SIGUSR1, sighandler);
 	signal(SIGUSR2, sighandler);
-	test(253);
+	send_bit(g_client.len);
 	while (1)
 		sleep(1);
 	return (1);
 }
-	// 1111 1111 1111 1111 1111 1111 1111 111
-	// kill(ft_atoi(argv[1]), SIGUSR1);
