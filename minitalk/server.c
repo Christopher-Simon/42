@@ -6,7 +6,7 @@
 /*   By: chsimon <chsimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/01 10:59:45 by chsimon           #+#    #+#             */
-/*   Updated: 2022/06/02 18:47:21 by chsimon          ###   ########.fr       */
+/*   Updated: 2022/06/02 19:26:46 by chsimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,11 +38,11 @@ void 	bit_printing(int b)
 int	get_bit(void)
 {
 	ft_putstr_fd("recep bit\n", 1);
-	g_serv.i = 16;
+	g_serv.i = 32;
 	while (g_serv.i-- > 0)
 	{
 		while (g_serv.recep)
-			usleep(1000);
+			usleep (1000);
 		if (g_serv.o_z)
 			g_serv.b |= (1 << g_serv.i);
 		if (!g_serv.o_z)
@@ -91,7 +91,7 @@ int	main(void)
 
 	sa.sa_sigaction = &sighandler;
 	sa.sa_flags = SA_SIGINFO;
-	g_serv.i = 16;
+	g_serv.i = 32;
 	g_serv.recep = 1;
 	zizid = getpid();
 	if (zizid < 0)

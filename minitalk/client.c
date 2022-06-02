@@ -6,7 +6,7 @@
 /*   By: chsimon <chsimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/01 10:59:40 by chsimon           #+#    #+#             */
-/*   Updated: 2022/06/02 18:49:59 by chsimon          ###   ########.fr       */
+/*   Updated: 2022/06/02 19:27:14 by chsimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,8 @@ void 	bit_printing(int b)
 int	send_bit(int a)
 {
 	ft_putstr_fd("send bit\n", 1);
-	g_client.i = 16;
+	g_client.i = 32;
+	ft_putnbr_fd(a, 1);
 	ft_putchar_fd(a, 1);
 	ft_putstr_fd("\n", 1);
 	while (g_client.i-- > 0)
@@ -50,7 +51,7 @@ int	send_bit(int a)
 		if (!((a >> g_client.i) & 1))
 			kill(g_client.serv_pid, SIGUSR2);
 		while (g_client.not_resp)
-			pause ();
+			usleep (1000);
 		// ft_putnbr_fd(g_client.i, 1);
 		// ft_putstr_fd("\n", 1);
 	}
