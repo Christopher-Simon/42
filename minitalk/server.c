@@ -6,7 +6,7 @@
 /*   By: chsimon <chsimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/01 10:59:45 by chsimon           #+#    #+#             */
-/*   Updated: 2022/06/03 09:31:59 by chsimon          ###   ########.fr       */
+/*   Updated: 2022/06/03 11:37:22 by chsimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,19 +72,32 @@ void	fill_str(void)
 		g_serv.str[pos++] = get_bit(8);
 	}
 	ft_putstr_fd(g_serv.str, 1);
+	free(g_serv.str);
 }
 
 void	sighandler(int signum, siginfo_t *info, void *ucontext_t)
 {
 	(void)ucontext_t;
 	g_serv.c_pid = info->si_pid;
-	// usleep (20);
 	if (signum == SIGUSR1)
 		g_serv.o_z = 1;
 	if (signum == SIGUSR2)
 		g_serv.o_z = 0;
 	usleep (20);
 	g_serv.recep = 0;
+}
+
+int	server_loop()
+{
+	g_serv.recep = 1;
+	g_serv.b = 0;
+	g_serv.len = get_bit(32);
+	g_serv.str = ft_calloc(g_serv.len, sizeof(char) + 1);
+	if (!g_serv.str)
+		return (0);
+	fill_str();
+	server_loop();
+	return (1);
 }
 
 int	main(void)
@@ -94,20 +107,13 @@ int	main(void)
 
 	sa.sa_sigaction = &sighandler;
 	sa.sa_flags = SA_SIGINFO;
-	g_serv.i = 32;
-	g_serv.recep = 1;
+	
 	zizid = getpid();
 	if (zizid < 0)
 		return (0);
 	ft_printf("%d\n", zizid);
-	// ft_putstr_fd("init\n", 1);
 	sigaction(SIGUSR1, &sa, NULL);
 	sigaction(SIGUSR2, &sa, NULL);
-	g_serv.len = get_bit(32);
-	g_serv.str = ft_calloc(g_serv.len, sizeof(char) + 1);
-	if (!g_serv.str)
-		return (0);
-	// ft_putstr_fd("init str\n", 1);
-	fill_str();
+	server_loop();
 	return (1);
 }
