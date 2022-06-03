@@ -3,35 +3,35 @@ BNAME =	checker
 CC=gcc
 CFLAGS=	-Wall -Wextra -Werror -g3
 
-SRCS=	srcs/push_swap.c \
-	srcs/stack_utils.c \
+SRCS=	srcs/push_swap/push_swap.c \
+	srcs/init/stack_utils.c \
 	srcs/actions/actions.c \
 	srcs/actions/actions_2.c \
 	srcs/actions/actions_3.c \
-	srcs/verif.c \
-	srcs/atol.c \
-	srcs/median.c \
-	srcs/low_algo.c \
+	srcs/init/verif.c \
+	srcs/init/atol.c \
+	srcs/algo/median.c \
+	srcs/init/low_algo.c \
 	srcs/algo/algo.c \
 	srcs/algo/algo_2.c \
 	srcs/algo/algo_utils.c \
-	srcs/direct_above.c \
-	srcs/init_lst.c \
+	srcs/algo/direct_above.c \
+	srcs/init/init_lst.c \
 
 BSRCS=	srcs/checker/checker.c \
-	srcs/stack_utils.c \
+	srcs/init/stack_utils.c \
 	srcs/actions/actions.c \
 	srcs/actions/actions_2.c \
 	srcs/actions/actions_3.c \
-	srcs/verif.c \
-	srcs/atol.c \
-	srcs/median.c \
-	srcs/low_algo.c \
+	srcs/init/verif.c \
+	srcs/init/atol.c \
+	srcs/algo/median.c \
+	srcs/init/low_algo.c \
 	srcs/algo/algo.c \
 	srcs/algo/algo_2.c \
 	srcs/algo/algo_utils.c \
-	srcs/direct_above.c \
-	srcs/init_lst.c \
+	srcs/algo/direct_above.c \
+	srcs/init/init_lst.c \
 
 RM= rm -f
 OBJ= $(SRCS:.c=.o)
