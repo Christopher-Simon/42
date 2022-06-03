@@ -16,7 +16,7 @@ MY_LIB= my_lib/my_lib.a
 
 all : $(MY_LIB) $(SERVER) $(CLIENT)
 
-bonus : $(MY_LIB)
+bonus : $(MY_LIB) $(SERVER) $(CLIENT)
 
 $(SERVER) :  $(OSERVER) 
 	$(CC) $(CFLAGS) -L my_lib $(OSERVER) -o $@ $(INCS) -l_my
