@@ -6,12 +6,11 @@
 /*   By: chsimon <chsimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/01 10:59:40 by chsimon           #+#    #+#             */
-/*   Updated: 2022/06/03 11:59:45 by chsimon          ###   ########.fr       */
+/*   Updated: 2022/06/03 12:01:33 by chsimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_minitalk.h"
-#include <stdio.h>
 
 typedef struct g_global
 {

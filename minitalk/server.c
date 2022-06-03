@@ -6,7 +6,7 @@
 /*   By: chsimon <chsimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/01 10:59:45 by chsimon           #+#    #+#             */
-/*   Updated: 2022/06/03 11:59:38 by chsimon          ###   ########.fr       */
+/*   Updated: 2022/06/03 13:39:27 by chsimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ t_global	g_serv;
 
 int	get_bit(int i)
 {
+	ft_putstr_fd("", 1);
 	g_serv.i = i;
 	while (g_serv.i-- > 0)
 	{
@@ -96,6 +97,7 @@ int	main(void)
 	struct sigaction	sa;
 	int					serv_id;
 
+	sigemptyset(&sa.sa_mask);
 	sa.sa_sigaction = &sighandler;
 	sa.sa_flags = SA_SIGINFO;
 	serv_id = getpid();
