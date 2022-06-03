@@ -6,7 +6,7 @@
 /*   By: chsimon <chsimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/01 10:59:40 by chsimon           #+#    #+#             */
-/*   Updated: 2022/06/03 11:55:52 by chsimon          ###   ########.fr       */
+/*   Updated: 2022/06/03 11:59:45 by chsimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,15 +26,15 @@ typedef struct g_global
 
 t_global	g_client;
 
-void 	bit_printing(int b)
-{
-	int	i = 16;
+// void 	bit_printing(int b)
+// {
+// 	int	i = 16;
 
-	ft_putstr_fd("\n", 1);
-	while (i-- > 0)
-		ft_putnbr_fd((b >> i) & 1, 1);
-	ft_putstr_fd("\n", 1);
-}
+// 	ft_putstr_fd("\n", 1);
+// 	while (i-- > 0)
+// 		ft_putnbr_fd((b >> i) & 1, 1);
+// 	ft_putstr_fd("\n", 1);
+// }
 
 int	send_bit(int a, int i)
 {

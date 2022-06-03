@@ -6,7 +6,7 @@
 /*   By: chsimon <chsimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/01 10:59:45 by chsimon           #+#    #+#             */
-/*   Updated: 2022/06/03 11:37:22 by chsimon          ###   ########.fr       */
+/*   Updated: 2022/06/03 11:59:38 by chsimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,21 +23,20 @@ typedef struct g_global
 	int		len;
 }	t_global;
 
-t_global g_serv;
+t_global	g_serv;
 
-void 	bit_printing(int b)
+// void	bit_printing(int b)
+// {
+// 	int	i = 16;
+
+// 	ft_putstr_fd("\n", 1);
+// 	while (i-- > 0)
+// 		ft_putnbr_fd((b >> i) & 1, 1);
+// 	ft_putstr_fd("\n", 1);
+// }
+
+int	get_bit(int i)
 {
-	int	i = 16;
-
-	ft_putstr_fd("\n", 1);
-	while (i-- > 0)
-		ft_putnbr_fd((b >> i) & 1, 1);
-	ft_putstr_fd("\n", 1);
-}
-
-int	get_bit(int	i)
-{
-	// ft_putstr_fd("recep bit\n", 1);
 	g_serv.i = i;
 	while (g_serv.i-- > 0)
 	{
@@ -47,16 +46,9 @@ int	get_bit(int	i)
 			g_serv.b |= (1 << g_serv.i);
 		if (!g_serv.o_z)
 			g_serv.b |= (0 << g_serv.i);
-		// usleep (20);
-		kill(g_serv.c_pid , SIGUSR1);
+		kill(g_serv.c_pid, SIGUSR1);
 		g_serv.recep = 1;
-		// ft_putnbr_fd(g_serv.o_z, 1);
-		// ft_putnbr_fd(g_serv.i, 1);
-		// ft_putstr_fd("\n", 1);
 	}
-	// ft_putnbr_fd(g_serv.b, 1);
-	// ft_putchar_fd(g_serv.b, 1);
-	// ft_putstr_fd("\n", 1);
 	return (g_serv.b);
 }
 
@@ -64,7 +56,6 @@ void	fill_str(void)
 {
 	int	pos;
 
-	// ft_putstr_fd("recep str\n", 1);
 	pos = 0;
 	while (pos < g_serv.len)
 	{
@@ -87,7 +78,7 @@ void	sighandler(int signum, siginfo_t *info, void *ucontext_t)
 	g_serv.recep = 0;
 }
 
-int	server_loop()
+int	server_loop(void)
 {
 	g_serv.recep = 1;
 	g_serv.b = 0;
@@ -103,15 +94,14 @@ int	server_loop()
 int	main(void)
 {
 	struct sigaction	sa;
-	int					zizid;
+	int					serv_id;
 
 	sa.sa_sigaction = &sighandler;
 	sa.sa_flags = SA_SIGINFO;
-	
-	zizid = getpid();
-	if (zizid < 0)
+	serv_id = getpid();
+	if (serv_id < 0)
 		return (0);
-	ft_printf("%d\n", zizid);
+	ft_printf("%d\n", serv_id);
 	sigaction(SIGUSR1, &sa, NULL);
 	sigaction(SIGUSR2, &sa, NULL);
 	server_loop();
