@@ -38,7 +38,7 @@ OBJ= $(SRCS:.c=.o)
 BOBJ= $(BSRCS:.c=.o)
 
 INCS= -I includes -I my_lib/includes
-MY_LIB= my_lib/my_lib.a
+MY_LIB= my_lib/lib_my.a
 
 all : $(MY_LIB) $(NAME)
 
@@ -53,7 +53,7 @@ $(BNAME) : $(BOBJ)
 .c.o :
 	$(CC) $(CFLAGS) $(INCS) -c $< -o $@ 
 
-my_lib/my_lib.a:
+my_lib/lib_my.a:
 	make -C my_lib all
 
 clean :	
@@ -62,7 +62,7 @@ clean :
 
 fclean : clean
 	$(RM) $(NAME) $(BNAME)
-	$(RM) my_lib/my_lib.a
+	$(RM) my_lib/lib_my.a
 
 re : 	
 		make fclean

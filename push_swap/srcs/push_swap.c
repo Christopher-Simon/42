@@ -6,7 +6,7 @@
 /*   By: chsimon <chsimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 10:25:47 by chsimon           #+#    #+#             */
-/*   Updated: 2022/05/31 14:59:28 by chsimon          ###   ########.fr       */
+/*   Updated: 2022/06/03 15:31:09 by chsimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,10 +48,7 @@ int	main(int argc, char **argv)
 
 	stack = NULL;
 	if (argc <= 1)
-	{
-		ft_printf("Error\n");
 		return (0);
-	}
 	if (!verif(argv))
 	{
 		ft_printf("Error\n");
