@@ -6,7 +6,7 @@
 /*   By: chsimon <chsimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/01 10:59:40 by chsimon           #+#    #+#             */
-/*   Updated: 2022/06/03 12:01:33 by chsimon          ###   ########.fr       */
+/*   Updated: 2022/06/03 14:06:24 by chsimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,6 +74,8 @@ int	main(int argc, char **argv)
 	if (argc <= 2)
 		return (0);
 	g_client.serv_pid = ft_atoi(argv[1]);
+	if (g_client.serv_pid < 0)
+		return (0);
 	g_client.str = argv[2];
 	g_client.len = ft_strlen(g_client.str);
 	if (g_client.len == 0)
