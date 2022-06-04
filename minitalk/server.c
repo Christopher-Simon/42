@@ -6,7 +6,7 @@
 /*   By: chsimon <chsimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/01 10:59:45 by chsimon           #+#    #+#             */
-/*   Updated: 2022/06/03 18:29:49 by chsimon          ###   ########.fr       */
+/*   Updated: 2022/06/04 15:06:45 by chsimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 typedef struct g_global
 {
-	int		i;
 	int		o_z;
 	int		c_pid;
 	int		recep;
@@ -34,6 +33,9 @@ t_global	g_serv;
 
 int	get_bit(int b, int i)
 {
+	int	b;
+
+	b = 0;
 	ft_putstr_fd("", 1);
 	while (i-- > 0)
 	{
@@ -49,16 +51,13 @@ int	get_bit(int b, int i)
 	return (b);
 }
 
-void	fill_str(int b, int len, char *str)
+void	fill_str(int len, char *str)
 {
 	int	pos;
 
 	pos = 0;
 	while (pos < len)
-	{
-		b = 0;
-		str[pos++] = get_bit(b, 8);
-	}
+		str[pos++] = get_bit(8);
 	ft_putstr_fd(str, 1);
 	free(str);
 }
@@ -77,18 +76,15 @@ void	sighandler(int signum, siginfo_t *info, void *ucontext_t)
 
 int	server_loop(void)
 {
-	int		len;
-	int		b;
 	char	*str;
+	int		len;
 
 	g_serv.recep = 1;
-	b = 0;
-	len = get_bit(b, 32);
+	len = get_bit(32);
 	str = ft_calloc(len, sizeof(char) + 1);
 	if (!str)
 		return (0);
-	fill_str(b, len, str);
-	ft_putstr_fd("\n", 1);
+	fill_str(len, str);
 	server_loop();
 	return (1);
 }

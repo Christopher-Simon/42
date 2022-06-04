@@ -6,7 +6,7 @@
 /*   By: chsimon <chsimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/01 10:59:40 by chsimon           #+#    #+#             */
-/*   Updated: 2022/06/03 14:06:24 by chsimon          ###   ########.fr       */
+/*   Updated: 2022/06/04 15:06:49 by chsimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,8 @@
 
 typedef struct g_global
 {
-	int		serv_pid;
-	int		b;
 	int		i;
-	char	*str;
 	int		flag;
-	int		len;
 	int		not_resp;
 }	t_global;
 
@@ -35,29 +31,28 @@ t_global	g_client;
 // 	ft_putstr_fd("\n", 1);
 // }
 
-int	send_bit(int a, int i)
+int	send_bit(int a, int i, int serv_pid)
 {
-	g_client.i = i;
-	while (g_client.i-- > 0)
+	while (i-- > 0)
 	{
 		g_client.not_resp = 1;
-		if (((a >> g_client.i) & 1))
-			kill(g_client.serv_pid, SIGUSR1);
-		if (!((a >> g_client.i) & 1))
-			kill(g_client.serv_pid, SIGUSR2);
+		if (((a >> i) & 1))
+			kill(serv_pid, SIGUSR1);
+		if (!((a >> i) & 1))
+			kill(serv_pid, SIGUSR2);
 		while (g_client.not_resp)
 			pause ();
 	}
 	return (1);
 }
 
-int	send_str(void)
+int	send_str(char *str, int len, int serv_pid)
 {
 	int	pos;
 
 	pos = 0;
-	while (pos < g_client.len)
-		send_bit(g_client.str[pos++], 8);
+	while (pos < len)
+		send_bit(str[pos++], 8, serv_pid);
 	return (1);
 }
 
@@ -70,19 +65,21 @@ void	sighandler(int signum)
 
 int	main(int argc, char **argv)
 {
+	int		serv_pid;
+	char	*str;
+	int		len;
+
 	(void)argc;
 	if (argc <= 2)
 		return (0);
-	g_client.serv_pid = ft_atoi(argv[1]);
-	if (g_client.serv_pid < 0)
-		return (0);
-	g_client.str = argv[2];
-	g_client.len = ft_strlen(g_client.str);
-	if (g_client.len == 0)
+	serv_pid = ft_atoi(argv[1]);
+	str = argv[2];
+	len = ft_strlen(str);
+	if (len == 0)
 		return (0);
 	signal(SIGUSR1, sighandler);
 	signal(SIGUSR2, sighandler);
-	send_bit(g_client.len, 32);
-	send_str();
+	send_bit(len, 32, serv_pid);
+	send_str(str, len, serv_pid);
 	return (1);
 }
