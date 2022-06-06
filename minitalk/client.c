@@ -6,18 +6,13 @@
 /*   By: chsimon <chsimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/01 10:59:40 by chsimon           #+#    #+#             */
-/*   Updated: 2022/06/04 16:27:04 by chsimon          ###   ########.fr       */
+/*   Updated: 2022/06/06 19:12:04 by chsimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_minitalk.h"
 
-typedef struct g_global
-{
-	int		not_resp;
-}	t_global;
-
-t_global	g_client;
+int	g_not_resp;
 
 // void 	bit_printing(int b)
 // {
@@ -33,12 +28,12 @@ int	send_bit(int a, int i, int serv_pid)
 {
 	while (i-- > 0)
 	{
-		g_client.not_resp = 1;
+		g_not_resp = 1;
 		if (((a >> i) & 1))
 			kill(serv_pid, SIGUSR1);
 		if (!((a >> i) & 1))
 			kill(serv_pid, SIGUSR2);
-		while (g_client.not_resp)
+		while (g_not_resp)
 			pause ();
 	}
 	return (1);
@@ -58,7 +53,7 @@ void	sighandler(int signum)
 {
 	usleep (200);
 	if (signum == SIGUSR1)
-		g_client.not_resp = 0;
+		g_not_resp = 0;
 }
 
 int	main(int argc, char **argv)
