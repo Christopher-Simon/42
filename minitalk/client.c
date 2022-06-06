@@ -6,7 +6,7 @@
 /*   By: chsimon <chsimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/01 10:59:40 by chsimon           #+#    #+#             */
-/*   Updated: 2022/06/04 15:06:49 by chsimon          ###   ########.fr       */
+/*   Updated: 2022/06/04 16:27:04 by chsimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,6 @@
 
 typedef struct g_global
 {
-	int		i;
-	int		flag;
 	int		not_resp;
 }	t_global;
 
