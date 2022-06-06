@@ -6,7 +6,7 @@
 /*   By: chsimon <chsimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/01 10:59:45 by chsimon           #+#    #+#             */
-/*   Updated: 2022/06/04 16:37:55 by chsimon          ###   ########.fr       */
+/*   Updated: 2022/06/06 19:13:13 by chsimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ t_global	g_serv;
 
 int	get_bit(int b, int i)
 {
+	g_serv.recep = 1;
 	while (i-- > 0)
 	{
 		while (g_serv.recep)
@@ -75,7 +76,6 @@ int	server_loop(void)
 	char	*str;
 	int		len;
 
-	g_serv.recep = 1;
 	len = get_bit(0,32);
 	str = ft_calloc(len, sizeof(char) + 1);
 	if (!str)
