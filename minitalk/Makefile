@@ -12,7 +12,7 @@ OSERVER= $(SRCS_SERVER:.c=.o)
 OCLIENT= $(SRCS_CLIENT:.c=.o)
 
 INCS= -I includes -I my_lib/includes
-MY_LIB= my_lib/my_lib.a
+MY_LIB= my_lib/lib_my.a
 
 all : $(MY_LIB) $(SERVER) $(CLIENT)
 
@@ -27,7 +27,7 @@ $(CLIENT) : $(OCLIENT)
 .c.o :
 	$(CC) $(CFLAGS) $(INCS) -c $< -o $@ 
 
-my_lib/my_lib.a:
+my_lib/lib_my.a:
 	make -C my_lib all
 
 clean :	
@@ -36,7 +36,7 @@ clean :
 
 fclean : clean
 	$(RM) $(SERVER) $(CLIENT)
-	$(RM) my_lib/my_lib.a
+	$(RM) my_lib/lib_my.a
 
 re : 	
 		make fclean
