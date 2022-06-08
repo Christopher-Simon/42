@@ -6,7 +6,7 @@
 /*   By: chsimon <chsimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/01 10:59:45 by chsimon           #+#    #+#             */
-/*   Updated: 2022/06/03 23:44:49 by chsimon          ###   ########.fr       */
+/*   Updated: 2022/06/04 21:58:43 by chsimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ void	fill_str(int len, char *str)
 	pos = 0;
 	while (pos < len)
 		str[pos++] = get_bit(8);
-	ft_putstr_fd(str, 1);
+	ft_putendl_fd(str, 1);
 	free(str);
 }
 
