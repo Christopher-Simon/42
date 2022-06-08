@@ -6,30 +6,13 @@
 /*   By: chsimon <chsimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/01 10:59:45 by chsimon           #+#    #+#             */
-/*   Updated: 2022/06/06 19:13:13 by chsimon          ###   ########.fr       */
+/*   Updated: 2022/06/08 14:51:00 by chsimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_minitalk.h"
 
-typedef struct g_global
-{
-	int		o_z;
-	int		c_pid;
-	int		recep;
-}	t_global;
-
 t_global	g_serv;
-
-// void	bit_printing(int b)
-// {
-// 	int	i = 16;
-
-// 	ft_putstr_fd("\n", 1);
-// 	while (i-- > 0)
-// 		ft_putnbr_fd((b >> i) & 1, 1);
-// 	ft_putstr_fd("\n", 1);
-// }
 
 int	get_bit(int b, int i)
 {
@@ -76,7 +59,7 @@ int	server_loop(void)
 	char	*str;
 	int		len;
 
-	len = get_bit(0,32);
+	len = get_bit(0, 32);
 	str = ft_calloc(len, sizeof(char) + 1);
 	if (!str)
 		return (0);

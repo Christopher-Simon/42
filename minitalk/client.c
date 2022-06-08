@@ -6,23 +6,13 @@
 /*   By: chsimon <chsimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/01 10:59:40 by chsimon           #+#    #+#             */
-/*   Updated: 2022/06/06 19:12:04 by chsimon          ###   ########.fr       */
+/*   Updated: 2022/06/08 14:49:04 by chsimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_minitalk.h"
 
 int	g_not_resp;
-
-// void 	bit_printing(int b)
-// {
-// 	int	i = 16;
-
-// 	ft_putstr_fd("\n", 1);
-// 	while (i-- > 0)
-// 		ft_putnbr_fd((b >> i) & 1, 1);
-// 	ft_putstr_fd("\n", 1);
-// }
 
 int	send_bit(int a, int i, int serv_pid)
 {
