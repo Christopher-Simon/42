@@ -1,4 +1,6 @@
 make all --print-data-base --no-builtin-variables --no-builtin-rules --question
+make: *** No rule to make target 'all'.  Stop.
+
 # GNU Make 4.2.1
 # Built for x86_64-pc-linux-gnu
 # Copyright (C) 1988-2016 Free Software Foundation, Inc.
@@ -6,7 +8,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Mon May 30 10:05:02 2022
+# Make data base, printed on Wed Jun  8 20:42:37 2022
 
 # Variables
 
@@ -32,8 +34,6 @@ VSCODE_LOG_NATIVE = false
 NVM_INC = /home/christopher/.nvm/versions/node/v17.3.1/include/node
 # automatic
 ?D = $(patsubst %/,%,$(dir $?))
-# environment
-IM_CONFIG_PHASE = 1
 # automatic
 @D = $(patsubst %/,%,$(dir $@))
 # environment
@@ -53,7 +53,7 @@ VTE_VERSION = 6003
 # environment
 VSCODE_NLS_CONFIG = {"locale":"en-us","availableLanguages":{},"_languagePackSupport":true}
 # environment
-JOURNAL_STREAM = 8:39655
+JOURNAL_STREAM = 8:39372
 # environment
 XDG_CONFIG_DIRS = /etc/xdg/xdg-ubuntu:/etc/xdg
 # environment
@@ -65,7 +65,7 @@ MAKEFILE_LIST :=
 # automatic
 @F = $(notdir $@)
 # environment
-GIO_LAUNCHED_DESKTOP_FILE = /var/lib/snapd/desktop/applications/code_code.desktop
+IM_CONFIG_PHASE = 1
 # environment
 USERNAME = christopher
 # environment
@@ -77,9 +77,9 @@ DBUS_SESSION_BUS_ADDRESS = unix:path=/run/user/1000/bus
 # environment
 VSCODE_VERBOSE_LOGGING = true
 # environment
-MANAGERPID = 1682
+MANAGERPID = 1663
 # environment
-VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-9fc29ce2-0cd5-4ce7-91c0-9b4d18a20e5f.sock
+VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-f68db894-1849-4163-8159-3dcf4e5285d0.sock
 # environment
 LC_NAME = fr_FR.UTF-8
 # environment
@@ -95,7 +95,7 @@ GPG_AGENT_INFO = /run/user/1000/gnupg/S.gpg-agent:0:1
 # environment
 LSCOLORS = Gxfxcxdxbxegedabagacad
 # environment
-SESSION_MANAGER = local/christopher-VirtualBox:@/tmp/.ICE-unix/1946,unix/christopher-VirtualBox:/tmp/.ICE-unix/1946
+SESSION_MANAGER = local/christopher-VirtualBox:@/tmp/.ICE-unix/1928,unix/christopher-VirtualBox:/tmp/.ICE-unix/1928
 # environment
 XDG_RUNTIME_DIR = /run/user/1000
 # environment
@@ -115,7 +115,7 @@ DISABLE_WAYLAND = 1
 # environment
 ELECTRON_RUN_AS_NODE = 1
 # environment
-INVOCATION_ID = 4a6300211a954d7697cc05b8f00faa52
+INVOCATION_ID = 1634eda7ba9147bc8f07deddee07b57e
 # environment
 GDK_PIXBUF_MODULEDIR = /snap/code/97/usr/lib/x86_64-linux-gnu/gdk-pixbuf-2.0/2.10.0/loaders
 # default
@@ -129,7 +129,7 @@ XDG_SESSION_DESKTOP = ubuntu
 # environment
 SSH_AUTH_SOCK = /run/user/1000/keyring/ssh
 # environment
-GIO_LAUNCHED_DESKTOP_FILE_PID = 34890
+GIO_LAUNCHED_DESKTOP_FILE_PID = 2439
 # automatic
 %F = $(notdir $%)
 # environment
@@ -143,7 +143,7 @@ PWD = /home/christopher/42
 # default
 .LOADED := 
 # environment
-SSH_AGENT_PID = 1889
+SSH_AGENT_PID = 1871
 # environment
 ORIGINAL_XDG_CURRENT_DESKTOP = ubuntu:GNOME
 # environment
@@ -226,8 +226,6 @@ TERMINATOR_DBUS_PATH = /net/tenshu/Terminator2
 *F = $(notdir $*)
 # environment
 VSCODE_IPC_HOOK = /run/user/1000/vscode-a8eaf2de-1.67.2-main.sock
-# environment
-BAMF_DESKTOP_FILE_HINT = /var/lib/snapd/desktop/applications/code_code.desktop
 # makefile
 MAKEFLAGS = pqrR
 # environment
@@ -242,10 +240,6 @@ NVM_DIR = /home/christopher/.nvm
 GDK_BACKEND = x11
 # environment
 LC_PAPER = fr_FR.UTF-8
-# environment
-NO_AT_BRIDGE = 1
-# environment
-LC_IDENTIFICATION = fr_FR.UTF-8
 # environment
 QT_ACCESSIBILITY = 1
 # default
@@ -264,8 +258,6 @@ SNAP_NAME = code
 PAGER = less
 # environment
 LC_ALL = C
-# environment
-GJS_DEBUG_TOPICS = JS ERROR;JS LOG
 # automatic
 ^F = $(notdir $^)
 # default
@@ -276,29 +268,27 @@ SNAP_REEXEC =
 CHROME_DESKTOP = code-url-handler.desktop
 # environment
 WINDOWPATH = 2
- 
-make: *** No rule to make target 'all'.  Stop.
-
 # default
 .INCLUDE_DIRS = /usr/include /usr/local/include /usr/include
 # environment
-GJS_DEBUG_OUTPUT = stderr
+LC_IDENTIFICATION = fr_FR.UTF-8
 # default
 .RECIPEPREFIX := 
 # environment
 LC_ADDRESS = fr_FR.UTF-8
 # environment
 LANG = C
+ 
 # environment
 TERM = xterm-256color
 # environment
 TERMINATOR_DBUS_NAME = net.tenshu.Terminator21a9d5db22c73a993ff0b42f64b396873
 # environment
-VSCODE_PID = 2351
+VSCODE_PID = 3318
 # environment
-TERMINATOR_UUID = urn:uuid:483864e1-3423-41a9-907d-6203ab4d3afa
+TERMINATOR_UUID = urn:uuid:f0072fcf-7bc7-4643-b3ab-dbbe52aad735
 # variable set hash-table stats:
-# Load=142/1024=14%, Rehash=0, Collisions=24/164=15%
+# Load=137/1024=13%, Rehash=0, Collisions=21/159=13%
 
 # Pattern-specific Variable Values
 
@@ -306,9 +296,9 @@ TERMINATOR_UUID = urn:uuid:483864e1-3423-41a9-907d-6203ab4d3afa
 
 # Directories
 
-# . (device 2053, inode 1704896): 11 files, no impossibilities.
+# . (device 2053, inode 1704896): 12 files, no impossibilities.
 
-# 11 files, no impossibilities in 1 directories.
+# 12 files, no impossibilities in 1 directories.
 
 # Implicit Rules
 
@@ -358,12 +348,12 @@ GNUmakefile:
 
 # No general ('VPATH' variable) search path.
 
-# strcache buffers: 1 (0) / strings = 19 / storage = 172 B / avg = 9 B
-# current buf: size = 8162 B / used = 172 B / count = 19 / avg = 9 B
+# strcache buffers: 1 (0) / strings = 20 / storage = 181 B / avg = 9 B
+# current buf: size = 8162 B / used = 181 B / count = 20 / avg = 9 B
 
-# strcache performance: lookups = 22 / hit rate = 13%
+# strcache performance: lookups = 23 / hit rate = 13%
 # hash-table stats:
-# Load=19/8192=0%, Rehash=0, Collisions=1/22=5%
-# Finished Make data base on Mon May 30 10:05:02 2022
+# Load=20/8192=0%, Rehash=0, Collisions=1/23=4%
+# Finished Make data base on Wed Jun  8 20:42:37 2022
 
  
