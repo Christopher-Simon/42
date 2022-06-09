@@ -6,7 +6,7 @@
 /*   By: chsimon <chsimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/01 10:59:45 by chsimon           #+#    #+#             */
-/*   Updated: 2022/06/08 14:51:00 by chsimon          ###   ########.fr       */
+/*   Updated: 2022/06/09 20:54:01 by chsimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,17 +16,16 @@ t_global	g_serv;
 
 int	get_bit(int b, int i)
 {
-	g_serv.recep = 1;
 	while (i-- > 0)
 	{
 		while (g_serv.recep)
-			pause ();
+			;
+		g_serv.recep = 1;
 		if (g_serv.o_z)
 			b |= (1 << i);
-		if (!g_serv.o_z)
+		else
 			b |= (0 << i);
 		kill(g_serv.c_pid, SIGUSR1);
-		g_serv.recep = 1;
 	}
 	return (b);
 }
@@ -50,7 +49,6 @@ void	sighandler(int signum, siginfo_t *info, void *ucontext_t)
 		g_serv.o_z = 1;
 	if (signum == SIGUSR2)
 		g_serv.o_z = 0;
-	usleep (20);
 	g_serv.recep = 0;
 }
 
@@ -76,6 +74,7 @@ int	main(void)
 	sigemptyset(&sa.sa_mask);
 	sa.sa_sigaction = &sighandler;
 	sa.sa_flags = SA_SIGINFO;
+	g_serv.recep = 1;
 	serv_id = getpid();
 	if (serv_id < 0)
 		return (0);
