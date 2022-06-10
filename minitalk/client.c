@@ -6,11 +6,7 @@
 /*   By: chsimon <chsimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/01 10:59:40 by chsimon           #+#    #+#             */
-<<<<<<< HEAD
-/*   Updated: 2022/06/09 21:43:31 by chsimon          ###   ########.fr       */
-=======
-/*   Updated: 2022/06/08 20:42:49 by chsimon          ###   ########.fr       */
->>>>>>> f9d8b9ca3b6f72aa278b7a844f64be0026279567
+/*   Updated: 2022/06/10 11:52:13 by chsimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,33 +15,30 @@
 
 int	g_not_resp;
 
-int	is_correct_pid(void)
-{
-	usleep(20);
-	if (g_not_resp)
-	{
-		ft_putendl_fd("Probably wrong PID", 1);
-		exit (1);
-	}
-	return (1);
-}
-
 int	send_bit(int a, int i, int serv_pid, int active)
 {
-	
+	(void)active;
 	while (i-- > 0)
 	{
 		while (g_not_resp)
-		{
-			if (active == 0)
-				is_correct_pid();
-			active = 1;
-		}
+			;
 		g_not_resp = 1;
 		if (((a >> i) & 1))
-			kill(serv_pid, SIGUSR1);
+		{
+			if (kill(serv_pid, SIGUSR1) == -1)
+			{
+				ft_putendl_fd("Probably wrong PID", 1);
+				exit (1);
+			}
+		}
 		if (!((a >> i) & 1))
-			kill(serv_pid, SIGUSR2);
+		{
+			if (kill(serv_pid, SIGUSR2) == -1)
+			{
+				ft_putendl_fd("Probably wrong PID", 1);
+				exit (1);
+			}
+		}
 	}
 	return (1);
 }
@@ -77,6 +70,8 @@ int	main(int argc, char **argv)
 	if (argc <= 2)
 		return (0);
 	serv_pid = ft_atoi(argv[1]);
+	if (serv_pid < 0)
+		return (0);
 	str = argv[2];
 	len = ft_strlen(str);
 	if (len == 0)

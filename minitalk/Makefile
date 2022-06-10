@@ -18,19 +18,19 @@ all : $(MY_LIB) $(SERVER) $(CLIENT)
 
 bonus : $(MY_LIB) $(SERVER) $(CLIENT)
 
-$(SERVER) :  $(OSERVER) 
+$(SERVER) :  $(OSERVER)
 	$(CC) $(CFLAGS) -L my_lib $(OSERVER) -o $@ $(INCS) -l_my
 
 $(CLIENT) : $(OCLIENT)
 	$(CC) $(CFLAGS) -L my_lib $(OCLIENT) -o $@ $(INCS) -l_my
 
 .c.o :
-	$(CC) $(CFLAGS) $(INCS) -c $< -o $@ 
+	$(CC) $(CFLAGS) $(INCS) -c $< -o $@
 
 my_lib/lib_my.a:
 	make -C my_lib all
 
-clean :	
+clean :
 	$(RM) $(OSERVER) $(OCLIENT)
 	make -C my_lib clean
 
@@ -38,7 +38,7 @@ fclean : clean
 	$(RM) $(SERVER) $(CLIENT)
 	$(RM) my_lib/lib_my.a
 
-re : 	
+re :
 		make fclean
 		make all
 
