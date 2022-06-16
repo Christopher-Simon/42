@@ -6,7 +6,7 @@
 /*   By: chsimon <chsimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/01 10:59:40 by chsimon           #+#    #+#             */
-/*   Updated: 2022/06/10 11:52:13 by chsimon          ###   ########.fr       */
+/*   Updated: 2022/06/16 18:51:59 by chsimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,7 @@ int	send_str(char *str, int len, int serv_pid)
 	pos = 0;
 	while (pos < len)
 		send_bit(str[pos++], 8, serv_pid, 1);
+	ft_putendl_fd("Message received", 1);
 	return (1);
 }
 
@@ -70,7 +71,7 @@ int	main(int argc, char **argv)
 	if (argc <= 2)
 		return (0);
 	serv_pid = ft_atoi(argv[1]);
-	if (serv_pid < 0)
+	if (serv_pid <= 0)
 		return (0);
 	str = argv[2];
 	len = ft_strlen(str);

@@ -1,9 +1,9 @@
 make --dry-run --always-make --keep-going --print-directory
-make: Entering directory '/home/christopher/42/minitalk'
+make: Entering directory '/mnt/nfs/homes/chsimon/42/minitalk'
 make -C my_lib all
-gcc -Wall -Wextra -Werror -g3 -I includes -I my_lib/includes -c server.c -o server.o 
+gcc -Wall -Wextra -Werror -g3 -I includes -I my_lib/includes -c server.c -o server.o
 gcc -Wall -Wextra -Werror -g3 -L my_lib server.o -o server -I includes -I my_lib/includes -l_my
-gcc -Wall -Wextra -Werror -g3 -I includes -I my_lib/includes -c client.c -o client.o 
+gcc -Wall -Wextra -Werror -g3 -I includes -I my_lib/includes -c client.c -o client.o
 gcc -Wall -Wextra -Werror -g3 -L my_lib client.o -o client -I includes -I my_lib/includes -l_my
-make: Leaving directory '/home/christopher/42/minitalk'
+make: Leaving directory '/mnt/nfs/homes/chsimon/42/minitalk'
  
